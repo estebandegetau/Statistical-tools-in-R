@@ -1,0 +1,49 @@
+---
+title: "Clase 1: Introducción a R"
+---
+
+# Introducción a R
+
+## ¿Qué es R?
+R es un lenguaje de programación y un entorno de software para la computación estadística y gráficos.
+
+## Instalación de R
+Las instrucciones para instalar R se pueden encontrar en [CRAN](https://cran.r-project.org/).
+
+## Sintaxis Básica de R
+```{r}
+# Aritmética básica
+1 + 1
+2 * 3
+
+# Asignación de variables
+x <- 5
+y <- 10
+z <- x + y
+z
+```
+```
+
+### /c:/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/assignment1/instructions.qmd
+
+<file>
+````markdown
+// filepath: /c:/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/assignment1/instructions.qmd
+---
+title: "Tarea 1: Programación Básica en R"
+---
+
+# Tarea 1: Programación Básica en R
+
+## Objetivo
+El objetivo de esta tarea es familiarizarse con los conceptos básicos de programación en R.
+
+## Instrucciones
+1. Escriba un script en R que realice las siguientes tareas:
+   - Asignar valores a variables
+   - Realizar operaciones aritméticas básicas
+   - Crear un vector y realizar operaciones con él
+2. Guarde su script como `solution.R` y envíelo.
+
+## Datos
+No se requieren datos para esta tarea.

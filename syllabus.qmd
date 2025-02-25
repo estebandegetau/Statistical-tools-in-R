@@ -1,0 +1,31 @@
+---
+title: "Temario"
+---
+
+## Descripción del Curso
+
+Este curso proporciona una introducción a las herramientas y técnicas estadísticas utilizando el lenguaje de programación R.
+
+## Objetivos del Curso
+
+-   Comprender conceptos estadísticos básicos
+-   Aprender a usar R para el análisis estadístico
+-   Aplicar métodos estadísticos a datos del mundo real
+
+## Contenido del Curso
+
+1.  Introducción a R y el Tidyverse
+2.  Inferencia estadística
+3.  Regresión lineal
+4.  Series de tiempo y pronóstico
+5.  Aprendizaje de máquina
+6.  Reportes reproducibles en Quarto
+
+## Evaluación
+
+-   Tareas: 50%
+-   Proyecto final 50%
+
+## Libros y Recursos
+
+Consulte el directorio `resources` para obtener una lista de libros y sitios web recomendados.

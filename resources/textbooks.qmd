@@ -1,0 +1,9 @@
+---
+title: "Libros Recomendados"
+---
+
+# Libros Recomendados
+
+1. "R for Data Science" por Hadley Wickham y Garrett Grolemund
+2. "The R Book" por Michael J. Crawley
+3. "Advanced R" por Hadley Wickham

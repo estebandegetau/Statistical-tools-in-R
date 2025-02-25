@@ -1,0 +1,48 @@
+---
+title: "Lecture 1: Introduction to R"
+output: html_document
+---
+
+# Introduction to R
+
+## What is R?
+R is a programming language and software environment for statistical computing and graphics.
+
+## Installing R
+Instructions for installing R can be found at [CRAN](https://cran.r-project.org/).
+
+## Basic R Syntax
+```{r}
+# Basic arithmetic
+1 + 1
+2 * 3
+
+# Assigning variables
+x <- 5
+y <- 10
+z <- x + y
+z
+```
+```
+
+### /c:/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/assignment1/instructions.md
+
+This file will contain the instructions for the first assignment.
+
+<file>
+````markdown
+// filepath: /c:/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/assignment1/instructions.md
+# Assignment 1: Basic R Programming
+
+## Objective
+The objective of this assignment is to familiarize yourself with basic R programming concepts.
+
+## Instructions
+1. Write an R script that performs the following tasks:
+   - Assign values to variables
+   - Perform basic arithmetic operations
+   - Create a vector and perform operations on it
+2. Save your script as `solution.R` and submit it.
+
+## Data
+No data is required for this assignment.

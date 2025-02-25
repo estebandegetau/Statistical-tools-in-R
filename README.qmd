@@ -1,0 +1,15 @@
+---
+title: "Herramientas Estadísticas en R"
+format: gfm
+---
+
+# Herramientas Estadísticas en R
+
+Bienvenido al curso de Herramientas Estadísticas en R. Este curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R.
+
+## Estructura del Curso
+- Clases: Se encuentran en el directorio `lectures`
+- Tareas: Se encuentran en el directorio `assignments`
+- Recursos: Se encuentran en el directorio `resources`
+
+Consulte el archivo `syllabus.qmd` para obtener información detallada sobre el curso.
