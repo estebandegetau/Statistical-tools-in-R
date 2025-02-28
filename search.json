@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Temario",
+    "section": "",
+    "text": "R es un lenguaje de computación diseñado específicamente para análisis estadístico y gráfico (Crawley 2012). El objetivo de este curso es brindar las herramientas estadísticas para resolver problemas de datos cotidianos en organizaciones grandes como el IMSS. Al final del curso podrás:\n\nResolver una variedad de preguntas empíricas usando R.\nImplementar flujos de datos automáticos desde la fuente de datos hasta medios de comunicación diversos (tablas, figuras, reportes, presentaciones, páginas web, etc.).\nUsar Quarto para escribir reportes reproducibles y GitHub para versión de control.\n\nPrerequisitos: Este curso asume que tienes conocimientos básicos de estadística y programación. No asumo que tengas experiencia previa con R."
+  },
+  {
+    "objectID": "syllabus.html#objetivo",
+    "href": "syllabus.html#objetivo",
+    "title": "Temario",
+    "section": "",
+    "text": "R es un lenguaje de computación diseñado específicamente para análisis estadístico y gráfico (Crawley 2012). El objetivo de este curso es brindar las herramientas estadísticas para resolver problemas de datos cotidianos en organizaciones grandes como el IMSS. Al final del curso podrás:\n\nResolver una variedad de preguntas empíricas usando R.\nImplementar flujos de datos automáticos desde la fuente de datos hasta medios de comunicación diversos (tablas, figuras, reportes, presentaciones, páginas web, etc.).\nUsar Quarto para escribir reportes reproducibles y GitHub para versión de control.\n\nPrerequisitos: Este curso asume que tienes conocimientos básicos de estadística y programación. No asumo que tengas experiencia previa con R."
+  },
+  {
+    "objectID": "syllabus.html#contenido",
+    "href": "syllabus.html#contenido",
+    "title": "Temario",
+    "section": "Contenido",
+    "text": "Contenido\n\nR y el Tidyverse\n\nEl lenguaje estadístico R\nPaquetes del Tidyverse\nManupulación de datos con dplyr\nVisualización de datos con ggplot2\nProgramación funcional con purrr\nReportes reproducibles con Quarto\n\nReferencias: Crawley (2012); Wickham, Grolemund, et al. (2017); Wickham (2010); Wickham (2019).\nInferencia estadística\n\nPropiedades asintóticas de los estimadores\nPruebas de hipótesis\nBootstrap y métodos de remuestreo\nSimulaciones\n\nReferencias: Aguilar Esteva (s. f.); Schmelzer (s. f.); Çetinkaya-Rundel y Hardin (2024).\nRegresión lineal\n\nMínimos cuadrados ordinarios\nInferencia estadística\nInterpretación de coeficientes\nSesgo por variables omitidas\nEfectos fijos con fixest\n\nReferencias: Aguilar Esteva (s. f.); Schmelzer (s. f.); Cunningham (2021).\nPronóstico de series de tiempo\n\nSuavización exponencial\nARIMA\nPronóstico automatico con fable\n\nReferencias: Hyndman y Khandakar (2008); Hyndman y Athanasopolous (2021).\nAprendizaje de máquina\n\nSupervisado: OLS y clasificación\nNo supervisado: Componentes principales y clasificación\nElevar la práctica del modelaje con Tidymodels\n\nReferencias: Athey y Imbens (2019); James et al. (2021); Silge y Julia (s. f.)."
+  },
+  {
+    "objectID": "syllabus.html#evaluación",
+    "href": "syllabus.html#evaluación",
+    "title": "Temario",
+    "section": "Evaluación",
+    "text": "Evaluación\n\nTareas: 50%\nA lo largo del curso, asignaré una tarea por cada tema. Las tareas se entregarán en la fecha indicada en clase. Pueden discutir las tareas con sus compañeros, pero cada estudiante debe entregar su propio trabajo.\nLa entrega de la tarea consta de un documento PDF con los análisis requeridos y el código de Quarto que genera el documento. Parte importante de la calificación de las tareas es que el código de Quarto corra sin errores en mi computadora.\nLas tareas serán difíciles y requerirán tiempo para completarlas. No dejen las tareas para el último día.\n\n\nProyecto final: 50%\nEl proyecto final debe cumplir con las siguientes características: 1. Analizar datos del IMSS. 2. Comunicar el análisis en un reporte reproducible de Quarto. 3. Explorar alguna pregunta importante en tu trabajo.\nLos requisitos del proyecto final son intencionalmente vagos para permitir la creatividad y la exploración de temas que te interesen o relacionados con tu trabajo. El objetivo principal del proyecto final es que aprendas cómo puedes usar R y Quarto para resolver problemas cotidianos en tu trabajo.\nAlgunos ejemplos de proyectos finales son: - La automatización de (alguna porción de) algún reporte o presentación mensual que ya tengas. - Un análisis de series de tiempo de alguna variable de interés. - Un análisis de regresión de alguna variable de interés. - Un ejercicio de clasificación supervisada o no supervisada.\nCualquier otro proyecto que cumpla con los requisitos es más que bienvenido.\n\n\n\n\n\n\nNo trabajes en Excel\n\n\n\nPuesto que el objetivo del curso es aprender a programar en R y establecer flujos de datos automatizados, no se aceptarán tareas o proyectos que usen Excel para pasos intermedios."
+  },
+  {
+    "objectID": "syllabus.html#recursos-adicionales",
+    "href": "syllabus.html#recursos-adicionales",
+    "title": "Temario",
+    "section": "Recursos adicionales",
+    "text": "Recursos adicionales\nAdemás de las referencias en este documento, también puedes encontrar ligas de interes en la página de recursos."
+  },
+  {
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Clases",
+    "section": "",
+    "text": "Clase 1: Introducción a R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Herramientas estadísticas en R",
+    "section": "",
+    "text": "Bienvenidx a la página del curso de Herramientas Estadísticas en R. Este curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R. Puedes consultar el temario del curso aquí."
+  },
+  {
+    "objectID": "index.html#clases",
+    "href": "index.html#clases",
+    "title": "Herramientas estadísticas en R",
+    "section": "Clases",
+    "text": "Clases\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Título\n        \n         \n          Autor/a\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nAutor/a\n\n\n\n\n\n\nClase 1: Introducción a R\n\n\n \n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "index.html#tareas",
+    "href": "index.html#tareas",
+    "title": "Herramientas estadísticas en R",
+    "section": "Tareas",
+    "text": "Tareas\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Tareas",
+    "section": "",
+    "text": "No hay resultados"
+  },
+  {
+    "objectID": "lectures/lecture1.html#qué-es-r",
+    "href": "lectures/lecture1.html#qué-es-r",
+    "title": "Clase 1: Introducción a R",
+    "section": "¿Qué es R?",
+    "text": "¿Qué es R?\nR es un lenguaje de programación y un entorno de software para la computación estadística y gráficos."
+  },
+  {
+    "objectID": "lectures/lecture1.html#instalación-de-r",
+    "href": "lectures/lecture1.html#instalación-de-r",
+    "title": "Clase 1: Introducción a R",
+    "section": "Instalación de R",
+    "text": "Instalación de R\nLas instrucciones para instalar R se pueden encontrar en CRAN."
+  },
+  {
+    "objectID": "lectures/lecture1.html#sintaxis-básica-de-r",
+    "href": "lectures/lecture1.html#sintaxis-básica-de-r",
+    "title": "Clase 1: Introducción a R",
+    "section": "Sintaxis Básica de R",
+    "text": "Sintaxis Básica de R\n\n# Aritmética básica\n1 + 1\n\n[1] 2\n\n2 * 3\n\n[1] 6\n\n# Asignación de variables\nx &lt;- 5\ny &lt;- 10\nz &lt;- x + y\nz\n\n[1] 15"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Recursos",
+    "section": "",
+    "text": "Algunos recursos útiles para el curso son:\n\nBase R\nTidyverse\nData Import\nData Transformation\nData Visualization\nMuchas más en Posit Sheets"
+  }
+]
