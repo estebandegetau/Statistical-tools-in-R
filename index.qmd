@@ -4,7 +4,6 @@ listing:
   - id: assignments
     contents: "assignments/*.qmd"   
     type: table
-    author: false
   - id: lectures
     contents: "lectures/*.qmd"
     type: table
