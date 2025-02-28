@@ -1,0 +1,18 @@
+---
+title: "Recursos"
+---
+
+Algunos recursos útiles para el curso son:
+
+1. [Base R](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf)
+
+2. [Tidyverse](https://www.tidyverse.org/packages/)
+
+3. [Data Import](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_data-import.pdf)
+
+4. [Data Transformation](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf)
+
+5. [Data Visualization](https://rstudio.github.io/cheatsheets/html/data-visualization.html)
+
+6. Muchas más en [Posit Sheets](https://rstudio.github.io/cheatsheets/)
+

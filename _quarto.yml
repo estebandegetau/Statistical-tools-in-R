@@ -1,17 +1,25 @@
 project:
   type: website
 
+
 website:
-  title: "Herramientas Estadísticas en R"
   navbar:
+    # background: primary
+    search: true
     left:
-      - text: "Inicio"
-        href: index.qmd
-      - text: "Programa"
-        href: syllabus.qmd
-      - text: "Clases"
-        href: lectures/lecture1.qmd
-      - text: "Tareas"
-        href: assignments/assignment1/instructions.qmd
-      - text: "Recursos"
-        href: resources/textbooks.qmd
+      - index.qmd
+      - syllabus.qmd
+      - lectures.qmd
+      - assignments.qmd
+
+format:
+  html:
+    theme: sandstone
+    toc: true
+
+execute:
+  freeze: auto
+
+lang: es
+
+bibliography: references.bib

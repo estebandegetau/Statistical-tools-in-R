@@ -1,0 +1,6 @@
+---
+title: "Tareas"
+listing:
+  contents: assignments
+  type: grid
+---

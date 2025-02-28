@@ -1,0 +1,20 @@
+[
+  {
+    "listing": "/lectures.html",
+    "items": [
+      "/lectures/lecture1.html"
+    ]
+  },
+  {
+    "listing": "/assignments.html",
+    "items": [
+      "/assignments/assignment1/instructions.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/lectures/lecture1.html"
+    ]
+  }
+]

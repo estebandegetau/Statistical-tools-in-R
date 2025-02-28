@@ -1,0 +1,6 @@
+---
+title: "Clases"
+listing:
+  contents: lectures
+  type: grid
+---
