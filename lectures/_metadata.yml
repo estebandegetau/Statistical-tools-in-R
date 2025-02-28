@@ -1,5 +1,6 @@
 format: 
-  revealjs: default
+  revealjs: 
+    footer: "[Herramientas estadísticas en R](https://estebandegetau.com/Statistical-tools-in-R/)"
 
 execute: 
   echo: true

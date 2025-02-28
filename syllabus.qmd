@@ -2,8 +2,13 @@
 title: "Temario"
 subtitle: "Herramientas estadísticas en R"
 author: "Esteban Degetau"
-date: 2025-02-25
+date: 2025-02-28
 date-format: long
+format:
+  html:
+    theme: sandstone
+    toc: true
+  pdf: default
 ---
 
 ## Objetivo
@@ -59,6 +64,10 @@ R es un lenguaje de computación diseñado específicamente para análisis estad
 
     Referencias: @athey2019; @james2021; @silge.
 
+## Fechas y programa
+
+Las clases son de manera presencial en la Sala de Juntas de la CPE los Miércoles de 11:30 a 13:30. Tomaremos cinco clases en total del 12 de marzo al 9 de abril.
+
 ## Evaluación
 
 ### Tareas: 50%
@@ -72,6 +81,7 @@ Las tareas serán difíciles y requerirán tiempo para completarlas. No dejen la
 ### Proyecto final: 50%
 
 El proyecto final debe cumplir con las siguientes características:
+
 1. Analizar datos del IMSS.
 2. Comunicar el análisis en un reporte reproducible de Quarto.
 3. Explorar alguna pregunta importante en tu trabajo.
@@ -79,12 +89,13 @@ El proyecto final debe cumplir con las siguientes características:
 Los requisitos del proyecto final son intencionalmente vagos para permitir la creatividad y la exploración de temas que te interesen o relacionados con tu trabajo. El objetivo principal del proyecto final es que aprendas cómo puedes usar R y Quarto para resolver problemas cotidianos en tu trabajo.
 
 Algunos ejemplos de proyectos finales son:
+
 - La automatización de (alguna porción de) algún reporte o presentación mensual que ya tengas.
-- Un análisis de series de tiempo de alguna variable de interés.
+- Un ejercicio de predicción de series de tiempo (por ejemplo, fijación de metas).
 - Un análisis de regresión de alguna variable de interés.
 - Un ejercicio de clasificación supervisada o no supervisada.
 
-Cualquier otro proyecto que cumpla con los requisitos es más que bienvenido.
+Cualquier otro proyecto que cumpla con los requisitos es más que bienvenido. Si tienes una idea vaga de qué podrías hacer, podemos discutirlo en clase.
 
 :::{.callout-important}
 ## No trabajes en Excel
