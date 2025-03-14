@@ -2,14 +2,22 @@
 title: "Herramientas estadísticas en R"
 listing: 
   - id: assignments
-    contents: "assignments/*.qmd"   
+    contents: "assignments/*/instructions.qmd"   
     type: table
+    fields: [title, subtitle, date]
   - id: lectures
     contents: "lectures/*.qmd"
     type: table
+    fields: [title, subtitle, date]
 ---
 
-Bienvenidx a la página del curso de *Herramientas Estadísticas en R*. Este curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R. Puedes consultar el temario del curso [aquí](syllabus.qmd).
+Bienvenidx a la página del curso de *Herramientas Estadísticas en R*.
+
+Este curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R.
+
+Puedes consultar el temario del curso [aquí](syllabus.qmd).
+
+
 
 
 ## Clases

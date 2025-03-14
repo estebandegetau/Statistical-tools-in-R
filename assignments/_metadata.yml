@@ -1,0 +1,9 @@
+format:
+  html:
+    theme: sandstone
+    toc: true
+  pdf: 
+    date-format: long
+
+number-sections: true
+

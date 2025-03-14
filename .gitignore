@@ -1,3 +1,9 @@
 /.quarto/
 /_site/
+/site_libs/
 /_freeze/
+/grading/
+/lectures/_*.qmd
+/assignments/_*/
+*_cache
+*_files

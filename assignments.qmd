@@ -1,6 +1,9 @@
 ---
 title: "Tareas"
 listing:
-  contents: assignments
+  contents: "assignments/*/instructions.qmd"
   type: grid
+  fields: [image, date, title, subtitle]
 ---
+
+Aquí podrás encontrar las tareas que asignaré a lo largo del curso. Lee las instrucciones de cada tarea cuidadosamente.

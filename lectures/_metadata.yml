@@ -1,6 +1,13 @@
 format: 
   revealjs: 
+    author: Esteban Degetau
+    date-format: long
+    smaller: true
+    scrollable: false
     footer: "[Herramientas estadísticas en R](https://estebandegetau.com/Statistical-tools-in-R/)"
 
 execute: 
   echo: true
+
+output-location: fragment
+code-link: true
