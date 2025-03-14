@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -194,23 +194,29 @@ window.Quarto = {
 </header>
 
 
+<p>Aquí podrás encontrar las tareas que asignaré a lo largo del curso. Lee las instrucciones de cada tarea cuidadosamente.</p>
 
 
 
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1740757641388">
-<a href="./assignments/assignment1/instructions.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1741932000000" data-listing-file-modified-sort="1741965438305" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="221">
+<a href="./assignments/assignment0/instructions.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<p class="card-img-top">
+<img loading="lazy" src="./assignments/assignment0/thmb.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
 <div class="card-body post-contents">
-<div class="card-text listing-description">
-
+<h5 class="no-anchor card-title listing-title">
+Instalación del software
+</h5>
+<div class="card-subtitle listing-subtitle">
+Tarea 0
 </div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+14 mar 2025
 </div>
 </div>
 </div>
@@ -644,4 +650,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/assignments.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>

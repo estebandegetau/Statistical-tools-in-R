@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -106,9 +106,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -205,7 +205,7 @@ window.Quarto = {
   <li><a href="#clases" id="toc-clases" class="nav-link active" data-scroll-target="#clases">Clases</a></li>
   <li><a href="#tareas" id="toc-tareas" class="nav-link" data-scroll-target="#tareas">Tareas</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -229,14 +229,47 @@ window.Quarto = {
 </header>
 
 
-<p>Bienvenidx a la página del curso de <em>Herramientas Estadísticas en R</em>. Este curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R. Puedes consultar el temario del curso <a href="./syllabus.html">aquí</a>.</p>
+<p>Bienvenidx a la página del curso de <em>Herramientas Estadísticas en R</em>.</p>
+<p>Este curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R.</p>
+<p>Puedes consultar el temario del curso <a href="./syllabus.html">aquí</a>.</p>
 <section id="clases" class="level2">
 <h2 class="anchored" data-anchor-id="clases">Clases</h2>
 <div id="listing-lectures" class="quarto-listing quarto-listing-container-table">
 <div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filtro">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Título
+</th>
+<th>
+Subtítulo
+</th>
+<th>
+Fecha
+</th>
+</tr>
+</thead>
+<tbody class="list">
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No hay resultados
+</div>
+</div>
+</section>
+<section id="tareas" class="level2">
+<h2 class="anchored" data-anchor-id="tareas">Tareas</h2>
+<div id="listing-assignments" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-lectures-sort" class="form-select" aria-label="Ordenar por" onchange="window['quarto-listings']['listing-lectures'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+     <select id="listing-assignments-sort" class="form-select" aria-label="Ordenar por" onchange="window['quarto-listings']['listing-assignments'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Ordenar por</option>
        <option value="index" data-direction="asc">Por defecto</option>
          <option value="listing-date-sort" data-direction="asc">
@@ -259,50 +292,28 @@ window.Quarto = {
 <thead>
 <tr>
 <th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Fecha</a>
-</th>
-<th>
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Título</a>
 </th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1740762379995" data-listing-reading-time-sort="1" data-listing-word-count-sort="53" data-listing-title-sort="Clase 1: Introducción a R" data-listing-filename-sort="lecture1.qmd">
-<td>
-<span class="listing-date">&nbsp;</span>
-</td>
-<td>
-<a href="./lectures/lecture1.html" class="title listing-title">Clase 1: Introducción a R</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No hay resultados
-</div>
-</div>
-</section>
-<section id="tareas" class="level2">
-<h2 class="anchored" data-anchor-id="tareas">Tareas</h2>
-<div id="listing-assignments" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filtro">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
 <th>
-Fecha
+Subtítulo
 </th>
 <th>
-Título
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Fecha</a>
 </th>
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1741932000000" data-listing-file-modified-sort="1741965438305" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="221" data-listing-title-sort="Instalación del software" data-listing-filename-sort="instructions.qmd">
+<td>
+<a href="./assignments/assignment0/instructions.html" class="title listing-title">Instalación del software</a>
+</td>
+<td>
+<span class="listing-subtitle">Tarea 0</span>
+</td>
+<td>
+<span class="listing-date">14 mar 2025</span>
+</td>
+</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
@@ -737,4 +748,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>

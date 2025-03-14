@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>instructions</title>
+<title>Instalación del software</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -109,17 +143,78 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#instala-r" id="toc-instala-r" class="nav-link active" data-scroll-target="#instala-r"><span class="header-section-number">1</span> Instala R</a></li>
+  <li><a href="#instala-rstudio" id="toc-instala-rstudio" class="nav-link" data-scroll-target="#instala-rstudio"><span class="header-section-number">2</span> Instala RStudio</a></li>
+  <li><a href="#instala-quarto" id="toc-instala-quarto" class="nav-link" data-scroll-target="#instala-quarto"><span class="header-section-number">3</span> Instala Quarto</a></li>
+  <li><a href="#crea-tu-primer-documento-con-quarto" id="toc-crea-tu-primer-documento-con-quarto" class="nav-link" data-scroll-target="#crea-tu-primer-documento-con-quarto"><span class="header-section-number">4</span> Crea tu primer documento con Quarto</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/assignments/assignment0/instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div><div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="instructions.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Instalación del software</h1>
+<p class="subtitle lead">Tarea 0</p>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de marzo de 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<p>Antes de comenzar el curso, es necesario que instales el software que utilizaremos. Esta tarea no tiene entregable. Solo es necesario que hayas seguido cada uno de los pasos siguientes antes de la primera clase, el miércoles 19 de marzo.</p>
+<section id="instala-r" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="instala-r"><span class="header-section-number">1</span> Instala R</h2>
+<p>Para instalar R en Windows, sigue las instrucciones en la liga: <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a>.</p>
+<p>Para instalar R en macOS, sigue las instrucciones en la liga: <a href="https://cran.r-project.org/bin/macosx/" class="uri">https://cran.r-project.org/bin/macosx/</a>.</p>
+</section>
+<section id="instala-rstudio" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="instala-rstudio"><span class="header-section-number">2</span> Instala RStudio</h2>
+<p>RStudio es un entorno de desarrollo integrado (IDE) para R. Puedes descargarlo de la liga: <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>. Ojo: si ya instalaste R para este punto, solo necesitas instalar RStudio.</p>
+<p>Este paso en realidad es opcional. Si prefieres trabajar en VSCode o en otro IDE, adelante.</p>
+</section>
+<section id="instala-quarto" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="instala-quarto"><span class="header-section-number">3</span> Instala Quarto</h2>
+<p>Quarto es un software que permite crear <em>reportes computacionales</em> con R para exportar en una variedad de formatos. Todas las tareas se entregarán en documentos creados por Quarto. Para instalar Quarto, sigue las instrucciones en la liga: <a href="https://quarto.org/docs/getting-started/installation.html" class="uri">https://quarto.org/docs/getting-started/installation.html</a>.</p>
+</section>
+<section id="crea-tu-primer-documento-con-quarto" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="crea-tu-primer-documento-con-quarto"><span class="header-section-number">4</span> Crea tu primer documento con Quarto</h2>
+<ol type="1">
+<li><p>Descarga el código fuente de este documento usando la liga de lado derecho de esta página: “Ver el código” —&gt;</p></li>
+<li><p>Abre RStudio y abre el archivo <code>instructions.qmd</code> que acabas de descargar. Puedes usar el comando <code>Ctrl+O</code> para abrir un archivo.</p></li>
+<li><p>Usa el comando <code>Ctrl+Shift+K</code> para compilar el documento. Deberías ver un archivo <code>instructions.pdf</code> en la misma carpeta que el archivo <code>.qmd</code>. Adiconalmente, deberás ver la fecha de hoy a continuación:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2025-03-14"</code></pre>
+</div>
+</div>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -544,4 +639,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/assignments/assignment0/instructions.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>
