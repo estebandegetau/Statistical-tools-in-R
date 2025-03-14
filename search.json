@@ -84,13 +84,6 @@
     "text": "3 Instala Quarto\nQuarto es un software que permite crear reportes computacionales con R para exportar en una variedad de formatos. Todas las tareas se entregarán en documentos creados por Quarto. Para instalar Quarto, sigue las instrucciones en la liga: https://quarto.org/docs/getting-started/installation.html."
   },
   {
-    "objectID": "assignments/assignment0/instructions.html#crea-tu-primer-documento-con-quarto",
-    "href": "assignments/assignment0/instructions.html#crea-tu-primer-documento-con-quarto",
-    "title": "Instalación del software",
-    "section": "4 Crea tu primer documento con Quarto",
-    "text": "4 Crea tu primer documento con Quarto\n\nDescarga el código fuente de este documento usando la liga de lado derecho de esta página: “Ver el código” —&gt;\nAbre RStudio y abre el archivo instructions.qmd que acabas de descargar. Puedes usar el comando Ctrl+O para abrir un archivo.\nUsa el comando Ctrl+Shift+K para compilar el documento. Deberías ver un archivo instructions.pdf en la misma carpeta que el archivo .qmd. Adiconalmente, deberás ver la fecha de hoy a continuación:\n\n\nSys.Date()\n\n[1] \"2025-03-14\""
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Herramientas estadísticas en R",
