@@ -8,11 +8,13 @@ Algunos recursos útiles para el curso son:
 
 2. [Tidyverse](https://www.tidyverse.org/packages/)
 
-3. [Data Import](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_data-import.pdf)
+    1. [Data Import](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_data-import.pdf)
 
-4. [Data Transformation](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf)
+    2. [Data Transformation](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf)
 
-5. [Data Visualization](https://rstudio.github.io/cheatsheets/html/data-visualization.html)
+    3. [Data Visualization](https://rstudio.github.io/cheatsheets/html/data-visualization.html)
 
-6. Muchas más en [Posit Sheets](https://rstudio.github.io/cheatsheets/)
+3. [Quarto](https://rstudio.github.io/cheatsheets/html/quarto.html)
+
+4. Muchas más en [Posit Cheatsheets](https://rstudio.github.io/cheatsheets/)
 

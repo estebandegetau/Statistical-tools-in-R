@@ -11,6 +11,7 @@ website:
       - syllabus.qmd
       - lectures.qmd
       - assignments.qmd
+      - resources.qmd
   repo-url: https://github.com/estebandegetau/Statistical-tools-in-R
   repo-actions: [source, issue]
 
