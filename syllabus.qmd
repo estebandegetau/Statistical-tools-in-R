@@ -2,7 +2,7 @@
 title: "Temario"
 subtitle: "Herramientas estadísticas en R"
 author: "Esteban Degetau"
-date: 2025-02-28
+date: 2025-03-15
 date-format: long
 format:
   html:
@@ -66,7 +66,7 @@ R es un lenguaje de computación diseñado específicamente para análisis estad
 
 ## Fechas y programa
 
-Las clases son de manera presencial en la Sala de Juntas de la CPE los Miércoles de 11:30 a 13:30. Tomaremos cinco clases en total del 12 de marzo al 9 de abril.
+Las clases son de manera presencial en la Sala de Juntas de la CPE los Miércoles de 11:30 a 13:30. Tomaremos cinco clases en total del 19 de marzo al 16 de abril.
 
 ## Evaluación
 
@@ -86,7 +86,9 @@ El proyecto final debe cumplir con las siguientes características:
 2. Comunicar el análisis en un reporte reproducible de Quarto.
 3. Explorar alguna pregunta importante en tu trabajo.
 
-Los requisitos del proyecto final son intencionalmente vagos para permitir la creatividad y la exploración de temas que te interesen o relacionados con tu trabajo. El objetivo principal del proyecto final es que aprendas cómo puedes usar R y Quarto para resolver problemas cotidianos en tu trabajo.
+Los requisitos del proyecto final son intencionalmente vagos para permitir la creatividad y la exploración de temas que te interesen o que estén relacionados con tu trabajo.
+
+El objetivo principal del proyecto final es que aprendas cómo puedes usar R y Quarto para resolver problemas cotidianos en tu trabajo.
 
 Algunos ejemplos de proyectos finales son:
 
