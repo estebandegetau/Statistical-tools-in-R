@@ -109,6 +109,6 @@
     "href": "resources.html",
     "title": "Recursos",
     "section": "",
-    "text": "Algunos recursos útiles para el curso son:\n\nBase R\nTidyverse\nData Import\nData Transformation\nData Visualization\nMuchas más en Posit Sheets"
+    "text": "Algunos recursos útiles para el curso son:\n\nBase R\nTidyverse\n\nData Import\nData Transformation\nData Visualization\n\nQuarto\nMuchas más en Posit Cheatsheets"
   }
 ]
