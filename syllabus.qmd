@@ -66,7 +66,7 @@ R es un lenguaje de computación diseñado específicamente para análisis estad
 
 ## Fechas y programa
 
-Las clases son de manera presencial en la Sala de Juntas de la CPE los Miércoles de 11:30 a 13:30. Tomaremos cinco clases en total del 19 de marzo al 16 de abril.
+Las clases son de manera presencial en la Sala de Juntas de la CPE los Miércoles de 12 a 14 h. Tomaremos cinco clases en total del 19 de marzo al 16 de abril.
 
 ## Evaluación
 

@@ -7,3 +7,6 @@
 /assignments/_*/
 *_cache
 *_files
+/assignments/*/data/raw/
+/assignments/*/prep.r
+/assignments/*/_solutions.qmd
