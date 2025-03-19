@@ -1,0 +1,1135 @@
+---
+title: "R y el Tidyverse"
+subtitle: "Clase 1"
+date: 2025-03-19
+nocite: |
+ @crawley2012; @wickham2017r
+image: "thmb1.png"
+---
+
+# Introducción a R
+
+## ¿Por qué usar R?
+
+En un nivel, no hay una razón para cambiar de software estadístico si el que usas actualmente funciona para tus necesidades.
+
+## ¿Por qué usar R?  
+
+Sin embargo, estas son algunas razones para mudar tus operaciones estadísticas a R:
+
+. . .
+
+1. **Cutting-edge applications:** La principal ventaja de usar R es que podemos encontrar paquetes estadísticos que facilitan la implementación de los métodos estadísticos más avanzados.
+
+. . .
+
+2. **Reproducibilidad de resultados:** No es muy diferente de otros lenguajes de programación estadística como Stata, SAS o Python, pero es na caracterísitica indispensable en la producción de reportes científicos que otras herramientas como Excel no ofrecen.
+
+## ¿Por qué usar R?  
+
+3. **Comunidad y soporte de calidad:** Hay una comunidad muy activa de usuarios de R que comparten sus conocimientos y paquetes en línea. Si te topas con un problema, seguramente alguien ya hizo un paquete que lo resuelve.
+
+    Si tienes la intención de invertir el esfuerzo para aprender un software estadístico, la estructura de R y la facilidad para escribir tus propias funciones (y paquetes) son atracciones poderosas.
+
+. . .
+
+4. **Es gratis:** Es un software con una integración formidable, y es completamente tuyo por el precio de una descarga (y la inversión de aprender a sacarle provecho).
+
+## R es una calculadora glorificada
+
+. . .
+
+```{r}
+
+2 + 2
+
+```
+
+. . .
+
+```{r}
+
+2 > 2
+
+```
+
+. . .
+
+```{r}
+
+2 == 2
+
+```
+
+. . .
+
+```{r}
+
+2 != 2
+
+```
+
+. . .
+
+```{r}
+
+2 >= 2
+
+```
+
+## R permite declarar variables *on the fly*
+
+. . .
+
+```{r}
+
+a <- 2
+
+b <- 3
+
+c <- -4
+
+x1 <- (-b + sqrt(b^2 - 4*a*c)) / (2*a)
+
+x2 <- (-b - sqrt(b^2 - 4*a*c)) / (2*a)
+
+x1
+
+x2
+
+
+```
+
+## Vectores y operaciones vectoriales
+
+. . .
+
+```{r}
+
+d <- c(3, 4, 5) 
+
+length(d)
+
+```
+
+. . .
+
+```{r}
+
+d[1]
+
+```
+
+. . .
+
+```{r}	
+
+d * 2 
+
+```
+
+. . .
+
+```{r}
+
+e <- c(6, 7, 8)
+
+f <- c(d, e)
+
+f
+
+```
+
+. . .
+
+```{r}
+
+g <- d + e # Este resultado es importante
+
+g
+
+```
+
+. . .
+
+**Pregunta**: ¿Cómo llegamos al resultado en el vector `g`?	
+
+## Clases de vectores
+
+```{r}
+
+h <- c(1, 2, 3)
+
+class(h)
+
+```
+
+. . .
+
+```{r}	
+
+i <- c("a", "b", "c")
+
+class(i)
+
+```
+
+. . .
+
+```{r}	
+
+j <- c(TRUE, FALSE, TRUE)
+
+class(j)
+
+
+```
+
+. . .
+
+```{r}	
+
+k <- c(h, i, j)
+
+
+```
+
+**Pregunta**: ¿Qué clase de vector es `k`?
+
+. . .
+
+```{r}	
+
+k
+
+```
+
+. . .
+
+```{r}
+
+class(k)
+
+```
+
+## R es muy amigable al usuario
+
+. . .
+
+R ayuda mucho al usuario. Otros lenguajes pudieron haber arrojado un error a la hora de definir al vector `k` a partir de vectores de diferentes clases. Sin embargo, R hizo lo siguiente para evitar el error:
+
+. . .
+
+```{r}
+
+k <- c(as.character(h), as.character(i), as.character(j))
+
+k
+
+```
+
+## Funciones
+
+Escribamos una función que calcule el área de un círculo, dado su radio.
+
+. . .
+
+```{r}
+area_circulo <- function(radio) {
+    res <- pi * radio^2
+
+    return(res)
+}
+
+
+area_circulo(3)
+
+
+```
+
+. . .
+
+```{r}	
+
+radios <- seq(4, 10, 1)
+
+radios
+
+```
+
+. . .
+
+```{r}	
+
+areas <- area_circulo(radios)
+
+areas
+
+```
+
+## Funciones vectorizadas
+
+Ojo: En el ejemplo anterior, R nos volvió a ayudar.
+
+. . .
+
+Pudo interpretar que la función `area_circulo` debía aplicarse a cada elemento del vector `radios` y nos devolvió un vector con las áreas correspondientes.
+
+. . .
+
+Esto fue posible porque el contenido de la función `area_circulo` es vectorizado. No siempre será así, pero en esta ocasión, R pudo ayudarnos. 
+
+. . .
+
+Otras veces, tendremos que aplicar una función a cada elemento de un vector con ayuda de funciones como `lapply` o `sapply`. También veremos cómo hacer programación funcional con `purrr` para hacer muchas computaciones de manera más eficiente.
+
+## Orden de operaciones
+
+Otra cosa para destacar es que R guarda el orden de operaciones. 
+
+. . .
+
+La función `area_circulo` regresa el resultado para la expresión $\pi r^2$ y no para $\pi (r^2)$.
+
+. . .
+
+No tuvimos que especificar el orden de operaciones, escribiendo `pi * (r^2)`, R lo hizo por nosotros.
+
+## Funciones de base R
+
+R tiene funciones estadísticas precargadas. 
+
+. . .
+
+Por ejemplo, podemos generar números aleatorios a partir de una variedad de distribuciones teóricas. 
+
+. . .
+
+- `rnorm` genera números aleatorios de una distribución normal
+
+- `runif` a partir de una distribución uniforme
+
+. . . 
+
+```{r}
+#| output-location: column-fragment
+
+
+random_numbers <- rnorm(100000, mean = 0, sd = 1)
+
+
+hist(random_numbers)
+
+```
+
+## Funciones de base R
+
+También podemos calcular la media, la desviación estándar, la longitud y la clase de un vector de números.
+
+. . .
+
+```{r}
+
+mean(random_numbers)
+
+sd(random_numbers)
+
+length(random_numbers)
+
+class(random_numbers)
+
+```
+
+. . . 
+
+Puedes consultar la documentación de cualquier función con el comando `?` seguido del nombre de la función. Por ejemplo: `?rnorm`.
+
+# Paquetes del Tidyverse
+
+## Base R vs. Tidyverse
+
+Hasta ahora, solo hemos visto cómo usar R con funciones de base. Sin embargo, la comunidad de R ha desarrollado una serie de paquetes que abren las puertas a nuevos mundos de análisis de datos.
+
+. . .
+
+El Tidyverse es un conjunto de paquetes de R diseñados para la ciencia de datos. Todos los paquetes del Tidyverse comparten una filosofía de diseño, gramática y estructura de datos.
+
+. . .
+
+El libro de @wickham2017r es una excelente referencia para aprender ciencia de datos con R.
+
+## Instalación de paquetes
+
+Hay dos formas de instalar paquetes en R:
+
+1. Usando el comando base `install.packages()`, lo que además requiere cargar el paquete en la sesión cada vez que se inicia R.
+
+```{r}
+
+# install.packages("tidyverse")
+
+library(tidyverse)
+
+```
+
+2. O, alternativamente, usando el paquete `pacman`. Solo necesitamos instalarlo una vez.
+
+```{r}
+
+# install.packages("pacman")
+
+pacman::p_load(tidyverse)
+
+```
+
+
+. . .
+
+También podemos llamar paquetes instalados, pero que no están cargados en la sesión, escribiendo el nombre del paquete, seguido de `::` y el nombre de la función, como cuando llamamos a la función `p_load` del paquete `pacman`, sin cargar el paquete en la sesión.
+
+## Paquetes del Tidyverse
+
+Al instalar el Tidyverse, instalamos un conjunto de paquetes que podemos examinar llamando:
+
+```{r}
+
+tidyverse_packages()
+
+```
+
+
+
+# Tablas de datos con `tibble`
+
+## Estructura de los datos
+
+Una de las convenciones más importantes del Tidyverse es el uso de tablas en formato `tibble` para alojar datos, que siempre guardan la misma estructura:
+
+- las columnas son variables 
+
+- las filas son observaciones
+
+- las celdas son valores
+
+Una tabla `tibble` representa una o varias métricas de una o varias observaciones.
+
+
+## Estructura de los datos
+
+![Tres reglas de tablas limpias. Fuente: @wickham2017r](https://r4ds.hadley.nz/images/tidy-1.png)
+
+## Escribir tablas con `tibble`
+
+Podemos escribir una tabla `tibble` de la siguiente manera:	
+
+```{r}
+
+
+
+tabla_1 <- tibble(
+    nombre = c("Juan", "María", "Pedro"),
+    anio_nacim = c(1990, 1985, 1992),
+    sexo = c("M", "F", "M")
+)
+
+tabla_1
+
+glimpse(tabla_1)
+
+```
+
+
+## Las tablas son un arreglo de vectores
+
+Las tablas `tibble` son arreglos de vectores, donde cada columna es un vector.
+
+Podemos accederlas de dos maneras:
+
+1. Usando base R:
+
+. . .
+
+```{r}
+
+nombres_1 <- tabla_1$nombre
+
+```
+
+
+2. Usando la función `pull()` de `dplyr`:
+
+. . .
+
+```{r}
+
+nombres_2 <- pull(tabla_1, nombre)
+
+```
+
+
+. . .
+
+Podemos verificar que ambos vectores son iguales:
+
+
+```{r}
+
+nombres_1 == nombres_2
+
+```
+
+
+. . .
+
+O, de manera más eficiente:
+
+
+```{r}
+
+all(nombres_1 == nombres_2)
+
+
+```
+
+
+# Manipulación de datos con `dplyr`
+
+## `nyflights13`
+
+Ya conocemos la estructura de trabajo con tablas `tibble`.
+
+Ahora, vamos a trabajar con un conjunto de datos del mundo real.
+
+`nycflights13` es un paquete de datos que contiene información sobre todos los vuelos que salieron de los aeropuertos de Nueva York en 2013.
+
+Los datos provienen del *Bureau of Transportation Statistics* de los Estados Unidos y podemos ir a la documentación con `?flights`.
+
+Cargamos el paquete con `pacman`:
+
+```{r}
+pacman::p_load(nycflights13)
+```
+
+## `nyflights13`
+
+```{r}
+flights
+```
+
+
+## `nyflights13`
+
+```{r}
+
+
+glimpse(flights)
+```
+
+. . .
+
+**Pregunta**: ¿Cuál es el nivel de observación de los datos?
+
+. . .
+
+También puedes usar `View(flights)` para ver los datos en una ventana de visualización.
+
+## Verbos de `dplyr`
+
+Vamos a aprender los verbos (funciones) principales de `dplyr`, con los que podemos resolver una vasta cantidad de problemas de manipulación de datos.
+
+¿Qué tienen en común los verbos de `dplyr`?
+
+1. Su primer argumento es una `tibble`.
+
+2. Los siguientes argumentos típicamente describen qué columnas operar usando los nombres de las variables sin comillas.
+
+3. Siempre devuelven una `tibble`.
+
+
+## Anidación de funciones con el pipe `|>`
+
+Muy frcuentemente, vas a querer realizar varias operaciones en una tabla de datos.
+
+En lugar de guardar el resultado de cada operación en un objeto, puedes anidar las funciones con el operador `|>`.
+
+## Anidación de funciones con el pipe `|>`
+
+::: {#exm-iah}
+Imagina que queremos encontrar el vuelo más rápido al aeropueto de Houston IAH.
+
+Necesitarás combinar las funciones `filter()`, `mutate()`, `select()` y `arrange()`.
+:::
+
+. . .
+
+::: {#sol-pipe}
+
+```{r}
+
+flights |>
+    filter(dest == "IAH") |>
+    mutate(speed = distance / air_time * 60) |> 
+    select(year:day, dep_time, carrier, flight, speed) |>
+    arrange(desc(speed))
+
+
+```
+
+
+:::
+
+## Anidación de funciones con el pipe `|>`
+
+¿Qué pasaría si no usamos el operador `|>`?
+
+Una opción es anidar las funciones con paréntesis:
+
+
+::: {#sol-anidada}
+
+```{r}
+#| output-location: column-fragment
+
+arrange(
+  select(
+    mutate(
+      filter(
+        flights, 
+        dest == "IAH"
+      ),
+      speed = distance / air_time * 60
+    ),
+    year:day, dep_time, carrier, flight, speed
+  ),
+  desc(speed)
+)
+
+```
+
+:::
+
+## Anidar funciones con el pipe `|>`
+
+Otra opción es guardar los pasos intermedios en objetos:
+
+::: {#sol-objetos}
+
+```{r}
+
+flights1 <- filter(flights, dest == "IAH")
+flights2 <- mutate(flights1, speed = distance / air_time * 60)
+flights3 <- select(flights2, year:day, dep_time, carrier, flight, speed)
+arrange(flights3, desc(speed))
+
+```
+
+:::
+
+## Anidación de funciones con el pipe `|>`
+
+¿Cuál de las tres soluciones deja un código más limpio y fácil de leer?
+
+
+## Grupos y agregaciones
+
+Hasta ahora, hemos visto verbos que trabajan con filas y columnas. Ahora veremos que `dplyr` se vuelve más poderoso cuando agregamos la posibilidad de trabajar con grupos.
+
+Las funciones que discutiremos son `group_by()` y `summarize()`.
+
+## `group_by()`
+
+Usamos `group_by()` para dividir el conjunto de datos en grupos con un significado. 
+
+. . .
+
+```{r}
+flights |> 
+  group_by(month)
+```
+
+. . .
+
+`group_by()`no cambia los datos, pero si te fijas bien, verás que el resultado indica que está "agrupado por" la variable `month`. Esto significa que las operaciones subsesuentes se aplicarán a cada grupo.
+
+## `summarize()`
+
+Usamos `summarize()`^[alternativamente `summarise()`] para resumir los datos en cada grupo: obtendremos una nueva tabla con una observación por cada grupo.
+
+. . .
+
+```{r}
+#| output-location: column-fragment
+flights |> 
+  group_by(month) |> 
+  summarize(
+    avg_delay = mean(dep_delay, na.rm = TRUE),
+    n = n()
+  )
+```
+
+
+## Las funciones `slice_`
+
+Considera la siguiente operación:
+
+```{r}
+
+flights |> 
+  group_by(dest) |> 
+  slice_max(arr_delay, n = 1) |>
+  relocate(dest, arr_delay)
+
+```
+
+. . .
+
+¿Qué hace la función `slice_max()`? 
+
+
+## Aplicación de funciones a varias columnas
+
+::: {#exm-summary}
+¿Cuál es el promedio de cada una de las variables numéricas en la tabla `flights`?
+:::
+
+. . .
+
+Con las herramientas que hemoos visto hasta ahora, tendríamos que escribir una línea de código para cada variable numérica. Algo como esto:
+
+```{r}
+day_avg <- mean(flights$day, na.rm = TRUE)
+month_avg <- mean(flights$month, na.rm = TRUE)
+# etc.
+```
+
+## Aplicación de funciones a varias columnas
+
+```{r}
+
+numeric_cols <- flights |>
+    select(where(is.numeric)) |>
+    ncol()
+
+```
+
+. . .
+
+Tenemos `r numeric_cols` columnas numéricas en la tabla `flights`. No sería imposible escribir una línea de código para cada una, pero sería tedioso y propenso a errores.
+
+. . .
+
+Además, hay conjuntos de datos con muchas más columnas que `flights`, en las que escribir una línea de código para cada variable numérica sería demasiado costoso.
+
+## `across()`
+
+Across permite aplicar una función a varias columnas de una tabla de datos, sea dentro de `summarize()` o de `mutate()`.
+
+. . .
+
+Para resolver el @exm-summary, haríamos lo siguiente:
+
+. . .
+
+::: {#sol-across}
+## `across`
+```{r}
+flights |>
+    summarise(
+        across(
+            .cols = where(is.numeric),
+            .fns =  ~ mean(.x, na.rm = TRUE)
+        )   
+    )
+```
+
+:::
+
+## Usando `pivot_longer()` {.scrollable}
+
+Otra solución es usar la función `pivot_longer()` para convertir las columnas en filas, y despues calcular el promedio agrupando por variable.
+
+. . .
+
+::: {#sol-pivot}
+## `pivot_longer`
+```{r}
+
+flights_long <- flights |>
+    pivot_longer(
+        cols = where(is.numeric),
+        names_to = "variable",
+        values_to = "value"
+    )
+
+flights_long
+
+```
+
+
+```{r}
+
+flights_long |>
+    group_by(variable) |>
+    summarise(
+        avg = mean(value, na.rm = TRUE)
+    )
+
+```
+:::
+
+## Joins
+
+
+Les recomiendo leer el capítulo 19 de *R for Data Science* para entender a profundidad las operaciones de joins [@wickham2017r].
+
+## `left_join()`
+
+Haremos un ejemplo muy sencillo de un `left_join()`.
+
+. . .
+
+Recordemos cómo se ve la tabla `flights`:	
+
+```{r}
+
+glimpse(flights)
+
+
+```
+
+## `left_join()`
+
+La columna `carrier` incluye el código de la aerolínea a la que el vuelo pertenece. 
+
+Pero no queda exactamente claro qué aerolínea es.
+
+## `left_join()`
+
+Al consultar la documentación usando `?flights`, encontramos que la tabla `airlines` contiene el nombre de las aerolíneas.
+
+```{r}
+#| output-location: column-fragment
+airlines
+```
+
+
+## `left_join()`
+
+Puedo agregar esta información a la tabla `flights` con un `left_join()`.
+
+```{r}
+flights_with_airlines <- left_join(
+    x = flights,
+    y = airlines,
+    by = "carrier"
+)
+
+glimpse(flights_with_airlines)
+
+```
+
+## `left_join()`
+
+`left_join()` preserva todas las observaciones de la tabla `x` y agrega las columnas de la tabla `y` que coinciden con la columna `by`.
+
+. . .
+
+Otras opciones son `right_join()`, `inner_join()` y `full_join()`.
+
+# Visualización de datos con `ggplot2`
+
+## Una variable
+
+Ya vimos cómo hacer un histograma con la función base `hist()`.
+
+Ahora, vamos a ver cómo hacer un histograma con `ggplot2`.
+
+:::{#exm-hist}
+
+¿Cómo se distribuyen los retrasos en la llegada de los vuelos en el conjunto de datos `flights`?
+
+:::
+
+## Una variable: histograma
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| output: false
+ggplot(
+    data = flights,
+    mapping = aes(x = arr_delay)
+) +
+    geom_histogram()
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| output: false
+ggplot(data = flights) +
+    geom_histogram(
+        mapping = aes(x = arr_delay)
+    )
+```
+
+:::
+
+::::
+
+
+```{r}
+#| echo: false
+ggplot(data = flights) +
+    geom_histogram(
+        mapping = aes(x = arr_delay)
+    )
+```
+
+
+
+
+
+## Una variable: después de producción {.scrollable}
+
+La ventaja de usar `ggplot2` es que podemos personalizar las gráficas de manera sencilla. 
+
+. . .
+
+```{r}
+#| output-location: fragment
+ggplot(
+    data = flights,
+    mapping = aes(x = arr_delay)
+    ) +
+    geom_histogram(binwidth = 10, fill = "lightblue", color = "black") +
+    labs(
+        title = "Retrasos en la llegada de vuelos",
+        x = "Retraso en la llegada (minutos)",
+        y = "Frecuencia"
+    ) +
+    scale_y_continuous(labels = scales::comma) +
+    scale_x_continuous(labels = scales::comma, breaks = seq(-250, 1500, 250)) +
+    theme_minimal()
+
+```
+
+
+## Una variable: otras opciones {.scrollable}
+
+```{r}
+#| layout-ncol: 2
+#| fig-height: 4
+#| fig-width: 6
+
+plot_grid <- ggplot(
+    data = flights,
+    mapping = aes(x = arr_delay)
+) 
+
+
+plot_grid +
+    geom_area(stat = "bin")
+
+plot_grid +
+    geom_boxplot()
+
+plot_grid +
+    geom_density()
+
+plot_grid +
+    stat_ecdf()
+ 
+```
+
+
+
+## Una variable: tráfico de vuelos
+
+:::{#exm-hist-hour}
+
+¿Cómo se distribuye el tráfico de vuelos a lo largo del día?
+
+:::
+
+## Una variable: tráfico de vuelos {.scrollable}
+
+:::{#sol-hist-hour}
+
+```{r}
+flights |>
+    ggplot(aes(x = hour)) +
+    geom_histogram(binwidth = 1, fill = "lightblue", color = "black") +
+    labs(
+        title = "Tráfico de vuelos a lo largo del día",
+        x = "Hora del día",
+        y = "Frecuencia"
+    ) +
+    theme_minimal() +
+    scale_x_continuous(breaks = seq(0, 24, 1)) +
+    scale_y_continuous(labels = scales::comma)
+
+```
+
+:::
+
+
+
+## Dos variables
+
+:::{#exm-two-variables}
+
+¿Cómo se comporta el retraso de llegadas por hora de llegada?
+
+:::
+
+## Dos variables {.scrollable}
+
+
+:::{#sol-dplyr}
+
+Podemos agrupar los datos por hora y calcular el retraso promedio de llegada usando verbos de `dplyr`:
+
+```{r}
+delays <- flights |>
+    group_by(hour) |>
+    summarize(
+        avg_delay = mean(arr_delay, na.rm = TRUE),
+        n = n()
+    ) |>
+    ungroup()
+
+delays |>
+    ggplot(
+        aes(
+            x = hour,
+            y = avg_delay
+        )
+    ) +
+    geom_point() 
+
+```
+
+:::
+
+## Dos variables {.scrollable}
+
+:::{#sol-stat}
+
+O podemos usar `stat_summary()` para calcular el promedio de los retrasos de llegada por hora:
+
+```{r}
+delays_plot <- flights |>
+    ggplot(
+        aes(
+            x = hour,
+            y = arr_delay
+        )
+    ) +
+    stat_summary(
+        fun = mean,
+        geom = "point"
+    ) 
+
+delays_plot
+```
+
+:::
+
+## `geom_` vs. `stat_`
+
+
+- Las funciones `geom_` se usan para representar puntos de datos, y sus propiedades `aesthetics` se usan para representar variables. Cada función `geom_` agrega una capa a la gráfica.
+
+- Las funciones `stat_` son una alternativa para construir capas. **Crean** nuevas variables para graficar. por ejemplo conteos, proporciones, medianas, etc.
+
+. . .
+
+Guía de referencia: <https://rstudio.github.io/cheatsheets/html/data-visualization.html>.
+
+
+## Dos variables: después de producción {.scrollable}
+
+```{r}
+delays_plot +
+    geom_hline(
+        yintercept = 0,
+        linetype = "dashed"
+    ) +
+    labs(
+        title = "Retraso promedio por hora de llegada (minutos)",
+        x = "Hora de llegada",
+        y = "Retraso promedio"
+    ) +
+    theme_minimal() +
+    scale_x_continuous(breaks = seq(0, 24, 1)) +
+    scale_y_continuous()
+
+
+```
+
+
+## Tres variables: Retrasos por aerolínea
+
+:::{#exm-airlines}
+
+¿Cuál es el retraso promedio de llegada por aerolínea? ¿El tamaño de la aerolínea importa?
+
+:::
+
+## Tres variables: Retrasos por aerolínea {.scrollable}
+
+:::{#sol-airlines}
+
+Usemos `dplyr` para calcular el retraso promedio y el número de vuelos por aerolínea:
+
+```{r}
+
+flights_with_airlines |>
+    group_by(name) |>
+    summarise(
+        arr_delay = mean(arr_delay, na.rm = TRUE),
+        n = n()
+    ) |>
+    ggplot(
+        aes(
+            x = reorder(name, arr_delay),
+            y = arr_delay
+        )
+    ) +
+    geom_point(aes(size = n)) +
+    geom_hline(
+        yintercept = 0,
+        linetype = "dashed"
+    ) +
+    labs(
+        title = "Retrasos por aerolínea",
+        x = "Aerolínea",
+        y = "Retraso en la llegada (minutos)",
+        size = "Vuelos"
+    ) +
+    coord_flip() +
+    theme_minimal()
+
+
+```
+
+:::
+
+
+# Avisos
+
+## Tarea
+
+Leer los capítulos 1 y 4 de la segunda edición de *R for Data Science*  de @wickham2017r.
+
+- O los capítulos 3 y 4 de la primera edición.
+
+Envíenme un correo con una idea para el proyecto final. 
+
+## Referencias
