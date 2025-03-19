@@ -106,9 +106,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -240,6 +240,22 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="clases">Clases</h2>
 <div id="listing-lectures" class="quarto-listing quarto-listing-container-table">
 <div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-lectures-sort" class="form-select" aria-label="Ordenar por" onchange="window['quarto-listings']['listing-lectures'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Ordenar por</option>
+       <option value="index" data-direction="asc">Por defecto</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Fecha - Menos reciente
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Fecha - Más reciente
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Título
+        </option>
+     </select>
+  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filtro">
@@ -249,17 +265,28 @@ window.Quarto = {
 <thead>
 <tr>
 <th>
-Título
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Título</a>
 </th>
 <th>
 Subtítulo
 </th>
 <th>
-Fecha
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Fecha</a>
 </th>
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1742364000000" data-listing-file-modified-sort="1742321453759" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3145" data-listing-title-sort="R y el Tidyverse" data-listing-filename-sort="lecture1.qmd">
+<td>
+<a href="./lectures/lecture1.html" class="title listing-title">R y el Tidyverse</a>
+</td>
+<td>
+<span class="listing-subtitle">Clase 1</span>
+</td>
+<td>
+<span class="listing-date">19 mar 2025</span>
+</td>
+</tr>
 </tbody>
 </table>
 <div class="listing-no-matching d-none">
@@ -434,6 +461,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         if (link.dataset.originalHref !== undefined) {
           link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

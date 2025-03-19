@@ -46,14 +46,28 @@
     "href": "lectures.html",
     "title": "Clases",
     "section": "",
-    "text": "Aquí podrás encontrar el material de las clases que veremos a lo largo del curso. Las presentaciones incluyen el código que genera todos los resultados que veremos en clase. También puedes encontrar el código fuente en la página de GitHub.\nSi tienes alguna duda, no dudes en contactarme.\n\n\n\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Aquí podrás encontrar el material de las clases que veremos a lo largo del curso. Las presentaciones incluyen el código que genera todos los resultados que veremos en clase. También puedes encontrar el código fuente en la página de GitHub.\nSi tienes alguna duda, no dudes en contactarme.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n\n19 mar 2025\n\n\n\n\n\nlecture1.qmd\n\n\n\n\n\n\n\nNo hay resultados"
   },
   {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Tareas",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Herramientas estadísticas en R",
     "section": "",
-    "text": "Aquí podrás encontrar las tareas que asignaré a lo largo del curso. Lee las instrucciones de cada tarea cuidadosamente.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n\n14 mar 2025\n\n\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Bienvenidx a la página del curso de Herramientas Estadísticas en R.\nEste curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R.\nPuedes consultar el temario del curso aquí."
+  },
+  {
+    "objectID": "index.html#clases",
+    "href": "index.html#clases",
+    "title": "Herramientas estadísticas en R",
+    "section": "Clases",
+    "text": "Clases\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n19 mar 2025\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "index.html#tareas",
+    "href": "index.html#tareas",
+    "title": "Herramientas estadísticas en R",
+    "section": "Tareas",
+    "text": "Tareas\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n14 mar 2025\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "assignments/assignment0/instructions.html",
@@ -84,25 +98,417 @@
     "text": "3 Instala Quarto\nQuarto es un software que permite crear reportes computacionales con R para exportar en una variedad de formatos. Todas las tareas se entregarán en documentos creados por Quarto. Para instalar Quarto, sigue las instrucciones en la liga: https://quarto.org/docs/getting-started/installation.html."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Herramientas estadísticas en R",
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Tareas",
     "section": "",
-    "text": "Bienvenidx a la página del curso de Herramientas Estadísticas en R.\nEste curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R.\nPuedes consultar el temario del curso aquí."
+    "text": "Aquí podrás encontrar las tareas que asignaré a lo largo del curso. Lee las instrucciones de cada tarea cuidadosamente.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n\n14 mar 2025\n\n\n\n\n\n\n\n\nNo hay resultados"
   },
   {
-    "objectID": "index.html#clases",
-    "href": "index.html#clases",
-    "title": "Herramientas estadísticas en R",
-    "section": "Clases",
-    "text": "Clases\n\n\n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\n\nNo hay resultados"
+    "objectID": "lectures/lecture1.html#por-qué-usar-r",
+    "href": "lectures/lecture1.html#por-qué-usar-r",
+    "title": "R y el Tidyverse",
+    "section": "¿Por qué usar R?",
+    "text": "¿Por qué usar R?\nEn un nivel, no hay una razón para cambiar de software estadístico si el que usas actualmente funciona para tus necesidades."
   },
   {
-    "objectID": "index.html#tareas",
-    "href": "index.html#tareas",
-    "title": "Herramientas estadísticas en R",
-    "section": "Tareas",
-    "text": "Tareas\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n14 mar 2025\n\n\n\n\n\nNo hay resultados"
+    "objectID": "lectures/lecture1.html#por-qué-usar-r-1",
+    "href": "lectures/lecture1.html#por-qué-usar-r-1",
+    "title": "R y el Tidyverse",
+    "section": "¿Por qué usar R?",
+    "text": "¿Por qué usar R?\nSin embargo, estas son algunas razones para mudar tus operaciones estadísticas a R:\n\n\n\nCutting-edge applications: La principal ventaja de usar R es que podemos encontrar paquetes estadísticos que facilitan la implementación de los métodos estadísticos más avanzados.\n\n\n\n\n\nReproducibilidad de resultados: No es muy diferente de otros lenguajes de programación estadística como Stata, SAS o Python, pero es na caracterísitica indispensable en la producción de reportes científicos que otras herramientas como Excel no ofrecen."
+  },
+  {
+    "objectID": "lectures/lecture1.html#por-qué-usar-r-2",
+    "href": "lectures/lecture1.html#por-qué-usar-r-2",
+    "title": "R y el Tidyverse",
+    "section": "¿Por qué usar R?",
+    "text": "¿Por qué usar R?\n\n\nComunidad y soporte de calidad: Hay una comunidad muy activa de usuarios de R que comparten sus conocimientos y paquetes en línea. Si te topas con un problema, seguramente alguien ya hizo un paquete que lo resuelve.\nSi tienes la intención de invertir el esfuerzo para aprender un software estadístico, la estructura de R y la facilidad para escribir tus propias funciones (y paquetes) son atracciones poderosas.\n\n\n\n\n\nEs gratis: Es un software con una integración formidable, y es completamente tuyo por el precio de una descarga (y la inversión de aprender a sacarle provecho)."
+  },
+  {
+    "objectID": "lectures/lecture1.html#r-es-una-calculadora-glorificada",
+    "href": "lectures/lecture1.html#r-es-una-calculadora-glorificada",
+    "title": "R y el Tidyverse",
+    "section": "R es una calculadora glorificada",
+    "text": "R es una calculadora glorificada\n\n\n2 + 2\n\n\n\n[1] 4\n\n\n\n\n\n2 &gt; 2\n\n\n\n[1] FALSE\n\n\n\n\n\n2 == 2\n\n\n\n[1] TRUE\n\n\n\n\n\n2 != 2\n\n\n\n[1] FALSE\n\n\n\n\n\n2 &gt;= 2\n\n\n\n[1] TRUE"
+  },
+  {
+    "objectID": "lectures/lecture1.html#r-permite-declarar-variables-on-the-fly",
+    "href": "lectures/lecture1.html#r-permite-declarar-variables-on-the-fly",
+    "title": "R y el Tidyverse",
+    "section": "R permite declarar variables on the fly\n",
+    "text": "R permite declarar variables on the fly\n\n\n\na &lt;- 2\n\nb &lt;- 3\n\nc &lt;- -4\n\nx1 &lt;- (-b + sqrt(b^2 - 4*a*c)) / (2*a)\n\nx2 &lt;- (-b - sqrt(b^2 - 4*a*c)) / (2*a)\n\nx1\n\n\n\n[1] 0.8507811\n\nx2\n\n[1] -2.350781"
+  },
+  {
+    "objectID": "lectures/lecture1.html#vectores-y-operaciones-vectoriales",
+    "href": "lectures/lecture1.html#vectores-y-operaciones-vectoriales",
+    "title": "R y el Tidyverse",
+    "section": "Vectores y operaciones vectoriales",
+    "text": "Vectores y operaciones vectoriales\n\n\nd &lt;- c(3, 4, 5) \n\nlength(d)\n\n\n\n[1] 3\n\n\n\n\n\nd[1]\n\n\n\n[1] 3\n\n\n\n\n\nd * 2 \n\n\n\n[1]  6  8 10\n\n\n\n\n\ne &lt;- c(6, 7, 8)\n\nf &lt;- c(d, e)\n\nf\n\n\n\n[1] 3 4 5 6 7 8\n\n\n\n\n\ng &lt;- d + e # Este resultado es importante\n\ng\n\n\n\n[1]  9 11 13\n\n\n\n\nPregunta: ¿Cómo llegamos al resultado en el vector g?"
+  },
+  {
+    "objectID": "lectures/lecture1.html#clases-de-vectores",
+    "href": "lectures/lecture1.html#clases-de-vectores",
+    "title": "R y el Tidyverse",
+    "section": "Clases de vectores",
+    "text": "Clases de vectores\n\nh &lt;- c(1, 2, 3)\n\nclass(h)\n\n\n\n[1] \"numeric\"\n\n\n\n\ni &lt;- c(\"a\", \"b\", \"c\")\n\nclass(i)\n\n\n\n[1] \"character\"\n\n\n\n\n\nj &lt;- c(TRUE, FALSE, TRUE)\n\nclass(j)\n\n\n\n[1] \"logical\"\n\n\n\n\n\nk &lt;- c(h, i, j)\n\n\n\n\nPregunta: ¿Qué clase de vector es k?\n\n\n\nk\n\n\n\n[1] \"1\"     \"2\"     \"3\"     \"a\"     \"b\"     \"c\"     \"TRUE\"  \"FALSE\" \"TRUE\" \n\n\n\n\n\nclass(k)\n\n\n\n[1] \"character\""
+  },
+  {
+    "objectID": "lectures/lecture1.html#r-es-muy-amigable-al-usuario",
+    "href": "lectures/lecture1.html#r-es-muy-amigable-al-usuario",
+    "title": "R y el Tidyverse",
+    "section": "R es muy amigable al usuario",
+    "text": "R es muy amigable al usuario\n\nR ayuda mucho al usuario. Otros lenguajes pudieron haber arrojado un error a la hora de definir al vector k a partir de vectores de diferentes clases. Sin embargo, R hizo lo siguiente para evitar el error:\n\n\n\nk &lt;- c(as.character(h), as.character(i), as.character(j))\n\nk\n\n\n\n[1] \"1\"     \"2\"     \"3\"     \"a\"     \"b\"     \"c\"     \"TRUE\"  \"FALSE\" \"TRUE\""
+  },
+  {
+    "objectID": "lectures/lecture1.html#funciones",
+    "href": "lectures/lecture1.html#funciones",
+    "title": "R y el Tidyverse",
+    "section": "Funciones",
+    "text": "Funciones\nEscribamos una función que calcule el área de un círculo, dado su radio.\n\n\narea_circulo &lt;- function(radio) {\n    res &lt;- pi * radio^2\n\n    return(res)\n}\n\n\narea_circulo(3)\n\n\n\n[1] 28.27433\n\n\n\n\n\nradios &lt;- seq(4, 10, 1)\n\nradios\n\n\n\n[1]  4  5  6  7  8  9 10\n\n\n\n\n\nareas &lt;- area_circulo(radios)\n\nareas\n\n\n\n[1]  50.26548  78.53982 113.09734 153.93804 201.06193 254.46900 314.15927"
+  },
+  {
+    "objectID": "lectures/lecture1.html#funciones-vectorizadas",
+    "href": "lectures/lecture1.html#funciones-vectorizadas",
+    "title": "R y el Tidyverse",
+    "section": "Funciones vectorizadas",
+    "text": "Funciones vectorizadas\nOjo: En el ejemplo anterior, R nos volvió a ayudar.\n\nPudo interpretar que la función area_circulo debía aplicarse a cada elemento del vector radios y nos devolvió un vector con las áreas correspondientes.\n\n\nEsto fue posible porque el contenido de la función area_circulo es vectorizado. No siempre será así, pero en esta ocasión, R pudo ayudarnos.\n\n\nOtras veces, tendremos que aplicar una función a cada elemento de un vector con ayuda de funciones como lapply o sapply. También veremos cómo hacer programación funcional con purrr para hacer muchas computaciones de manera más eficiente."
+  },
+  {
+    "objectID": "lectures/lecture1.html#orden-de-operaciones",
+    "href": "lectures/lecture1.html#orden-de-operaciones",
+    "title": "R y el Tidyverse",
+    "section": "Orden de operaciones",
+    "text": "Orden de operaciones\nOtra cosa para destacar es que R guarda el orden de operaciones.\n\nLa función area_circulo regresa el resultado para la expresión \\(\\pi r^2\\) y no para \\(\\pi (r^2)\\).\n\n\nNo tuvimos que especificar el orden de operaciones, escribiendo pi * (r^2), R lo hizo por nosotros."
+  },
+  {
+    "objectID": "lectures/lecture1.html#funciones-de-base-r",
+    "href": "lectures/lecture1.html#funciones-de-base-r",
+    "title": "R y el Tidyverse",
+    "section": "Funciones de base R",
+    "text": "Funciones de base R\nR tiene funciones estadísticas precargadas.\n\nPor ejemplo, podemos generar números aleatorios a partir de una variedad de distribuciones teóricas.\n\n\n\nrnorm genera números aleatorios de una distribución normal\nrunif a partir de una distribución uniforme\n\n\n\n\n\nrandom_numbers &lt;- rnorm(100000, mean = 0, sd = 1)\n\n\nhist(random_numbers)"
+  },
+  {
+    "objectID": "lectures/lecture1.html#funciones-de-base-r-1",
+    "href": "lectures/lecture1.html#funciones-de-base-r-1",
+    "title": "R y el Tidyverse",
+    "section": "Funciones de base R",
+    "text": "Funciones de base R\nTambién podemos calcular la media, la desviación estándar, la longitud y la clase de un vector de números.\n\n\nmean(random_numbers)\n\n\n\n[1] 0.00131715\n\nsd(random_numbers)\n\n[1] 1.002069\n\nlength(random_numbers)\n\n[1] 100000\n\nclass(random_numbers)\n\n[1] \"numeric\"\n\n\n\n\nPuedes consultar la documentación de cualquier función con el comando ? seguido del nombre de la función. Por ejemplo: ?rnorm."
+  },
+  {
+    "objectID": "lectures/lecture1.html#base-r-vs.-tidyverse",
+    "href": "lectures/lecture1.html#base-r-vs.-tidyverse",
+    "title": "R y el Tidyverse",
+    "section": "Base R vs. Tidyverse",
+    "text": "Base R vs. Tidyverse\nHasta ahora, solo hemos visto cómo usar R con funciones de base. Sin embargo, la comunidad de R ha desarrollado una serie de paquetes que abren las puertas a nuevos mundos de análisis de datos.\n\nEl Tidyverse es un conjunto de paquetes de R diseñados para la ciencia de datos. Todos los paquetes del Tidyverse comparten una filosofía de diseño, gramática y estructura de datos.\n\n\nEl libro de Wickham, Cetinkaya-Rundel, y Grolemund (2023) es una excelente referencia para aprender ciencia de datos con R."
+  },
+  {
+    "objectID": "lectures/lecture1.html#instalación-de-paquetes",
+    "href": "lectures/lecture1.html#instalación-de-paquetes",
+    "title": "R y el Tidyverse",
+    "section": "Instalación de paquetes",
+    "text": "Instalación de paquetes\nHay dos formas de instalar paquetes en R:\n\nUsando el comando base install.packages(), lo que además requiere cargar el paquete en la sesión cada vez que se inicia R.\n\n\n# install.packages(\"tidyverse\")\n\nlibrary(tidyverse)\n\n\n\n\n\nO, alternativamente, usando el paquete pacman. Solo necesitamos instalarlo una vez.\n\n\n# install.packages(\"pacman\")\n\npacman::p_load(tidyverse)\n\n\n\n\n\nTambién podemos llamar paquetes instalados, pero que no están cargados en la sesión, escribiendo el nombre del paquete, seguido de :: y el nombre de la función, como cuando llamamos a la función p_load del paquete pacman, sin cargar el paquete en la sesión."
+  },
+  {
+    "objectID": "lectures/lecture1.html#paquetes-del-tidyverse-1",
+    "href": "lectures/lecture1.html#paquetes-del-tidyverse-1",
+    "title": "R y el Tidyverse",
+    "section": "Paquetes del Tidyverse",
+    "text": "Paquetes del Tidyverse\nAl instalar el Tidyverse, instalamos un conjunto de paquetes que podemos examinar llamando:\n\ntidyverse_packages()\n\n\n\n [1] \"broom\"         \"conflicted\"    \"cli\"           \"dbplyr\"       \n [5] \"dplyr\"         \"dtplyr\"        \"forcats\"       \"ggplot2\"      \n [9] \"googledrive\"   \"googlesheets4\" \"haven\"         \"hms\"          \n[13] \"httr\"          \"jsonlite\"      \"lubridate\"     \"magrittr\"     \n[17] \"modelr\"        \"pillar\"        \"purrr\"         \"ragg\"         \n[21] \"readr\"         \"readxl\"        \"reprex\"        \"rlang\"        \n[25] \"rstudioapi\"    \"rvest\"         \"stringr\"       \"tibble\"       \n[29] \"tidyr\"         \"xml2\"          \"tidyverse\""
+  },
+  {
+    "objectID": "lectures/lecture1.html#estructura-de-los-datos",
+    "href": "lectures/lecture1.html#estructura-de-los-datos",
+    "title": "R y el Tidyverse",
+    "section": "Estructura de los datos",
+    "text": "Estructura de los datos\nUna de las convenciones más importantes del Tidyverse es el uso de tablas en formato tibble para alojar datos, que siempre guardan la misma estructura:\n\nlas columnas son variables\nlas filas son observaciones\nlas celdas son valores\n\nUna tabla tibble representa una o varias métricas de una o varias observaciones."
+  },
+  {
+    "objectID": "lectures/lecture1.html#estructura-de-los-datos-1",
+    "href": "lectures/lecture1.html#estructura-de-los-datos-1",
+    "title": "R y el Tidyverse",
+    "section": "Estructura de los datos",
+    "text": "Estructura de los datos\n\nTres reglas de tablas limpias. Fuente: Wickham, Cetinkaya-Rundel, y Grolemund (2023)"
+  },
+  {
+    "objectID": "lectures/lecture1.html#escribir-tablas-con-tibble",
+    "href": "lectures/lecture1.html#escribir-tablas-con-tibble",
+    "title": "R y el Tidyverse",
+    "section": "Escribir tablas con tibble\n",
+    "text": "Escribir tablas con tibble\n\nPodemos escribir una tabla tibble de la siguiente manera:\n\ntabla_1 &lt;- tibble(\n    nombre = c(\"Juan\", \"María\", \"Pedro\"),\n    anio_nacim = c(1990, 1985, 1992),\n    sexo = c(\"M\", \"F\", \"M\")\n)\n\ntabla_1\n\n\n\n# A tibble: 3 × 3\n  nombre anio_nacim sexo \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;\n1 Juan         1990 M    \n2 María        1985 F    \n3 Pedro        1992 M    \n\nglimpse(tabla_1)\n\nRows: 3\nColumns: 3\n$ nombre     &lt;chr&gt; \"Juan\", \"María\", \"Pedro\"\n$ anio_nacim &lt;dbl&gt; 1990, 1985, 1992\n$ sexo       &lt;chr&gt; \"M\", \"F\", \"M\""
+  },
+  {
+    "objectID": "lectures/lecture1.html#las-tablas-son-un-arreglo-de-vectores",
+    "href": "lectures/lecture1.html#las-tablas-son-un-arreglo-de-vectores",
+    "title": "R y el Tidyverse",
+    "section": "Las tablas son un arreglo de vectores",
+    "text": "Las tablas son un arreglo de vectores\nLas tablas tibble son arreglos de vectores, donde cada columna es un vector.\nPodemos accederlas de dos maneras:\n\nUsando base R:\n\n\n\nnombres_1 &lt;- tabla_1$nombre\n\n\n\n\n\nUsando la función pull() de dplyr:\n\n\n\n\nnombres_2 &lt;- pull(tabla_1, nombre)\n\n\n\n\n\n\nPodemos verificar que ambos vectores son iguales:\n\nnombres_1 == nombres_2\n\n\n\n[1] TRUE TRUE TRUE\n\n\n\n\nO, de manera más eficiente:\n\nall(nombres_1 == nombres_2)\n\n\n\n[1] TRUE"
+  },
+  {
+    "objectID": "lectures/lecture1.html#nyflights13",
+    "href": "lectures/lecture1.html#nyflights13",
+    "title": "R y el Tidyverse",
+    "section": "nyflights13",
+    "text": "nyflights13\nYa conocemos la estructura de trabajo con tablas tibble.\nAhora, vamos a trabajar con un conjunto de datos del mundo real.\nnycflights13 es un paquete de datos que contiene información sobre todos los vuelos que salieron de los aeropuertos de Nueva York en 2013.\nLos datos provienen del Bureau of Transportation Statistics de los Estados Unidos y podemos ir a la documentación con ?flights.\nCargamos el paquete con pacman:\n\npacman::p_load(nycflights13)"
+  },
+  {
+    "objectID": "lectures/lecture1.html#nyflights13-1",
+    "href": "lectures/lecture1.html#nyflights13-1",
+    "title": "R y el Tidyverse",
+    "section": "nyflights13",
+    "text": "nyflights13\n\nflights\n\n\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 336,766 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "lectures/lecture1.html#nyflights13-2",
+    "href": "lectures/lecture1.html#nyflights13-2",
+    "title": "R y el Tidyverse",
+    "section": "nyflights13",
+    "text": "nyflights13\n\nglimpse(flights)\n\n\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 558, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2, -1…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 849,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 851,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7, -1…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\", \"B6\", \"EV\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301, 4…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804JB\", \"N668DN\", \"N394…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", \"EWR\", \"EWR\", \"LGA\",…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", \"ORD\", \"FLL\", \"IAD\",…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149, 1…\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 733, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…\n\n\n\nPregunta: ¿Cuál es el nivel de observación de los datos?\n\n\nTambién puedes usar View(flights) para ver los datos en una ventana de visualización."
+  },
+  {
+    "objectID": "lectures/lecture1.html#verbos-de-dplyr",
+    "href": "lectures/lecture1.html#verbos-de-dplyr",
+    "title": "R y el Tidyverse",
+    "section": "Verbos de dplyr\n",
+    "text": "Verbos de dplyr\n\nVamos a aprender los verbos (funciones) principales de dplyr, con los que podemos resolver una vasta cantidad de problemas de manipulación de datos.\n¿Qué tienen en común los verbos de dplyr?\n\nSu primer argumento es una tibble.\nLos siguientes argumentos típicamente describen qué columnas operar usando los nombres de las variables sin comillas.\nSiempre devuelven una tibble."
+  },
+  {
+    "objectID": "lectures/lecture1.html#anidación-de-funciones-con-el-pipe",
+    "href": "lectures/lecture1.html#anidación-de-funciones-con-el-pipe",
+    "title": "R y el Tidyverse",
+    "section": "Anidación de funciones con el pipe |>\n",
+    "text": "Anidación de funciones con el pipe |&gt;\n\nMuy frcuentemente, vas a querer realizar varias operaciones en una tabla de datos.\nEn lugar de guardar el resultado de cada operación en un objeto, puedes anidar las funciones con el operador |&gt;."
+  },
+  {
+    "objectID": "lectures/lecture1.html#anidación-de-funciones-con-el-pipe-1",
+    "href": "lectures/lecture1.html#anidación-de-funciones-con-el-pipe-1",
+    "title": "R y el Tidyverse",
+    "section": "Anidación de funciones con el pipe |>\n",
+    "text": "Anidación de funciones con el pipe |&gt;\n\n\nEjemplo 1 Imagina que queremos encontrar el vuelo más rápido al aeropueto de Houston IAH.\nNecesitarás combinar las funciones filter(), mutate(), select() y arrange().\n\n\n\nSolución 1. \n\nflights |&gt;\n    filter(dest == \"IAH\") |&gt;\n    mutate(speed = distance / air_time * 60) |&gt; \n    select(year:day, dep_time, carrier, flight, speed) |&gt;\n    arrange(desc(speed))\n\n\n\n# A tibble: 7,198 × 7\n    year month   day dep_time carrier flight speed\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;\n 1  2013     7     9      707 UA         226  522.\n 2  2013     8    27     1850 UA        1128  521.\n 3  2013     8    28      902 UA        1711  519.\n 4  2013     8    28     2122 UA        1022  519.\n 5  2013     6    11     1628 UA        1178  515.\n 6  2013     8    27     1017 UA         333  515.\n 7  2013     8    27     1205 UA        1421  515.\n 8  2013     8    27     1758 UA         302  515.\n 9  2013     9    27      521 UA         252  515.\n10  2013     8    28      625 UA         559  515.\n# ℹ 7,188 more rows"
+  },
+  {
+    "objectID": "lectures/lecture1.html#anidación-de-funciones-con-el-pipe-2",
+    "href": "lectures/lecture1.html#anidación-de-funciones-con-el-pipe-2",
+    "title": "R y el Tidyverse",
+    "section": "Anidación de funciones con el pipe |>\n",
+    "text": "Anidación de funciones con el pipe |&gt;\n\n¿Qué pasaría si no usamos el operador |&gt;?\nUna opción es anidar las funciones con paréntesis:\n\nSolución 2. \n\n\narrange(\n  select(\n    mutate(\n      filter(\n        flights, \n        dest == \"IAH\"\n      ),\n      speed = distance / air_time * 60\n    ),\n    year:day, dep_time, carrier, flight, speed\n  ),\n  desc(speed)\n)\n\n\n# A tibble: 7,198 × 7\n    year month   day dep_time carrier flight speed\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;\n 1  2013     7     9      707 UA         226  522.\n 2  2013     8    27     1850 UA        1128  521.\n 3  2013     8    28      902 UA        1711  519.\n 4  2013     8    28     2122 UA        1022  519.\n 5  2013     6    11     1628 UA        1178  515.\n 6  2013     8    27     1017 UA         333  515.\n 7  2013     8    27     1205 UA        1421  515.\n 8  2013     8    27     1758 UA         302  515.\n 9  2013     9    27      521 UA         252  515.\n10  2013     8    28      625 UA         559  515.\n# ℹ 7,188 more rows"
+  },
+  {
+    "objectID": "lectures/lecture1.html#anidar-funciones-con-el-pipe",
+    "href": "lectures/lecture1.html#anidar-funciones-con-el-pipe",
+    "title": "R y el Tidyverse",
+    "section": "Anidar funciones con el pipe |>\n",
+    "text": "Anidar funciones con el pipe |&gt;\n\nOtra opción es guardar los pasos intermedios en objetos:\n\nSolución 3. \n\nflights1 &lt;- filter(flights, dest == \"IAH\")\nflights2 &lt;- mutate(flights1, speed = distance / air_time * 60)\nflights3 &lt;- select(flights2, year:day, dep_time, carrier, flight, speed)\narrange(flights3, desc(speed))\n\n\n\n# A tibble: 7,198 × 7\n    year month   day dep_time carrier flight speed\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;\n 1  2013     7     9      707 UA         226  522.\n 2  2013     8    27     1850 UA        1128  521.\n 3  2013     8    28      902 UA        1711  519.\n 4  2013     8    28     2122 UA        1022  519.\n 5  2013     6    11     1628 UA        1178  515.\n 6  2013     8    27     1017 UA         333  515.\n 7  2013     8    27     1205 UA        1421  515.\n 8  2013     8    27     1758 UA         302  515.\n 9  2013     9    27      521 UA         252  515.\n10  2013     8    28      625 UA         559  515.\n# ℹ 7,188 more rows"
+  },
+  {
+    "objectID": "lectures/lecture1.html#anidación-de-funciones-con-el-pipe-3",
+    "href": "lectures/lecture1.html#anidación-de-funciones-con-el-pipe-3",
+    "title": "R y el Tidyverse",
+    "section": "Anidación de funciones con el pipe |>\n",
+    "text": "Anidación de funciones con el pipe |&gt;\n\n¿Cuál de las tres soluciones deja un código más limpio y fácil de leer?"
+  },
+  {
+    "objectID": "lectures/lecture1.html#grupos-y-agregaciones",
+    "href": "lectures/lecture1.html#grupos-y-agregaciones",
+    "title": "R y el Tidyverse",
+    "section": "Grupos y agregaciones",
+    "text": "Grupos y agregaciones\nHasta ahora, hemos visto verbos que trabajan con filas y columnas. Ahora veremos que dplyr se vuelve más poderoso cuando agregamos la posibilidad de trabajar con grupos.\nLas funciones que discutiremos son group_by() y summarize()."
+  },
+  {
+    "objectID": "lectures/lecture1.html#group_by",
+    "href": "lectures/lecture1.html#group_by",
+    "title": "R y el Tidyverse",
+    "section": "group_by()",
+    "text": "group_by()\nUsamos group_by() para dividir el conjunto de datos en grupos con un significado.\n\n\nflights |&gt; \n  group_by(month)\n\n\n\n# A tibble: 336,776 × 19\n# Groups:   month [12]\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 336,766 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\n\n\ngroup_by()no cambia los datos, pero si te fijas bien, verás que el resultado indica que está “agrupado por” la variable month. Esto significa que las operaciones subsesuentes se aplicarán a cada grupo."
+  },
+  {
+    "objectID": "lectures/lecture1.html#summarize",
+    "href": "lectures/lecture1.html#summarize",
+    "title": "R y el Tidyverse",
+    "section": "summarize()",
+    "text": "summarize()\nUsamos summarize()1 para resumir los datos en cada grupo: obtendremos una nueva tabla con una observación por cada grupo.\n\n\n\nflights |&gt; \n  group_by(month) |&gt; \n  summarize(\n    avg_delay = mean(dep_delay, na.rm = TRUE),\n    n = n()\n  )\n\n\n# A tibble: 12 × 3\n   month avg_delay     n\n   &lt;int&gt;     &lt;dbl&gt; &lt;int&gt;\n 1     1     10.0  27004\n 2     2     10.8  24951\n 3     3     13.2  28834\n 4     4     13.9  28330\n 5     5     13.0  28796\n 6     6     20.8  28243\n 7     7     21.7  29425\n 8     8     12.6  29327\n 9     9      6.72 27574\n10    10      6.24 28889\n11    11      5.44 27268\n12    12     16.6  28135\n\n\n\nalternativamente summarise()"
+  },
+  {
+    "objectID": "lectures/lecture1.html#las-funciones-slice_",
+    "href": "lectures/lecture1.html#las-funciones-slice_",
+    "title": "R y el Tidyverse",
+    "section": "Las funciones slice_\n",
+    "text": "Las funciones slice_\n\nConsidera la siguiente operación:\n\nflights |&gt; \n  group_by(dest) |&gt; \n  slice_max(arr_delay, n = 1) |&gt;\n  relocate(dest, arr_delay)\n\n\n\n# A tibble: 108 × 19\n# Groups:   dest [105]\n   dest  arr_delay  year month   day dep_time sched_dep_time dep_delay arr_time\n   &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;\n 1 ABQ         153  2013     7    22     2145           2007        98      132\n 2 ACK         221  2013     7    23     1139            800       219     1250\n 3 ALB         328  2013     1    25      123           2000       323      229\n 4 ANC          39  2013     8    17     1740           1625        75     2042\n 5 ATL         895  2013     7    22     2257            759       898      121\n 6 AUS         349  2013     7    10     2056           1505       351     2347\n 7 AVL         228  2013     8    13     1156            832       204     1417\n 8 BDL         266  2013     2    21     1728           1316       252     1839\n 9 BGR         238  2013    12     1     1504           1056       248     1628\n10 BHM         291  2013     4    10       25           1900       325      136\n# ℹ 98 more rows\n# ℹ 10 more variables: sched_arr_time &lt;int&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\n\n¿Qué hace la función slice_max()?"
+  },
+  {
+    "objectID": "lectures/lecture1.html#aplicación-de-funciones-a-varias-columnas",
+    "href": "lectures/lecture1.html#aplicación-de-funciones-a-varias-columnas",
+    "title": "R y el Tidyverse",
+    "section": "Aplicación de funciones a varias columnas",
+    "text": "Aplicación de funciones a varias columnas\n\nEjemplo 2 ¿Cuál es el promedio de cada una de las variables numéricas en la tabla flights?\n\n\nCon las herramientas que hemoos visto hasta ahora, tendríamos que escribir una línea de código para cada variable numérica. Algo como esto:\n\nday_avg &lt;- mean(flights$day, na.rm = TRUE)\nmonth_avg &lt;- mean(flights$month, na.rm = TRUE)\n# etc."
+  },
+  {
+    "objectID": "lectures/lecture1.html#aplicación-de-funciones-a-varias-columnas-1",
+    "href": "lectures/lecture1.html#aplicación-de-funciones-a-varias-columnas-1",
+    "title": "R y el Tidyverse",
+    "section": "Aplicación de funciones a varias columnas",
+    "text": "Aplicación de funciones a varias columnas\n\nnumeric_cols &lt;- flights |&gt;\n    select(where(is.numeric)) |&gt;\n    ncol()\n\n\n\n\n\nTenemos 14 columnas numéricas en la tabla flights. No sería imposible escribir una línea de código para cada una, pero sería tedioso y propenso a errores.\n\n\nAdemás, hay conjuntos de datos con muchas más columnas que flights, en las que escribir una línea de código para cada variable numérica sería demasiado costoso."
+  },
+  {
+    "objectID": "lectures/lecture1.html#across",
+    "href": "lectures/lecture1.html#across",
+    "title": "R y el Tidyverse",
+    "section": "across()",
+    "text": "across()\nAcross permite aplicar una función a varias columnas de una tabla de datos, sea dentro de summarize() o de mutate().\n\nPara resolver el Ejemplo 2, haríamos lo siguiente:\n\n\n\nSolución 4 (across). \n\nflights |&gt;\n    summarise(\n        across(\n            .cols = where(is.numeric),\n            .fns =  ~ mean(.x, na.rm = TRUE)\n        )   \n    )\n\n\n\n# A tibble: 1 × 14\n   year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;          &lt;dbl&gt;\n1  2013  6.55  15.7    1349.          1344.      12.6    1502.          1536.\n# ℹ 6 more variables: arr_delay &lt;dbl&gt;, flight &lt;dbl&gt;, air_time &lt;dbl&gt;,\n#   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;"
+  },
+  {
+    "objectID": "lectures/lecture1.html#usando-pivot_longer",
+    "href": "lectures/lecture1.html#usando-pivot_longer",
+    "title": "R y el Tidyverse",
+    "section": "Usando pivot_longer()\n",
+    "text": "Usando pivot_longer()\n\nOtra solución es usar la función pivot_longer() para convertir las columnas en filas, y despues calcular el promedio agrupando por variable.\n\n\nSolución 5 (pivot_longer). \n\nflights_long &lt;- flights |&gt;\n    pivot_longer(\n        cols = where(is.numeric),\n        names_to = \"variable\",\n        values_to = \"value\"\n    )\n\nflights_long\n\n\n\n# A tibble: 4,714,864 × 7\n   carrier tailnum origin dest  time_hour           variable       value\n   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;          &lt;dbl&gt;\n 1 UA      N14228  EWR    IAH   2013-01-01 05:00:00 year            2013\n 2 UA      N14228  EWR    IAH   2013-01-01 05:00:00 month              1\n 3 UA      N14228  EWR    IAH   2013-01-01 05:00:00 day                1\n 4 UA      N14228  EWR    IAH   2013-01-01 05:00:00 dep_time         517\n 5 UA      N14228  EWR    IAH   2013-01-01 05:00:00 sched_dep_time   515\n 6 UA      N14228  EWR    IAH   2013-01-01 05:00:00 dep_delay          2\n 7 UA      N14228  EWR    IAH   2013-01-01 05:00:00 arr_time         830\n 8 UA      N14228  EWR    IAH   2013-01-01 05:00:00 sched_arr_time   819\n 9 UA      N14228  EWR    IAH   2013-01-01 05:00:00 arr_delay         11\n10 UA      N14228  EWR    IAH   2013-01-01 05:00:00 flight          1545\n# ℹ 4,714,854 more rows\n\n\n\nflights_long |&gt;\n    group_by(variable) |&gt;\n    summarise(\n        avg = mean(value, na.rm = TRUE)\n    )\n\n\n\n# A tibble: 14 × 2\n   variable           avg\n   &lt;chr&gt;            &lt;dbl&gt;\n 1 air_time        151.  \n 2 arr_delay         6.90\n 3 arr_time       1502.  \n 4 day              15.7 \n 5 dep_delay        12.6 \n 6 dep_time       1349.  \n 7 distance       1040.  \n 8 flight         1972.  \n 9 hour             13.2 \n10 minute           26.2 \n11 month             6.55\n12 sched_arr_time 1536.  \n13 sched_dep_time 1344.  \n14 year           2013"
+  },
+  {
+    "objectID": "lectures/lecture1.html#joins",
+    "href": "lectures/lecture1.html#joins",
+    "title": "R y el Tidyverse",
+    "section": "Joins",
+    "text": "Joins\nLes recomiendo leer el capítulo 19 de R for Data Science para entender a profundidad las operaciones de joins (Wickham, Cetinkaya-Rundel, y Grolemund 2023)."
+  },
+  {
+    "objectID": "lectures/lecture1.html#left_join",
+    "href": "lectures/lecture1.html#left_join",
+    "title": "R y el Tidyverse",
+    "section": "left_join()",
+    "text": "left_join()\nHaremos un ejemplo muy sencillo de un left_join().\n\nRecordemos cómo se ve la tabla flights:\n\nglimpse(flights)\n\n\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 558, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2, -1…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 849,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 851,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7, -1…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\", \"B6\", \"EV\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301, 4…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804JB\", \"N668DN\", \"N394…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", \"EWR\", \"EWR\", \"LGA\",…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", \"ORD\", \"FLL\", \"IAD\",…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149, 1…\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 733, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…"
+  },
+  {
+    "objectID": "lectures/lecture1.html#left_join-1",
+    "href": "lectures/lecture1.html#left_join-1",
+    "title": "R y el Tidyverse",
+    "section": "left_join()",
+    "text": "left_join()\nLa columna carrier incluye el código de la aerolínea a la que el vuelo pertenece.\nPero no queda exactamente claro qué aerolínea es."
+  },
+  {
+    "objectID": "lectures/lecture1.html#left_join-2",
+    "href": "lectures/lecture1.html#left_join-2",
+    "title": "R y el Tidyverse",
+    "section": "left_join()",
+    "text": "left_join()\nAl consultar la documentación usando ?flights, encontramos que la tabla airlines contiene el nombre de las aerolíneas.\n\n\nairlines\n\n\n# A tibble: 16 × 2\n   carrier name                       \n   &lt;chr&gt;   &lt;chr&gt;                      \n 1 9E      Endeavor Air Inc.          \n 2 AA      American Airlines Inc.     \n 3 AS      Alaska Airlines Inc.       \n 4 B6      JetBlue Airways            \n 5 DL      Delta Air Lines Inc.       \n 6 EV      ExpressJet Airlines Inc.   \n 7 F9      Frontier Airlines Inc.     \n 8 FL      AirTran Airways Corporation\n 9 HA      Hawaiian Airlines Inc.     \n10 MQ      Envoy Air                  \n11 OO      SkyWest Airlines Inc.      \n12 UA      United Air Lines Inc.      \n13 US      US Airways Inc.            \n14 VX      Virgin America             \n15 WN      Southwest Airlines Co.     \n16 YV      Mesa Airlines Inc."
+  },
+  {
+    "objectID": "lectures/lecture1.html#left_join-3",
+    "href": "lectures/lecture1.html#left_join-3",
+    "title": "R y el Tidyverse",
+    "section": "left_join()",
+    "text": "left_join()\nPuedo agregar esta información a la tabla flights con un left_join().\n\nflights_with_airlines &lt;- left_join(\n    x = flights,\n    y = airlines,\n    by = \"carrier\"\n)\n\nglimpse(flights_with_airlines)\n\n\n\nRows: 336,776\nColumns: 20\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 558, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2, -1…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 849,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 851,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7, -1…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\", \"B6\", \"EV\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301, 4…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804JB\", \"N668DN\", \"N394…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", \"EWR\", \"EWR\", \"LGA\",…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", \"ORD\", \"FLL\", \"IAD\",…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149, 1…\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 733, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…\n$ name           &lt;chr&gt; \"United Air Lines Inc.\", \"United Air Lines Inc.\", \"Amer…"
+  },
+  {
+    "objectID": "lectures/lecture1.html#left_join-4",
+    "href": "lectures/lecture1.html#left_join-4",
+    "title": "R y el Tidyverse",
+    "section": "left_join()",
+    "text": "left_join()\nleft_join() preserva todas las observaciones de la tabla x y agrega las columnas de la tabla y que coinciden con la columna by.\n\nOtras opciones son right_join(), inner_join() y full_join()."
+  },
+  {
+    "objectID": "lectures/lecture1.html#una-variable",
+    "href": "lectures/lecture1.html#una-variable",
+    "title": "R y el Tidyverse",
+    "section": "Una variable",
+    "text": "Una variable\nYa vimos cómo hacer un histograma con la función base hist().\nAhora, vamos a ver cómo hacer un histograma con ggplot2.\n\nEjemplo 3 ¿Cómo se distribuyen los retrasos en la llegada de los vuelos en el conjunto de datos flights?"
+  },
+  {
+    "objectID": "lectures/lecture1.html#una-variable-histograma",
+    "href": "lectures/lecture1.html#una-variable-histograma",
+    "title": "R y el Tidyverse",
+    "section": "Una variable: histograma",
+    "text": "Una variable: histograma\n\n\n\nggplot(\n    data = flights,\n    mapping = aes(x = arr_delay)\n) +\n    geom_histogram()\n\n\n\n\n\n\nggplot(data = flights) +\n    geom_histogram(\n        mapping = aes(x = arr_delay)\n    )"
+  },
+  {
+    "objectID": "lectures/lecture1.html#una-variable-después-de-producción",
+    "href": "lectures/lecture1.html#una-variable-después-de-producción",
+    "title": "R y el Tidyverse",
+    "section": "Una variable: después de producción",
+    "text": "Una variable: después de producción\nLa ventaja de usar ggplot2 es que podemos personalizar las gráficas de manera sencilla.\n\n\nggplot(\n    data = flights,\n    mapping = aes(x = arr_delay)\n    ) +\n    geom_histogram(binwidth = 10, fill = \"lightblue\", color = \"black\") +\n    labs(\n        title = \"Retrasos en la llegada de vuelos\",\n        x = \"Retraso en la llegada (minutos)\",\n        y = \"Frecuencia\"\n    ) +\n    scale_y_continuous(labels = scales::comma) +\n    scale_x_continuous(labels = scales::comma, breaks = seq(-250, 1500, 250)) +\n    theme_minimal()"
+  },
+  {
+    "objectID": "lectures/lecture1.html#una-variable-otras-opciones",
+    "href": "lectures/lecture1.html#una-variable-otras-opciones",
+    "title": "R y el Tidyverse",
+    "section": "Una variable: otras opciones",
+    "text": "Una variable: otras opciones\nplot_grid &lt;- ggplot(\n    data = flights,\n    mapping = aes(x = arr_delay)\n) \n\n\nplot_grid +\n    geom_area(stat = \"bin\")\n\n\n\nplot_grid +\n    geom_boxplot()\nplot_grid +\n    geom_density()\nplot_grid +\n    stat_ecdf()"
+  },
+  {
+    "objectID": "lectures/lecture1.html#una-variable-tráfico-de-vuelos",
+    "href": "lectures/lecture1.html#una-variable-tráfico-de-vuelos",
+    "title": "R y el Tidyverse",
+    "section": "Una variable: tráfico de vuelos",
+    "text": "Una variable: tráfico de vuelos\n\nEjemplo 4 ¿Cómo se distribuye el tráfico de vuelos a lo largo del día?"
+  },
+  {
+    "objectID": "lectures/lecture1.html#una-variable-tráfico-de-vuelos-1",
+    "href": "lectures/lecture1.html#una-variable-tráfico-de-vuelos-1",
+    "title": "R y el Tidyverse",
+    "section": "Una variable: tráfico de vuelos",
+    "text": "Una variable: tráfico de vuelos\n\nSolución 6. \n\nflights |&gt;\n    ggplot(aes(x = hour)) +\n    geom_histogram(binwidth = 1, fill = \"lightblue\", color = \"black\") +\n    labs(\n        title = \"Tráfico de vuelos a lo largo del día\",\n        x = \"Hora del día\",\n        y = \"Frecuencia\"\n    ) +\n    theme_minimal() +\n    scale_x_continuous(breaks = seq(0, 24, 1)) +\n    scale_y_continuous(labels = scales::comma)"
+  },
+  {
+    "objectID": "lectures/lecture1.html#dos-variables",
+    "href": "lectures/lecture1.html#dos-variables",
+    "title": "R y el Tidyverse",
+    "section": "Dos variables",
+    "text": "Dos variables\n\nEjemplo 5 ¿Cómo se comporta el retraso de llegadas por hora de llegada?"
+  },
+  {
+    "objectID": "lectures/lecture1.html#dos-variables-1",
+    "href": "lectures/lecture1.html#dos-variables-1",
+    "title": "R y el Tidyverse",
+    "section": "Dos variables",
+    "text": "Dos variables\n\nSolución 7. Podemos agrupar los datos por hora y calcular el retraso promedio de llegada usando verbos de dplyr:\n\ndelays &lt;- flights |&gt;\n    group_by(hour) |&gt;\n    summarize(\n        avg_delay = mean(arr_delay, na.rm = TRUE),\n        n = n()\n    ) |&gt;\n    ungroup()\n\ndelays |&gt;\n    ggplot(\n        aes(\n            x = hour,\n            y = avg_delay\n        )\n    ) +\n    geom_point()"
+  },
+  {
+    "objectID": "lectures/lecture1.html#dos-variables-2",
+    "href": "lectures/lecture1.html#dos-variables-2",
+    "title": "R y el Tidyverse",
+    "section": "Dos variables",
+    "text": "Dos variables\n\nSolución 8. O podemos usar stat_summary() para calcular el promedio de los retrasos de llegada por hora:\n\ndelays_plot &lt;- flights |&gt;\n    ggplot(\n        aes(\n            x = hour,\n            y = arr_delay\n        )\n    ) +\n    stat_summary(\n        fun = mean,\n        geom = \"point\"\n    ) \n\ndelays_plot"
+  },
+  {
+    "objectID": "lectures/lecture1.html#geom_-vs.-stat_",
+    "href": "lectures/lecture1.html#geom_-vs.-stat_",
+    "title": "R y el Tidyverse",
+    "section": "\ngeom_ vs. stat_\n",
+    "text": "geom_ vs. stat_\n\n\nLas funciones geom_ se usan para representar puntos de datos, y sus propiedades aesthetics se usan para representar variables. Cada función geom_ agrega una capa a la gráfica.\nLas funciones stat_ son una alternativa para construir capas. Crean nuevas variables para graficar. por ejemplo conteos, proporciones, medianas, etc.\n\n\nGuía de referencia: https://rstudio.github.io/cheatsheets/html/data-visualization.html."
+  },
+  {
+    "objectID": "lectures/lecture1.html#dos-variables-después-de-producción",
+    "href": "lectures/lecture1.html#dos-variables-después-de-producción",
+    "title": "R y el Tidyverse",
+    "section": "Dos variables: después de producción",
+    "text": "Dos variables: después de producción\n\ndelays_plot +\n    geom_hline(\n        yintercept = 0,\n        linetype = \"dashed\"\n    ) +\n    labs(\n        title = \"Retraso promedio por hora de llegada (minutos)\",\n        x = \"Hora de llegada\",\n        y = \"Retraso promedio\"\n    ) +\n    theme_minimal() +\n    scale_x_continuous(breaks = seq(0, 24, 1)) +\n    scale_y_continuous()"
+  },
+  {
+    "objectID": "lectures/lecture1.html#tres-variables-retrasos-por-aerolínea",
+    "href": "lectures/lecture1.html#tres-variables-retrasos-por-aerolínea",
+    "title": "R y el Tidyverse",
+    "section": "Tres variables: Retrasos por aerolínea",
+    "text": "Tres variables: Retrasos por aerolínea\n\nEjemplo 6 ¿Cuál es el retraso promedio de llegada por aerolínea? ¿El tamaño de la aerolínea importa?"
+  },
+  {
+    "objectID": "lectures/lecture1.html#tres-variables-retrasos-por-aerolínea-1",
+    "href": "lectures/lecture1.html#tres-variables-retrasos-por-aerolínea-1",
+    "title": "R y el Tidyverse",
+    "section": "Tres variables: Retrasos por aerolínea",
+    "text": "Tres variables: Retrasos por aerolínea\n\nSolución 9. Usemos dplyr para calcular el retraso promedio y el número de vuelos por aerolínea:\n\nflights_with_airlines |&gt;\n    group_by(name) |&gt;\n    summarise(\n        arr_delay = mean(arr_delay, na.rm = TRUE),\n        n = n()\n    ) |&gt;\n    ggplot(\n        aes(\n            x = reorder(name, arr_delay),\n            y = arr_delay\n        )\n    ) +\n    geom_point(aes(size = n)) +\n    geom_hline(\n        yintercept = 0,\n        linetype = \"dashed\"\n    ) +\n    labs(\n        title = \"Retrasos por aerolínea\",\n        x = \"Aerolínea\",\n        y = \"Retraso en la llegada (minutos)\",\n        size = \"Vuelos\"\n    ) +\n    coord_flip() +\n    theme_minimal()"
+  },
+  {
+    "objectID": "lectures/lecture1.html#tarea",
+    "href": "lectures/lecture1.html#tarea",
+    "title": "R y el Tidyverse",
+    "section": "Tarea",
+    "text": "Tarea\nLeer los capítulos 1 y 4 de la segunda edición de R for Data Science de Wickham, Cetinkaya-Rundel, y Grolemund (2023).\n\nO los capítulos 3 y 4 de la primera edición.\n\nEnvíenme un correo con una idea para el proyecto final."
+  },
+  {
+    "objectID": "lectures/lecture1.html#referencias",
+    "href": "lectures/lecture1.html#referencias",
+    "title": "R y el Tidyverse",
+    "section": "Referencias",
+    "text": "Referencias\n\n\n\n\nCrawley, Michael J. 2012. The R Book. John Wiley & Sons.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, y Garrett Grolemund. 2023. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 2nd edition. Beijing Boston Farnham Sebastopol Tokyo: O’Reilly Media. https://r4ds.hadley.nz/."
   },
   {
     "objectID": "resources.html",

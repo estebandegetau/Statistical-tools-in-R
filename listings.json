@@ -1,16 +1,19 @@
 [
   {
     "listing": "/lectures.html",
-    "items": []
-  },
-  {
-    "listing": "/assignments.html",
     "items": [
-      "/assignments/assignment0/instructions.html"
+      "/lectures/lecture1.html"
     ]
   },
   {
     "listing": "/index.html",
+    "items": [
+      "/assignments/assignment0/instructions.html",
+      "/lectures/lecture1.html"
+    ]
+  },
+  {
+    "listing": "/assignments.html",
     "items": [
       "/assignments/assignment0/instructions.html"
     ]

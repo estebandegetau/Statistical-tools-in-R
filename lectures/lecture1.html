@@ -570,11 +570,11 @@ Esteban Degetau
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.0004295789</code></pre>
+<pre><code>[1] 0.00131715</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">sd</span>(random_numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.001837</code></pre>
+<pre><code>[1] 1.002069</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="fu">length</span>(random_numbers)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1488,7 +1488,7 @@ $ name           &lt;chr&gt; "United Air Lines Inc.", "United Air Lines Inc.", "
 </div>
 </section><section id="tres-variables-retrasos-por-aerolínea-1" class="slide level2 scrollable"><h2>Tres variables: Retrasos por aerolínea</h2>
 <div id="sol-airlines" class="proof solution">
-<p><span class="proof-title"><em>Solución 9</em>. </span></p>
+<p><span class="proof-title"><em>Solución 9</em>. </span>Usemos <code>dplyr</code> para calcular el retraso promedio y el número de vuelos por aerolínea:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a></a>flights_with_airlines <span class="sc">|&gt;</span></span>
 <span id="cb107-2"><a></a>    <span class="fu">group_by</span>(name) <span class="sc">|&gt;</span></span>
@@ -1528,7 +1528,11 @@ $ name           &lt;chr&gt; "United Air Lines Inc.", "United Air Lines Inc.", "
 </section></section><section><section id="avisos" class="title-slide slide level1 center"><h1>Avisos</h1>
 
 </section><section id="tarea" class="slide level2"><h2>Tarea</h2>
-<p>Leer los capítulos 1 y 4 de <em>R for Data Science</em> de <span class="citation" data-cites="wickham2017r">Wickham, Cetinkaya-Rundel, y Grolemund (<a href="#/referencias" role="doc-biblioref" onclick="">2023</a>)</span>.</p>
+<p>Leer los capítulos 1 y 4 de la segunda edición de <em>R for Data Science</em> de <span class="citation" data-cites="wickham2017r">Wickham, Cetinkaya-Rundel, y Grolemund (<a href="#/referencias" role="doc-biblioref" onclick="">2023</a>)</span>.</p>
+<ul>
+<li class="fragment">O los capítulos 3 y 4 de la primera edición.</li>
+</ul>
+<p>Envíenme un correo con una idea para el proyecto final.</p>
 </section><section id="referencias" class="slide level2 smaller scrollable"><h2>Referencias</h2>
 
 
@@ -1861,7 +1865,7 @@ Wickham, Hadley, Mine Cetinkaya-Rundel, y Garrett Grolemund. 2023. <em>R for Dat
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/estebandegetau\.github\.io\/Statistical-tools-in-R\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
