@@ -60,7 +60,7 @@ f. Discute tus resultados.
 
 ## Seguridad social en la población
 
-El siguiente código carga un conjunto de datos proveniente de la ENIGH 2022 llamado `poblacion2022`. Explotaremos este conjunto de datos para explorar qué tipo de personas tienen/carecen de seguridad social en México. Adicoinalmente. el código genera un diccionario de datos que queda guardado como una `tibble` llamado `dict`. Puedes consultar el diccionario de datos llamando `View(dict)`.
+El siguiente código carga un conjunto de datos proveniente de la ENIGH 2022 llamado `poblacion2022`. Explotaremos este conjunto de datos para explorar qué tipo de personas tienen/carecen de seguridad social en México. Adicoinalmente, el código genera un diccionario de datos que queda guardado como una `tibble` llamado `dict`. Puedes consultar el diccionario de datos llamando `View(dict)`.
 
 ```{r}
 # Checar que pacman esté instalado
@@ -89,7 +89,7 @@ a. La variable `segsoc` en `poblacion2022` es una variable categórica que indic
 
 b. ¿Qué porcentaje de hombres y mujeres tienen seguridad social? ¿Qué porcentaje de hombres y mujeres no tienen seguridad social?
 
-c. Ahora queremos saber cuál es la escolaridad promedio para las personas con y sin seguridad social. Sin embargo, la información sobre escolaridad en la tabla `poblacion2022` está codificada como `factor` en la variable `nivelaprob`. Con la siguiente tabla podemos covnertir niveles escolares a años de escolaridad:
+c. Ahora queremos saber cuál es la escolaridad promedio para las personas con y sin seguridad social. Sin embargo, la información sobre escolaridad en la tabla `poblacion2022` está codificada como `factor` en la variable `nivelaprob`. Con la siguiente tabla podemos covnertir niveles escolares en años de escolaridad:
 
 ```{r}
 
@@ -106,7 +106,7 @@ escolaridad
 
   Usa la tabla `escolaridad` para calcular la escolaridad promedio de las personas con y sin seguridad social.
 
-d. Usa `ggplot2` para crear una (o varias) gráfica en donde explores las siguientes preguntas: ¿Cuál es el grado de cobertura de la seguridad social en México, por entidad federativa? ¿Qué entidad federativa tiene la mayor y la menor cobertura de seguridad social? ¿Qué entidades están por arriba y por abajo del promedio nacional de cobertura de seguridad social?
+d. Usa `ggplot2` para crear una (o varias) gráfica(s) en donde explores las siguientes preguntas: ¿Cuál es el grado de cobertura de la seguridad social en México, por entidad federativa? ¿Qué entidad federativa tiene la mayor y la menor cobertura de seguridad social? ¿Qué entidades están por arriba y por abajo del promedio nacional de cobertura de seguridad social?
 
 e. Discute tus resultados.
 
