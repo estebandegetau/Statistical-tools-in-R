@@ -9,13 +9,15 @@
     "listing": "/index.html",
     "items": [
       "/assignments/assignment0/instructions.html",
+      "/assignments/assignment1/instructions.html",
       "/lectures/lecture1.html"
     ]
   },
   {
     "listing": "/assignments.html",
     "items": [
-      "/assignments/assignment0/instructions.html"
+      "/assignments/assignment0/instructions.html",
+      "/assignments/assignment1/instructions.html"
     ]
   }
 ]
