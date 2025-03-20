@@ -5,10 +5,12 @@ listing:
     contents: "assignments/*/instructions.qmd"   
     type: table
     fields: [title, subtitle, date]
+    sort: "date"
   - id: lectures
     contents: "lectures/*.qmd"
     type: table
     fields: [title, subtitle, date]
+    sort: "date"
 ---
 
 Bienvenidx a la página del curso de *Herramientas Estadísticas en R*.

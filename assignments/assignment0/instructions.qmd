@@ -2,7 +2,6 @@
 title: "Instalación del software"
 subtitle: "Tarea 0"
 date: "2025-03-14"
-image: "thmb.png"
 format:
     pdf: 
         date-format: long

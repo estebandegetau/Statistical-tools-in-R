@@ -4,6 +4,7 @@ listing:
   contents: lectures
   type: grid
   fields: [image, date, title, subtitle, filename]
+  sort: "date"
 ---
 
 Aquí podrás encontrar el material de las clases que veremos a lo largo del curso. Las presentaciones incluyen el código que genera todos los resultados que veremos en clase. También puedes encontrar el código fuente en la página de [GitHub](https://github.com/estebandegetau/Statistical-tools-in-R).
