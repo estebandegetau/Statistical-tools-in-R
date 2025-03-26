@@ -17,16 +17,16 @@ R es un lenguaje de computación diseñado específicamente para análisis estad
 
 1.  Resolver una variedad de preguntas empíricas usando R.
 2.  Implementar flujos de datos automáticos desde la fuente de datos hasta medios de comunicación diversos (tablas, figuras, reportes, presentaciones, páginas web, etc.).
-3.  Usar Quarto para escribir reportes reproducibles y GitHub para versión de control.
+3.  Usar Quarto para escribir reportes reproducibles y GitHub para control de versiones.
 
-**Prerequisitos**: Este curso asume que tienes conocimientos básicos de estadística y programación. No asumo que tengas experiencia previa con R.
+**Prerrequisitos**: Este curso asume que tienes conocimientos básicos de estadística y programación. No asumo que tengas experiencia previa con R.
 
 ## Contenido
 
 1.  R y el Tidyverse
     -   El lenguaje estadístico R
     -   Paquetes del Tidyverse
-    -   Manupulación de datos con `dplyr`
+    -   Manipulación de datos con `dplyr`
     -   Visualización de datos con `ggplot2`
     -   Programación funcional con `purrr`
     -   Reportes reproducibles con Quarto
@@ -53,7 +53,7 @@ R es un lenguaje de computación diseñado específicamente para análisis estad
 1.  Pronóstico de series de tiempo
     -   Suavización exponencial
     -   ARIMA
-    -   Pronóstico automatico con `fable`
+    -   Pronóstico automático con `fable`
 
     Referencias: @hyndman2008; @hyndman2021.
 
@@ -107,4 +107,4 @@ Puesto que el objetivo del curso es aprender a programar en R y establecer flujo
 
 ## Recursos adicionales
 
-Además de las referencias en este documento, también puedes encontrar ligas de interes en la página de [recursos](resources.qmd).
+Además de las referencias en este documento, también puedes encontrar ligas de interés en la página de [recursos](resources.qmd).

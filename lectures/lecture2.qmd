@@ -1,0 +1,635 @@
+---
+title: "Inferencia estadística"
+subtitle: "Clase 2"
+date: 2025-03-26
+nocite: |
+    @aguilaresteva; @çetinkaya-rundel2024
+# image: "thmb1.png"
+---
+
+```{r}
+#| label: setup
+#| include: false
+pacman::p_load(tidyverse, gt)
+
+theme_set(theme_minimal())
+```
+
+# Inferencia estadística
+
+## Contenido
+
+Vamos a estudiar las herramientas básicas de probabilidad e inferencia estadística que sentarán las bases para los siguientes temas del curso.
+
+Para una revisión más extensa de estos temas, puedes consultar el [Crash Course de estadística](https://www.youtube.com/playlist?list=PLH2l6uzC4UEW3iJO4T0qUeUEp_X-f1U7S).
+
+## Motivación
+
+La inferencia estadística se concentra en entender y cuantificar la incertidumbre de parámetros de interés.
+
+Ya vimos cómo resumir y graficar datos en varios contextos.
+
+Vamos a estudiar cómo responder nuevas preguntas como:
+
+-   ¿Los datos son diferentes para dos grupos?
+
+-   ¿Los datos son representativos de la población?
+
+## Notación
+
+Generalmente, vamos a usar:
+
+-   $p$ para denotar a una proporción de la población
+
+-   $\hat p$ para denotar a una proporción de una muestra
+
+Igualmente:
+
+-   $\mu$ para denotar a una media de la población
+
+-   $\bar x$ para denotar a una media de una muestra
+
+## Ejemplo
+
+::: {#exm-stud}
+Imaginemos que un profesor separa a sus alumnos en dos grupos: los que se sientan del lado izquierdo y los que se sientan del lado derecho.
+
+-   Sea $\hat p_L$ la proporción de alumnos que aprueban en el grupo izquierdo, y $\hat p_R$ la proporción de alumnos que aprueban en el grupo derecho.
+
+-   ¿Te sorprendería que $\hat p_L \neq \hat p_R$?
+:::
+
+. . .
+
+Mientras que seguramente $\hat p_L$ sea muy parecida a $\hat p_R$, sería raro que fueran exactamente iguales.
+
+. . .
+
+Seguramente observaríamos una pequeña diferencia por *azar*.
+
+## Aleatoriedad
+
+Estudiar la aleatoriedad es una forma importante del estudio de la estadística.
+
+. . .
+
+A lo largo del curso veremos tres maneras de cuantificar variabilidad en los datos:
+
+-   Aleatorización
+
+-   Remuestreo (o *bootstrap*)
+
+-   Modelos matemáticos
+
+# Discriminación por género
+
+## Contexto
+
+Vamos a considerar un estudio que investigó la discriminación por género en la contratación de personal en un banco en los años 1970.
+
+. . .
+
+La pregunta de investigación que hacen los autores es:
+
+> ¿Las personas que se identifican como mujeres son discriminadas en las decisiones de promoción, hechas por gerentes que se identifican como hombres?^[@rosen_influence_1974]
+
+
+## Datos observados
+
+- Participaron 48 supervisores de sucursales bancarias, identificados como hombres, que atendieron a un curso de habilidades gerenciales en la Universidad de Carolina del Norte en 1972.
+
+- Cada supervisor recibió un archivo con información sobre un supuesto candidato a una vacante de gerente de sucursal.
+
+- Los archivos contenían datos idénticos, excepto que la mitad de los archivos indicaban que la persona era un hombre y la otra mitad que era una mujer.
+
+- Los archivos fueron asignados aleatoriamente entre los supervisores.
+
+## Datos observados
+
+Se recolectaron datos del sexo asociado al archivo y la decisión de promoción tomada por el supervisor.
+
+Los datos están disponibles en el paquete de datos de @çetinkaya-rundel2024.
+
+. . .
+
+
+```{r}
+
+pacman::p_load(openintro)
+
+sex_discrimination
+
+```
+
+## Datos observados
+
+```{r}
+
+tally <- sex_discrimination |>
+    group_by(sex, decision) |>
+    tally() |>
+    ungroup()
+
+tally
+
+```
+
+## Datos observados
+
+```{r}
+#| label: tbl-sex-summary
+#| tbl-cap: "Resumen de los resultados del estudio de discriminación por género"
+
+tally |>
+    pivot_wider(
+        names_from = decision,
+        values_from = n
+        ) |>
+    mutate(
+        Total = promoted + `not promoted`,
+        `% promoted` = 100 * promoted / Total
+        ) |>
+    # Great tables
+    gt() |>
+    fmt_number(
+        columns = where(is.numeric),
+        decimals = 0
+        ) |>
+    grand_summary_rows(
+        columns = !matches("%|sex"),
+        fns = "Total" ~ sum(.)
+        )
+
+```
+
+```{r}
+#| echo: false
+promoted <- sex_discrimination |>
+    group_by(sex, decision) |>
+    tally() |>
+    ungroup() |>
+    group_by(sex) |>
+    mutate(
+        prop = n / sum(n)
+    ) |>
+    filter(decision == "promoted") 
+
+promoted_m <- promoted |> filter(sex == "male") |> pull(prop) 
+promoted_f <- promoted |> filter(sex == "female") |> pull(prop) 
+
+obs_effect <- promoted_m - promoted_f
+
+```
+
+. . .
+
+Promovieron al `r promoted_m |> scales::percent()` de los hombres, mientras que solo promovieron al `r promoted_f |> scales::percent()` de las mujeres.
+
+## Pregunta central de inferencia
+
+¿Tenemos evidencia suficiente para concluir que las mujeres fueron discriminadas en las decisiones de promoción?
+
+- Hay una diferencia grande en las tasas de promoción por género, lo que sugiere la existencia de discriminación.
+
+- Sin embargo, todavía no estamos seguros de que la diferencia representa discriminación o si es solo resultado de la variabilidad natural de los datos.
+
+    - Como en el @exm-stud, podríamos ver variación por azar.
+
+## Prueba de hipótesis
+
+Para responder la pregunta de investigación, vamos a realizar una prueba de hipótesis.
+
+- Sea $p_m$ la proporción de hombres promovidos y $p_f$ la proporción de mujeres promovidas.
+
+- La diferencia entre las proporciones es el *estimador puntual*: $\tau = p_m - p_f$. 
+
+- En el estudio de @rosen_influence_1974, encontraron un $\hat \tau=$ `r obs_effect |> round(3)`
+
+. . .
+
+El estimador puntual es bastante grande, pero la muestra es pequeña.
+
+. . .
+
+Si no tomamos en cuenta la variabilidad de los datos, podríamos concluir que hay discriminación cuando en realidad no la hay.
+
+## Prueba de hipótesis
+
+Vamos a llamar a estas dos narrativas mutuamente excluyentes como:
+
+- $H_0$: Hipótesis nula: Las variables `sex` y `decision` son *independientes*.
+
+    - La diferencia en tasas de promoción de `r obs_effect |> round(3)` es resultado de la variabilidad natural de los datos.
+    
+    - No hay discriminación por género.
+
+    - $\tau = 0$
+
+- $H_A$: Hipótesis alternativa: Las variables `sex` y `decision` no son *independientes*.
+
+    - La diferencia en tasas de promoción de `r obs_effect |> round(3)` no es resultado de la variabilidad natural de los datos.
+
+    - Mujeres con las mismas credenciales que hombres son menos propensas a ser promovidas por hombres.
+
+    - $\tau \neq 0$
+
+
+## Prueba de hipótesis
+
+
+Habiendo definido el problema de inferencia, vamos a evaluar si los datos observados son tan inconsistentes con $H_0$, que la hipótesis nula no puede ser razonable. 
+
+. . .
+
+Si los datos y la hipótesis nula son inconsistentes, lo que abona evidencia en favor de $H_A$, tendremos que rechazar la noción de *independencia* y concluir que los datos proveen evidencia de discriminación por género.
+
+## Variabilidad del estadístico
+
+Imaginemos que las decisiones de los banqueros son independientes del género del candidato. 
+
+. . .
+
+Entonces, si condujéramos el experimento con una nueva asignación aleatoria de los archivos, las diferencias en promoción solo serían afectadas por la variabilidad natural de los datos.
+
+. . .
+
+**Buena noticia:** Podemos simular la aleatorización, para ver qué hubiera pasado si las decisiones de los banqueros fueran *independientes* del género, pero con una distribución de archivos distinta.
+
+## Simulación de aleatorización
+
+
+
+```{r}
+
+set.seed(2025)
+
+options <- c("promoted", "not promoted")
+
+sim <- tibble(
+    sex = c(rep("female", 24), rep("male", 24)),
+    decision = sample(options, size = 48, replace = TRUE)
+)
+
+```
+
+. . .
+
+```{r}
+#| label: tbl-sex-summary-sim
+#| tbl-cap: "Resumen de los resultados simulados de discriminación por género"
+#| echo: false
+
+sim |>
+    group_by(sex, decision) |>
+    tally() |>
+    ungroup() |>
+    pivot_wider(
+        names_from = decision,
+        values_from = n
+    ) |>
+    mutate(
+        Total = promoted + `not promoted`,
+        `% promoted` = 100 * promoted / Total
+    ) |>
+    # Great tables
+    gt() |>
+    fmt_number(
+        columns = where(is.numeric),
+        decimals = 0
+    ) |>
+    grand_summary_rows(
+        columns = !matches("%|sex"),
+        fns = "Total" ~ sum(.)
+    )
+
+promoted_sim <- sim |>
+    group_by(sex, decision) |>
+    tally() |>
+    ungroup() |>
+    group_by(sex) |>
+    mutate(
+        prop = n / sum(n)
+    ) |>
+    filter(decision == "promoted")
+
+promoted_m_sim <- promoted_sim |>
+    filter(sex == "male") |>
+    pull(prop)
+promoted_f_sim <- promoted_sim |>
+    filter(sex == "female") |>
+    pull(prop)
+
+obs_effect_sim <- promoted_m_sim - promoted_f_sim
+
+```
+
+. . .
+
+La @tbl-sex-summary-sim muestra que la diferencia en las tasas de promoción entre hombres y mujeres es de $\hat \tau =$ `r obs_effect_sim |> round(3)`.
+
+. . .
+
+En este mundo simulado, los hombres tuvieron una tasa de contratación **menor** que las mujeres.
+
+## Estadístico de prueba
+
+Hemos hablado de la diferencia en las tasas de contratación, $\tau = p_m - p_f$, como el *estimador de interés* que nos ayudará a evaluar la hipótesis del experimento.
+
+. . .
+
+También hemos visto que el estimador puntual tiene una variabilidad natural: que ante diferentes asignaciones de archivos, la diferencia en tasas de contratación puede variar.
+
+. . .
+
+¿Cómo podemos entender cuál es la variabilidad natural de $\tau$ de muestra a muestra?
+
+## Estadístico de prueba
+
+Para evaluar si el estimador observado durante el experimento, $\tau =$ `r obs_effect |> round(3)`, podemos calcular el estimador de $\tau$ para cientos de simulaciones diferentes. 
+
+. . . 
+
+Esto nos permitirá entender cuál es la variabilidad natural de $\tau$ y si el valor observado es consistente con la hipótesis nula.
+
+## Simulación de 100 aleatorizaciones
+
+Hay muchas maneras de repetir tareas en R. 
+
+. . .
+
+Vamos a ver la función `purrr::map()` que nos permite *mapear* una función a una lista de argumentos.
+
+. . .
+
+Primero, escribimos una función que simula **una** asignación aleatoria de archivos.
+
+. . .
+
+```{r}
+my_simulate <- function(i) {
+    sim <- tibble(
+        sex = c(rep("female", 24), rep("male", 24)),
+        decision = sample(options, size = 48, replace = TRUE)
+    )
+
+    return(sim)
+}
+
+
+my_simulate(1)
+``` 
+
+
+## Simulación de 100 aleatorizaciones
+
+Cada vez que llamamos a `my_simulate()`, obtenemos una nueva asignación aleatoria de archivos.
+
+. . .
+
+Podemos repetir el proceso $k$ veces, para obtener $k$ asignaciones aleatorias de archivos.
+
+. . .
+
+Para cada uno de los $k$ experimentos, `purrr::map()` va a guardar en la variable `sim` una tabla con los resultados de la simulación.
+
+. . .
+
+```{r}
+k <- 100
+
+simulations <- tibble(
+    k = 1:k
+    ) |>
+    mutate(
+        sim = map(k, my_simulate)
+    )
+
+simulations
+
+```
+
+## Simulación de 100 aleatorizaciones
+
+La columna `sim` es un objeto de tipo `list` que contiene las tablas con los resultados de cada simulación.
+
+. . .
+
+Los objetos `list` son muy versátiles en R y nos permiten guardar diferentes tipos de datos en una sola variable.
+
+. . .
+
+En este caso, es como si hubiéramos escrito:
+
+```{r}
+#| eval: false
+sim = list(my_simulate(1), my_simulate(2), ..., my_simulate(100))
+```
+
+. . .
+
+Podemos acceder a los resultados de la primera simulación con la siguiente notación:
+
+```{r}
+
+simulations$sim[[1]]
+
+```
+
+. . .
+
+También puedes inspeccionar los contenidos de una lista con `glimpse(simulations$sim)`.
+
+## Simulación de 100 aleatorizaciones
+
+Ya tenemos nuestras 100 simulaciones guardadas en la tabla `simulations`.
+
+. . .
+
+ 
+La ventaja de trabajar con listas de datos es que podemos pasar funciones a cada elemento de la lista, de la misma manera en la que lo hicimos con `my_simulate()`.
+
+- Usamos un `purrr::map_dbl()` que regresará un valor numérico dentro de un verbo `dplyr::mutate()`.
+
+. . .
+
+Vamos a calcular el estadístico de interés $\tau$ para cada una de las 100 simulaciones.
+
+. . .
+
+```{r}
+#| output-location: column-fragment
+simulations <- simulations |>
+    mutate(
+        females_promoted = map_dbl(sim, \(x) x |>
+            filter(sex == "female") |>
+            mutate(
+                promoted = decision == "promoted"
+            ) |>
+            pull(promoted) |>
+            mean()),
+        males_promoted = map_dbl(sim, \(x) x |>
+            filter(sex == "male") |>
+            mutate(
+                promoted = decision == "promoted"
+            ) |>
+            pull(promoted) |>
+            mean()),
+        tau = males_promoted - females_promoted
+    ) |>
+    select(k, tau)
+
+simulations
+```
+
+## Simulación de 100 aleatorizaciones {.scrollable}
+
+Visualicemos la distribución de $\tau$ para las 100 simulaciones y comparémosla con el valor observado en el experimento.
+
+. . .
+
+```{r}
+#| label: fig-simulations
+#| fig-cap: "Distribución de la diferencia en tasas de promoción"
+ggplot() +
+    geom_dotplot(data = simulations, aes(x = tau)) +
+    scale_y_continuous(breaks = NULL) +
+    geom_vline(xintercept = obs_effect, color = "blue", linetype = "dashed") +
+    geom_vline(xintercept = 0) +
+    labs(
+        x = expression(tau),
+        y = ""
+    ) 
+
+```
+
+## Simulación de 100 aleatorizaciones
+
+La @fig-simulations muestra que, de las cien simulaciones que tenemos, solo hubo dos en las que la diferencia en tasas de promoción fue **tan grande como** la observada en el experimento.
+
+. . .
+
+Otra forma de decir esto es: la probabilidad de observar un estadístico de prueba tan extremo como el observado, si no hubiera discriminación por género, es de 2%.
+
+. . .
+
+**Pregunta:** ¿Qué dice la @fig-simulations sobre la hipótesis nula? ¿Qué conclusión podemos sacar sobre la discriminación por género en el banco?
+
+## Resumen
+
+- Hemos cuantificado cuál es la variabilidad natural de la diferencia en tasas de promoción, $\tau$, si las decisiones de los banqueros fueran *independientes* del género del candidato.
+
+- Hemos comparado el valor observado en el experimento con la distribución de $\tau$ bajo la hipótesis nula.
+
+- Hemos calculado la probabilidad de observar un valor tan extremo como el observado, si la hipótesis nula fuera cierta.
+
+- Si concluyéramos que hubo discriminación por género, la probabilidad de equivocarnos sería de 2%.
+
+# Pruebas de hipótesis
+
+## Nuestra prueba de hipótesis
+
+Recordemos la prueba de hipótesis que propusimos para evaluar el estudio de discriminación por género en el banco de @rosen_influence_1974:
+
+- $H_0$: El género no tiene efecto en las decisiones de promoción.
+
+- $H_A$: Las candidatas mujeres enfrentan discriminación en las decisiones de promoción.
+
+. . .
+
+Encontramos que la probabilidad de que $H_0$ sea cierta es de 2%: Solo en dos de nuestras 100 simulaciones encontramos una diferencia en promociones tan grande como la observada.
+
+## Dos tipos de errores
+
+A la hora de evaluar la prueba de hipótesis, podríamos cometer dos tipos de errores:
+
+1. **Error tipo I**: Rechazar la hipótesis nula siendo que ésta es verdadera.
+
+2. **Error tipo II**: No rechazar la hipótesis nula siendo que ésta es falsa.
+
+## Valor $p$
+
+La probabilidad del 2% que encontramos es lo que llamamos *valor-p*. 
+
+. . .
+
+Esta probabilidad cuantifica la fuerza de la evidencia en contra de la hipótesis nula, dados los datos observados.
+
+. . .
+
+Cuando el valor-p es pequeño, es decir, menor que un nivel predeterminado, decimos que los resultados **estadísticamente significativos**.
+
+. . .
+
+Otra manera de interpretar el valor-p es como la **probabilidad del error tipo I**: la probabilidad de rechazar la hipótesis nula siendo que ésta es verdadera.
+
+## Significancia estadística
+
+Normalmente, denotamos con un $\alpha$ el nivel de significancia que estamos dispuestos a aceptar.
+
+. . .
+
+En ciencias sociales, es común hablar de resultados significativos con p-valores menores a 0.05.
+
+. . .
+
+En nuestro caso, con un valor-p de 0.02, podemos concluir que los resultados son significativos al nivel de $\alpha = 0.05$, rechazando la hipótesis nula.
+
+# Intervalos de confianza
+
+## Intervalos de confianza
+
+Los intervalos de confianza son una herramienta poderosa para visualizar y comunicar la certeza asociada a un estimador, es decir, a un resultado de un experimento o análisis.
+
+## Preguntas de interés
+
+Además de ayudarnos a visualizar la variabilidad de un estimador, los intervalos de confianza nos permiten voltear la pregunta ed la significancia estadística.
+
+. . . 
+
+Mientras que el valor-p nos dice cuál es la probabilidad equivocarnos al rechazar la hipótesis nula, los intervalos de confianza nos dicen qué rango de valores podría tomar el estimador observado en el experimento.
+
+
+## Resultados del experimento {.scrollable}
+
+Podemos resumir la evidencia del experimento de discriminación por género usando la función `ggplot2::stat_summary()`.
+
+- Por defecto, `stat_summary()` calcula la media y el intervalo de confianza del 95% del *aesthetic* `y`.
+
+. . .
+
+```{r}
+#| label: fig-ci
+#| fig-cap: "Proporción de promociones por género"
+
+sex_discrimination <- sex_discrimination |>
+    mutate(
+        promoted = as.numeric(decision == "promoted")
+    ) 
+
+sex_discrimination |>
+    ggplot(aes(x = sex, y = promoted)) +
+    stat_summary() +
+    labs(
+        x = "Sexo",
+        y = "Proporción de promociones",
+        title = "Proporción de promociones por género",
+        subtitle = "Intervalos de confianza del 95%"
+    ) +
+    scale_y_continuous(labels = scales::percent) 
+
+```
+
+. . .
+
+La @fig-ci muestra que la hipótesis nula se puede rechazar con un nivel de significancia del 5%, porque los intervalos de confianza no se traslapan.
+
+## Interpretación de los intervalos de confianza
+
+Un intervalo de confianza del 95% para un estimador $\hat \theta$ es un rango de valores que contiene al verdadero valor del parámetro $\theta$ con una probabilidad del 95%.
+
+. . .
+
+En el estudio de @rosen_influence_1974, enocntramos el rango de valores que contiene al verdadero valor de $\tau = p_m - p_f$ con una probabilidad del 95%.
+
+
+## Referencias

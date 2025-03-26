@@ -113,3 +113,15 @@ e. Discute tus resultados.
 ------------------------------------------------------------------------
 
 # Respuestas
+
+## *Outliers*
+
+
+a. El vector ingresos tiene una lognitud de:
+
+```{r}
+length(ingresos)
+```
+
+
+
