@@ -6,17 +6,17 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.37">
-
-  <meta name="author" content="Esteban Degetau">
-  <title>Inferencia estadística</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+<meta name="author" content="Esteban Degetau">
+<title>Inferencia estadística</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -49,12 +114,12 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
-  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
+<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -146,8 +211,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Inferencia estadística</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Inferencia estadística</h1>
   <p class="subtitle">Clase 2</p>
 
 <div class="quarto-title-authors">
@@ -159,29 +223,19 @@ Esteban Degetau
 </div>
 
   <p class="date">26 de marzo de 2025</p>
-</section>
-<section>
-<section id="inferecia-estadística" class="title-slide slide level1 center">
-<h1>Inferecia estadística</h1>
+</section><section><section id="inferencia-estadística" class="title-slide slide level1 center"><h1>Inferencia estadística</h1>
 
-</section>
-<section id="contenido" class="slide level2">
-<h2>Contenido</h2>
+</section><section id="contenido" class="slide level2"><h2>Contenido</h2>
 <p>Vamos a estudiar las herramientas básicas de probabilidad e inferencia estadística que sentarán las bases para los siguientes temas del curso.</p>
 <p>Para una revisión más extensa de estos temas, puedes consultar el <a href="https://www.youtube.com/playlist?list=PLH2l6uzC4UEW3iJO4T0qUeUEp_X-f1U7S">Crash Course de estadística</a>.</p>
-</section>
-<section id="motivación" class="slide level2">
-<h2>Motivación</h2>
+</section><section id="motivación" class="slide level2"><h2>Motivación</h2>
 <p>La inferencia estadística se concentra en entender y cuantificar la incertidumbre de parámetros de interés.</p>
 <p>Ya vimos cómo resumir y graficar datos en varios contextos.</p>
 <p>Vamos a estudiar cómo responder nuevas preguntas como:</p>
 <ul>
 <li class="fragment"><p>¿Los datos son diferentes para dos grupos?</p></li>
-<li class="fragment"><p>¿Los datos son representatiivos de la población?</p></li>
-</ul>
-</section>
-<section id="notación" class="slide level2">
-<h2>Notación</h2>
+<li class="fragment"><p>¿Los datos son representativos de la población?</p></li>
+</ul></section><section id="notación" class="slide level2"><h2>Notación</h2>
 <p>Generalmente, vamos a usar:</p>
 <ul>
 <li class="fragment"><p><span class="math inline">\(p\)</span> para denotar a una proporción de la población</p></li>
@@ -191,12 +245,9 @@ Esteban Degetau
 <ul>
 <li class="fragment"><p><span class="math inline">\(\mu\)</span> para denotar a una media de la población</p></li>
 <li class="fragment"><p><span class="math inline">\(\bar x\)</span> para denotar a una media de una muestra</p></li>
-</ul>
-</section>
-<section id="ejemplo" class="slide level2">
-<h2>Ejemplo</h2>
-<div class="exp-stud">
-<p>Imaginemos que un profesor separa a sus alumnos en dos grupos: los que se sientan del lado izquierdo y los que se sientan del lado derecho.</p>
+</ul></section><section id="ejemplo" class="slide level2"><h2>Ejemplo</h2>
+<div id="exm-stud" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 1</strong></span> Imaginemos que un profesor separa a sus alumnos en dos grupos: los que se sientan del lado izquierdo y los que se sientan del lado derecho.</p>
 <ul>
 <li class="fragment"><p>Sea <span class="math inline">\(\hat p_L\)</span> la proporción de alumnos que aprueban en el grupo izquierdo, y <span class="math inline">\(\hat p_R\)</span> la proporción de alumnos que aprueban en el grupo derecho.</p></li>
 <li class="fragment"><p>¿Te sorprendería que <span class="math inline">\(\hat p_L \neq \hat p_R\)</span>?</p></li>
@@ -206,11 +257,9 @@ Esteban Degetau
 <p>Mientras que seguramente <span class="math inline">\(\hat p_L\)</span> sea muy parecida a <span class="math inline">\(\hat p_R\)</span>, sería raro que fueran exactamente iguales.</p>
 </div>
 <div class="fragment">
-<p>Seguramente observaríamos una pequeña direfencia por <em>azar</em>.</p>
+<p>Seguramente observaríamos una pequeña diferencia por <em>azar</em>.</p>
 </div>
-</section>
-<section id="aleatoridad" class="slide level2">
-<h2>Aleatoridad</h2>
+</section><section id="aleatoriedad" class="slide level2"><h2>Aleatoriedad</h2>
 <p>Estudiar la aleatoriedad es una forma importante del estudio de la estadística.</p>
 <div class="fragment">
 <p>A lo largo del curso veremos tres maneras de cuantificar variabilidad en los datos:</p>
@@ -220,22 +269,1468 @@ Esteban Degetau
 <li class="fragment"><p>Modelos matemáticos</p></li>
 </ul>
 </div>
-</section></section>
-<section>
-<section id="discriminación-por-género" class="title-slide slide level1 center">
-<h1>Discriminación por género</h1>
+</section></section><section><section id="discriminación-por-género" class="title-slide slide level1 center"><h1>Discriminación por género</h1>
 
-</section>
-<section id="contexto" class="slide level2">
-<h2>Contexto</h2>
+</section><section id="contexto" class="slide level2"><h2>Contexto</h2>
 <p>Vamos a considerar un estudio que investigó la discriminación por género en la contratación de personal en un banco en los años 1970.</p>
+<div class="fragment">
 <p>La pregunta de investigación que hacen los autores es:</p>
 <blockquote>
 <p>¿Las personas que se identifican como mujeres son discriminadas en las decisiones de promoción, hechas por gerentes que se identifican como hombres?<sup>1</sup></p>
 </blockquote>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="rosen_influence_1974">Rosen y Jerdee (<a href="#/referencias" role="doc-biblioref" onclick="">1974</a>)</span></p></li></ol></aside></section>
-<section id="referencias" class="slide level2 smaller scrollable">
-<h2>Referencias</h2>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="rosen_influence_1974">Rosen y Jerdee (<a href="#/referencias" role="doc-biblioref" onclick="">1974</a>)</span></p></li></ol></aside></section><section id="datos-observados" class="slide level2"><h2>Datos observados</h2>
+<ul>
+<li class="fragment"><p>Participaron 48 supervisores de sucursales bancarias, identificados como hombres, que atendieron a un curso de habilidades gerenciales en la Universidad de Carolina del Norte en 1972.</p></li>
+<li class="fragment"><p>Cada supervisor recibió un archivo con información sobre un supuesto candidato a una vacante de gerente de sucursal.</p></li>
+<li class="fragment"><p>Los archivos contenían datos idénticos, excepto que la mitad de los archivos indicaban que la persona era un hombre y la otra mitad que era una mujer.</p></li>
+<li class="fragment"><p>Los archivos fueron asignados aleatoriamente entre los supervisores.</p></li>
+</ul></section><section id="datos-observados-1" class="slide level2"><h2>Datos observados</h2>
+<p>Se recolectaron datos del sexo asociado al archivo y la decisión de promoción tomada por el supervisor.</p>
+<p>Los datos están disponibles en el paquete de datos de <span class="citation" data-cites="çetinkaya-rundel2024">Çetinkaya-Rundel y Hardin (<a href="#/referencias" role="doc-biblioref" onclick="">2024</a>)</span>.</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(openintro)</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>sex_discrimination</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 48 × 2
+   sex   decision
+   &lt;fct&gt; &lt;fct&gt;   
+ 1 male  promoted
+ 2 male  promoted
+ 3 male  promoted
+ 4 male  promoted
+ 5 male  promoted
+ 6 male  promoted
+ 7 male  promoted
+ 8 male  promoted
+ 9 male  promoted
+10 male  promoted
+# ℹ 38 more rows</code></pre>
+</div>
+</div>
+</div>
+</section><section id="datos-observados-2" class="slide level2"><h2>Datos observados</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>tally <span class="ot">&lt;-</span> sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a></a>    <span class="fu">group_by</span>(sex, decision) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a></a>    <span class="fu">tally</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a>tally</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  sex    decision         n
+  &lt;fct&gt;  &lt;fct&gt;        &lt;int&gt;
+1 male   promoted        21
+2 male   not promoted     3
+3 female promoted        14
+4 female not promoted    10</code></pre>
+</div>
+</div>
+</section><section id="datos-observados-3" class="slide level2"><h2>Datos observados</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>tally <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>    <span class="fu">pivot_wider</span>(</span>
+<span id="cb5-3"><a></a>        <span class="at">names_from =</span> decision,</span>
+<span id="cb5-4"><a></a>        <span class="at">values_from =</span> n</span>
+<span id="cb5-5"><a></a>        ) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb5-7"><a></a>        <span class="at">Total =</span> promoted <span class="sc">+</span> <span class="st">`</span><span class="at">not promoted</span><span class="st">`</span>,</span>
+<span id="cb5-8"><a></a>        <span class="st">`</span><span class="at">% promoted</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">100</span> <span class="sc">*</span> promoted <span class="sc">/</span> Total</span>
+<span id="cb5-9"><a></a>        ) <span class="sc">|&gt;</span></span>
+<span id="cb5-10"><a></a>    <span class="co"># Great tables</span></span>
+<span id="cb5-11"><a></a>    <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-12"><a></a>    <span class="fu">fmt_number</span>(</span>
+<span id="cb5-13"><a></a>        <span class="at">columns =</span> <span class="fu">where</span>(is.numeric),</span>
+<span id="cb5-14"><a></a>        <span class="at">decimals =</span> <span class="dv">0</span></span>
+<span id="cb5-15"><a></a>        ) <span class="sc">|&gt;</span></span>
+<span id="cb5-16"><a></a>    <span class="fu">grand_summary_rows</span>(</span>
+<span id="cb5-17"><a></a>        <span class="at">columns =</span> <span class="sc">!</span><span class="fu">matches</span>(<span class="st">"%|sex"</span>),</span>
+<span id="cb5-18"><a></a>        <span class="at">fns =</span> <span class="st">"Total"</span> <span class="sc">~</span> <span class="fu">sum</span>(.)</span>
+<span id="cb5-19"><a></a>        )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div id="tbl-sex-summary" class="cell quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sex-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;1: Resumen de los resultados del estudio de discriminación por género
+</figcaption><div aria-describedby="tbl-sex-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="bkplngjiqj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bkplngjiqj table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bkplngjiqj thead, #bkplngjiqj tbody, #bkplngjiqj tfoot, #bkplngjiqj tr, #bkplngjiqj td, #bkplngjiqj th {
+  border-style: none;
+}
+
+#bkplngjiqj p {
+  margin: 0;
+  padding: 0;
+}
+
+#bkplngjiqj .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bkplngjiqj .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bkplngjiqj .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bkplngjiqj .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bkplngjiqj .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bkplngjiqj .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bkplngjiqj .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bkplngjiqj .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bkplngjiqj .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bkplngjiqj .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bkplngjiqj .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bkplngjiqj .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bkplngjiqj .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bkplngjiqj .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bkplngjiqj .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkplngjiqj .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bkplngjiqj .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bkplngjiqj .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bkplngjiqj .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkplngjiqj .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bkplngjiqj .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkplngjiqj .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bkplngjiqj .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkplngjiqj .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bkplngjiqj .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkplngjiqj .gt_left {
+  text-align: left;
+}
+
+#bkplngjiqj .gt_center {
+  text-align: center;
+}
+
+#bkplngjiqj .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bkplngjiqj .gt_font_normal {
+  font-weight: normal;
+}
+
+#bkplngjiqj .gt_font_bold {
+  font-weight: bold;
+}
+
+#bkplngjiqj .gt_font_italic {
+  font-style: italic;
+}
+
+#bkplngjiqj .gt_super {
+  font-size: 65%;
+}
+
+#bkplngjiqj .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bkplngjiqj .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bkplngjiqj .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bkplngjiqj .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bkplngjiqj .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bkplngjiqj .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bkplngjiqj .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table do-not-create-environment cell caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings header">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="sex" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">sex</th>
+<th id="promoted" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">promoted</th>
+<th id="not promoted" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">not promoted</th>
+<th id="Total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total</th>
+<th id="% promoted" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">% promoted</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_center" headers="stub_1_1 sex">male</td>
+<td class="gt_row gt_right" headers="stub_1_1 promoted">21</td>
+<td class="gt_row gt_right" headers="stub_1_1 not promoted">3</td>
+<td class="gt_row gt_right" headers="stub_1_1 Total">24</td>
+<td class="gt_row gt_right" headers="stub_1_1 % promoted">88</td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_center" headers="stub_1_2 sex">female</td>
+<td class="gt_row gt_right" headers="stub_1_2 promoted">14</td>
+<td class="gt_row gt_right" headers="stub_1_2 not promoted">10</td>
+<td class="gt_row gt_right" headers="stub_1_2 Total">24</td>
+<td class="gt_row gt_right" headers="stub_1_2 % promoted">58</td>
+</tr>
+<tr class="odd">
+<td id="grand_summary_stub_1" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" data-quarto-table-cell-role="th" scope="row">Total</td>
+<td class="gt_row gt_center gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 sex">—</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 promoted">35</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 not promoted">13</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Total">48</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 % promoted">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p>Promovieron al 88% de los hombres, mientras que solo promovieron al 58% de las mujeres.</p>
+</div>
+</section><section id="pregunta-central-de-inferencia" class="slide level2"><h2>Pregunta central de inferencia</h2>
+<p>¿Tenemos evidencia suficiente para concluir que las mujeres fueron discriminadas en las decisiones de promoción?</p>
+<ul>
+<li class="fragment"><p>Hay una diferencia grande en las tasas de promoción por género, lo que sugiere la existencia de discriminación.</p></li>
+<li class="fragment">
+<p>Sin embargo, todavía no estamos seguros de que la diferencia representa discriminación o si es solo resultado de la variabilidad natural de los datos.</p>
+<ul>
+<li class="fragment">Como en el <a href="#/exm-stud" class="quarto-xref">Ejemplo&nbsp;1</a>, podríamos ver variación por azar.</li>
+</ul>
+</li>
+</ul></section><section id="prueba-de-hipótesis" class="slide level2"><h2>Prueba de hipótesis</h2>
+<p>Para responder la pregunta de investigación, vamos a realizar una prueba de hipótesis.</p>
+<ul>
+<li class="fragment"><p>Sea <span class="math inline">\(p_m\)</span> la proporción de hombres promovidos y <span class="math inline">\(p_f\)</span> la proporción de mujeres promovidas.</p></li>
+<li class="fragment"><p>La diferencia entre las proporciones es el <em>estimador puntual</em>: <span class="math inline">\(\tau = p_m - p_f\)</span>.</p></li>
+<li class="fragment"><p>En el estudio de <span class="citation" data-cites="rosen_influence_1974">Rosen y Jerdee (<a href="#/referencias" role="doc-biblioref" onclick="">1974</a>)</span>, encontraron un <span class="math inline">\(\hat \tau=\)</span> 0.292</p></li>
+</ul>
+<div class="fragment">
+<p>El estimador puntual es bastante grande, pero la muestra es pequeña.</p>
+</div>
+<div class="fragment">
+<p>Si no tomamos en cuenta la variabilidad de los datos, podríamos concluir que hay discriminación cuando en realidad no la hay.</p>
+</div>
+</section><section id="prueba-de-hipótesis-1" class="slide level2"><h2>Prueba de hipótesis</h2>
+<p>Vamos a llamar a estas dos narrativas mutuamente excluyentes como:</p>
+<ul>
+<li class="fragment">
+<p><span class="math inline">\(H_0\)</span>: Hipótesis nula: Las variables <code>sex</code> y <code>decision</code> son <em>independientes</em>.</p>
+<ul>
+<li class="fragment"><p>La diferencia en tasas de promoción de 0.292 es resultado de la variabilidad natural de los datos.</p></li>
+<li class="fragment"><p>No hay discriminación por género.</p></li>
+<li class="fragment"><p><span class="math inline">\(\tau = 0\)</span></p></li>
+</ul>
+</li>
+<li class="fragment">
+<p><span class="math inline">\(H_A\)</span>: Hipótesis alternativa: Las variables <code>sex</code> y <code>decision</code> no son <em>independientes</em>.</p>
+<ul>
+<li class="fragment"><p>La diferencia en tasas de promoción de 0.292 no es resultado de la variabilidad natural de los datos.</p></li>
+<li class="fragment"><p>Mujeres con las mismas credenciales que hombres son menos propensas a ser promovidas por hombres.</p></li>
+<li class="fragment"><p><span class="math inline">\(\tau \neq 0\)</span></p></li>
+</ul>
+</li>
+</ul></section><section id="prueba-de-hipótesis-2" class="slide level2"><h2>Prueba de hipótesis</h2>
+<p>Habiendo definido el problema de inferencia, vamos a evaluar si los datos observados son tan inconsistentes con <span class="math inline">\(H_0\)</span>, que la hipótesis nula no puede ser razonable.</p>
+<div class="fragment">
+<p>Si los datos y la hipótesis nula son inconsistentes, lo que abona evidencia en favor de <span class="math inline">\(H_A\)</span>, tendremos que rechazar la noción de <em>independencia</em> y concluir que los datos proveen evidencia de discriminación por género.</p>
+</div>
+</section><section id="variabilidad-del-estadístico" class="slide level2"><h2>Variabilidad del estadístico</h2>
+<p>Imaginemos que las decisiones de los banqueros son independientes del género del candidato.</p>
+<div class="fragment">
+<p>Entonces, si condujéramos el experimento con una nueva asignación aleatoria de los archivos, las diferencias en promoción solo serían afectadas por la variabilidad natural de los datos.</p>
+</div>
+<div class="fragment">
+<p><strong>Buena noticia:</strong> Podemos simular la aleatorización, para ver qué hubiera pasado si las decisiones de los banqueros fueran <em>independientes</em> del género, pero con una distribución de archivos distinta.</p>
+</div>
+</section><section id="simulación-de-aleatorización" class="slide level2"><h2>Simulación de aleatorización</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a>options <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"promoted"</span>, <span class="st">"not promoted"</span>)</span>
+<span id="cb6-4"><a></a></span>
+<span id="cb6-5"><a></a>sim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb6-6"><a></a>    <span class="at">sex =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"female"</span>, <span class="dv">24</span>), <span class="fu">rep</span>(<span class="st">"male"</span>, <span class="dv">24</span>)),</span>
+<span id="cb6-7"><a></a>    <span class="at">decision =</span> <span class="fu">sample</span>(options, <span class="at">size =</span> <span class="dv">48</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-8"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+
+</div>
+<div class="fragment">
+<div class="cell">
+<div id="tbl-sex-summary-sim" class="cell quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sex-summary-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2: Resumen de los resultados simulados de discriminación por género
+</figcaption><div aria-describedby="tbl-sex-summary-sim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div id="rrykkqndxt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rrykkqndxt table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#rrykkqndxt thead, #rrykkqndxt tbody, #rrykkqndxt tfoot, #rrykkqndxt tr, #rrykkqndxt td, #rrykkqndxt th {
+  border-style: none;
+}
+
+#rrykkqndxt p {
+  margin: 0;
+  padding: 0;
+}
+
+#rrykkqndxt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#rrykkqndxt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rrykkqndxt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rrykkqndxt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rrykkqndxt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rrykkqndxt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rrykkqndxt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rrykkqndxt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rrykkqndxt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rrykkqndxt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#rrykkqndxt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rrykkqndxt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rrykkqndxt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rrykkqndxt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rrykkqndxt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rrykkqndxt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rrykkqndxt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rrykkqndxt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rrykkqndxt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rrykkqndxt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rrykkqndxt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rrykkqndxt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rrykkqndxt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rrykkqndxt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rrykkqndxt .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rrykkqndxt .gt_left {
+  text-align: left;
+}
+
+#rrykkqndxt .gt_center {
+  text-align: center;
+}
+
+#rrykkqndxt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rrykkqndxt .gt_font_normal {
+  font-weight: normal;
+}
+
+#rrykkqndxt .gt_font_bold {
+  font-weight: bold;
+}
+
+#rrykkqndxt .gt_font_italic {
+  font-style: italic;
+}
+
+#rrykkqndxt .gt_super {
+  font-size: 65%;
+}
+
+#rrykkqndxt .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#rrykkqndxt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rrykkqndxt .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#rrykkqndxt .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#rrykkqndxt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#rrykkqndxt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#rrykkqndxt .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table do-not-create-environment cell caption-top" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings header">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="sex" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">sex</th>
+<th id="not promoted" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">not promoted</th>
+<th id="promoted" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">promoted</th>
+<th id="Total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total</th>
+<th id="% promoted" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">% promoted</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="stub_1_1 sex">female</td>
+<td class="gt_row gt_right" headers="stub_1_1 not promoted">9</td>
+<td class="gt_row gt_right" headers="stub_1_1 promoted">15</td>
+<td class="gt_row gt_right" headers="stub_1_1 Total">24</td>
+<td class="gt_row gt_right" headers="stub_1_1 % promoted">62</td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_left gt_stub" data-quarto-table-cell-role="th" scope="row"></td>
+<td class="gt_row gt_left" headers="stub_1_2 sex">male</td>
+<td class="gt_row gt_right" headers="stub_1_2 not promoted">11</td>
+<td class="gt_row gt_right" headers="stub_1_2 promoted">13</td>
+<td class="gt_row gt_right" headers="stub_1_2 Total">24</td>
+<td class="gt_row gt_right" headers="stub_1_2 % promoted">54</td>
+</tr>
+<tr class="odd">
+<td id="grand_summary_stub_1" class="gt_row gt_left gt_stub gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" data-quarto-table-cell-role="th" scope="row">Total</td>
+<td class="gt_row gt_left gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 sex">—</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 not promoted">20</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 promoted">28</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 Total">48</td>
+<td class="gt_row gt_right gt_grand_summary_row gt_first_grand_summary_row gt_last_summary_row" headers="grand_summary_stub_1 % promoted">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>La <a href="#/tbl-sex-summary-sim" class="quarto-xref">Tabla&nbsp;2</a> muestra que la diferencia en las tasas de promoción entre hombres y mujeres es de <span class="math inline">\(\hat \tau =\)</span> -0.083.</p>
+</div>
+<div class="fragment">
+<p>En este mundo simulado, los hombres tuvieron una tasa de contratación <strong>menor</strong> que las mujeres.</p>
+</div>
+</section><section id="estadístico-de-prueba" class="slide level2"><h2>Estadístico de prueba</h2>
+<p>Hemos hablado de la diferencia en las tasas de contratación, <span class="math inline">\(\tau = p_m - p_f\)</span>, como el <em>estimador de interés</em> que nos ayudará a evaluar la hipótesis del experimento.</p>
+<div class="fragment">
+<p>También hemos visto que el estimador puntual tiene una variabilidad natural: que ante diferentes asignaciones de archivos, la diferencia en tasas de contratación puede variar.</p>
+</div>
+<div class="fragment">
+<p>¿Cómo podemos entender cuál es la variabilidad natural de <span class="math inline">\(\tau\)</span> de muestra a muestra?</p>
+</div>
+</section><section id="estadístico-de-prueba-1" class="slide level2"><h2>Estadístico de prueba</h2>
+<p>Para evaluar si el estimador observado durante el experimento, <span class="math inline">\(\tau =\)</span> 0.292, podemos calcular el estimador de <span class="math inline">\(\tau\)</span> para cientos de simulaciones diferentes.</p>
+<div class="fragment">
+<p>Esto nos permitirá entender cuál es la variabilidad natural de <span class="math inline">\(\tau\)</span> y si el valor observado es consistente con la hipótesis nula.</p>
+</div>
+</section><section id="simulación-de-100-aleatorizaciones" class="slide level2"><h2>Simulación de 100 aleatorizaciones</h2>
+<p>Hay muchas maneras de repetir tareas en R.</p>
+<div class="fragment">
+<p>Vamos a ver la función <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code> que nos permite <em>mapear</em> una función a una lista de argumentos.</p>
+</div>
+<div class="fragment">
+<p>Primero, escribimos una función que simula <strong>una</strong> asignación aleatoria de archivos.</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>my_simulate <span class="ot">&lt;-</span> <span class="cf">function</span>(i) {</span>
+<span id="cb7-2"><a></a>    sim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-3"><a></a>        <span class="at">sex =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"female"</span>, <span class="dv">24</span>), <span class="fu">rep</span>(<span class="st">"male"</span>, <span class="dv">24</span>)),</span>
+<span id="cb7-4"><a></a>        <span class="at">decision =</span> <span class="fu">sample</span>(options, <span class="at">size =</span> <span class="dv">48</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a></a>    )</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a>    <span class="fu">return</span>(sim)</span>
+<span id="cb7-8"><a></a>}</span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a></span>
+<span id="cb7-11"><a></a><span class="fu">my_simulate</span>(<span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 48 × 2
+   sex    decision    
+   &lt;chr&gt;  &lt;chr&gt;       
+ 1 female not promoted
+ 2 female promoted    
+ 3 female promoted    
+ 4 female promoted    
+ 5 female promoted    
+ 6 female promoted    
+ 7 female promoted    
+ 8 female not promoted
+ 9 female not promoted
+10 female not promoted
+# ℹ 38 more rows</code></pre>
+</div>
+</div>
+</div>
+</section><section id="simulación-de-100-aleatorizaciones-1" class="slide level2"><h2>Simulación de 100 aleatorizaciones</h2>
+<p>Cada vez que llamamos a <code>my_simulate()</code>, obtenemos una nueva asignación aleatoria de archivos.</p>
+<div class="fragment">
+<p>Podemos repetir el proceso <span class="math inline">\(k\)</span> veces, para obtener <span class="math inline">\(k\)</span> asignaciones aleatorias de archivos.</p>
+</div>
+<div class="fragment">
+<p>Para cada uno de los <span class="math inline">\(k\)</span> experimentos, <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code> va a guardar en la variable <code>sim</code> una tabla con los resultados de la simulación.</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>k <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a>simulations <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb9-4"><a></a>    <span class="at">k =</span> <span class="dv">1</span><span class="sc">:</span>k</span>
+<span id="cb9-5"><a></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb9-6"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb9-7"><a></a>        <span class="at">sim =</span> <span class="fu">map</span>(k, my_simulate)</span>
+<span id="cb9-8"><a></a>    )</span>
+<span id="cb9-9"><a></a></span>
+<span id="cb9-10"><a></a>simulations</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 100 × 2
+       k sim              
+   &lt;int&gt; &lt;list&gt;           
+ 1     1 &lt;tibble [48 × 2]&gt;
+ 2     2 &lt;tibble [48 × 2]&gt;
+ 3     3 &lt;tibble [48 × 2]&gt;
+ 4     4 &lt;tibble [48 × 2]&gt;
+ 5     5 &lt;tibble [48 × 2]&gt;
+ 6     6 &lt;tibble [48 × 2]&gt;
+ 7     7 &lt;tibble [48 × 2]&gt;
+ 8     8 &lt;tibble [48 × 2]&gt;
+ 9     9 &lt;tibble [48 × 2]&gt;
+10    10 &lt;tibble [48 × 2]&gt;
+# ℹ 90 more rows</code></pre>
+</div>
+</div>
+</div>
+</section><section id="simulación-de-100-aleatorizaciones-2" class="slide level2"><h2>Simulación de 100 aleatorizaciones</h2>
+<p>La columna <code>sim</code> es un objeto de tipo <code>list</code> que contiene las tablas con los resultados de cada simulación.</p>
+<div class="fragment">
+<p>Los objetos <code>list</code> son muy versátiles en R y nos permiten guardar diferentes tipos de datos en una sola variable.</p>
+</div>
+<div class="fragment">
+<p>En este caso, es como si hubiéramos escrito:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>sim <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">my_simulate</span>(<span class="dv">1</span>), <span class="fu">my_simulate</span>(<span class="dv">2</span>), ..., <span class="fu">my_simulate</span>(<span class="dv">100</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+
+</div>
+</div>
+<div class="fragment">
+<p>Podemos acceder a los resultados de la primera simulación con la siguiente notación:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>simulations<span class="sc">$</span>sim[[<span class="dv">1</span>]]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 48 × 2
+   sex    decision    
+   &lt;chr&gt;  &lt;chr&gt;       
+ 1 female not promoted
+ 2 female promoted    
+ 3 female not promoted
+ 4 female not promoted
+ 5 female promoted    
+ 6 female promoted    
+ 7 female promoted    
+ 8 female promoted    
+ 9 female promoted    
+10 female not promoted
+# ℹ 38 more rows</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>También puedes inspeccionar los contenidos de una lista con <code>glimpse(simulations$sim)</code>.</p>
+</div>
+</section><section id="simulación-de-100-aleatorizaciones-3" class="slide level2"><h2>Simulación de 100 aleatorizaciones</h2>
+<p>Ya tenemos nuestras 100 simulaciones guardadas en la tabla <code>simulations</code>.</p>
+<div class="fragment">
+<p>La ventaja de trabajar con listas de datos es que podemos pasar funciones a cada elemento de la lista, de la misma manera en la que lo hicimos con <code>my_simulate()</code>.</p>
+<ul>
+<li class="fragment">Usamos un <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map_dbl()</a></code> que regresará un valor numérico dentro de un verbo <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate()</a></code>.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Vamos a calcular el estadístico de interés <span class="math inline">\(\tau\)</span> para cada una de las 100 simulaciones.</p>
+</div>
+<div class="fragment">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>simulations <span class="ot">&lt;-</span> simulations <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb14-3"><a></a>        <span class="at">females_promoted =</span> <span class="fu">map_dbl</span>(sim, \(x) x <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a></a>            <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a></a>            <span class="fu">mutate</span>(</span>
+<span id="cb14-6"><a></a>                <span class="at">promoted =</span> decision <span class="sc">==</span> <span class="st">"promoted"</span></span>
+<span id="cb14-7"><a></a>            ) <span class="sc">|&gt;</span></span>
+<span id="cb14-8"><a></a>            <span class="fu">pull</span>(promoted) <span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a></a>            <span class="fu">mean</span>()),</span>
+<span id="cb14-10"><a></a>        <span class="at">males_promoted =</span> <span class="fu">map_dbl</span>(sim, \(x) x <span class="sc">|&gt;</span></span>
+<span id="cb14-11"><a></a>            <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-12"><a></a>            <span class="fu">mutate</span>(</span>
+<span id="cb14-13"><a></a>                <span class="at">promoted =</span> decision <span class="sc">==</span> <span class="st">"promoted"</span></span>
+<span id="cb14-14"><a></a>            ) <span class="sc">|&gt;</span></span>
+<span id="cb14-15"><a></a>            <span class="fu">pull</span>(promoted) <span class="sc">|&gt;</span></span>
+<span id="cb14-16"><a></a>            <span class="fu">mean</span>()),</span>
+<span id="cb14-17"><a></a>        <span class="at">tau =</span> males_promoted <span class="sc">-</span> females_promoted</span>
+<span id="cb14-18"><a></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb14-19"><a></a>    <span class="fu">select</span>(k, tau)</span>
+<span id="cb14-20"><a></a></span>
+<span id="cb14-21"><a></a>simulations</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 100 × 2
+       k     tau
+   &lt;int&gt;   &lt;dbl&gt;
+ 1     1 -0.208 
+ 2     2  0.125 
+ 3     3 -0.208 
+ 4     4  0.0833
+ 5     5 -0.167 
+ 6     6  0.0833
+ 7     7  0.167 
+ 8     8  0     
+ 9     9  0.0833
+10    10 -0.0833
+# ℹ 90 more rows</code></pre>
+</div>
+</div></div>
+</div>
+</section><section id="simulación-de-100-aleatorizaciones-4" class="slide level2 scrollable"><h2>Simulación de 100 aleatorizaciones</h2>
+<p>Visualicemos la distribución de <span class="math inline">\(\tau\)</span> para las 100 simulaciones y comparémosla con el valor observado en el experimento.</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb16-2"><a></a>    <span class="fu">geom_dotplot</span>(<span class="at">data =</span> simulations, <span class="fu">aes</span>(<span class="at">x =</span> tau)) <span class="sc">+</span></span>
+<span id="cb16-3"><a></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> obs_effect, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb16-6"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb16-7"><a></a>        <span class="at">x =</span> <span class="fu">expression</span>(tau),</span>
+<span id="cb16-8"><a></a>        <span class="at">y =</span> <span class="st">""</span></span>
+<span id="cb16-9"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div id="fig-simulations" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-simulations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="lecture2_files/figure-revealjs/fig-simulations-1.png" width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-simulations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Distribución de la diferencia en tasas de promoción
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="simulación-de-100-aleatorizaciones-5" class="slide level2"><h2>Simulación de 100 aleatorizaciones</h2>
+<p>La <a href="#/fig-simulations" class="quarto-xref">Figura&nbsp;1</a> muestra que, de las cien simulaciones que tenemos, solo hubo dos en las que la diferencia en tasas de promoción fue <strong>tan grande como</strong> la observada en el experimento.</p>
+<div class="fragment">
+<p>Otra forma de decir esto es: la probabilidad de observar un estadístico de prueba tan extremo como el observado, si no hubiera discriminación por género, es de 2%.</p>
+</div>
+<div class="fragment">
+<p><strong>Pregunta:</strong> ¿Qué dice la <a href="#/fig-simulations" class="quarto-xref">Figura&nbsp;1</a> sobre la hipótesis nula? ¿Qué conclusión podemos sacar sobre la discriminación por género en el banco?</p>
+</div>
+</section><section id="resumen" class="slide level2"><h2>Resumen</h2>
+<ul>
+<li class="fragment"><p>Hemos cuantificado cuál es la variabilidad natural de la diferencia en tasas de promoción, <span class="math inline">\(\tau\)</span>, si las decisiones de los banqueros fueran <em>independientes</em> del género del candidato.</p></li>
+<li class="fragment"><p>Hemos comparado el valor observado en el experimento con la distribución de <span class="math inline">\(\tau\)</span> bajo la hipótesis nula.</p></li>
+<li class="fragment"><p>Hemos calculado la probabilidad de observar un valor tan extremo como el observado, si la hipótesis nula fuera cierta.</p></li>
+<li class="fragment"><p>Si concluyéramos que hubo discriminación por género, la probabilidad de equivocarnos sería de 2%.</p></li>
+</ul></section></section><section><section id="pruebas-de-hipótesis" class="title-slide slide level1 center"><h1>Pruebas de hipótesis</h1>
+
+</section><section id="nuestra-prueba-de-hipótesis" class="slide level2"><h2>Nuestra prueba de hipótesis</h2>
+<p>Recordemos la prueba de hipótesis que propusimos para evaluar el estudio de discriminación por género en el banco de <span class="citation" data-cites="rosen_influence_1974">Rosen y Jerdee (<a href="#/referencias" role="doc-biblioref" onclick="">1974</a>)</span>:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(H_0\)</span>: El género no tiene efecto en las decisiones de promoción.</p></li>
+<li class="fragment"><p><span class="math inline">\(H_A\)</span>: Las candidatas mujeres enfrentan discriminación en las decisiones de promoción.</p></li>
+</ul>
+<div class="fragment">
+<p>Encontramos que la probabilidad de que <span class="math inline">\(H_0\)</span> sea cierta es de 2%: Solo en dos de nuestras 100 simulaciones encontramos una diferencia en promociones tan grande como la observada.</p>
+</div>
+</section><section id="dos-tipos-de-errores" class="slide level2"><h2>Dos tipos de errores</h2>
+<p>A la hora de evaluar la prueba de hipótesis, podríamos cometer dos tipos de errores:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Error tipo I</strong>: Rechazar la hipótesis nula siendo que ésta es verdadera.</p></li>
+<li class="fragment"><p><strong>Error tipo II</strong>: No rechazar la hipótesis nula siendo que ésta es falsa.</p></li>
+</ol></section><section id="valor-p" class="slide level2"><h2>Valor <span class="math inline">\(p\)</span>
+</h2>
+<p>La probabilidad del 2% que encontramos es lo que llamamos <em>valor-p</em>.</p>
+<div class="fragment">
+<p>Esta probabilidad cuantifica la fuerza de la evidencia en contra de la hipótesis nula, dados los datos observados.</p>
+</div>
+<div class="fragment">
+<p>Cuando el valor-p es pequeño, es decir, menor que un nivel predeterminado, decimos que los resultados <strong>estadísticamente significativos</strong>.</p>
+</div>
+<div class="fragment">
+<p>Otra manera de interpretar el valor-p es como la <strong>probabilidad del error tipo I</strong>: la probabilidad de rechazar la hipótesis nula siendo que ésta es verdadera.</p>
+</div>
+</section><section id="significancia-estadística" class="slide level2"><h2>Significancia estadística</h2>
+<p>Normalmente, denotamos con un <span class="math inline">\(\alpha\)</span> el nivel de significancia que estamos dispuestos a aceptar.</p>
+<div class="fragment">
+<p>En ciencias sociales, es común hablar de resultados significativos con p-valores menores a 0.05.</p>
+</div>
+<div class="fragment">
+<p>En nuestro caso, con un valor-p de 0.02, podemos concluir que los resultados son significativos al nivel de <span class="math inline">\(\alpha = 0.05\)</span>, rechazando la hipótesis nula.</p>
+</div>
+</section></section><section><section id="intervalos-de-confianza" class="title-slide slide level1 center"><h1>Intervalos de confianza</h1>
+
+</section><section id="intervalos-de-confianza-1" class="slide level2"><h2>Intervalos de confianza</h2>
+<p>Los intervalos de confianza son una herramienta poderosa para visualizar y comunicar la certeza asociada a un estimador, es decir, a un resultado de un experimento o análisis.</p>
+</section><section id="preguntas-de-interés" class="slide level2"><h2>Preguntas de interés</h2>
+<p>Además de ayudarnos a visualizar la variabilidad de un estimador, los intervalos de confianza nos permiten voltear la pregunta ed la significancia estadística.</p>
+<div class="fragment">
+<p>Mientras que el valor-p nos dice cuál es la probabilidad equivocarnos al rechazar la hipótesis nula, los intervalos de confianza nos dicen qué rango de valores podría tomar el estimador observado en el experimento.</p>
+</div>
+</section><section id="resultados-del-experimento" class="slide level2 scrollable"><h2>Resultados del experimento</h2>
+<p>Podemos resumir la evidencia del experimento de discriminación por género usando la función <code><a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">ggplot2::stat_summary()</a></code>.</p>
+<ul>
+<li class="fragment">Por defecto, <code>stat_summary()</code> calcula la media y el intervalo de confianza del 95% del <em>aesthetic</em> <code>y</code>.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>sex_discrimination <span class="ot">&lt;-</span> sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a></a>        <span class="at">promoted =</span> <span class="fu">as.numeric</span>(decision <span class="sc">==</span> <span class="st">"promoted"</span>)</span>
+<span id="cb17-4"><a></a>    ) </span>
+<span id="cb17-5"><a></a></span>
+<span id="cb17-6"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> promoted)) <span class="sc">+</span></span>
+<span id="cb17-8"><a></a>    <span class="fu">stat_summary</span>() <span class="sc">+</span></span>
+<span id="cb17-9"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb17-10"><a></a>        <span class="at">x =</span> <span class="st">"Sexo"</span>,</span>
+<span id="cb17-11"><a></a>        <span class="at">y =</span> <span class="st">"Proporción de promociones"</span>,</span>
+<span id="cb17-12"><a></a>        <span class="at">title =</span> <span class="st">"Proporción de promociones por género"</span>,</span>
+<span id="cb17-13"><a></a>        <span class="at">subtitle =</span> <span class="st">"Intervalos de confianza del 95%"</span></span>
+<span id="cb17-14"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb17-15"><a></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div id="fig-ci" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="lecture2_files/figure-revealjs/fig-ci-1.png" width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Proporción de promociones por género
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>La <a href="#/fig-ci" class="quarto-xref">Figura&nbsp;2</a> muestra que la hipótesis nula se puede rechazar con un nivel de significancia del 5%, porque los intervalos de confianza no se traslapan.</p>
+</div>
+</section><section id="interpretación-de-los-intervalos-de-confianza" class="slide level2"><h2>Interpretación de los intervalos de confianza</h2>
+<p>Un intervalo de confianza del 95% para un estimador <span class="math inline">\(\hat \theta\)</span> es un rango de valores que contiene al verdadero valor del parámetro <span class="math inline">\(\theta\)</span> con una probabilidad del 95%.</p>
+<div class="fragment">
+<p>En el estudio de <span class="citation" data-cites="rosen_influence_1974">Rosen y Jerdee (<a href="#/referencias" role="doc-biblioref" onclick="">1974</a>)</span>, enocntramos el rango de valores que contiene al verdadero valor de <span class="math inline">\(\tau = p_m - p_f\)</span> con una probabilidad del 95%.</p>
+</div>
+</section><section id="referencias" class="slide level2 smaller scrollable"><h2>Referencias</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -250,31 +1745,14 @@ Rosen, Benson, y Thomas H. Jerdee. 1974. <span>«Influence of Sex Role Stereotyp
 </div>
 </div>
 </section></section>
-
-    </div>
+</div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <p><a href="https://estebandegetau.com/Statistical-tools-in-R/">Herramientas estadísticas en R</a></p>
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -465,8 +1943,42 @@ Rosen, Benson, y Thomas H. Jerdee. 1974. <span>«Influence of Sex Role Stereotyp
           RevealZoom
         ]
       });
-    </script>
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+    
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+    
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+    
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+    
+      })();
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -553,7 +2065,7 @@ Rosen, Benson, y Thomas H. Jerdee. 1974. <span>«Influence of Sex Role Stereotyp
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/estebandegetau\.github\.io\/Statistical-tools-in-R\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
@@ -651,6 +2163,6 @@ Rosen, Benson, y Thomas H. Jerdee. 1974. <span>«Influence of Sex Role Stereotyp
       }
     });
     </script>
-    
+
 
 </body></html>

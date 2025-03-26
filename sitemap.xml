@@ -2,31 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://estebandegetau.github.io/Statistical-tools-in-R/syllabus.html</loc>
-    <lastmod>2025-03-18T19:07:33.421Z</lastmod>
+    <lastmod>2025-03-26T16:53:15.675Z</lastmod>
   </url>
   <url>
     <loc>https://estebandegetau.github.io/Statistical-tools-in-R/lectures.html</loc>
     <lastmod>2025-03-20T16:05:35.082Z</lastmod>
   </url>
   <url>
-    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/index.html</loc>
-    <lastmod>2025-03-20T16:05:11.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/assignments/assignment1/instructions.html</loc>
-    <lastmod>2025-03-20T23:29:15.797Z</lastmod>
-  </url>
-  <url>
-    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/assignments/assignment0/instructions.html</loc>
-    <lastmod>2025-03-20T16:12:40.911Z</lastmod>
+    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/lectures/lecture1.html</loc>
+    <lastmod>2025-03-18T18:10:53.759Z</lastmod>
   </url>
   <url>
     <loc>https://estebandegetau.github.io/Statistical-tools-in-R/assignments.html</loc>
     <lastmod>2025-03-20T16:05:23.483Z</lastmod>
   </url>
   <url>
-    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/lectures/lecture1.html</loc>
-    <lastmod>2025-03-18T18:10:53.759Z</lastmod>
+    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/assignments/assignment0/instructions.html</loc>
+    <lastmod>2025-03-20T16:12:40.911Z</lastmod>
+  </url>
+  <url>
+    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/assignments/assignment1/instructions.html</loc>
+    <lastmod>2025-03-25T14:35:54.602Z</lastmod>
+  </url>
+  <url>
+    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/index.html</loc>
+    <lastmod>2025-03-20T16:05:11.075Z</lastmod>
+  </url>
+  <url>
+    <loc>https://estebandegetau.github.io/Statistical-tools-in-R/lectures/lecture2.html</loc>
+    <lastmod>2025-03-26T17:10:56.671Z</lastmod>
   </url>
   <url>
     <loc>https://estebandegetau.github.io/Statistical-tools-in-R/resources.html</loc>

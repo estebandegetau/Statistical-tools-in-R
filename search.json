@@ -4,21 +4,21 @@
     "href": "syllabus.html",
     "title": "Temario",
     "section": "",
-    "text": "R es un lenguaje de computación diseñado específicamente para análisis estadístico y gráfico (Crawley 2012). El objetivo de este curso es brindar las herramientas estadísticas para resolver problemas de datos cotidianos en organizaciones grandes como el IMSS. Al final del curso podrás:\n\nResolver una variedad de preguntas empíricas usando R.\nImplementar flujos de datos automáticos desde la fuente de datos hasta medios de comunicación diversos (tablas, figuras, reportes, presentaciones, páginas web, etc.).\nUsar Quarto para escribir reportes reproducibles y GitHub para versión de control.\n\nPrerequisitos: Este curso asume que tienes conocimientos básicos de estadística y programación. No asumo que tengas experiencia previa con R."
+    "text": "R es un lenguaje de computación diseñado específicamente para análisis estadístico y gráfico (Crawley 2012). El objetivo de este curso es brindar las herramientas estadísticas para resolver problemas de datos cotidianos en organizaciones grandes como el IMSS. Al final del curso podrás:\n\nResolver una variedad de preguntas empíricas usando R.\nImplementar flujos de datos automáticos desde la fuente de datos hasta medios de comunicación diversos (tablas, figuras, reportes, presentaciones, páginas web, etc.).\nUsar Quarto para escribir reportes reproducibles y GitHub para control de versiones.\n\nPrerrequisitos: Este curso asume que tienes conocimientos básicos de estadística y programación. No asumo que tengas experiencia previa con R."
   },
   {
     "objectID": "syllabus.html#objetivo",
     "href": "syllabus.html#objetivo",
     "title": "Temario",
     "section": "",
-    "text": "R es un lenguaje de computación diseñado específicamente para análisis estadístico y gráfico (Crawley 2012). El objetivo de este curso es brindar las herramientas estadísticas para resolver problemas de datos cotidianos en organizaciones grandes como el IMSS. Al final del curso podrás:\n\nResolver una variedad de preguntas empíricas usando R.\nImplementar flujos de datos automáticos desde la fuente de datos hasta medios de comunicación diversos (tablas, figuras, reportes, presentaciones, páginas web, etc.).\nUsar Quarto para escribir reportes reproducibles y GitHub para versión de control.\n\nPrerequisitos: Este curso asume que tienes conocimientos básicos de estadística y programación. No asumo que tengas experiencia previa con R."
+    "text": "R es un lenguaje de computación diseñado específicamente para análisis estadístico y gráfico (Crawley 2012). El objetivo de este curso es brindar las herramientas estadísticas para resolver problemas de datos cotidianos en organizaciones grandes como el IMSS. Al final del curso podrás:\n\nResolver una variedad de preguntas empíricas usando R.\nImplementar flujos de datos automáticos desde la fuente de datos hasta medios de comunicación diversos (tablas, figuras, reportes, presentaciones, páginas web, etc.).\nUsar Quarto para escribir reportes reproducibles y GitHub para control de versiones.\n\nPrerrequisitos: Este curso asume que tienes conocimientos básicos de estadística y programación. No asumo que tengas experiencia previa con R."
   },
   {
     "objectID": "syllabus.html#contenido",
     "href": "syllabus.html#contenido",
     "title": "Temario",
     "section": "Contenido",
-    "text": "Contenido\n\nR y el Tidyverse\n\nEl lenguaje estadístico R\nPaquetes del Tidyverse\nManupulación de datos con dplyr\nVisualización de datos con ggplot2\nProgramación funcional con purrr\nReportes reproducibles con Quarto\n\nReferencias: Crawley (2012); Wickham, Cetinkaya-Rundel, y Grolemund (2023); Wickham (2010); Wickham (2019).\nInferencia estadística\n\nPropiedades asintóticas de los estimadores\nPruebas de hipótesis\nBootstrap y métodos de remuestreo\nSimulaciones\n\nReferencias: Aguilar Esteva (s. f.); Schmelzer (s. f.); Çetinkaya-Rundel y Hardin (2024).\nRegresión lineal\n\nMínimos cuadrados ordinarios\nInferencia estadística\nInterpretación de coeficientes\nSesgo por variables omitidas\nEfectos fijos con fixest\n\nReferencias: Aguilar Esteva (s. f.); Schmelzer (s. f.); Cunningham (2021).\nPronóstico de series de tiempo\n\nSuavización exponencial\nARIMA\nPronóstico automatico con fable\n\nReferencias: Hyndman y Khandakar (2008); Hyndman y Athanasopolous (2021).\nAprendizaje de máquina\n\nSupervisado: OLS y clasificación\nNo supervisado: Componentes principales y clasificación\nElevar la práctica del modelaje con Tidymodels\n\nReferencias: Athey y Imbens (2019); James et al. (2021); Silge y Julia (s. f.)."
+    "text": "Contenido\n\nR y el Tidyverse\n\nEl lenguaje estadístico R\nPaquetes del Tidyverse\nManipulación de datos con dplyr\nVisualización de datos con ggplot2\nProgramación funcional con purrr\nReportes reproducibles con Quarto\n\nReferencias: Crawley (2012); Wickham, Cetinkaya-Rundel, y Grolemund (2023); Wickham (2010); Wickham (2019).\nInferencia estadística\n\nPropiedades asintóticas de los estimadores\nPruebas de hipótesis\nBootstrap y métodos de remuestreo\nSimulaciones\n\nReferencias: Aguilar Esteva (s. f.); Schmelzer (s. f.); Çetinkaya-Rundel y Hardin (2024).\nRegresión lineal\n\nMínimos cuadrados ordinarios\nInferencia estadística\nInterpretación de coeficientes\nSesgo por variables omitidas\nEfectos fijos con fixest\n\nReferencias: Aguilar Esteva (s. f.); Schmelzer (s. f.); Cunningham (2021).\nPronóstico de series de tiempo\n\nSuavización exponencial\nARIMA\nPronóstico automático con fable\n\nReferencias: Hyndman y Khandakar (2008); Hyndman y Athanasopolous (2021).\nAprendizaje de máquina\n\nSupervisado: OLS y clasificación\nNo supervisado: Componentes principales y clasificación\nElevar la práctica del modelaje con Tidymodels\n\nReferencias: Athey y Imbens (2019); James et al. (2021); Silge y Julia (s. f.)."
   },
   {
     "objectID": "syllabus.html#fechas-y-programa",
@@ -39,91 +39,14 @@
     "href": "syllabus.html#recursos-adicionales",
     "title": "Temario",
     "section": "Recursos adicionales",
-    "text": "Recursos adicionales\nAdemás de las referencias en este documento, también puedes encontrar ligas de interes en la página de recursos."
+    "text": "Recursos adicionales\nAdemás de las referencias en este documento, también puedes encontrar ligas de interés en la página de recursos."
   },
   {
     "objectID": "lectures.html",
     "href": "lectures.html",
     "title": "Clases",
     "section": "",
-    "text": "Aquí podrás encontrar el material de las clases que veremos a lo largo del curso. Las presentaciones incluyen el código que genera todos los resultados que veremos en clase. También puedes encontrar el código fuente en la página de GitHub.\nSi tienes alguna duda, no dudes en contactarme.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n\n19 mar 2025\n\n\n\n\n\nlecture1.qmd\n\n\n\n\n\n\n\nNo hay resultados"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Herramientas estadísticas en R",
-    "section": "",
-    "text": "Bienvenidx a la página del curso de Herramientas Estadísticas en R.\nEste curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R.\nPuedes consultar el temario del curso aquí."
-  },
-  {
-    "objectID": "index.html#clases",
-    "href": "index.html#clases",
-    "title": "Herramientas estadísticas en R",
-    "section": "Clases",
-    "text": "Clases\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n19 mar 2025\n\n\n\n\n\nNo hay resultados"
-  },
-  {
-    "objectID": "index.html#tareas",
-    "href": "index.html#tareas",
-    "title": "Herramientas estadísticas en R",
-    "section": "Tareas",
-    "text": "Tareas\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n14 mar 2025\n\n\n\n\nIntroducción a la ciencia de datos con R\n\n\nTarea 1\n\n\n20 mar 2025\n\n\n\n\n\nNo hay resultados"
-  },
-  {
-    "objectID": "assignments/assignment1/instructions.html",
-    "href": "assignments/assignment1/instructions.html",
-    "title": "Introducción a la ciencia de datos con R",
-    "section": "",
-    "text": "La Tarea 1 debe entregarse el jueves 27 de marzo. La entrega consiste en un archivo PDF que incluya las respuestas a las preguntas planteadas, así como el código .qmd que generó las respuestas. Para descargar el archivo .qmd, haz clic aquí.\nEscribe todas tus respuestas en la sección de respuestas al final de este archivo.\nEscribe tu nombre en el campo author del YAML."
-  },
-  {
-    "objectID": "assignments/assignment1/instructions.html#outliers-datos-atípicos",
-    "href": "assignments/assignment1/instructions.html#outliers-datos-atípicos",
-    "title": "Introducción a la ciencia de datos con R",
-    "section": "1.1 Outliers: Datos atípicos",
-    "text": "1.1 Outliers: Datos atípicos\nUn problema común en el análisis de datos es cómo tratar con datos atípicos: aquellos valores que difieren significativamente del resto de los datos. Dos soluciones estándar son:\n\nTruncar los datos: eliminando los datos atípicos\nWinsorizar los datos: reemplazando los datos atípicos por un valor cercano a los valores no atípicos.\n\nEl siguiente código carga un vector llamado ingresos. Cada valor representa el ingreso en pesos para un hogar mexicano, de la encuesta de ingreso y gastos de los hogares (ENIGH) del 2022.\n\nload(\"//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/ingresos.rda\")\n\n\n¿Cuál es la lognitud (length) del vector ingresos? (esto nos dirá el número de observaciones en los datos de la ENIGH.) ¿Cuál es la media, la mediana y la desviación estándar de ingresos?\nEscribe una función para truncar un vector. Esta función debe tener dos argumentos: (1) el vector y (2) el percentil al que se truncará el vector por arriba y por abajo. La función deberá hacer lo siguiente:\n\nCalcular los percentiles inferior y superior para truncar los datos.\nCrear un subconjunto del vector original, incluyendo solo las observaciones que se encuentren entre los percentiles inferior y superior.\nRegresar el subconjunto.\n\nPista: La función sort() regresa un vector ordenado de menor a mayor. Para extraer múltiples elementos de un vector, puedes usar la notación vector[1:10] para extraer los elementos 1 al 10.\nEscribe una función para winsorizar un vector. Esta función deberá tener dos argumentos: (1) el vector y (2) el percentil al que se winzorizará el vector por arriba y por abajo. La función deberá hacer lo siguiente:\n\nCalcular los percentiles inferior y superior para winzorizar los datos.\nCrear un nuevo vector, reemplazando cualquier observación que sea menor al percentil inferior por el percentil inferior y cualquier observación que sea mayor al percentil superior por el percentil superior.\nRegresar el vector con los valores atípicos reemplazados.\n\nPista: Puedes usar la notación vector[vector &lt; 10] &lt;- 10 para reemplazar los valores menores a 10 por 10.\nCrea un vector truncado del vector ingresos, que trunque el 1% de los datos por arriba y por abajo. ¿Cuál es la longitud, media, mediana y desviación estándar del vector truncado? Compara el histograma de ingresos con el histograma del vector truncado.\nCrea un vector winzorizado del vector ingresos, que winzorice el 1% de los datos por arriba y por abajo. ¿Cuál es la longitud, media, mediana y desviación estándar del vector winzorizado? Compara el histograma de ingresos con el histograma del vector winzorizado.\nDiscute tus resultados."
-  },
-  {
-    "objectID": "assignments/assignment1/instructions.html#seguridad-social-en-la-población",
-    "href": "assignments/assignment1/instructions.html#seguridad-social-en-la-población",
-    "title": "Introducción a la ciencia de datos con R",
-    "section": "1.2 Seguridad social en la población",
-    "text": "1.2 Seguridad social en la población\nEl siguiente código carga un conjunto de datos proveniente de la ENIGH 2022 llamado poblacion2022. Explotaremos este conjunto de datos para explorar qué tipo de personas tienen/carecen de seguridad social en México. Adicoinalmente, el código genera un diccionario de datos que queda guardado como una tibble llamado dict. Puedes consultar el diccionario de datos llamando View(dict).\n\n# Checar que pacman esté instalado\nif (!require(\"pacman\")) install.packages(\"pacman\")\n\nLoading required package: pacman\n\npacman::p_load(tidyverse, labelled)\n\nload(\"//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/poblacion2022.RData\")\n\ndict &lt;- generate_dictionary(poblacion2022)\n\nLa ENIGH es una encuesta representativa a nivel estatal y nacional. La variable factor es un factor de expansión que nos permite hablar de la muestra encuestada como si fuese la población total. Si quisiéramos saber cuántas personas considera la ENIGH que habitan en México, podríamos sumar el factor de expansión de todas las observaciones:\n\npoblacion_total &lt;- sum(poblacion2022$factor)\n\npoblacion_total\n\n[1] 128999038\n\n\n\nLa variable segsoc en poblacion2022 es una variable categórica que indica si una persona tiene o no tiene seguridad social. ¿Cuál es el porcentaje de personas en la población que tienen y no tienen seguridad social?\n¿Qué porcentaje de hombres y mujeres tienen seguridad social? ¿Qué porcentaje de hombres y mujeres no tienen seguridad social?\nAhora queremos saber cuál es la escolaridad promedio para las personas con y sin seguridad social. Sin embargo, la información sobre escolaridad en la tabla poblacion2022 está codificada como factor en la variable nivelaprob. Con la siguiente tabla podemos covnertir niveles escolares en años de escolaridad:\n\n\nescolaridad &lt;- tibble(\n  nivelaprob = poblacion2022 |&gt;\n    pull(nivelaprob) |&gt;\n    unique(),\n  escolaridad = c(6, 12, 9, 16, 18, 14, 1, 14, NA, 0, 20)\n)\n\nescolaridad\n\n# A tibble: 11 × 2\n   nivelaprob                  escolaridad\n   &lt;fct&gt;                             &lt;dbl&gt;\n 1 Primaria                              6\n 2 Preparatoria o bachillerato          12\n 3 Secundaria                            9\n 4 Profesional                          16\n 5 Maestría                             18\n 6 Normal                               14\n 7 Preescolar                            1\n 8 Carrera técnica o comercial          14\n 9 &lt;NA&gt;                                 NA\n10 Ninguno                               0\n11 Doctorado                            20\n\n\nUsa la tabla escolaridad para calcular la escolaridad promedio de las personas con y sin seguridad social.\n\nUsa ggplot2 para crear una (o varias) gráfica(s) en donde explores las siguientes preguntas: ¿Cuál es el grado de cobertura de la seguridad social en México, por entidad federativa? ¿Qué entidad federativa tiene la mayor y la menor cobertura de seguridad social? ¿Qué entidades están por arriba y por abajo del promedio nacional de cobertura de seguridad social?\nDiscute tus resultados."
-  },
-  {
-    "objectID": "assignments/assignment0/instructions.html",
-    "href": "assignments/assignment0/instructions.html",
-    "title": "Instalación del software",
-    "section": "",
-    "text": "Antes de comenzar el curso, es necesario que instales el software que utilizaremos. Esta tarea no tiene entregable. Solo es necesario que hayas seguido cada uno de los pasos siguientes antes de la primera clase, el miércoles 19 de marzo."
-  },
-  {
-    "objectID": "assignments/assignment0/instructions.html#instala-r",
-    "href": "assignments/assignment0/instructions.html#instala-r",
-    "title": "Instalación del software",
-    "section": "1 Instala R",
-    "text": "1 Instala R\nPara instalar R en Windows, sigue las instrucciones en la liga: https://cran.r-project.org/bin/windows/base/.\nPara instalar R en macOS, sigue las instrucciones en la liga: https://cran.r-project.org/bin/macosx/."
-  },
-  {
-    "objectID": "assignments/assignment0/instructions.html#instala-rstudio",
-    "href": "assignments/assignment0/instructions.html#instala-rstudio",
-    "title": "Instalación del software",
-    "section": "2 Instala RStudio",
-    "text": "2 Instala RStudio\nRStudio es un entorno de desarrollo integrado (IDE) para R. Puedes descargarlo de la liga: https://www.rstudio.com/products/rstudio/download/. Ojo: si ya instalaste R para este punto, solo necesitas instalar RStudio.\nEste paso en realidad es opcional. Si prefieres trabajar en VSCode o en otro IDE, adelante."
-  },
-  {
-    "objectID": "assignments/assignment0/instructions.html#instala-quarto",
-    "href": "assignments/assignment0/instructions.html#instala-quarto",
-    "title": "Instalación del software",
-    "section": "3 Instala Quarto",
-    "text": "3 Instala Quarto\nQuarto es un software que permite crear reportes computacionales con R para exportar en una variedad de formatos. Todas las tareas se entregarán en documentos creados por Quarto. Para instalar Quarto, sigue las instrucciones en la liga: https://quarto.org/docs/getting-started/installation.html."
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Tareas",
-    "section": "",
-    "text": "Aquí podrás encontrar las tareas que asignaré a lo largo del curso. Lee las instrucciones de cada tarea cuidadosamente.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n\n14 mar 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroducción a la ciencia de datos con R\n\n\nTarea 1\n\n\n\n20 mar 2025\n\n\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Aquí podrás encontrar el material de las clases que veremos a lo largo del curso. Las presentaciones incluyen el código que genera todos los resultados que veremos en clase. También puedes encontrar el código fuente en la página de GitHub.\nSi tienes alguna duda, no dudes en contactarme.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n\n19 mar 2025\n\n\n\n\n\nlecture1.qmd\n\n\n\n\n\n\n\n\n\n\n\nInferencia estadística\n\n\nClase 2\n\n\n\n26 mar 2025\n\n\n\n\n\nlecture2.qmd\n\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "lectures/lecture1.html#por-qué-usar-r",
@@ -530,6 +453,328 @@
     "title": "R y el Tidyverse",
     "section": "Referencias",
     "text": "Referencias\n\n\n\n\nCrawley, Michael J. 2012. The R Book. John Wiley & Sons.\n\n\nWickham, Hadley, Mine Cetinkaya-Rundel, y Garrett Grolemund. 2023. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 2nd edition. Beijing Boston Farnham Sebastopol Tokyo: O’Reilly Media. https://r4ds.hadley.nz/."
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Tareas",
+    "section": "",
+    "text": "Aquí podrás encontrar las tareas que asignaré a lo largo del curso. Lee las instrucciones de cada tarea cuidadosamente.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n\n14 mar 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroducción a la ciencia de datos con R\n\n\nTarea 1\n\n\n\n20 mar 2025\n\n\n\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "assignments/assignment0/instructions.html",
+    "href": "assignments/assignment0/instructions.html",
+    "title": "Instalación del software",
+    "section": "",
+    "text": "Antes de comenzar el curso, es necesario que instales el software que utilizaremos. Esta tarea no tiene entregable. Solo es necesario que hayas seguido cada uno de los pasos siguientes antes de la primera clase, el miércoles 19 de marzo."
+  },
+  {
+    "objectID": "assignments/assignment0/instructions.html#instala-r",
+    "href": "assignments/assignment0/instructions.html#instala-r",
+    "title": "Instalación del software",
+    "section": "1 Instala R",
+    "text": "1 Instala R\nPara instalar R en Windows, sigue las instrucciones en la liga: https://cran.r-project.org/bin/windows/base/.\nPara instalar R en macOS, sigue las instrucciones en la liga: https://cran.r-project.org/bin/macosx/."
+  },
+  {
+    "objectID": "assignments/assignment0/instructions.html#instala-rstudio",
+    "href": "assignments/assignment0/instructions.html#instala-rstudio",
+    "title": "Instalación del software",
+    "section": "2 Instala RStudio",
+    "text": "2 Instala RStudio\nRStudio es un entorno de desarrollo integrado (IDE) para R. Puedes descargarlo de la liga: https://www.rstudio.com/products/rstudio/download/. Ojo: si ya instalaste R para este punto, solo necesitas instalar RStudio.\nEste paso en realidad es opcional. Si prefieres trabajar en VSCode o en otro IDE, adelante."
+  },
+  {
+    "objectID": "assignments/assignment0/instructions.html#instala-quarto",
+    "href": "assignments/assignment0/instructions.html#instala-quarto",
+    "title": "Instalación del software",
+    "section": "3 Instala Quarto",
+    "text": "3 Instala Quarto\nQuarto es un software que permite crear reportes computacionales con R para exportar en una variedad de formatos. Todas las tareas se entregarán en documentos creados por Quarto. Para instalar Quarto, sigue las instrucciones en la liga: https://quarto.org/docs/getting-started/installation.html."
+  },
+  {
+    "objectID": "assignments/assignment1/instructions.html",
+    "href": "assignments/assignment1/instructions.html",
+    "title": "Introducción a la ciencia de datos con R",
+    "section": "",
+    "text": "La Tarea 1 debe entregarse el jueves 27 de marzo. La entrega consiste en un archivo PDF que incluya las respuestas a las preguntas planteadas, así como el código .qmd que generó las respuestas. Para descargar el archivo .qmd, haz clic aquí.\nEscribe todas tus respuestas en la sección de respuestas al final de este archivo.\nEscribe tu nombre en el campo author del YAML."
+  },
+  {
+    "objectID": "assignments/assignment1/instructions.html#outliers-datos-atípicos",
+    "href": "assignments/assignment1/instructions.html#outliers-datos-atípicos",
+    "title": "Introducción a la ciencia de datos con R",
+    "section": "1.1 Outliers: Datos atípicos",
+    "text": "1.1 Outliers: Datos atípicos\nUn problema común en el análisis de datos es cómo tratar con datos atípicos: aquellos valores que difieren significativamente del resto de los datos. Dos soluciones estándar son:\n\nTruncar los datos: eliminando los datos atípicos\nWinsorizar los datos: reemplazando los datos atípicos por un valor cercano a los valores no atípicos.\n\nEl siguiente código carga un vector llamado ingresos. Cada valor representa el ingreso en pesos para un hogar mexicano, de la encuesta de ingreso y gastos de los hogares (ENIGH) del 2022.\n\nload(\"//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/ingresos.rda\")\n\n\n¿Cuál es la lognitud (length) del vector ingresos? (esto nos dirá el número de observaciones en los datos de la ENIGH.) ¿Cuál es la media, la mediana y la desviación estándar de ingresos?\nEscribe una función para truncar un vector. Esta función debe tener dos argumentos: (1) el vector y (2) el percentil al que se truncará el vector por arriba y por abajo. La función deberá hacer lo siguiente:\n\nCalcular los percentiles inferior y superior para truncar los datos.\nCrear un subconjunto del vector original, incluyendo solo las observaciones que se encuentren entre los percentiles inferior y superior.\nRegresar el subconjunto.\n\nPista: La función sort() regresa un vector ordenado de menor a mayor. Para extraer múltiples elementos de un vector, puedes usar la notación vector[1:10] para extraer los elementos 1 al 10.\nEscribe una función para winsorizar un vector. Esta función deberá tener dos argumentos: (1) el vector y (2) el percentil al que se winzorizará el vector por arriba y por abajo. La función deberá hacer lo siguiente:\n\nCalcular los percentiles inferior y superior para winzorizar los datos.\nCrear un nuevo vector, reemplazando cualquier observación que sea menor al percentil inferior por el percentil inferior y cualquier observación que sea mayor al percentil superior por el percentil superior.\nRegresar el vector con los valores atípicos reemplazados.\n\nPista: Puedes usar la notación vector[vector &lt; 10] &lt;- 10 para reemplazar los valores menores a 10 por 10.\nCrea un vector truncado del vector ingresos, que trunque el 1% de los datos por arriba y por abajo. ¿Cuál es la longitud, media, mediana y desviación estándar del vector truncado? Compara el histograma de ingresos con el histograma del vector truncado.\nCrea un vector winzorizado del vector ingresos, que winzorice el 1% de los datos por arriba y por abajo. ¿Cuál es la longitud, media, mediana y desviación estándar del vector winzorizado? Compara el histograma de ingresos con el histograma del vector winzorizado.\nDiscute tus resultados."
+  },
+  {
+    "objectID": "assignments/assignment1/instructions.html#seguridad-social-en-la-población",
+    "href": "assignments/assignment1/instructions.html#seguridad-social-en-la-población",
+    "title": "Introducción a la ciencia de datos con R",
+    "section": "1.2 Seguridad social en la población",
+    "text": "1.2 Seguridad social en la población\nEl siguiente código carga un conjunto de datos proveniente de la ENIGH 2022 llamado poblacion2022. Explotaremos este conjunto de datos para explorar qué tipo de personas tienen/carecen de seguridad social en México. Adicoinalmente, el código genera un diccionario de datos que queda guardado como una tibble llamado dict. Puedes consultar el diccionario de datos llamando View(dict).\n\n# Checar que pacman esté instalado\nif (!require(\"pacman\")) install.packages(\"pacman\")\n\nLoading required package: pacman\n\npacman::p_load(tidyverse, labelled)\n\nload(\"//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/poblacion2022.RData\")\n\ndict &lt;- generate_dictionary(poblacion2022)\n\nLa ENIGH es una encuesta representativa a nivel estatal y nacional. La variable factor es un factor de expansión que nos permite hablar de la muestra encuestada como si fuese la población total. Si quisiéramos saber cuántas personas considera la ENIGH que habitan en México, podríamos sumar el factor de expansión de todas las observaciones:\n\npoblacion_total &lt;- sum(poblacion2022$factor)\n\npoblacion_total\n\n[1] 128999038\n\n\n\nLa variable segsoc en poblacion2022 es una variable categórica que indica si una persona tiene o no tiene seguridad social. ¿Cuál es el porcentaje de personas en la población que tienen y no tienen seguridad social?\n¿Qué porcentaje de hombres y mujeres tienen seguridad social? ¿Qué porcentaje de hombres y mujeres no tienen seguridad social?\nAhora queremos saber cuál es la escolaridad promedio para las personas con y sin seguridad social. Sin embargo, la información sobre escolaridad en la tabla poblacion2022 está codificada como factor en la variable nivelaprob. Con la siguiente tabla podemos covnertir niveles escolares en años de escolaridad:\n\n\nescolaridad &lt;- tibble(\n  nivelaprob = poblacion2022 |&gt;\n    pull(nivelaprob) |&gt;\n    unique(),\n  escolaridad = c(6, 12, 9, 16, 18, 14, 1, 14, NA, 0, 20)\n)\n\nescolaridad\n\n# A tibble: 11 × 2\n   nivelaprob                  escolaridad\n   &lt;fct&gt;                             &lt;dbl&gt;\n 1 Primaria                              6\n 2 Preparatoria o bachillerato          12\n 3 Secundaria                            9\n 4 Profesional                          16\n 5 Maestría                             18\n 6 Normal                               14\n 7 Preescolar                            1\n 8 Carrera técnica o comercial          14\n 9 &lt;NA&gt;                                 NA\n10 Ninguno                               0\n11 Doctorado                            20\n\n\nUsa la tabla escolaridad para calcular la escolaridad promedio de las personas con y sin seguridad social.\n\nUsa ggplot2 para crear una (o varias) gráfica(s) en donde explores las siguientes preguntas: ¿Cuál es el grado de cobertura de la seguridad social en México, por entidad federativa? ¿Qué entidad federativa tiene la mayor y la menor cobertura de seguridad social? ¿Qué entidades están por arriba y por abajo del promedio nacional de cobertura de seguridad social?\nDiscute tus resultados."
+  },
+  {
+    "objectID": "assignments/assignment1/instructions.html#outliers",
+    "href": "assignments/assignment1/instructions.html#outliers",
+    "title": "Introducción a la ciencia de datos con R",
+    "section": "2.1 Outliers",
+    "text": "2.1 Outliers\n\nEl vector ingresos tiene una lognitud de:\n\n\nlength(ingresos)\n\n[1] 397182"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Herramientas estadísticas en R",
+    "section": "",
+    "text": "Bienvenidx a la página del curso de Herramientas Estadísticas en R.\nEste curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R.\nPuedes consultar el temario del curso aquí."
+  },
+  {
+    "objectID": "index.html#clases",
+    "href": "index.html#clases",
+    "title": "Herramientas estadísticas en R",
+    "section": "Clases",
+    "text": "Clases\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n19 mar 2025\n\n\n\n\nInferencia estadística\n\n\nClase 2\n\n\n26 mar 2025\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "index.html#tareas",
+    "href": "index.html#tareas",
+    "title": "Herramientas estadísticas en R",
+    "section": "Tareas",
+    "text": "Tareas\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n14 mar 2025\n\n\n\n\nIntroducción a la ciencia de datos con R\n\n\nTarea 1\n\n\n20 mar 2025\n\n\n\n\n\nNo hay resultados"
+  },
+  {
+    "objectID": "lectures/lecture2.html#contenido",
+    "href": "lectures/lecture2.html#contenido",
+    "title": "Inferencia estadística",
+    "section": "Contenido",
+    "text": "Contenido\nVamos a estudiar las herramientas básicas de probabilidad e inferencia estadística que sentarán las bases para los siguientes temas del curso.\nPara una revisión más extensa de estos temas, puedes consultar el Crash Course de estadística."
+  },
+  {
+    "objectID": "lectures/lecture2.html#motivación",
+    "href": "lectures/lecture2.html#motivación",
+    "title": "Inferencia estadística",
+    "section": "Motivación",
+    "text": "Motivación\nLa inferencia estadística se concentra en entender y cuantificar la incertidumbre de parámetros de interés.\nYa vimos cómo resumir y graficar datos en varios contextos.\nVamos a estudiar cómo responder nuevas preguntas como:\n\n¿Los datos son diferentes para dos grupos?\n¿Los datos son representativos de la población?"
+  },
+  {
+    "objectID": "lectures/lecture2.html#notación",
+    "href": "lectures/lecture2.html#notación",
+    "title": "Inferencia estadística",
+    "section": "Notación",
+    "text": "Notación\nGeneralmente, vamos a usar:\n\n\\(p\\) para denotar a una proporción de la población\n\\(\\hat p\\) para denotar a una proporción de una muestra\n\nIgualmente:\n\n\\(\\mu\\) para denotar a una media de la población\n\\(\\bar x\\) para denotar a una media de una muestra"
+  },
+  {
+    "objectID": "lectures/lecture2.html#ejemplo",
+    "href": "lectures/lecture2.html#ejemplo",
+    "title": "Inferencia estadística",
+    "section": "Ejemplo",
+    "text": "Ejemplo\n\nEjemplo 1 Imaginemos que un profesor separa a sus alumnos en dos grupos: los que se sientan del lado izquierdo y los que se sientan del lado derecho.\n\nSea \\(\\hat p_L\\) la proporción de alumnos que aprueban en el grupo izquierdo, y \\(\\hat p_R\\) la proporción de alumnos que aprueban en el grupo derecho.\n¿Te sorprendería que \\(\\hat p_L \\neq \\hat p_R\\)?\n\n\n\nMientras que seguramente \\(\\hat p_L\\) sea muy parecida a \\(\\hat p_R\\), sería raro que fueran exactamente iguales.\n\n\nSeguramente observaríamos una pequeña diferencia por azar."
+  },
+  {
+    "objectID": "lectures/lecture2.html#aleatoriedad",
+    "href": "lectures/lecture2.html#aleatoriedad",
+    "title": "Inferencia estadística",
+    "section": "Aleatoriedad",
+    "text": "Aleatoriedad\nEstudiar la aleatoriedad es una forma importante del estudio de la estadística.\n\nA lo largo del curso veremos tres maneras de cuantificar variabilidad en los datos:\n\nAleatorización\nRemuestreo (o bootstrap)\nModelos matemáticos"
+  },
+  {
+    "objectID": "lectures/lecture2.html#contexto",
+    "href": "lectures/lecture2.html#contexto",
+    "title": "Inferencia estadística",
+    "section": "Contexto",
+    "text": "Contexto\nVamos a considerar un estudio que investigó la discriminación por género en la contratación de personal en un banco en los años 1970.\n\nLa pregunta de investigación que hacen los autores es:\n\n¿Las personas que se identifican como mujeres son discriminadas en las decisiones de promoción, hechas por gerentes que se identifican como hombres?1\n\n\nRosen y Jerdee (1974)"
+  },
+  {
+    "objectID": "lectures/lecture2.html#datos-observados",
+    "href": "lectures/lecture2.html#datos-observados",
+    "title": "Inferencia estadística",
+    "section": "Datos observados",
+    "text": "Datos observados\n\nParticiparon 48 supervisores de sucursales bancarias, identificados como hombres, que atendieron a un curso de habilidades gerenciales en la Universidad de Carolina del Norte en 1972.\nCada supervisor recibió un archivo con información sobre un supuesto candidato a una vacante de gerente de sucursal.\nLos archivos contenían datos idénticos, excepto que la mitad de los archivos indicaban que la persona era un hombre y la otra mitad que era una mujer.\nLos archivos fueron asignados aleatoriamente entre los supervisores."
+  },
+  {
+    "objectID": "lectures/lecture2.html#datos-observados-1",
+    "href": "lectures/lecture2.html#datos-observados-1",
+    "title": "Inferencia estadística",
+    "section": "Datos observados",
+    "text": "Datos observados\nSe recolectaron datos del sexo asociado al archivo y la decisión de promoción tomada por el supervisor.\nLos datos están disponibles en el paquete de datos de Çetinkaya-Rundel y Hardin (2024).\n\n\npacman::p_load(openintro)\n\nsex_discrimination\n\n\n\n# A tibble: 48 × 2\n   sex   decision\n   &lt;fct&gt; &lt;fct&gt;   \n 1 male  promoted\n 2 male  promoted\n 3 male  promoted\n 4 male  promoted\n 5 male  promoted\n 6 male  promoted\n 7 male  promoted\n 8 male  promoted\n 9 male  promoted\n10 male  promoted\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "lectures/lecture2.html#datos-observados-2",
+    "href": "lectures/lecture2.html#datos-observados-2",
+    "title": "Inferencia estadística",
+    "section": "Datos observados",
+    "text": "Datos observados\n\ntally &lt;- sex_discrimination |&gt;\n    group_by(sex, decision) |&gt;\n    tally() |&gt;\n    ungroup()\n\ntally\n\n\n\n# A tibble: 4 × 3\n  sex    decision         n\n  &lt;fct&gt;  &lt;fct&gt;        &lt;int&gt;\n1 male   promoted        21\n2 male   not promoted     3\n3 female promoted        14\n4 female not promoted    10"
+  },
+  {
+    "objectID": "lectures/lecture2.html#datos-observados-3",
+    "href": "lectures/lecture2.html#datos-observados-3",
+    "title": "Inferencia estadística",
+    "section": "Datos observados",
+    "text": "Datos observados\n\ntally |&gt;\n    pivot_wider(\n        names_from = decision,\n        values_from = n\n        ) |&gt;\n    mutate(\n        Total = promoted + `not promoted`,\n        `% promoted` = 100 * promoted / Total\n        ) |&gt;\n    # Great tables\n    gt() |&gt;\n    fmt_number(\n        columns = where(is.numeric),\n        decimals = 0\n        ) |&gt;\n    grand_summary_rows(\n        columns = !matches(\"%|sex\"),\n        fns = \"Total\" ~ sum(.)\n        )\n\n\n\n\nTabla 1: Resumen de los resultados del estudio de discriminación por género\n\n\n\n\n\n\n\nsex\npromoted\nnot promoted\nTotal\n% promoted\n\n\n\n\nmale\n21\n3\n24\n88\n\n\n\nfemale\n14\n10\n24\n58\n\n\nTotal\n—\n35\n13\n48\n—\n\n\n\n\n\n\n\n\n\n\nPromovieron al 88% de los hombres, mientras que solo promovieron al 58% de las mujeres."
+  },
+  {
+    "objectID": "lectures/lecture2.html#pregunta-central-de-inferencia",
+    "href": "lectures/lecture2.html#pregunta-central-de-inferencia",
+    "title": "Inferencia estadística",
+    "section": "Pregunta central de inferencia",
+    "text": "Pregunta central de inferencia\n¿Tenemos evidencia suficiente para concluir que las mujeres fueron discriminadas en las decisiones de promoción?\n\nHay una diferencia grande en las tasas de promoción por género, lo que sugiere la existencia de discriminación.\n\nSin embargo, todavía no estamos seguros de que la diferencia representa discriminación o si es solo resultado de la variabilidad natural de los datos.\n\nComo en el Ejemplo 1, podríamos ver variación por azar."
+  },
+  {
+    "objectID": "lectures/lecture2.html#prueba-de-hipótesis",
+    "href": "lectures/lecture2.html#prueba-de-hipótesis",
+    "title": "Inferencia estadística",
+    "section": "Prueba de hipótesis",
+    "text": "Prueba de hipótesis\nPara responder la pregunta de investigación, vamos a realizar una prueba de hipótesis.\n\nSea \\(p_m\\) la proporción de hombres promovidos y \\(p_f\\) la proporción de mujeres promovidas.\nLa diferencia entre las proporciones es el estimador puntual: \\(\\tau = p_m - p_f\\).\nEn el estudio de Rosen y Jerdee (1974), encontraron un \\(\\hat \\tau=\\) 0.292\n\n\nEl estimador puntual es bastante grande, pero la muestra es pequeña.\n\n\nSi no tomamos en cuenta la variabilidad de los datos, podríamos concluir que hay discriminación cuando en realidad no la hay."
+  },
+  {
+    "objectID": "lectures/lecture2.html#prueba-de-hipótesis-1",
+    "href": "lectures/lecture2.html#prueba-de-hipótesis-1",
+    "title": "Inferencia estadística",
+    "section": "Prueba de hipótesis",
+    "text": "Prueba de hipótesis\nVamos a llamar a estas dos narrativas mutuamente excluyentes como:\n\n\n\\(H_0\\): Hipótesis nula: Las variables sex y decision son independientes.\n\nLa diferencia en tasas de promoción de 0.292 es resultado de la variabilidad natural de los datos.\nNo hay discriminación por género.\n\\(\\tau = 0\\)\n\n\n\n\\(H_A\\): Hipótesis alternativa: Las variables sex y decision no son independientes.\n\nLa diferencia en tasas de promoción de 0.292 no es resultado de la variabilidad natural de los datos.\nMujeres con las mismas credenciales que hombres son menos propensas a ser promovidas por hombres.\n\\(\\tau \\neq 0\\)"
+  },
+  {
+    "objectID": "lectures/lecture2.html#prueba-de-hipótesis-2",
+    "href": "lectures/lecture2.html#prueba-de-hipótesis-2",
+    "title": "Inferencia estadística",
+    "section": "Prueba de hipótesis",
+    "text": "Prueba de hipótesis\nHabiendo definido el problema de inferencia, vamos a evaluar si los datos observados son tan inconsistentes con \\(H_0\\), que la hipótesis nula no puede ser razonable.\n\nSi los datos y la hipótesis nula son inconsistentes, lo que abona evidencia en favor de \\(H_A\\), tendremos que rechazar la noción de independencia y concluir que los datos proveen evidencia de discriminación por género."
+  },
+  {
+    "objectID": "lectures/lecture2.html#variabilidad-del-estadístico",
+    "href": "lectures/lecture2.html#variabilidad-del-estadístico",
+    "title": "Inferencia estadística",
+    "section": "Variabilidad del estadístico",
+    "text": "Variabilidad del estadístico\nImaginemos que las decisiones de los banqueros son independientes del género del candidato.\n\nEntonces, si condujéramos el experimento con una nueva asignación aleatoria de los archivos, las diferencias en promoción solo serían afectadas por la variabilidad natural de los datos.\n\n\nBuena noticia: Podemos simular la aleatorización, para ver qué hubiera pasado si las decisiones de los banqueros fueran independientes del género, pero con una distribución de archivos distinta."
+  },
+  {
+    "objectID": "lectures/lecture2.html#simulación-de-aleatorización",
+    "href": "lectures/lecture2.html#simulación-de-aleatorización",
+    "title": "Inferencia estadística",
+    "section": "Simulación de aleatorización",
+    "text": "Simulación de aleatorización\n\nset.seed(2025)\n\noptions &lt;- c(\"promoted\", \"not promoted\")\n\nsim &lt;- tibble(\n    sex = c(rep(\"female\", 24), rep(\"male\", 24)),\n    decision = sample(options, size = 48, replace = TRUE)\n)\n\n\n\n\n\n\n\n\nTabla 2: Resumen de los resultados simulados de discriminación por género\n\n\n\n\n\n\n\nsex\nnot promoted\npromoted\nTotal\n% promoted\n\n\n\n\nfemale\n9\n15\n24\n62\n\n\n\nmale\n11\n13\n24\n54\n\n\nTotal\n—\n20\n28\n48\n—\n\n\n\n\n\n\n\n\n\n\n\nLa Tabla 2 muestra que la diferencia en las tasas de promoción entre hombres y mujeres es de \\(\\hat \\tau =\\) -0.083.\n\n\nEn este mundo simulado, los hombres tuvieron una tasa de contratación menor que las mujeres."
+  },
+  {
+    "objectID": "lectures/lecture2.html#estadístico-de-prueba",
+    "href": "lectures/lecture2.html#estadístico-de-prueba",
+    "title": "Inferencia estadística",
+    "section": "Estadístico de prueba",
+    "text": "Estadístico de prueba\nHemos hablado de la diferencia en las tasas de contratación, \\(\\tau = p_m - p_f\\), como el estimador de interés que nos ayudará a evaluar la hipótesis del experimento.\n\nTambién hemos visto que el estimador puntual tiene una variabilidad natural: que ante diferentes asignaciones de archivos, la diferencia en tasas de contratación puede variar.\n\n\n¿Cómo podemos entender cuál es la variabilidad natural de \\(\\tau\\) de muestra a muestra?"
+  },
+  {
+    "objectID": "lectures/lecture2.html#estadístico-de-prueba-1",
+    "href": "lectures/lecture2.html#estadístico-de-prueba-1",
+    "title": "Inferencia estadística",
+    "section": "Estadístico de prueba",
+    "text": "Estadístico de prueba\nPara evaluar si el estimador observado durante el experimento, \\(\\tau =\\) 0.292, podemos calcular el estimador de \\(\\tau\\) para cientos de simulaciones diferentes.\n\nEsto nos permitirá entender cuál es la variabilidad natural de \\(\\tau\\) y si el valor observado es consistente con la hipótesis nula."
+  },
+  {
+    "objectID": "lectures/lecture2.html#simulación-de-100-aleatorizaciones",
+    "href": "lectures/lecture2.html#simulación-de-100-aleatorizaciones",
+    "title": "Inferencia estadística",
+    "section": "Simulación de 100 aleatorizaciones",
+    "text": "Simulación de 100 aleatorizaciones\nHay muchas maneras de repetir tareas en R.\n\nVamos a ver la función purrr::map() que nos permite mapear una función a una lista de argumentos.\n\n\nPrimero, escribimos una función que simula una asignación aleatoria de archivos.\n\n\n\nmy_simulate &lt;- function(i) {\n    sim &lt;- tibble(\n        sex = c(rep(\"female\", 24), rep(\"male\", 24)),\n        decision = sample(options, size = 48, replace = TRUE)\n    )\n\n    return(sim)\n}\n\n\nmy_simulate(1)\n\n\n\n# A tibble: 48 × 2\n   sex    decision    \n   &lt;chr&gt;  &lt;chr&gt;       \n 1 female not promoted\n 2 female promoted    \n 3 female promoted    \n 4 female promoted    \n 5 female promoted    \n 6 female promoted    \n 7 female promoted    \n 8 female not promoted\n 9 female not promoted\n10 female not promoted\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-1",
+    "href": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-1",
+    "title": "Inferencia estadística",
+    "section": "Simulación de 100 aleatorizaciones",
+    "text": "Simulación de 100 aleatorizaciones\nCada vez que llamamos a my_simulate(), obtenemos una nueva asignación aleatoria de archivos.\n\nPodemos repetir el proceso \\(k\\) veces, para obtener \\(k\\) asignaciones aleatorias de archivos.\n\n\nPara cada uno de los \\(k\\) experimentos, purrr::map() va a guardar en la variable sim una tabla con los resultados de la simulación.\n\n\n\nk &lt;- 100\n\nsimulations &lt;- tibble(\n    k = 1:k\n    ) |&gt;\n    mutate(\n        sim = map(k, my_simulate)\n    )\n\nsimulations\n\n\n\n# A tibble: 100 × 2\n       k sim              \n   &lt;int&gt; &lt;list&gt;           \n 1     1 &lt;tibble [48 × 2]&gt;\n 2     2 &lt;tibble [48 × 2]&gt;\n 3     3 &lt;tibble [48 × 2]&gt;\n 4     4 &lt;tibble [48 × 2]&gt;\n 5     5 &lt;tibble [48 × 2]&gt;\n 6     6 &lt;tibble [48 × 2]&gt;\n 7     7 &lt;tibble [48 × 2]&gt;\n 8     8 &lt;tibble [48 × 2]&gt;\n 9     9 &lt;tibble [48 × 2]&gt;\n10    10 &lt;tibble [48 × 2]&gt;\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-2",
+    "href": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-2",
+    "title": "Inferencia estadística",
+    "section": "Simulación de 100 aleatorizaciones",
+    "text": "Simulación de 100 aleatorizaciones\nLa columna sim es un objeto de tipo list que contiene las tablas con los resultados de cada simulación.\n\nLos objetos list son muy versátiles en R y nos permiten guardar diferentes tipos de datos en una sola variable.\n\n\nEn este caso, es como si hubiéramos escrito:\n\nsim = list(my_simulate(1), my_simulate(2), ..., my_simulate(100))\n\n\n\n\n\n\nPodemos acceder a los resultados de la primera simulación con la siguiente notación:\n\nsimulations$sim[[1]]\n\n\n\n# A tibble: 48 × 2\n   sex    decision    \n   &lt;chr&gt;  &lt;chr&gt;       \n 1 female not promoted\n 2 female promoted    \n 3 female not promoted\n 4 female not promoted\n 5 female promoted    \n 6 female promoted    \n 7 female promoted    \n 8 female promoted    \n 9 female promoted    \n10 female not promoted\n# ℹ 38 more rows\n\n\n\n\nTambién puedes inspeccionar los contenidos de una lista con glimpse(simulations$sim)."
+  },
+  {
+    "objectID": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-3",
+    "href": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-3",
+    "title": "Inferencia estadística",
+    "section": "Simulación de 100 aleatorizaciones",
+    "text": "Simulación de 100 aleatorizaciones\nYa tenemos nuestras 100 simulaciones guardadas en la tabla simulations.\n\nLa ventaja de trabajar con listas de datos es que podemos pasar funciones a cada elemento de la lista, de la misma manera en la que lo hicimos con my_simulate().\n\nUsamos un purrr::map_dbl() que regresará un valor numérico dentro de un verbo dplyr::mutate().\n\n\n\nVamos a calcular el estadístico de interés \\(\\tau\\) para cada una de las 100 simulaciones.\n\n\n\n\nsimulations &lt;- simulations |&gt;\n    mutate(\n        females_promoted = map_dbl(sim, \\(x) x |&gt;\n            filter(sex == \"female\") |&gt;\n            mutate(\n                promoted = decision == \"promoted\"\n            ) |&gt;\n            pull(promoted) |&gt;\n            mean()),\n        males_promoted = map_dbl(sim, \\(x) x |&gt;\n            filter(sex == \"male\") |&gt;\n            mutate(\n                promoted = decision == \"promoted\"\n            ) |&gt;\n            pull(promoted) |&gt;\n            mean()),\n        tau = males_promoted - females_promoted\n    ) |&gt;\n    select(k, tau)\n\nsimulations\n\n\n# A tibble: 100 × 2\n       k     tau\n   &lt;int&gt;   &lt;dbl&gt;\n 1     1 -0.208 \n 2     2  0.125 \n 3     3 -0.208 \n 4     4  0.0833\n 5     5 -0.167 \n 6     6  0.0833\n 7     7  0.167 \n 8     8  0     \n 9     9  0.0833\n10    10 -0.0833\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-4",
+    "href": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-4",
+    "title": "Inferencia estadística",
+    "section": "Simulación de 100 aleatorizaciones",
+    "text": "Simulación de 100 aleatorizaciones\nVisualicemos la distribución de \\(\\tau\\) para las 100 simulaciones y comparémosla con el valor observado en el experimento.\n\n\nggplot() +\n    geom_dotplot(data = simulations, aes(x = tau)) +\n    scale_y_continuous(breaks = NULL) +\n    geom_vline(xintercept = obs_effect, color = \"blue\", linetype = \"dashed\") +\n    geom_vline(xintercept = 0) +\n    labs(\n        x = expression(tau),\n        y = \"\"\n    ) \n\n\n\n\n\n\n\n\nFigura 1: Distribución de la diferencia en tasas de promoción"
+  },
+  {
+    "objectID": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-5",
+    "href": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-5",
+    "title": "Inferencia estadística",
+    "section": "Simulación de 100 aleatorizaciones",
+    "text": "Simulación de 100 aleatorizaciones\nLa Figura 1 muestra que, de las cien simulaciones que tenemos, solo hubo dos en las que la diferencia en tasas de promoción fue tan grande como la observada en el experimento.\n\nOtra forma de decir esto es: la probabilidad de observar un estadístico de prueba tan extremo como el observado, si no hubiera discriminación por género, es de 2%.\n\n\nPregunta: ¿Qué dice la Figura 1 sobre la hipótesis nula? ¿Qué conclusión podemos sacar sobre la discriminación por género en el banco?"
+  },
+  {
+    "objectID": "lectures/lecture2.html#resumen",
+    "href": "lectures/lecture2.html#resumen",
+    "title": "Inferencia estadística",
+    "section": "Resumen",
+    "text": "Resumen\n\nHemos cuantificado cuál es la variabilidad natural de la diferencia en tasas de promoción, \\(\\tau\\), si las decisiones de los banqueros fueran independientes del género del candidato.\nHemos comparado el valor observado en el experimento con la distribución de \\(\\tau\\) bajo la hipótesis nula.\nHemos calculado la probabilidad de observar un valor tan extremo como el observado, si la hipótesis nula fuera cierta.\nSi concluyéramos que hubo discriminación por género, la probabilidad de equivocarnos sería de 2%."
+  },
+  {
+    "objectID": "lectures/lecture2.html#nuestra-prueba-de-hipótesis",
+    "href": "lectures/lecture2.html#nuestra-prueba-de-hipótesis",
+    "title": "Inferencia estadística",
+    "section": "Nuestra prueba de hipótesis",
+    "text": "Nuestra prueba de hipótesis\nRecordemos la prueba de hipótesis que propusimos para evaluar el estudio de discriminación por género en el banco de Rosen y Jerdee (1974):\n\n\\(H_0\\): El género no tiene efecto en las decisiones de promoción.\n\\(H_A\\): Las candidatas mujeres enfrentan discriminación en las decisiones de promoción.\n\n\nEncontramos que la probabilidad de que \\(H_0\\) sea cierta es de 2%: Solo en dos de nuestras 100 simulaciones encontramos una diferencia en promociones tan grande como la observada."
+  },
+  {
+    "objectID": "lectures/lecture2.html#dos-tipos-de-errores",
+    "href": "lectures/lecture2.html#dos-tipos-de-errores",
+    "title": "Inferencia estadística",
+    "section": "Dos tipos de errores",
+    "text": "Dos tipos de errores\nA la hora de evaluar la prueba de hipótesis, podríamos cometer dos tipos de errores:\n\nError tipo I: Rechazar la hipótesis nula siendo que ésta es verdadera.\nError tipo II: No rechazar la hipótesis nula siendo que ésta es falsa."
+  },
+  {
+    "objectID": "lectures/lecture2.html#valor-p",
+    "href": "lectures/lecture2.html#valor-p",
+    "title": "Inferencia estadística",
+    "section": "Valor \\(p\\)\n",
+    "text": "Valor \\(p\\)\n\nLa probabilidad del 2% que encontramos es lo que llamamos valor-p.\n\nEsta probabilidad cuantifica la fuerza de la evidencia en contra de la hipótesis nula, dados los datos observados.\n\n\nCuando el valor-p es pequeño, es decir, menor que un nivel predeterminado, decimos que los resultados estadísticamente significativos.\n\n\nOtra manera de interpretar el valor-p es como la probabilidad del error tipo I: la probabilidad de rechazar la hipótesis nula siendo que ésta es verdadera."
+  },
+  {
+    "objectID": "lectures/lecture2.html#significancia-estadística",
+    "href": "lectures/lecture2.html#significancia-estadística",
+    "title": "Inferencia estadística",
+    "section": "Significancia estadística",
+    "text": "Significancia estadística\nNormalmente, denotamos con un \\(\\alpha\\) el nivel de significancia que estamos dispuestos a aceptar.\n\nEn ciencias sociales, es común hablar de resultados significativos con p-valores menores a 0.05.\n\n\nEn nuestro caso, con un valor-p de 0.02, podemos concluir que los resultados son significativos al nivel de \\(\\alpha = 0.05\\), rechazando la hipótesis nula."
+  },
+  {
+    "objectID": "lectures/lecture2.html#intervalos-de-confianza-1",
+    "href": "lectures/lecture2.html#intervalos-de-confianza-1",
+    "title": "Inferencia estadística",
+    "section": "Intervalos de confianza",
+    "text": "Intervalos de confianza\nLos intervalos de confianza son una herramienta poderosa para visualizar y comunicar la certeza asociada a un estimador, es decir, a un resultado de un experimento o análisis."
+  },
+  {
+    "objectID": "lectures/lecture2.html#preguntas-de-interés",
+    "href": "lectures/lecture2.html#preguntas-de-interés",
+    "title": "Inferencia estadística",
+    "section": "Preguntas de interés",
+    "text": "Preguntas de interés\nAdemás de ayudarnos a visualizar la variabilidad de un estimador, los intervalos de confianza nos permiten voltear la pregunta ed la significancia estadística.\n\nMientras que el valor-p nos dice cuál es la probabilidad equivocarnos al rechazar la hipótesis nula, los intervalos de confianza nos dicen qué rango de valores podría tomar el estimador observado en el experimento."
+  },
+  {
+    "objectID": "lectures/lecture2.html#resultados-del-experimento",
+    "href": "lectures/lecture2.html#resultados-del-experimento",
+    "title": "Inferencia estadística",
+    "section": "Resultados del experimento",
+    "text": "Resultados del experimento\nPodemos resumir la evidencia del experimento de discriminación por género usando la función ggplot2::stat_summary().\n\nPor defecto, stat_summary() calcula la media y el intervalo de confianza del 95% del aesthetic y.\n\n\n\nsex_discrimination &lt;- sex_discrimination |&gt;\n    mutate(\n        promoted = as.numeric(decision == \"promoted\")\n    ) \n\nsex_discrimination |&gt;\n    ggplot(aes(x = sex, y = promoted)) +\n    stat_summary() +\n    labs(\n        x = \"Sexo\",\n        y = \"Proporción de promociones\",\n        title = \"Proporción de promociones por género\",\n        subtitle = \"Intervalos de confianza del 95%\"\n    ) +\n    scale_y_continuous(labels = scales::percent) \n\n\n\n\n\n\n\n\nFigura 2: Proporción de promociones por género\n\n\n\n\n\n\nLa Figura 2 muestra que la hipótesis nula se puede rechazar con un nivel de significancia del 5%, porque los intervalos de confianza no se traslapan."
+  },
+  {
+    "objectID": "lectures/lecture2.html#interpretación-de-los-intervalos-de-confianza",
+    "href": "lectures/lecture2.html#interpretación-de-los-intervalos-de-confianza",
+    "title": "Inferencia estadística",
+    "section": "Interpretación de los intervalos de confianza",
+    "text": "Interpretación de los intervalos de confianza\nUn intervalo de confianza del 95% para un estimador \\(\\hat \\theta\\) es un rango de valores que contiene al verdadero valor del parámetro \\(\\theta\\) con una probabilidad del 95%.\n\nEn el estudio de Rosen y Jerdee (1974), enocntramos el rango de valores que contiene al verdadero valor de \\(\\tau = p_m - p_f\\) con una probabilidad del 95%."
+  },
+  {
+    "objectID": "lectures/lecture2.html#referencias",
+    "href": "lectures/lecture2.html#referencias",
+    "title": "Inferencia estadística",
+    "section": "Referencias",
+    "text": "Referencias\n\n\n\n\nAguilar Esteva, Arturo. s. f. «Notas de Microeconometría». https://bookdown.org/viclzrz/notasmicro/.\n\n\nÇetinkaya-Rundel, Mine, y Johanna Hardin. 2024. Introduction to Modern Statistics. Vereinigte Staaten: OpenIntro, Inc. https://openintro-ims.netlify.app/.\n\n\nRosen, Benson, y Thomas H. Jerdee. 1974. «Influence of Sex Role Stereotypes on Personnel Decisions». Journal of Applied Psychology 59 (1): 9-14. https://doi.org/10.1037/h0035834."
   },
   {
     "objectID": "resources.html",
