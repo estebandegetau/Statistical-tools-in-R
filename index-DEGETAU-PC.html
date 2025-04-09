@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Clases</title>
+<title>Herramientas estadísticas en R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,20 +71,48 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-assignments .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-filename',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-assignments'] = new List('listing-assignments', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-lectures .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-lectures'] = new List('listing-lectures', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -143,7 +171,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Herramientas estadísticas en R</span></a>
   </li>  
   <li class="nav-item">
@@ -151,7 +179,7 @@ window.Quarto = {
 <span class="menu-text">Temario</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./lectures.html" aria-current="page"> 
+    <a class="nav-link" href="./lectures.html"> 
 <span class="menu-text">Clases</span></a>
   </li>  
   <li class="nav-item">
@@ -173,15 +201,22 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#clases" id="toc-clases" class="nav-link active" data-scroll-target="#clases">Clases</a></li>
+  <li><a href="#tareas" id="toc-tareas" class="nav-link" data-scroll-target="#tareas">Tareas</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Clases</h1>
+<h1 class="title">Herramientas estadísticas en R</h1>
 </div>
 
 
@@ -198,100 +233,152 @@ window.Quarto = {
 </header>
 
 
-<p>Aquí podrás encontrar el material de las clases que veremos a lo largo del curso. Las presentaciones incluyen el código que genera todos los resultados que veremos en clase. También puedes encontrar el código fuente en la página de <a href="https://github.com/estebandegetau/Statistical-tools-in-R">GitHub</a>.</p>
-<p>Si tienes alguna duda, no dudes en contactarme.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1742364000000" data-listing-file-modified-sort="1742321453759" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3145">
-<a href="./lectures/lecture1.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./lectures/thmb1.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-R y el Tidyverse
-</h5>
-<div class="card-subtitle listing-subtitle">
-Clase 1
+<p>Bienvenidx a la página del curso de <em>Herramientas Estadísticas en R</em>.</p>
+<p>Este curso cubrirá varias técnicas estadísticas y cómo implementarlas utilizando el lenguaje de programación R.</p>
+<p>Puedes consultar el temario del curso <a href="./syllabus.html">aquí</a>.</p>
+<section id="clases" class="level2">
+<h2 class="anchored" data-anchor-id="clases">Clases</h2>
+<div id="listing-lectures" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-lectures-sort" class="form-select" aria-label="Ordenar por" onchange="window['quarto-listings']['listing-lectures'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Ordenar por</option>
+       <option value="index" data-direction="asc">Por defecto</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Fecha - Menos reciente
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Fecha - Más reciente
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Título
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filtro">
+    </div>
 </div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-19 mar 2025
-</div>
-</div>
-</div>
-<div class="card-footer">
-<div class="card-filename listing-filename">
-<p>lecture1.qmd</p>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1742968800000" data-listing-file-modified-sort="1743685128773" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4693">
-<a href="./lectures/lecture2.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./lectures/thmb2.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Inferencia estadística
-</h5>
-<div class="card-subtitle listing-subtitle">
-Clase 2
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-26 mar 2025
-</div>
-</div>
-</div>
-<div class="card-footer">
-<div class="card-filename listing-filename">
-<p>lecture2.qmd</p>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1743573600000" data-listing-file-modified-sort="1744237267811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5986">
-<a href="./lectures/lecture3.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./lectures/thmb3.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Regresión lineal
-</h5>
-<div class="card-subtitle listing-subtitle">
-Clase 3
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-2 abr 2025
-</div>
-</div>
-</div>
-<div class="card-footer">
-<div class="card-filename listing-filename">
-<p>lecture3.qmd</p>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Título</a>
+</th>
+<th>
+Subtítulo
+</th>
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Fecha</a>
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-date-sort="1742364000000" data-listing-file-modified-sort="1742321453759" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3145" data-listing-title-sort="R y el Tidyverse" data-listing-filename-sort="lecture1.qmd">
+<td>
+<a href="./lectures/lecture1.html" class="title listing-title">R y el Tidyverse</a>
+</td>
+<td>
+<span class="listing-subtitle">Clase 1</span>
+</td>
+<td>
+<span class="listing-date">19 mar 2025</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1742968800000" data-listing-file-modified-sort="1743447034886" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="23" data-listing-word-count-sort="4497" data-listing-title-sort="Inferencia estadística" data-listing-filename-sort="lecture2.qmd">
+<td>
+<a href="./lectures/lecture2.html" class="title listing-title">Inferencia estadística</a>
+</td>
+<td>
+<span class="listing-subtitle">Clase 2</span>
+</td>
+<td>
+<span class="listing-date">26 mar 2025</span>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="listing-no-matching d-none">
 No hay resultados
 </div>
-</div></main> <!-- /main -->
+</div>
+</section>
+<section id="tareas" class="level2">
+<h2 class="anchored" data-anchor-id="tareas">Tareas</h2>
+<div id="listing-assignments" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-assignments-sort" class="form-select" aria-label="Ordenar por" onchange="window['quarto-listings']['listing-assignments'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Ordenar por</option>
+       <option value="index" data-direction="asc">Por defecto</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Fecha - Menos reciente
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Fecha - Más reciente
+        </option>
+         <option value="listing-title-sort" data-direction="asc">
+          Título
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filtro">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Título</a>
+</th>
+<th>
+Subtítulo
+</th>
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Fecha</a>
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-listing-date-sort="1741932000000" data-listing-file-modified-sort="1742487160911" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145" data-listing-title-sort="Instalación del software" data-listing-filename-sort="instructions.qmd">
+<td>
+<a href="./assignments/assignment0/instructions.html" class="title listing-title">Instalación del software</a>
+</td>
+<td>
+<span class="listing-subtitle">Tarea 0</span>
+</td>
+<td>
+<span class="listing-date">14 mar 2025</span>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1742450400000" data-listing-file-modified-sort="1742913354602" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="876" data-listing-title-sort="Introducción a la ciencia de datos con R" data-listing-filename-sort="instructions.qmd">
+<td>
+<a href="./assignments/assignment1/instructions.html" class="title listing-title">Introducción a la ciencia de datos con R</a>
+</td>
+<td>
+<span class="listing-subtitle">Tarea 1</span>
+</td>
+<td>
+<span class="listing-date">20 mar 2025</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No hay resultados
+</div>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -382,7 +469,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/estebandegetau\.github\.io\/Statistical-tools-in-R\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -719,4 +806,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/lectures.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/estebandegetau/Statistical-tools-in-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>

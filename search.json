@@ -1285,7 +1285,7 @@
     "href": "lectures/lecture3.html#variabilidad-en-los-estimadores-1",
     "title": "Regresión lineal",
     "section": "Variabilidad en los estimadores",
-    "text": "Variabilidad en los estimadores\nAhora cuantificaremos la variabilidad de los estimadores de los coeficientes para muchas muestras aleatorias, para entender cómo se distribuyen.\n\nn_sim &lt;- 1000\n\n\nsimular_datos &lt;- function(x, n = 1000) {\n    tibble(\n        id = 1:n,\n        escolaridad = runif(n, min = 0, max = 25),\n        ingreso = 1000 + (200 * escolaridad) + rnorm(n, mean = 0, sd = 1000)\n    ) \n}\n\n\nsimulaciones &lt;- tibble(\n    id = 1:n_sim,\n    simulacion = map(id, simular_datos),\n    fit = map(simulacion, ~ feols(ingreso ~ escolaridad, data = .x)),\n    coef = map(fit, coef),\n    intercept = map_dbl(coef, 1),\n    escolaridad = map_dbl(coef, 2)\n) |&gt;\n    select(id, intercept, escolaridad) \n\n\n\n\n\n\nLos coeficientes de MCO siguen una distribución normal.\n\nEsto sigue de que su interpretación es promedio.\n\n\n\n¡La media de los coeficientes estimados es igual al verdadero valor de los coeficientes!\n\nEsto es una propiedad de los estimadores de MCO: son insesgados.\nEsto significa que, en promedio, el estimador de MCO es igual al verdadero valor del parámetro.\n\n\nLa inferencia de los coeficientes sigue de la misma manera que una prueba de hipótesis de un promedio."
+    "text": "Variabilidad en los estimadores\nAhora cuantificaremos la variabilidad de los estimadores de los coeficientes para muchas muestras aleatorias, para entender cómo se distribuyen.\n\nn_sim &lt;- 1000\n\n\nsimular_datos &lt;- function(x, n = 1000) {\n    tibble(\n        id = 1:n,\n        escolaridad = runif(n, min = 0, max = 25),\n        ingreso = 1000 + (200 * escolaridad) + rnorm(n, mean = 0, sd = 1000)\n    ) \n}\n\n\nsimulaciones &lt;- tibble(\n    id = 1:n_sim,\n    simulacion = map(id, simular_datos),\n    fit = map(simulacion, ~ feols(ingreso ~ escolaridad, data = .x)),\n    coef = map(fit, coef),\n    intercept = map_dbl(coef, 1),\n    escolaridad = map_dbl(coef, 2)\n) |&gt;\n    select(id, intercept, escolaridad)"
   },
   {
     "objectID": "lectures/lecture3.html#variabilidad-en-los-estimadores-1-output",
@@ -1293,6 +1293,13 @@
     "title": "Regresión lineal",
     "section": "Variabilidad en los estimadores",
     "text": "Variabilidad en los estimadores"
+  },
+  {
+    "objectID": "lectures/lecture3.html#variabilidad-en-los-estimadores-2",
+    "href": "lectures/lecture3.html#variabilidad-en-los-estimadores-2",
+    "title": "Regresión lineal",
+    "section": "Variabilidad en los estimadores",
+    "text": "Variabilidad en los estimadores\n\n\n\nLos coeficientes de MCO siguen una distribución normal.\n\nEsto sigue de que su interpretación es promedio.\n\n\n\n¡La media de los coeficientes estimados es igual al verdadero valor de los coeficientes!\n\nEsto es una propiedad de los estimadores de MCO: son insesgados.\nEsto significa que, en promedio, el estimador de MCO es igual al verdadero valor del parámetro.\n\n\nLa inferencia de los coeficientes sigue de la misma manera que una prueba de hipótesis de un promedio."
   },
   {
     "objectID": "lectures/lecture3.html#inferencia-para-coeficientes-1",
