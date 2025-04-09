@@ -3,15 +3,8 @@
     "listing": "/lectures.html",
     "items": [
       "/lectures/lecture1.html",
-      "/lectures/lecture2.html"
-    ]
-  },
-  {
-    "listing": "/assignments.html",
-    "items": [
-      "/assignments/assignment0/instructions.html",
-      "/assignments/assignment1/instructions.html",
-      "/assignments/assignment1/solutions.html"
+      "/lectures/lecture2.html",
+      "/lectures/lecture3.html"
     ]
   },
   {
@@ -20,7 +13,16 @@
       "/assignments/assignment0/instructions.html",
       "/assignments/assignment1/instructions.html",
       "/lectures/lecture1.html",
-      "/lectures/lecture2.html"
+      "/lectures/lecture2.html",
+      "/lectures/lecture3.html"
+    ]
+  },
+  {
+    "listing": "/assignments.html",
+    "items": [
+      "/assignments/assignment0/instructions.html",
+      "/assignments/assignment1/instructions.html",
+      "/assignments/assignment1/solutions.html"
     ]
   }
 ]
