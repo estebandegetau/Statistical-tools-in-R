@@ -1,0 +1,131 @@
+---
+title: "Inferencia Estadística"
+subtitle: "Tarea 2"
+date: 2025-04-10
+author: "Esteban Degetau"
+format:
+    pdf: 
+        date-format: long
+        lang: es
+---
+
+La Tarea 2 debe entregarse el miércoles 23 ed abril. La entrega consiste en un archivo PDF que incluya las respuestas a las preguntas planteadas, así como el código .qmd que generó las respuestas. Para descargar el archivo .qmd, haz clic [aquí](https://github.com/estebandegetau/Statistical-tools-in-R/blob/main/assignments/assignment2/instructions.qmd). 
+
+Escribe todas tus respuestas en la sección de respuestas al final de este archivo. 
+
+Escribe tu nombre en el campo `author` del YAML.
+
+# Preguntas
+
+## Pruebas de hiótesis y el gasto en vivienda
+
+La Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH) 2022 contiene información muy rica sobre los gastos y los ingresos de los hogares en México. La tabla `concentradohogar2022` incluye información sobre el ingreso de los hogares, así como el gasto en vivienda. En esta sección, vamos a probar algunas hipótesis sobre la proporción del ingreso que los hogares gastan en vivienda. 
+
+El siguiente código carga la base de datos `cocnentradohogar2022`, cuyo nivel de observación es el hogar. La información geográfica más detallada que incluye está en la variable `ubica_geo`, que se compone del código de la entidad en los primeros dos dígitos, seguido del código del municipio en los siguientes tres dígitos. Por ejemplo, el código `09002` corresponde al municipio 002 de la entidad 09 que corresponde a Azcapotzalco, Ciudad de México.
+
+El siguiente código también carga una tabla llamada `municipios`, que contiene el nombre de las demarcaciones territoriales del país. 
+
+```{r}
+
+set.seed(123)
+
+pacman::p_load(tidyverse, labelled, janitor)
+
+load("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/concentradohogar2022.RData")
+
+
+municipios <- read_csv("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/municipios.csv") |>
+    janitor::clean_names()
+
+
+
+dict <- generate_dictionary(concentradohogar2022)
+
+```
+
+a. Corre el código de arriba para cargar las tablas que vamos a analizar. Crea una nueva tabla llamada `hogares` en donde agregues la información de la tabla `municipios`a la tabla `concentradohogar2022`. La nueva tabla deberá tener (i) todas las observaciones y todas las columnas de `concentradohogar2022`, y (ii) todas las columnas de `municipios`.
+
+b. Prepara la tabla `hogares` para trabajar. La variable `ingtrab` contiene la *Suma del ingreso obtenido por trabajo, como subordinado, como independiente y de otros trabajos.* Tomaremos esta variable como el ingreso total del hogar. La variable `vivienda` contiene el *Gasto en vivienda, servicios de conservación, energía eléctrica y combustibles*. Todos los gastos e ingresos de la tabla son trimestrales.
+
+    i. Quita los hogares que no tienen información sobre el ingreso total o el gasto en vivienda.
+
+    i. Quita los hogares que tienen un ingreso total igual a cero.
+    
+    i. Winzoriza el 1% de los valores atípicos en las variables `ingtrab` y `vivienda` por ambos lados. Puedes usar la función definida a continuación:
+
+    i. Crea una nueva variable que contenga la proporción del ingreso que los hogares gastan en vivienda. 
+
+```{r}
+my_winsorize <- function(x, q = 0.01) {
+    left <- quantile(x, q, na.rm = TRUE)
+    right <- quantile(x, 1 - q, na.rm = TRUE)
+    x[x < left] <- left
+    x[x > right] <- right
+    return(x)
+}
+```
+
+c. Evalúa la hipótesis de que el hogar promedio en la Ciudad de México gasta el 30% de su ingreso en vivienda. Esto es, evalúa la prueba de hipótesis dada por $H_0: \bar p_{CDMX}=0.3$ vs. $H_1: \bar p_{CDMX} \ne 0.3$, donde $\bar p_{CDMX}$ es el promedio de la proporción de ingreso que los hogares de la Ciudad de México gastan en vivienda. Usa un nivel de significancia de 0.05.
+
+    i. Filtra los hogares ubicados en la Ciudad de México.
+
+    i. Calcula el promedio de la proporción del ingreso que los hogares de la Ciudad de México  gastan en vivienda, ponderando por el factor de expansión `factor`.
+
+    i. Calcula el error estándar del estimador de interés, $\hat p_{CDMX}$. Toma en cuenta que la ENIGH solo encuestó a $n$ hogares. 
+
+    i. Calcula un intervalo de confianza. 
+
+    i. ¿Rechazas la hipótesis nula con un nivel de significancia de 0.05? ¿Por qué?
+
+d. Evalúa la hipótesis de que el hogar promedio en la Ciudad de México destina una proporción de sus ingresos al gasto en vivienda igual que el hogar promedio del país. Usa un nivel de significancia de 0.05.
+
+    i. Escribe la hipótesis nula y la alternativa.
+
+    i. Repite el procedimiento de la pregunta anterior, pero ahora para todos los hogares del país.
+
+e. Vas a presentar tus resultados a una *persona tomadora de decisiones* en el gobierno de la Ciudad de México. Crea una gráfica en donde resumas tus resultados. *Pista*: usa la función `ggplot::geom_pointrange()` para mostrar los intervalos de confianza que ya calculaste.
+
+f. Discute tus resultados. ¿Qué conclusiones puedes sacar sobre el gasto en vivienda de los hogares de la Ciudad de México? 
+
+
+## Pruebas de hipótesis con remuestreo y la desigualdad de ingersos
+
+Seguiremos usando la tabla `hogares` que creaste en la pregunta anterior. En particular, queremos evaluar la hipótesis de que la desigualdad de ingresos en la Ciudad de México es igual que en todo el país.
+
+Hay muchas métricas para medir la desigualdad de ingresos. En esta tarea, vamos a usar el índice de Gini. El índice de Gini puede tomar valores entre 0 y 1, donde 0 significa que todos los hogares tienen el mismo ingreso (completa igualdad) y 1 significa que un hogar tiene todo el ingreso mientras que los demás no tienen nada (completa desigualdad).
+
+Calcular el índice de Gini puede ser complicado. Afortunadamente, el paquete `DescTools` incluye una a la función `DescTools::Gini()` que lo hace por nosotros.
+
+a. Ve a la documentación de la función `Gini()` y revisa cómo funciona. ¿Qué argumentos le tienes que pasar a la función para calcular el índice de Gini? ¿Qué tipo de objeto regresa? Intenta calcular el índice de Gini para el vector `1:10` y para el vector `rep(10, 10)`.
+
+b. Calcula el índice de Gini que mida la desigualdad de ingresos de los hogares de la Ciudad de México y para los hogares del resto del país. Usa el factor de expansión `factor` para calcular el índice de Gini ponderado. Discute tus resultados.
+
+c. Describe qué hace la función `resample_gini` que está descrita a continuación:
+
+```{r}
+resample_gini <- function(x) {
+    obs <- nrow(x)
+
+    sample <- x |>
+        sample_n(obs, replace = TRUE)
+
+    Gini(sample$ingtrab, weights = sample$factor)
+}
+```
+
+d. Evalúa la hipótesis de que la desigualdad de ingresos en la Ciudad de México es igual que en el resto del país. 
+
+    i. Escribe la hipótesis nula y la alternativa.
+
+    i. Usa remuestreo *bootstrap* para crear una distribución empírica de tamaño 1,000 del coeficiente de Gini para los hogares de la Ciudad de México y para los hogares del resto del país. 
+
+    i. Crea una gráfica donde muestres las dos distribuciones que generaste. Puedes usar la función `ggplot2::geom_density()` para graficar las distribuciones.
+
+    i. ¿Rechazas la hipótesis nula? ¿Por qué?
+
+d. Discute tus resultados.
+
+
+---
+
+# Respuestas 
