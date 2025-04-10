@@ -4,7 +4,9 @@ subtitle: "Clase 2"
 date: 2025-03-26
 nocite: |
     @aguilaresteva; @çetinkaya-rundel2024
-# image: "thmb1.png"
+image: "thmb2.png"
+execute: 
+    cache: true
 ---
 
 ```{r}
@@ -476,7 +478,7 @@ simulations <- simulations |>
             mean()),
         tau = males_promoted - females_promoted
     ) |>
-    select(k, tau)
+    select(k, females_promoted, males_promoted, tau)
 
 simulations
 ```
@@ -493,7 +495,10 @@ Visualicemos la distribución de $\tau$ para las 100 simulaciones y comparémosl
 ggplot() +
     geom_dotplot(data = simulations, aes(x = tau)) +
     scale_y_continuous(breaks = NULL) +
-    geom_vline(xintercept = obs_effect, color = "blue", linetype = "dashed") +
+    geom_vline(
+        xintercept = obs_effect,
+        color = "blue",
+        linetype = "dashed") +
     geom_vline(xintercept = 0) +
     labs(
         x = expression(tau),
@@ -629,7 +634,392 @@ Un intervalo de confianza del 95% para un estimador $\hat \theta$ es un rango de
 
 . . .
 
-En el estudio de @rosen_influence_1974, enocntramos el rango de valores que contiene al verdadero valor de $\tau = p_m - p_f$ con una probabilidad del 95%.
+En el estudio de @rosen_influence_1974, encontramos el rango de valores que contiene al verdadero valor de $\tau = p_m - p_f$ con una probabilidad del 95%.
 
+# Propiedades asintóticas de los estimadores
+
+## La distribución del ingreso en México {.scrollable}
+
+Usemos el vector de ingresos de la ENIGH 2022.
+
+```{r}
+load("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/ingresos.rda")
+
+my_win <- function(x, p) {
+    left <- quantile(x, p)
+    right <- quantile(x, 1 - p)
+    x[x < left] <- left
+    x[x > right] <- right
+    return(x)
+}
+
+ingresos <- my_win(ingresos, 0.01)
+hist(ingresos, main = "Distribución del ingreso", xlab = "Ingreso mensual")
+```
+
+## El promedio del ingreso
+
+Puesto que la ENIGH es una encuesta, y no un censo, el promedio, o la media muestral $\bar x$, es un estimador del ingreso promedio de la población.
+
+. . .
+
+```{r}
+mean(ingresos)
+```
+
+
+. . .
+
+Si el muestreo de la ENIGH hubiera sido diferente, el promedio de la muestra también sería diferente.
+
+## El promedio del ingreso
+
+Podemos simular un muestreo diferente para entender la variabilidad natural de la media muestral.
+
+. . .
+
+```{r}
+
+n_hogares <- length(ingresos)
+
+ingresos_sample <- sample(ingresos, size = n_hogares, replace = TRUE)
+
+mean(ingresos_sample)
+
+```
+
+. . .
+
+Una muestra diferente genera un valor de la media muestral diferente.
+
+## Distribución de la media muestral {.scrollable}
+
+Si la media muestral es un estimador, tiene una variabilidad asociada, porque cada vez que muestreamos, obtenemos un valor diferente.
+
+. . .
+
+¿Cuál es la variabilidad de la media muestral?
+
+. . .
+
+```{r}
+sample_means <- replicate(
+    n = 1000,
+    expr = mean(
+        sample(
+            x = ingresos,
+            size = n_hogares,
+            replace = TRUE
+        )
+    )
+)
+hist(sample_means, main = "Distribución de la media del ingreso", xlab = "Media muestral")
+```
+
+
+## Teorema Central del Límite
+
+:::{#thm-tcl}
+Sea $\{Y_1, Y_2, \ldots, Y_n\}$ una muestra aleatoria de una población con media $\mu$ y varianza $\sigma^2$. Entonces,
+
+$$
+Z=\sqrt{n}\cdot \frac{\bar Y - \mu}{\sigma } \to^d N(0, 1)
+$$
+
+conforme $n \to \infty$.
+
+:::
+
+Donde:
+
+- $Z$ es la variable estandarizada de la media muestral $\bar Y$.
+
+- $\mu$ es la media poblacional de $Y$.
+
+- $\sigma$ es la desviación estándar poblacional de $Y$.
+
+- $N(0, 1)$ es la distribución normal estándar.
+
+. . .
+
+Es decir, sin importar la distribución poblacional de $Y$, la distribución de la variable $Z_n$ (que es una versión estandarizada de $\bar Y_n$) converge a una distribución normal estándar conforme el tamaño de la muestra aumenta.
+
+
+## Visualización del TCL
+
+```{r}
+
+sample_standardized <- sample_means |>
+    scale() |>
+    as.vector()
+
+hist(sample_standardized, main = "Distribución de la media estandarizada", xlab = "Media estandarizada")
+
+
+```
+
+
+## El tamaño de la muestra {.scrollable}
+
+El tamaño de la muestra afecta **fuertemente** la variabilidad de la media muestral.
+
+```{r}
+small_sample_means <- replicate(
+    n = 1000,
+    expr = mean(
+        sample(
+            x = ingresos,
+            size = 10,
+            replace = TRUE
+        )
+    )
+)
+
+small_sample_standardized <- small_sample_means |>
+    scale() |>
+    as.vector()
+
+hist(
+    small_sample_standardized,
+    main = "Distribución de la media estandarizada",
+    xlab = "Media estandarizada"
+)
+
+```
+
+
+# Intervalos de confianza
+
+## Intervalos de confianza
+
+Quiero formalizar la discusión previa sobre los intervalos de confianza.
+
+. . . 
+
+Recordemos que los intervalos de confianza buscan un rango de valores en el que 
+el verdadero valor del parámetro de interés $\theta$ puede estar. 
+
+. . .
+
+En el caso de la media muestral $\bar Y$, el parámetro poblacional de interés es el promedio $\mu$.
+
+## 95% de las observaciones {.scrollable}
+
+Podemos encontrar los valores que contienen el 95% de las observaciones de la media muestral $\bar Y$, de dos maneras:
+
+1. Usando la distribución (estandarizada) de medias muestrales que generamos:
+
+. . .
+
+```{r}
+
+samples <- tibble(
+    means = sample_means,
+    means_standardized = sample_standardized
+) 
+
+left <- quantile(sample_standardized, 0.025)
+right <- quantile(sample_standardized, 0.975)
+
+samples |>
+    ggplot(aes(x = means_standardized)) +
+    geom_histogram(aes(y = ..density..), bins = 30) +
+    geom_vline(xintercept = left, color = "red") +
+    geom_vline(xintercept = right, color = "red") +
+    geom_vline(xintercept = 0, color = "blue") 
+
+
+```
+
+
+## 95% de las observaciones {.scrollable}
+
+O bien, 
+
+2. Usando el teorema central del límite.
+
+. . .
+
+```{r}
+
+left <- qnorm(0.025)
+right <- qnorm(0.975)
+
+samples |>
+    ggplot(aes(x = means_standardized)) +
+    geom_histogram(aes(y = ..density..), bins = 30) +
+    geom_vline(xintercept = left, color = "red") +
+    geom_vline(xintercept = right, color = "red") +
+    geom_vline(xintercept = 0, color = "blue")
+
+```
+
+
+## Intervalos de confianza *analíticos*
+
+Para encontrar los valores del ingreso que acumulen el 95% de probabilidad de contener el verdadero valor del parámetro de interés, el promedio poblacional $\mu$, usamos la siguiente fórmula:
+
+$$
+SE = \frac{\sigma}{\sqrt{n}}
+$$
+
+$$
+CI = \bar Y \pm z_{\alpha/2} \cdot ES
+$$
+
+Donde:
+
+- $\sigma$ es la desviación estándar de la población
+
+- $n$ es el tamaño de la muestra
+
+- $SE$ decimos que es el *error estándar*
+
+- $z_{\alpha/2}$ es el valor crítico de la distribución normal estándar que corresponde a un nivel de confianza del $1-\alpha$.
+
+## Intervalos de confianza *analíticos* {.scrollable}
+
+```{r}
+
+se <- sd(ingresos) / sqrt(n_hogares)
+ci <- c(
+    mean(ingresos) - qnorm(0.975) * se,
+    mean(ingresos) + qnorm(0.975) * se
+)
+
+
+samples |>
+    ggplot(aes(x = means)) +
+    geom_histogram(aes(y = ..density..), bins = 30) +
+    geom_vline(xintercept = ci[1], color = "red") +
+    geom_vline(xintercept = ci[2], color = "red") +
+    geom_vline(xintercept = mean(ingresos), color = "blue") +
+    scale_x_continuous(
+        labels = scales::dollar_format(),
+        breaks = seq(mean(ingresos) - 3 * se, mean(ingresos) + 3 * se, by = se)
+        ) +
+    labs(
+        x = "Ingerso mensual"
+    )
+
+```
+
+
+## Intervalos de confianza con *bootstrap*
+
+El método de *bootstrap* es una forma de estimar la variabilidad de un estimador, introduciendo aleatoriedad con remuestreo a partir de una sola muestra.
+
+. . . 
+
+Es muy útil para estimar la variabilidad de un estimador cuando no tenemos una idea clara de la distribución de la población.
+
+. . .
+
+Por ejemplo:
+
+$$
+Var(\bar Y) = \frac{\sigma^2}{n}
+$$
+
+. . .
+
+¿Cómo se distribuye $Var(\bar Y)$? El Teorema Central del Límite no nos puede ayudar aquí. 
+
+## Intervalos de confianza con *bootstrap* {.scrollable}
+
+Podemos inferir la distribución de un estimador cualquiera $\bar Y$ **empíricamente** usando el método de *bootstrap*.
+
+1. Utilizando las observaciones de la muestra, elige una submuestra aleatoria de tamaño $n$ (mismo tamaño que la muestra) con reemplazo. Esto hará que algunas observaciones se repitan y otras no aparezcan.
+
+2. Calcula el estimador $\bar Y$ para la submuestra.
+
+3. Repite los pasos anteriores $M$ veces. Esto te dará $M$ observaciones para $\bar Y:{\bar Y_1, \bar Y_2, \ldots, \bar Y_M}$.
+
+4. Encuentra el intervalo de confianza del 95% para $\bar Y$ usando los percentiles 2.5 y 97.5 de la **distribución empírica** de $\bar Y$.
+
+
+## Intervalos de confianza con *bootstrap* {.scrollable}
+
+Para nuestra suerte, las medias muestrales que calculé en el vector `sample_means` son el resultado de un remuestreo con reemplazo, con *bootstrap*, de tamaño $M=1000$.
+
+
+```{r}
+
+samples |>
+    ggplot(aes(x = means)) +
+    stat_ecdf() +
+    geom_hline(
+        yintercept = 0.025,
+        color = "red",
+        linetype = "dashed"
+    ) +
+    geom_hline(
+        yintercept = 0.975,
+        color = "red",
+        linetype = "dashed"
+    ) +
+    labs(
+        x = "Ingreso mensual",
+        y = "Proporción de observaciones",
+    ) 
+
+
+```
+
+## Intervalos de confianza con *bootstrap* {.scrollable}
+
+```{r}
+
+left <- sample_means |>
+    quantile(0.025)
+
+right <- sample_means |>
+    quantile(0.975)
+
+
+samples |>
+    ggplot(aes(x = means)) +
+    geom_histogram(aes(y = ..density..), bins = 30) +
+    geom_vline(xintercept = left, color = "red") +
+    geom_vline(xintercept = right, color = "red") +
+    geom_vline(xintercept = mean(ingresos), color = "blue") +
+    scale_x_continuous(
+        labels = scales::dollar_format(),
+        breaks = seq(mean(ingresos) - 3 * se, mean(ingresos) + 3 * se, by = se)
+        ) +
+    labs(
+        x = "Ingerso mensual"
+    )
+```
+
+
+## Intervalos analíticos vs. *bootstrap*
+
+- Por construcción, los intervalos analíticos siempre son simétricos.
+
+- Los intervalos *bootstrap* pueden ser asimétricos.
+
+- Con muestras grandes como la de la ENIGH, los intervalos analíticos y *bootstrap* son muy parecidos.
+
+
+## Inferencia analítica vs. inferencia *bootstrap*
+
+- La inferencia analítica es muy útil cuando conocemos la distribución del estimador: cuando calculamos promedios.
+
+    - En el mundo de los promedios, será muy cómodo usar la fórmula:
+
+    $$
+    IC = \bar Y \pm 1.94 \cdot \frac{\sigma}{\sqrt{n}}
+    $$
+
+- Para todo lo demás (varianza, medianas, índices sin unidades), la inferencia *bootstrap* es una herramienta poderosa para entender la variabilidad de un estimador y evaluar pruebas de hipótesis más complejas que la diferencia de promedios.
+
+## Resumen
+
+1. Vimos cómo evaluar pruebas de hipótesis con aleatorización con el ejemplo de discriminación por género en el banco, con valores-p e intervalos de confianza.
+
+2. Vimos cómo evaluar pruebas de hipótesis de manera analítica usando el Teorema Central del Límite.
+
+3. Vimos cómo evaluar pruebas de hipótesis a partir de remuestreo usando el método de *bootstrap*.
 
 ## Referencias

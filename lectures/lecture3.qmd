@@ -1,0 +1,1198 @@
+---
+title: "Regresión lineal"
+subtitle: "Clase 3"
+date: 2025-04-02
+image: "thmb3.png"
+execute: 
+    cache: true
+nocite: |
+    @world_bank_estimating_2016; @aguilaresteva
+output-location: slide
+scrollable: true
+---
+
+
+```{r}
+#| include: false
+#| cache: false
+
+pacman::p_load(tidyverse, labelled)
+
+theme_set(theme_minimal())
+
+```
+
+```{r}
+#| label: load-data
+#| include: false
+
+
+# Cargar datos
+load("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/poblacion2022.RData")
+
+load("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/ingresos2022.RData")
+
+dict <- generate_dictionary(poblacion2022)
+
+
+ingresos <- ingresos2022 |>
+    summarise(
+        .by = c(folioviv, foliohog, numren),
+        ingreso = sum(ing_tri, na.rm = T) / 3
+    )
+
+# ingresos_mens <- ingresos2022 |>
+#     summarise(
+#         .by = c(folioviv, foliohog, numren),
+#         across(
+#             matches("ing_\\d"),
+#             ~ sum(.x, na.rm = T) 
+#         )
+#     ) |>
+#     pivot_longer(
+#         cols = matches("ing_\\d"),
+#         names_to = "mes",
+#         values_to = "ingreso_mens"
+#     ) |>
+#     summarise(
+#         .by = c(folioviv, foliohog, numren),
+#         ingreso_mens = sum(ingreso_mens, na.rm = T) / 6
+#     )
+
+
+escolaridad <- poblacion2022 |>
+    distinct(nivelaprob) |>
+    arrange(nivelaprob) |>
+    drop_na() |>
+    mutate(
+        base = case_when(
+            str_detect(nivelaprob, "Ninguno|Preescolar") ~ 0,
+            nivelaprob == "Primaria" ~ 3,
+            nivelaprob == "Secundaria" ~ 9,
+            nivelaprob == "Preparatoria o bachillerato" ~ 12,
+            str_detect(nivelaprob, "Profesional|Normal|técnica") ~ 15,
+            nivelaprob == "Maestría" ~ 19,
+            nivelaprob == "Doctorado" ~ 21,
+        )
+    ) |>
+    select(nivelaprob, base)
+
+escolaridad_complete <- poblacion2022 |>
+    distinct(nivelaprob, gradoaprob) |>
+    arrange(nivelaprob, gradoaprob) |>
+    left_join(escolaridad) |>
+    mutate(
+        anios_grado = as.numeric(gradoaprob) - 1,
+        escolaridad = base + anios_grado - 1,
+        escolaridad = case_when(
+            nivelaprob == "Ninguno" ~ 0,
+            T ~ escolaridad
+        )
+    ) |>
+    select(nivelaprob, gradoaprob, escolaridad) |>
+    drop_na()
+
+poblacion <- poblacion2022 |>
+    select(
+        factor,
+        entidad,
+        folioviv,
+        foliohog,
+        numren,
+        nivelaprob,
+        gradoaprob,
+        edad,
+        sexo,
+        entidad
+    ) |>
+    left_join(
+        ingresos
+    ) |>
+    drop_na(nivelaprob) |>
+    filter(edad >= 18 & edad <= 65) |>
+    # Truncate income to 99th percentile on both sides
+    # filter(
+    #     ingreso < quantile(ingreso, 0.99, na.rm = TRUE),
+    #     ingreso > quantile(ingreso, 0.01, na.rm = TRUE)
+    # ) |>
+    left_join(escolaridad_complete) 
+
+
+
+
+
+
+```
+
+# Motivación
+
+## Pregunta de investigación
+
+Imaginemos que nos interesa estudiar la relación entre la escolaridad y el ingreso.
+
+En particular, queremos estimar los rendimientos de un año adicional de escolaridad en los ingresos.
+
+## Datos
+
+La Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH) tiene información sobre los ingresos de los hogares y la escolaridad de los miembros de los hogares.
+
+- Tomé a las personas que están en edad de trabajar en la ENIGH 2022: entre 18 y 65 años.
+
+- Sumé todos los ingresos que reportó cada persona.
+
+- Creé una tabla que se llama `poblacion` que contiene los ingresos, el nivel aprobado, la edad y el sexo de cada persona.
+
+- Adicionalmente, creé una variable que se llama `escolaridad` que contiene el número de años de escolaridad aprobados por cada persona.
+
+# Exploración de los datos
+
+## Exploración de los datos
+
+Antes de estimar cualquier modelo, es importante entender cómo se distribuyen los datos.
+
+Una lista de preguntas para responder antes de estimar:
+
+- ¿Cómo se distribuyen las variables de interés?
+
+- ¿Cómo trataremos la presencia de datos atípicos?
+
+- ¿Qué otras variables pueden ser importantes para incluir en el modelo?
+
+## Descripción de los datos por nivel aprobado
+
+```{r}
+
+poblacion |>
+    summarise(
+        .by = nivelaprob,
+        n = n(),
+        ingreso = mean(ingreso, na.rm = TRUE),
+        edad = mean(edad, na.rm = TRUE),
+        poblacion = sum(factor),
+        mujeres = mean(sexo == "Mujer")
+    ) |>
+    arrange(nivelaprob) 
+
+```
+
+## Clase `factor`
+
+Notemos que la variable `nivelaprob` tiene clase `factor`.
+
+- Esta clase es útil para representar variables categóricas.
+
+- Asigna on orden a una serie de categorías, lo que facilita ordenar categorías por su nivel.
+
+- Por esto, `Ninguno` es menor que `Primaria`, que es menor que `Secundaria`, etc.
+
+- Una librería del tidyverse que facilita el trabajo de variables categóricas es [`forcats`](https://forcats.tidyverse.org/).
+
+. . .
+
+![](https://forcats.tidyverse.org/logo.png)
+
+## Distribución de nivel aprobado
+
+El nivel aprobado determinará el número de años de escolaridad, que será nuestra variable independiente.
+
+. . .
+
+```{r}
+poblacion |>
+    ggplot(aes(x = nivelaprob, y = factor)) +
+    stat_summary(
+        aes(y = factor),
+        fun = sum,
+        geom = "bar",
+        fill = "lightblue",
+        color = "black"
+    ) +
+    scale_y_continuous(labels = scales::comma) +
+    labs(
+        x = "Nivel aprobado",
+        y = "Personas",
+        title = "Distribución de la población por nivel aprobado",
+        subtitle = "ENIGH 2022"
+    ) +
+    coord_flip()
+```
+
+
+
+## Distribución del ingreso
+
+El ingreso será nuestra variable dependiente.
+
+. . .
+
+```{r}
+poblacion |>
+    ggplot(aes(x = ingreso)) +
+    geom_histogram(
+        aes(y = ..density..),
+        bins = 50,
+        fill = "lightblue",
+        color = "black"
+    ) +
+    geom_density(
+        aes(y = ..density..),
+        color = "blue"
+    ) +
+    scale_x_log10(labels = scales::dollar) +
+    labs(
+        x = "Ingreso mensual (escala logarítmica)",
+        y = "Densidad",
+        title = "Distribución de los ingresos",
+        subtitle = "ENIGH 2022"
+    ) 
+```
+
+
+## Distribución del ingreso después de truncar
+
+```{r}
+
+poblacion <- poblacion |>
+    filter(
+        ingreso < quantile(ingreso, 0.99, na.rm = TRUE),
+        ingreso > quantile(ingreso, 0.01, na.rm = TRUE)
+    )
+
+poblacion |>
+    ggplot(aes(x = ingreso)) +
+    geom_histogram(
+        aes(y = ..density..),
+        bins = 50,
+        fill = "lightblue",
+        color = "black"
+    ) +
+    geom_density(
+        aes(y = ..density..),
+        color = "blue"
+    ) +
+    scale_x_log10(labels = scales::dollar) +
+    labs(
+        x = "Ingreso mensual (escala logarítmica)",
+        y = "Densidad",
+        title = "Distribución de los ingresos",
+        subtitle = "ENIGH 2022, truncado al 1% superior e inferior"
+    )
+
+```
+
+## Ingreso promedio por nivel aprobado 
+
+Una manera de aproximarnos a la relación entre escolaridad e ingreso es calcular el ingreso promedio por nivel aprobado.
+
+. . .
+
+```{r}
+#| output-location: fragment
+
+niveles <- poblacion |>
+    group_by(nivelaprob) |>
+    summarise(
+        ingreso_prom = weighted.mean(x = ingreso,w = factor, na.rm = TRUE),
+        sd = sd(ingreso, na.rm = TRUE),
+        n = n()
+    ) |>
+    ungroup() |>
+    mutate(
+        lower = ingreso_prom - 1.96 * sd / sqrt(n),
+        upper = ingreso_prom + 1.96 * sd / sqrt(n)
+    ) 
+    
+niveles
+
+```
+
+## Ingreso promedio por nivel aprobado
+
+```{r}
+#| fig-width: 12
+#| fig-height: 6
+niveles |>
+    ggplot(aes(x = nivelaprob, y = ingreso_prom)) +
+    geom_pointrange(
+        aes(
+            ymin = lower,
+            ymax = upper
+        )
+    ) +
+    scale_y_continuous(
+        labels = scales::dollar,
+        breaks = seq(5000, 40000, 5000)
+    ) +
+    labs(
+        x = "Nivel aprobado",
+        y = "Ingreso promedio",
+        title = "Ingreso promedio por nivel aprobado",
+        subtitle = "Intervalos de confianza del 95%"
+    ) 
+
+
+```
+
+## Distribución del ingreso por nivel aprobado y sexo
+
+A pesar de que los promedios son muy informativos, esconden la distribución de los datos.
+
+. . .
+
+Adicionalmente, queremos preguntarnos si el ingreso es diferente para hombres y mujeres, **para cada nivel aprobado**.
+
+. . .
+
+El diagrama de caja y brazo (boxplot) visualiza la distribución de los datos mostrando:
+
+- La mediana (línea negra),
+
+- El rango intercuartílico (IQR) (caja): el conjunto de valores centrales que acumulan el 50% de los datos.
+
+- Los brazos, que son los valores que están dentro de 1.5 veces el IQR.
+
+- Los puntos que están fuera de los brazos son considerados *outliers*.
+
+## Distribución del ingreso por nivel aprobado y sexo
+
+```{r}
+#| output-location: slide
+#| fig-width: 12
+#| fig-height: 6
+poblacion |>
+    ggplot(
+        aes(
+            x = nivelaprob, 
+            y = ingreso, 
+            fill = sexo
+            )) +
+    geom_boxplot(alpha = 0.5) +
+    scale_y_log10(labels = scales::dollar) +
+    labs(
+        x = "Nivel aprobado",
+        y = "Ingreso mensual (escala logarítmica)",
+        title = "Distribución del ingreso por nivel aprobado y sexo",
+        fill = ""
+    ) +
+    theme(legend.position = "top") 
+
+
+```
+
+## Escolaridad y edad
+
+Otra variable que puede ser importante para el ingreso es la edad:
+
+- Puede estar correlacionada con escolaridad, porque las personas más viejas han tenido más tiempo para estudiar.
+
+- También puede estar correlacionada con el ingreso, porque las personas más viejas tienen más experiencia y más apego al mercado laboral.
+
+. . .
+
+
+```{r}
+#| output-location: slide
+
+
+poblacion |>
+    ggplot(aes(x = nivelaprob, y = edad)) +
+    geom_boxplot(fill = "lightblue", alpha = 0.5) +
+    coord_flip() +
+    labs(
+        x = "Nivel aprobado",
+        y = "Edad",
+        title = "Distribución de la edad por nivel aprobado"
+    ) 
+
+```
+
+
+## Imputación de años de escolaridad según el nivel aprobado
+
+La ENIGH incluye el nivel y el grado de estudios aprobados, reportados por cada persona.
+
+. . .
+
+Pero no incluye los años de escolaridad. 
+
+. . .
+
+Creé la variable `escolaridad` a partir de la variable `nivelaprob` y `gradoaprob`.
+
+. . .
+
+```{r}
+#| echo: false
+#| fig-width: 12
+#| fig-height: 6
+
+poblacion |>
+    summarise(
+        .by = c(nivelaprob, gradoaprob),
+        escolaridad = mean(escolaridad, na.rm = TRUE),
+        n = sum(factor),
+    ) |>
+    ggplot(aes(x = nivelaprob, y = escolaridad, color = gradoaprob)) +
+    geom_point(aes(size = n), alpha = 0.5)  +
+    scale_y_continuous(breaks = seq(0, 25, 3)) +
+    scale_size_continuous(
+        range = c(1, 10),
+        labels = scales::comma,
+        name = "Personas"
+    ) +
+    labs(
+        x = "Nivel aprobado",
+        y = "Escolaridad",
+        title = "Escolaridad por nivel aprobado y grado aprobado",
+        color = "Grado aprobado"
+    ) +
+    theme(legend.position = "top") 
+
+```
+
+
+## Relación no paramétrica entre escolaridad e ingreso
+
+Decimos que estimamos un modelo *no paramétrico* cuando le permitimos al modelo que se ajuste a los datos sin imponerle una forma funcional.
+
+. . .
+
+La función `ggplot2::geom_smooth()` ajusta un modelo no paramétrico a los datos, de la siguiente manera:
+
+$$
+Y_i = f(X_i) + \epsilon_i
+$$
+
+donde:
+
+- $Y_i$ es el variable dependiente: el ingreso de la persona $i$,
+
+- $X_i$ es el variable independiente: la escolaridad de la persona $i$, y
+
+- $f(\cdot)$ es una función que se *ajusta* a los datos.
+
+- $\epsilon_i$ es el error de estimación de la persona $i$.
+
+. . .
+
+Dependiendo de las características de los datos, `geom_smooth()` ajusta diferentes tipos de modelos no paramétricos.
+
+
+## Relación no paramétrica entre escolaridad e ingreso
+
+```{r}
+#| output-location: slide
+poblacion |>
+    ggplot(aes(x = escolaridad, y = ingreso)) +
+    stat_summary() + # Promedio y IC
+    geom_smooth() +  # Ajuste no paramétrico
+    scale_y_log10(labels = scales::dollar) +
+    labs(
+        x = "Escolaridad",
+        y = "Ingreso mensual",
+        title = "Relación entre escolaridad e ingreso",
+        subtitle = "Tamaño de los puntos proporcional al número de personas"
+    ) +
+    theme(legend.position = "top") +
+    scale_size_continuous(
+        range = c(1, 10),
+        labels = scales::comma,
+        name = "Personas"
+    ) 
+
+
+```
+
+## Conclusiones de la exploración
+
+1. Las personas que reportan un nivel aprobado más alto tienen salarios más altos en promedio. 
+
+2. Las mujeres reportaron ingresos, dado que tienen el mismo nivel aprobado, en todos los niveles aprobados.
+
+3. La distribución de la edad es diferente para cada nivel aprobado. Las personas sin escolaridad som más viejas.
+
+4. No hay una manera perfecta de imputar la escolaridad, pero podemos ver que se acumulan datos en el último grado de cada nivel aprobado, lo que sugiere que esas personas completaron el nivel. 
+
+    - Esto puede ser importante para la estimación de los rendimientos de la escolaridad: puede ser que aprobar el último grado de un nivel tenga un efecto más grande que aprobar el primer grado de un nivel.
+
+5. La imputación de escolaridad parece reflejar correctamente la relación entre escolaridad e ingreso.
+
+
+
+
+# Modelo de regresión lineal
+
+
+## Modelo de regresión lineal
+
+Ya sabemos bien cuál es el ingreso promedio por año de escolaridad.
+
+. . .
+
+Sin embargo, todavía nos falta estimar cuánto aumenta el ingreso por cada año adicional de escolaridad: **el rendimiento de la escolaridad**.
+
+## Simulación de un modelo de regresión lineal
+
+Imaginemos un mundo en el que el ingreso **solo** depende de la escolaridad.
+
+. . .
+
+En este mundo, el ingreso se determina como función de la escolaridad de la siguiente manera:
+
+$$
+Y_i = 1000 + 200 X_i + \epsilon_i
+$$
+
+. . .
+
+donde:
+
+- $Y_i$ es el ingreso de la persona $i$,
+
+- $X_i$ es la escolaridad de la persona $i$,
+
+- $\epsilon_i$ es el error de estimación de la persona $i$, distribuido $N(\mu = 0, \sigma = 1,000)$.
+
+. . .
+
+Una persona sin educación ($X_i=0$) en promedio tendrá $1,000$. 
+
+. . .
+
+Después, por cada año adicional de escolaridad, el ingreso aumentará en promedio $200$. 
+
+. . .
+
+Pero, como hay un error de estimación, no todas las personas con la misma escolaridad tendrán el mismo ingreso.
+
+
+## Simulación de un modelo de regresión lineal
+
+```{r}
+
+set.seed(1234)
+
+n <- 1000
+
+ingresos_simulados <- tibble(
+    id = 1:n,
+    escolaridad = runif(n, min = 0, max = 25),
+    ingreso = 1000 + (200 * escolaridad) + rnorm(n, mean = 0, sd = 1000)
+) 
+
+ingresos_simulados |>
+    ggplot(aes(x = escolaridad, y = ingreso)) +
+    geom_point() 
+
+```
+
+## Modelo de regresión lineal
+
+Ahora, si no conociéramos el proceso de generación de datos, podríamos preguntarnos cuál es el rendimiento de la educación es este mundo.
+
+. . .
+
+Podemos estimar un modelo de regresión lineal, descrito con la siguiente ecuación:
+
+
+$$
+y_i=\beta_0 + \beta_1 x_i + \epsilon_i
+$$
+
+. . . 
+
+donde:
+
+- $\beta_0$ es el intercepto del modelo, que representa el ingreso promedio de una persona sin escolaridad ($X_i=0$).
+
+- $\beta_1$ es la pendiente del modelo, que representa el rendimiento de la escolaridad: el cambio en el ingreso por cada año adicional de escolaridad.
+
+- $\epsilon_i$ es el error de estimación de la persona $i$, que representa la diferencia entre su ingreso real y el ingreso estimado por el modelo. Asumimos que $\epsilon_i$ es distribuido $N(\mu = 0, \sigma^2)$.
+
+. . .
+
+Vamos a buscar los valores de $\beta_0$ y $\beta_1$ que mejor se ajusten a los datos.
+
+## Estimación del modelo
+
+:::{#exm-wrong}
+
+Imaginemos que una persona *tomadora de decisiones* nos propone que:
+
+$$
+\beta_0=0; \quad \beta_1=300
+$$
+
+:::
+
+Podemos calcular el *ingreso estimado* $\hat y_i$ de cada persona y el *error de estimación* $\hat \epsilon_i$:
+
+```{r}
+ingresos_simulados <- ingresos_simulados |>
+    mutate(
+        y_hat_1 = 0 + (300 * escolaridad),
+        error_1 = ingreso - y_hat_1
+    )
+
+```
+
+## Estimación del modelo
+
+```{r}
+#| echo: false
+
+ingresos_simulados |>
+    ggplot(aes(x = escolaridad, y = ingreso)) +
+    geom_point() +
+    geom_line(aes(y = y_hat_1), color = "black") +
+    geom_segment(
+        aes(
+            xend = escolaridad,
+            yend = y_hat_1,
+            color = error_1
+        ),
+        alpha = 0.5,
+    ) +
+    scale_color_gradient2(
+        low = "blue",
+        mid = "white",
+        high = "red",
+        midpoint = 0,
+    ) +
+    labs(
+        x = "Escolaridad",
+        y = "Ingreso mensual",
+        title = "Modelo (equivocado) de regresión lineal",
+        color = "Error"
+    )
+
+```
+
+
+## Bondad de ajuste
+
+¿Qué tan bien se ajusta el modelo a los datos observados?
+
+- Hay muchas métricas para evaluar el ajuste de un modelo de regresión lineal.
+
+- Una métrica común es la raíz cuadrada del error cuadrático medio (RMSE por sus siglas en inglés):
+
+. . .
+
+$$
+RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat \epsilon_i^2}
+$$
+
+Elevamos al cuadrado el error para penalizar los errores negativos y positivos, y penalizar más a los errores grandes.
+
+. . .
+
+Sacamos raíz cuadrada para que la métrica esté en la misma escala que la variable dependiente.
+
+## RMSE
+
+```{r}
+#| output-location: fragment
+
+ingresos_simulados |>
+    summarise(
+        rmse = sqrt(mean(error_1^2))
+    )
+
+```
+
+. . .
+
+En promedio, el modelo planteado por la persona tomadora de decisiones tiene un error de estimación de $1,244$.
+
+. . .
+
+Este error es mayor a la desviación estándar de los ingresos, que es $1,000$.
+
+
+
+
+
+## Estimación por mínimos cuadrados
+
+Mínimos cuadrados ordinarios (MCO) es un método común para estimar los parámetros de un modelo de regresión lineal.
+
+. . .
+
+Lo que hace es **minimizar** la suma de los cuadrados de los errores de estimación.
+
+. . .
+
+Podríamos hacer la derivación de la función de error y encontrar los valores de $\beta_0$ y $\beta_1$ que minimizan la suma de los cuadrados.
+
+. . .
+
+Pero no lo haremos aquí, porque R lo hace por nosotros.
+
+## Estimación del modelo
+
+La función base para estimar regresiones por MCO es `stats::lm()`.
+
+. . .
+
+El lenguaje para describirle a R el modelo que queremos estimar es:
+
+```{r}
+#| eval: false
+
+model_fit <- lm(y ~ x, data = datos)
+
+```
+
+
+. . .
+
+En nuestro caso, el modelo es:
+
+```{r}
+#| output-location: fragment
+ingresos_sim_fit <- lm(ingreso ~ escolaridad, data = ingresos_simulados)
+
+summary(ingresos_sim_fit)
+
+```
+
+
+## Visualización del modelo MCO
+
+```{r}
+
+ingresos_simulados <- ingresos_simulados |>
+    mutate(
+        y_hat_2 = fitted(ingresos_sim_fit), # Saca los valores ajustados
+        error_2 = residuals(ingresos_sim_fit) 
+    )
+```
+
+```{r}
+#| echo: false
+ingresos_simulados |>
+    ggplot(aes(x = escolaridad, y = ingreso)) +
+    geom_point() +
+    geom_line(aes(y = y_hat_2), color = "black") +
+    geom_segment(
+        aes(
+            xend = escolaridad,
+            yend = y_hat_2,
+            color = error_2
+        ),
+        alpha = 0.5,
+    ) +
+    scale_color_gradient2(
+        low = "blue",
+        mid = "white",
+        high = "red",
+        midpoint = 0,
+    ) +
+    labs(
+        x = "Escolaridad",
+        y = "Ingreso mensual",
+        title = "Modelo de regresión lineal por MCO",
+        color = "Error"
+    )
+```
+
+## Comparación de los modelos
+
+```{r}
+#| echo: false
+
+
+
+ingresos_simulados |>
+    ggplot(aes(x = escolaridad, y = ingreso)) +
+    geom_point(alpha = 0.3) +
+    geom_line(aes(y = y_hat_1, color = "Propuesta")) +
+   # geom_line(aes(y = y_hat_2, color = "MCO")) +
+   geom_smooth(method = "lm", aes(color = "MCO")) +
+    # Real model
+    geom_abline(
+        aes(
+        intercept = 1000,
+        slope = 200,
+        color = "Real")
+    ) +
+    labs(
+        x = "Escolaridad",
+        y = "Ingreso mensual",
+        title = "Modelo de regresión lineal",
+        subtitle = "vs propuesta poco informada",
+        color = "Modelo"
+    )
+
+
+```
+
+
+
+
+## Comparación de los modelos
+
+Una vez que tenemos los dos modelos, podemos comparar el error de estimación de cada uno.
+
+. . .
+
+```{r}
+#| output-location: fragment
+#| df-print: kable
+ingresos_simulados |>
+    summarise(
+        rmse_1 = sqrt(mean(error_1^2, na.rm = TRUE)),
+        rmse_2 = sqrt(mean(error_2^2, na.rm = TRUE))
+    )
+
+```
+
+. . .
+
+El modelo estimado con MCO tiene un RMSE más bajo que el modelo propuesto, porque MCO encuentra la línea que minimiza el error de estimación.
+
+# Volviendo a la vida real
+
+## Rendimientos de la escolaridad
+
+Para modelos lineales, la función `fixest::feols()` tiene mejor rendimiento que `lm()`, además de que es más fácil presentar resultados usando `fixest::etable()`.
+
+. . .
+
+`feols()` guarda la misma sintaxis que `lm()`.
+
+. . .
+
+
+```{r}
+pacman::p_load(fixest)
+
+ingresos_fit <- feols(ingreso ~ escolaridad, data = ingresos_simulados)
+poblacion_fit <- feols(ingreso ~ escolaridad, data = poblacion)
+```
+
+. . .
+
+## Rendimientos de la escolaridad
+
+```{r}
+#| label: fig-ols
+#| echo: fenced
+#| results: asis
+
+
+etable(
+    ingresos_fit,
+    poblacion_fit,
+    title = "Modelo de regresión lineal",
+    fitstat = ~ n + r2 + my + f,
+    markdown = T
+)
+
+
+```
+
+. . .
+
+- En promedio, un año adicional de escolaridad está relacionado con un ingreso adicional de $571 pesos al mes. 
+
+- En promedio, una persona sin escolaridad tiene un ingreso mensual de $1,364.
+
+- $R^2$ es una métrica de bondad de ajuste que mide la proporción de la varianza de la variable dependiente que es explicada por el modelo.
+
+    - La escolaridad explica el 12% de la variación del ingreso en la población, mientras que el modelo simulado explica el 70% de la variación del ingreso.
+
+    - Esto es esperado, porque definimos el modelo simulado de tal manera que la escolaridad es la única variable que afecta el ingreso.
+
+
+# Inferencia para coeficientes
+
+## Variabilidad en los estimadores
+
+Estudiaremos la variabilidad de los estimadores de los coeficientes del modelo MCO en el mundo simulado que tenemos. 
+
+. . .
+
+Imaginemos que tomamos métricas de escolaridad y de ingresos en una muestra aleatoria diferente, pero que comparte las características de la población simulada original.
+
+
+```{r}
+#| results: asis
+ingresos_simulados_2 <- tibble(
+    id = 1:n,
+    escolaridad = runif(n, min = 0, max = 25),
+    ingreso = 1000 + (200 * escolaridad) + rnorm(n, mean = 0, sd = 1000)
+) 
+
+ingresos_sim_fit <- feols(ingreso ~ escolaridad, data = ingresos_simulados)
+ingresos_sim_fit_2 <- feols(ingreso ~ escolaridad, data = ingresos_simulados_2)
+
+etable(
+    ingresos_sim_fit,
+    ingresos_sim_fit_2,
+    title = "Modelo de regresión lineal",
+    fitstat = ~ n + r2 + my + f,
+    markdown = T
+)
+```
+
+
+. . .
+
+Encontramos que los coeficientes han variado al usar una muestra diferente.
+
+## Variabilidad en los estimadores
+
+Ahora cuantificaremos la variabilidad de los estimadores de los coeficientes para muchas muestras aleatorias, para entender cómo se distribuyen.
+
+```{r}
+
+n_sim <- 1000
+
+
+simular_datos <- function(x, n = 1000) {
+    tibble(
+        id = 1:n,
+        escolaridad = runif(n, min = 0, max = 25),
+        ingreso = 1000 + (200 * escolaridad) + rnorm(n, mean = 0, sd = 1000)
+    ) 
+}
+
+
+simulaciones <- tibble(
+    id = 1:n_sim,
+    simulacion = map(id, simular_datos),
+    fit = map(simulacion, ~ feols(ingreso ~ escolaridad, data = .x)),
+    coef = map(fit, coef),
+    intercept = map_dbl(coef, 1),
+    escolaridad = map_dbl(coef, 2)
+) |>
+    select(id, intercept, escolaridad) 
+
+
+
+```
+
+
+## Variabilidad en los estimadores
+
+```{r}
+#| echo: false
+
+simulaciones_long <- simulaciones |>
+    pivot_longer(
+        cols = c(intercept, escolaridad),
+        names_to = "coef",
+        values_to = "valor"
+    ) 
+
+
+simulaciones_long |>
+    ggplot(aes(x = valor)) +
+    geom_histogram(
+        aes(y = ..density..),
+        bins = 50,
+        fill = "lightblue",
+        color = "black"
+    ) +
+    geom_density(
+        aes(y = ..density..),
+        color = "blue"
+    ) +
+    # Add means
+    geom_vline(
+        data = simulaciones_long |>
+            summarise(
+                .by = coef,
+                mean = mean(valor)
+            ),
+        aes(xintercept = mean),
+        color = "red",
+        linetype = "dashed"
+    ) +
+    facet_wrap(~ coef, scales = "free") +
+    labs(
+        x = "Valor del coeficiente",
+        y = "Densidad",
+        title = "Distribución de los coeficientes del modelo de regresión lineal",
+        subtitle = "1000 simulaciones, n = 1000"
+    )
+
+```
+
+- Los coeficientes de MCO siguen una distribución normal. 
+
+    - Esto sigue de que su interpretación es *promedio*.
+
+- ¡La media de los coeficientes estimados es igual al verdadero valor de los coeficientes!
+
+    - Esto es una propiedad de los estimadores de MCO: son *insesgados*.
+    
+    - Esto significa que, en promedio, el estimador de MCO es igual al verdadero valor del parámetro.
+
+- La inferencia de los coeficientes sigue de la misma manera que una prueba de hipótesis de un promedio.
+
+## Inferencia para coeficientes
+
+Regresemos a la tabla de coeficientes, donde podremos encontrar algunas pruebas de hipótesis ya calculadas.
+
+
+```{r}
+#| echo: false
+#| output: asis
+
+etable(
+    ingresos_fit,
+    poblacion_fit,
+    title = "Modelo de regresión lineal",
+    fitstat = ~ n + r2 + my + f,
+    markdown = T
+)
+
+
+```
+
+- El error estándar de los coeficientes es una medida de la variabilidad de los estimadores, en la misma escala que los coeficientes.
+
+- Si multiplicamos el error estándar por 1.96, obtenemos un intervalo de confianza del 95% para el coeficiente.
+
+- Si el intervalo de confianza no incluye 0, podemos rechazar la hipótesis nula de que el coeficiente es igual a 0.
+
+- Las estrellas indican para qué niveles de significancia podemos rechazar la hipótesis nula de que el coeficiente es igual a 0.
+
+- Adicionalmente, la prueba F es una prueba conjunta de la relevancia del modelo completo. Un valor mayor a 100 indica que el modelo es relevante.
+
+. . .
+
+Nuestros dos modelos, el simulado y el de la ENIGH, tienen un coeficiente de escolaridad significativo al 1% y son modelos relevantes.
+
+# Sesgo por variable omitida
+
+## Educación e ingresos
+
+Queremos estimar el efecto de la escolaridad en los ingresos.
+
+. . .
+
+Sin embargo, puede haber una variable `habilidad` que determina tanto la escolaridad como el ingreso.
+
+
+. . .
+
+```{r}
+#| echo: false
+pacman::p_load(ggdag)
+
+
+confounder_triangle(x = "Escolaridad", y = "Ingreso", z = "Habilidad",x_y_associated = T) %>%
+  ggdag_dconnected(text = FALSE, use_labels = "label") +
+  theme(legend.position = "none")
+
+```
+
+. . .
+
+¿Cómo afectaría la omisión de la variable `habilidad` a la estimación del modelo de regresión lineal?
+
+## Sesgo por variable omitida
+
+En la ENIGH no tenemos información sobre la variable `habilidad`...
+
+. . .
+
+¡Pero podemos simularla!
+
+
+```{r}
+
+habilidad_sim <- tibble(
+    id = 1:n,
+    habilidad = rnorm(n, mean = 0, sd = 1),
+    escolaridad = 2 * habilidad + rnorm(n, mean = 0, sd = 1),
+    ingreso = 1000 + (200 * escolaridad) + (500 * habilidad) + rnorm(n, mean = 0, sd = 1000)
+)
+
+```
+
+
+```{r}
+#| echo: false
+#| output: asis
+habilidad_fit_1 <- feols(ingreso ~ escolaridad, data = habilidad_sim)
+habilidad_fit_2 <- feols(ingreso ~ escolaridad + habilidad, data = habilidad_sim)
+
+etable(
+    habilidad_fit_1,
+    habilidad_fit_2,
+    title = "Sesgo por variable omitida",
+    fitstat = ~ n + r2 + my + f,
+    markdown = T
+)
+
+```
+
+- El modelo que omitió la variable `habilidad` **sobreestimó** el efecto de la escolaridad en el ingreso. 
+
+- Esto siempre pasará cuando exista una variable omitida que esté correlacionada con la variable dependiente **y** la variable independiente.
+
+
+
+# Regresión lineal múltiple
+
+## Modelo de regresión lineal múltiple
+
+Recordemos que encontramos que las variables `sexo` y `edad` también pueden ser determinantes del ingreso y de la escolaridad.
+
+. . .
+
+No incluirlas puede sesgar el estimador del rendimiento de la escolaridad.
+
+. . .
+
+Para *controlar* por estas variables, podemos incluirlas en el modelo de regresión lineal.
+
+. . .
+
+```{r}
+#| output: asis
+#| echo: false
+pacman::p_load(fixest)
+
+
+simple_fit <- feols(ingreso ~ escolaridad, data = poblacion)
+multiple_fit_1 <- feols(ingreso ~ escolaridad + edad, data = poblacion)
+multiple_fit_2 <- feols(ingreso ~ escolaridad + sexo, data = poblacion)
+multiple_fit_3 <- feols(ingreso ~ escolaridad + edad + sexo, data = poblacion)
+
+
+etable(
+    simple_fit,
+    multiple_fit_1,
+    multiple_fit_2,
+    multiple_fit_3,
+    title = "Modelo de regresión lineal múltiple",
+    fitstat = ~ n + r2 + my + f,
+    markdown = T
+) 
+```
+
+- Agregar `edad` y `sexo` alivia la preocupación de que puedan estar sesgando el estimador del rendimiento de la escolaridad.
+
+- Sin embargo, cambiará la interpretación de los coeficientes:
+
+    - El intercepto en la columna (2), ahora representa el ingreso promedio de una persona sin educación y de edad = 0. Este estimador carece de sentido en este contexto.
+
+    - El coeficiente de `escolaridad` en la columna (2) indica que un año adicional de escolaridad está asociado con un aumento de $655 en el ingreso, **dejando la edad constante**.
+
+- Sexo es una variable dicotómica. 
+
+    - El intercepto de la columna (3) representa el ingreso promedio de un hombre sin escolaridad.
+
+    - El coeficiente de `escolaridad` en la columna (3) indica que un año adicional de escolaridad está asociado con un aumento de $586 en el ingreso, **dejando el sexo constante**.
+
+    - El coeficiente de `sexo` indica que, en promedio, las mujeres tienen un ingreso $3,100 menor que los hombres, **dejando la escolaridad constante**.
+
+- Al incluir ambas variables, el coeficiente de `escolaridad` en la columna (4) indica que un año adicional de escolaridad está asociado con un aumento de $672.6 en el ingreso, **dejando las demás variables constantes**.
+
+## Referencias

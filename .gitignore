@@ -10,3 +10,5 @@
 /assignments/data/
 /assignments/*/prep.r
 /assignments/*/_solutions.qmd
+settings.json
+*.png

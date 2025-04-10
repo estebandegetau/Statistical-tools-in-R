@@ -1,10 +1,28 @@
 ---
 title: "Tareas"
 listing:
+- id: assignments
   contents: "assignments/*/instructions.qmd"
+  type: grid
+  fields: [image, date, title, subtitle]
+  sort: "date"
+- id: solutions
+  contents: "assignments/*/solutions.qmd"   
   type: grid
   fields: [image, date, title, subtitle]
   sort: "date"
 ---
 
 Aquí podrás encontrar las tareas que asignaré a lo largo del curso. Lee las instrucciones de cada tarea cuidadosamente.
+
+Las tareas se entregarán a través de mi correo electrónico: [esteban.degetau@imss.gob.mx](mailto:esteban.degetau@imss.gob.mx). 
+
+## Tareas
+
+:::{#assignments}
+:::
+
+## Soluciones
+
+:::{#solutions}
+:::
