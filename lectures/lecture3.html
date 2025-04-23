@@ -314,7 +314,7 @@ Esteban Degetau
 </section><section id="distribución-de-nivel-aprobado-output" class="slide level2 output-location-slide"><h2>Distribución de nivel aprobado</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -347,7 +347,7 @@ Esteban Degetau
 </section><section id="distribución-del-ingreso-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -383,7 +383,7 @@ Esteban Degetau
 </section><section id="distribución-del-ingreso-después-de-truncar-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso después de truncar</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -449,7 +449,7 @@ Esteban Degetau
 </section><section id="ingreso-promedio-por-nivel-aprobado-1-output" class="slide level2 output-location-slide"><h2>Ingreso promedio por nivel aprobado</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-8-1.png" width="1152"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-7-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -490,7 +490,7 @@ Esteban Degetau
 </section><section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo-1-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso por nivel aprobado y sexo</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-9-1.png" width="1152"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-8-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -517,7 +517,7 @@ Esteban Degetau
 </section><section id="escolaridad-y-edad-output" class="slide level2 output-location-slide"><h2>Escolaridad y edad</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -533,7 +533,7 @@ Esteban Degetau
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-11-1.png" width="1152"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-10-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -543,13 +543,13 @@ Esteban Degetau
 <p>Decimos que estimamos un modelo <em>no paramétrico</em> cuando le permitimos al modelo que se ajuste a los datos sin imponerle una forma funcional.</p>
 <div class="fragment">
 <p>La función <code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">ggplot2::geom_smooth()</a></code> ajusta un modelo no paramétrico a los datos, de la siguiente manera:</p>
-<p><span class="math display">\[
+<p><span id="eq-np"><span class="math display">\[
 Y_i = f(X_i) + \epsilon_i
-\]</span></p>
+\qquad(1)\]</span></span></p>
 <p>donde:</p>
 <ul>
 <li class="fragment"><p><span class="math inline">\(Y_i\)</span> es el variable dependiente: el ingreso de la persona <span class="math inline">\(i\)</span>,</p></li>
-<li class="fragment"><p><span class="math inline">\(X_i\)</span> es el variable independiente: la escolaridad de la persona <span class="math inline">\(i\)</span>, y</p></li>
+<li class="fragment"><p><span class="math inline">\(X_i\)</span> es la variable independiente: la escolaridad de la persona <span class="math inline">\(i\)</span>, y</p></li>
 <li class="fragment"><p><span class="math inline">\(f(\cdot)\)</span> es una función que se <em>ajusta</em> a los datos.</p></li>
 <li class="fragment"><p><span class="math inline">\(\epsilon_i\)</span> es el error de estimación de la persona <span class="math inline">\(i\)</span>.</p></li>
 </ul>
@@ -581,7 +581,7 @@ Y_i = f(X_i) + \epsilon_i
 </section><section id="relación-no-paramétrica-entre-escolaridad-e-ingreso-1-output" class="slide level2 output-location-slide"><h2>Relación no paramétrica entre escolaridad e ingreso</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -608,9 +608,9 @@ Y_i = f(X_i) + \epsilon_i
 <p>Imaginemos un mundo en el que el ingreso <strong>solo</strong> depende de la escolaridad.</p>
 <div class="fragment">
 <p>En este mundo, el ingreso se determina como función de la escolaridad de la siguiente manera:</p>
-<p><span class="math display">\[
+<p><span id="eq-sim"><span class="math display">\[
 Y_i = 1000 + 200 X_i + \epsilon_i
-\]</span></p>
+\qquad(2)\]</span></span></p>
 </div>
 <div class="fragment">
 <p>donde:</p>
@@ -649,7 +649,7 @@ Y_i = 1000 + 200 X_i + \epsilon_i
 </section><section id="simulación-de-un-modelo-de-regresión-lineal-1-output" class="slide level2 output-location-slide"><h2>Simulación de un modelo de regresión lineal</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -657,9 +657,9 @@ Y_i = 1000 + 200 X_i + \epsilon_i
 <p>Ahora, si no conociéramos el proceso de generación de datos, podríamos preguntarnos cuál es el rendimiento de la educación es este mundo.</p>
 <div class="fragment">
 <p>Podemos estimar un modelo de regresión lineal, descrito con la siguiente ecuación:</p>
-<p><span class="math display">\[
+<p><span id="eq-ols"><span class="math display">\[
 y_i=\beta_0 + \beta_1 x_i + \epsilon_i
-\]</span></p>
+\qquad(3)\]</span></span></p>
 </div>
 <div class="fragment">
 <p>donde:</p>
@@ -692,16 +692,16 @@ y_i=\beta_0 + \beta_1 x_i + \epsilon_i
 
 </div></section><section id="estimación-del-modelo-1" class="slide level2"><h2>Estimación del modelo</h2>
 
-<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section><section id="bondad-de-ajuste" class="slide level2"><h2>Bondad de ajuste</h2>
+<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section><section id="bondad-de-ajuste" class="slide level2"><h2>Bondad de ajuste</h2>
 <p>¿Qué tan bien se ajusta el modelo a los datos observados?</p>
 <ul>
 <li class="fragment"><p>Hay muchas métricas para evaluar el ajuste de un modelo de regresión lineal.</p></li>
 <li class="fragment"><p>Una métrica común es la raíz cuadrada del error cuadrático medio (RMSE por sus siglas en inglés):</p></li>
 </ul>
 <div class="fragment">
-<p><span class="math display">\[
+<p><span id="eq-rmse"><span class="math display">\[
 RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat \epsilon_i^2}
-\]</span></p>
+\qquad(4)\]</span></span></p>
 <p>Elevamos al cuadrado el error para penalizar los errores negativos y positivos, y penalizar más a los errores grandes.</p>
 </div>
 <div class="fragment">
@@ -790,11 +790,11 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 
 
-<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section><section id="visualización-del-modelo-mco-output" class="slide level2 output-location-slide"><h2>Visualización del modelo MCO</h2><div class="cell output-location-slide">
+<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section><section id="visualización-del-modelo-mco-output" class="slide level2 output-location-slide"><h2>Visualización del modelo MCO</h2><div class="cell output-location-slide">
 
 </div></section><section id="comparación-de-los-modelos" class="slide level2"><h2>Comparación de los modelos</h2>
 
-<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section><section id="comparación-de-los-modelos-1" class="slide level2"><h2>Comparación de los modelos</h2>
+<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section><section id="comparación-de-los-modelos-1" class="slide level2"><h2>Comparación de los modelos</h2>
 <p>Una vez que tenemos los dos modelos, podemos comparar el error de estimación de cada uno.</p>
 <div class="fragment">
 <div class="cell" data-df-print="kable">
@@ -836,19 +836,23 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 
 </div></section><section id="rendimientos-de-la-escolaridad-1" class="slide level2"><h2>Rendimientos de la escolaridad</h2>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb23-2"><a></a><span class="in">#| label: fig-ols</span></span>
-<span id="cb23-3"><a></a><span class="in">#| results: asis</span></span>
-<span id="cb23-4"><a></a></span>
-<span id="cb23-5"><a></a><span class="in">etable(</span></span>
-<span id="cb23-6"><a></a><span class="in">    ingresos_fit,</span></span>
-<span id="cb23-7"><a></a><span class="in">    poblacion_fit,</span></span>
-<span id="cb23-8"><a></a><span class="in">    title = "Modelo de regresión lineal",</span></span>
-<span id="cb23-9"><a></a><span class="in">    fitstat = ~ n + r2 + my + f,</span></span>
-<span id="cb23-10"><a></a><span class="in">    markdown = T</span></span>
-<span id="cb23-11"><a></a><span class="in">)</span></span>
-<span id="cb23-12"><a></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-2"><a></a><span class="in">#| results: asis</span></span>
+<span id="cb23-3"><a></a></span>
+<span id="cb23-4"><a></a><span class="in"># Ojo para producir esta tabla en Quarto. Necesitamos:</span></span>
+<span id="cb23-5"><a></a><span class="in"># 1. Incluir la opción etable(..., markdown = T)</span></span>
+<span id="cb23-6"><a></a><span class="in"># 2. Usar `results: asis` en la opciones del chunk (ver arriba)</span></span>
+<span id="cb23-7"><a></a></span>
+<span id="cb23-8"><a></a><span class="in">etable(</span></span>
+<span id="cb23-9"><a></a><span class="in">    ingresos_fit,</span></span>
+<span id="cb23-10"><a></a><span class="in">    poblacion_fit,</span></span>
+<span id="cb23-11"><a></a><span class="in">    title = "Modelo de regresión lineal",</span></span>
+<span id="cb23-12"><a></a><span class="in">    fitstat = ~ n + r2 + my + f,</span></span>
+<span id="cb23-13"><a></a><span class="in">    markdown = T,</span></span>
+<span id="cb23-14"><a></a><span class="in">    headers = list("Simulación" = 1, "ENIGH 2022" = 1)</span></span>
+<span id="cb23-15"><a></a><span class="in">) </span></span>
+<span id="cb23-16"><a></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="etable">
-<img src="./images/etable/etable_tex_2025-04-08_1400648435.png">
+<img src="./images/etable/etable_tex_2025-04-22_2901451801.png">
 </div>
 <div class="fragment">
 <ul>
@@ -869,6 +873,7 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Estudiaremos la variabilidad de los estimadores de los coeficientes del modelo MCO en el mundo simulado que tenemos.</p>
 <div class="fragment">
 <p>Imaginemos que tomamos métricas de escolaridad y de ingresos en una muestra aleatoria diferente, pero que comparte las características de la población simulada original.</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>ingresos_simulados_2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb24-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
 <span id="cb24-3"><a></a>    <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
@@ -878,15 +883,19 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb24-7"><a></a>ingresos_sim_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
 <span id="cb24-8"><a></a>ingresos_sim_fit_2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados_2)</span>
 <span id="cb24-9"><a></a></span>
-<span id="cb24-10"><a></a><span class="fu">etable</span>(</span>
-<span id="cb24-11"><a></a>    ingresos_sim_fit,</span>
-<span id="cb24-12"><a></a>    ingresos_sim_fit_2,</span>
-<span id="cb24-13"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal"</span>,</span>
+<span id="cb24-10"><a></a></span>
+<span id="cb24-11"><a></a><span class="fu">etable</span>(</span>
+<span id="cb24-12"><a></a>    ingresos_sim_fit,</span>
+<span id="cb24-13"><a></a>    ingresos_sim_fit_2,</span>
 <span id="cb24-14"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb24-15"><a></a>    <span class="at">markdown =</span> T</span>
-<span id="cb24-16"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-15"><a></a>    <span class="at">markdown =</span> T,</span>
+<span id="cb24-16"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Simulación 1"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Simulación 2"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
+<span id="cb24-17"><a></a>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
 <div class="etable">
-<img src="./images/etable/etable_tex_2025-04-08_2540437183.png">
+<img src="./images/etable/etable_tex_2025-04-22_4976931950.png">
+</div>
 </div>
 </div>
 <div class="fragment">
@@ -895,34 +904,79 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section><section id="variabilidad-en-los-estimadores-1" class="slide level2"><h2>Variabilidad en los estimadores</h2>
 <p>Ahora cuantificaremos la variabilidad de los estimadores de los coeficientes para muchas muestras aleatorias, para entender cómo se distribuyen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>n_sim <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
 <span id="cb25-2"><a></a></span>
-<span id="cb25-3"><a></a></span>
-<span id="cb25-4"><a></a>simular_datos <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">1000</span>) {</span>
-<span id="cb25-5"><a></a>    <span class="fu">tibble</span>(</span>
-<span id="cb25-6"><a></a>        <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
-<span id="cb25-7"><a></a>        <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
-<span id="cb25-8"><a></a>        <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
-<span id="cb25-9"><a></a>    ) </span>
-<span id="cb25-10"><a></a>}</span>
-<span id="cb25-11"><a></a></span>
-<span id="cb25-12"><a></a></span>
-<span id="cb25-13"><a></a>simulaciones <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb25-14"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n_sim,</span>
-<span id="cb25-15"><a></a>    <span class="at">simulacion =</span> <span class="fu">map</span>(id, simular_datos),</span>
-<span id="cb25-16"><a></a>    <span class="at">fit =</span> <span class="fu">map</span>(simulacion, <span class="sc">~</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> .x)),</span>
-<span id="cb25-17"><a></a>    <span class="at">coef =</span> <span class="fu">map</span>(fit, coef),</span>
-<span id="cb25-18"><a></a>    <span class="at">intercept =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">1</span>),</span>
-<span id="cb25-19"><a></a>    <span class="at">escolaridad =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">2</span>)</span>
-<span id="cb25-20"><a></a>) <span class="sc">|&gt;</span></span>
-<span id="cb25-21"><a></a>    <span class="fu">select</span>(id, intercept, escolaridad) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-3"><a></a>simular_datos <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">1000</span>) {</span>
+<span id="cb25-4"><a></a>    <span class="fu">tibble</span>(</span>
+<span id="cb25-5"><a></a>        <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb25-6"><a></a>        <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
+<span id="cb25-7"><a></a>        <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
+<span id="cb25-8"><a></a>    ) </span>
+<span id="cb25-9"><a></a>}</span>
+<span id="cb25-10"><a></a></span>
+<span id="cb25-11"><a></a>simulaciones <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb25-12"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n_sim,</span>
+<span id="cb25-13"><a></a>    <span class="at">simulacion =</span> <span class="fu">map</span>(id, simular_datos),</span>
+<span id="cb25-14"><a></a>    <span class="at">fit =</span> <span class="fu">map</span>(simulacion, <span class="sc">~</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> .x)),</span>
+<span id="cb25-15"><a></a>    <span class="at">coef =</span> <span class="fu">map</span>(fit, coef),</span>
+<span id="cb25-16"><a></a>    <span class="at">intercept =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">1</span>),</span>
+<span id="cb25-17"><a></a>    <span class="at">escolaridad =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">2</span>)</span>
+<span id="cb25-18"><a></a>) <span class="sc">|&gt;</span></span>
+<span id="cb25-19"><a></a>    <span class="fu">select</span>(id, intercept, escolaridad) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="variabilidad-en-los-estimadores-1-output" class="slide level2 output-location-slide"><h2>Variabilidad en los estimadores</h2><div class="cell output-location-slide">
 
-</div></section><section id="variabilidad-en-los-estimadores-2" class="slide level2"><h2>Variabilidad en los estimadores</h2>
-
-<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch"><ul>
+</div></section><section id="variabilidad-en-los-estimadores-2" class="slide level2 scrollable"><h2>Variabilidad en los estimadores</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>simulaciones_long <span class="ot">&lt;-</span> simulaciones <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a></a>    <span class="fu">pivot_longer</span>(</span>
+<span id="cb26-3"><a></a>        <span class="at">cols =</span> <span class="fu">c</span>(intercept, escolaridad),</span>
+<span id="cb26-4"><a></a>        <span class="at">names_to =</span> <span class="st">"coef"</span>,</span>
+<span id="cb26-5"><a></a>        <span class="at">values_to =</span> <span class="st">"valor"</span></span>
+<span id="cb26-6"><a></a>    ) </span>
+<span id="cb26-7"><a></a></span>
+<span id="cb26-8"><a></a></span>
+<span id="cb26-9"><a></a>simulaciones_long <span class="sc">|&gt;</span></span>
+<span id="cb26-10"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
+<span id="cb26-11"><a></a>    <span class="fu">geom_histogram</span>(</span>
+<span id="cb26-12"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
+<span id="cb26-13"><a></a>        <span class="at">bins =</span> <span class="dv">50</span>,</span>
+<span id="cb26-14"><a></a>        <span class="at">fill =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb26-15"><a></a>        <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb26-16"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb26-17"><a></a>    <span class="fu">geom_density</span>(</span>
+<span id="cb26-18"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
+<span id="cb26-19"><a></a>        <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb26-20"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb26-21"><a></a>    <span class="co"># Add means</span></span>
+<span id="cb26-22"><a></a>    <span class="fu">geom_vline</span>(</span>
+<span id="cb26-23"><a></a>        <span class="at">data =</span> simulaciones_long <span class="sc">|&gt;</span></span>
+<span id="cb26-24"><a></a>            <span class="fu">summarise</span>(</span>
+<span id="cb26-25"><a></a>                <span class="at">.by =</span> coef,</span>
+<span id="cb26-26"><a></a>                <span class="at">mean =</span> <span class="fu">mean</span>(valor)</span>
+<span id="cb26-27"><a></a>            ),</span>
+<span id="cb26-28"><a></a>        <span class="fu">aes</span>(<span class="at">xintercept =</span> mean),</span>
+<span id="cb26-29"><a></a>        <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb26-30"><a></a>        <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
+<span id="cb26-31"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb26-32"><a></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> coef, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb26-33"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb26-34"><a></a>        <span class="at">x =</span> <span class="st">"Valor del coeficiente"</span>,</span>
+<span id="cb26-35"><a></a>        <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
+<span id="cb26-36"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de los coeficientes MCO"</span>,</span>
+<span id="cb26-37"><a></a>        <span class="at">subtitle =</span> <span class="st">"10,000 simulaciones, n = 1,000"</span></span>
+<span id="cb26-38"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output-display">
+<div>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
 <li class="fragment">
 <p>Los coeficientes de MCO siguen una distribución normal.</p>
 <ul>
@@ -940,7 +994,7 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul></section><section id="inferencia-para-coeficientes-1" class="slide level2"><h2>Inferencia para coeficientes</h2>
 <p>Regresemos a la tabla de coeficientes, donde podremos encontrar algunas pruebas de hipótesis ya calculadas.</p>
 <div class="etable">
-<img src="./images/etable/etable_tex_2025-04-08_1400648435.png">
+<img src="./images/etable/etable_tex_2025-04-22_2901451801.png">
 </div>
 <ul>
 <li class="fragment"><p>El error estándar de los coeficientes es una medida de la variabilidad de los estimadores, en la misma escala que los coeficientes.</p></li>
@@ -963,7 +1017,7 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -976,39 +1030,123 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>En la ENIGH no tenemos información sobre la variable <code>habilidad</code>…</p>
 <div class="fragment">
 <p>¡Pero podemos simularla!</p>
+</div>
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>habilidad_sim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb26-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
-<span id="cb26-3"><a></a>    <span class="at">habilidad =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb26-4"><a></a>    <span class="at">escolaridad =</span> <span class="dv">2</span> <span class="sc">*</span> habilidad <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb26-5"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> (<span class="dv">500</span> <span class="sc">*</span> habilidad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
-<span id="cb26-6"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>habilidad_sim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb27-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb27-3"><a></a>    <span class="at">habilidad =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb27-4"><a></a>    <span class="at">escolaridad =</span> <span class="dv">2</span> <span class="sc">*</span> habilidad <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb27-5"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> (<span class="dv">500</span> <span class="sc">*</span> habilidad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
+<span id="cb27-6"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <div class="etable">
-<img src="./images/etable/etable_tex_2025-04-08_2005937803.png">
+<img src="./images/etable/etable_tex_2025-04-22_1695580078.png">
 </div>
 <ul>
 <li class="fragment"><p>El modelo que omitió la variable <code>habilidad</code> <strong>sobreestimó</strong> el efecto de la escolaridad en el ingreso.</p></li>
-<li class="fragment"><p>Esto siempre pasará cuando exista una variable omitida que esté correlacionada con la variable dependiente <strong>y</strong> la variable independiente.</p></li>
+<li class="fragment"><p>Esto siempre pasará cuando exista una variable omitida que esté correlacionada con la variable dependiente <strong>y</strong> con la variable independiente.</p></li>
+<li class="fragment"><p>El modelo MCO solo será insesgado cuando no haya variables omitidas.</p></li>
 </ul>
 </div>
 </section><section id="sesgo-por-variable-omitida-1-output" class="slide level2 output-location-slide"><h2>Sesgo por variable omitida</h2><div class="cell output-location-slide">
 
 </div></section></section><section><section id="regresión-lineal-múltiple" class="title-slide slide level1 center"><h1>Regresión lineal múltiple</h1>
 
-</section><section id="modelo-de-regresión-lineal-múltiple" class="slide level2"><h2>Modelo de regresión lineal múltiple</h2>
-<p>Recordemos que encontramos que las variables <code>sexo</code> y <code>edad</code> también pueden ser determinantes del ingreso y de la escolaridad.</p>
+</section><section id="regresión-lineal-múltiple-1" class="slide level2"><h2>Regresión lineal múltiple</h2>
+<ul>
+<li class="fragment"><p>En el ejemplo de variable omitida, definimos una variable <code>habilidad</code> que afecta tanto a la escolaridad como a el ingreso.</p></li>
+<li class="fragment">
+<p>Para evitar el sesgo por variable omitida, simplemente incluimos la variable <code>habilidad</code> en el modelo de regresión lineal:</p>
+<ul>
+<li class="fragment">Acabamos con un modelo con dos variables independientes, sin hablar mucho de la teoría detrás de la regresión lineal múltiple.</li>
+</ul>
+</li>
+</ul>
 <div class="fragment">
-<p>No incluirlas puede sesgar el estimador del rendimiento de la escolaridad.</p>
+<p>En esta sección, quiero formalizar el concepto de <em>regresión lineal múltiple</em> y su interpretación.</p>
+</div>
+</section><section id="regresión-lineal-múltiple-2" class="slide level2"><h2>Regresión lineal múltiple</h2>
+<p>Supongamos que queremos estimar el modelo de regresión lineal:</p>
+<div class="fragment">
+<p><span id="eq-mlr"><span class="math display">\[
+y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
+\qquad(5)\]</span></span></p>
 </div>
 <div class="fragment">
-<p>Para <em>controlar</em> por estas variables, podemos incluirlas en el modelo de regresión lineal.</p>
+<p>Donde:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(y_i\)</span> es la variable dependiente: el ingreso de la persona <span class="math inline">\(i\)</span>,</p></li>
+<li class="fragment"><p><span class="math inline">\(x_i\)</span> es la variable independiente <strong>de interés</strong>: la escolaridad de la persona <span class="math inline">\(i\)</span>,</p></li>
+<li class="fragment"><p><span class="math inline">\(c_i\)</span> es una variable independiente <strong>de control</strong>: la habilidad de la persona <span class="math inline">\(i\)</span></p></li>
+</ul>
 </div>
 <div class="fragment">
+<p>Decimos que el modelo en la <a href="#/eq-mlr" class="quarto-xref">Ecuación&nbsp;5</a> es lineal porque la variable dependiente es una combinación lineal de las variables independientes.</p>
+</div>
+<div class="fragment">
+<p>Y decimos que es múltiple porque tiene más de una variable independiente.</p>
+</div>
+<div class="fragment">
+<p>El tratamiento de este tipo de modelos es muy similar al de regresión lineal simple, pero hay que tener cuidado con la interpretación de los coeficientes.</p>
+</div>
+</section><section id="interpretación-de-los-coeficientes" class="slide level2"><h2>Interpretación de los coeficientes</h2>
+<p>Interpretamos los coeficientes del modelo en la <a href="#/eq-mlr" class="quarto-xref">Ecuación&nbsp;5</a> de la siguiente manera:</p>
+<ul>
+<li class="fragment"><p>El intercepto <span class="math inline">\(\beta_0\)</span> representa el ingreso promedio de una persona sin escolaridad y con habilidad = 0.</p></li>
+<li class="fragment"><p>El coeficiente <span class="math inline">\(\beta_1\)</span> representa el rendimiento de la escolaridad: el cambio en el ingreso por cada año adicional de escolaridad, <strong>dejando la habilidad constante</strong>.</p></li>
+<li class="fragment"><p>El coeficiente <span class="math inline">\(\beta_2\)</span> representa el cambio en el ingreso por cada unidad adicional de habilidad, <strong>dejando la escolaridad constante</strong>.</p></li>
+</ul>
+<div class="fragment">
+<p>En general, podemos decir que el coeficiente <span class="math inline">\(\beta_k: k&gt;0\)</span> representa el cambio en la variable dependiente por cada unidad adicional de la variable <span class="math inline">\(k\)</span>, <strong>todo lo demás constante</strong>.</p>
+</div>
+</section><section id="regresión-lineal-múltiple-con-la-enigh-2022" class="slide level2"><h2>Regresión lineal múltiple con la ENIGH 2022</h2>
+<p>Recordemos de la sección de estadística descriptiva que las variables <code>sexo</code> y <code>edad</code> también pueden ser determinantes del ingreso y de la escolaridad.</p>
+<ul>
+<li class="fragment">No incluirlas puede sesgar el estimador del rendimiento de la escolaridad.</li>
+</ul></section><section id="correlación-entre-ingreso-escolaridad-edad-y-sexo" class="slide level2"><h2>Correlación entre ingreso, escolaridad, edad y sexo</h2>
+<p>Revisemos <em>empíricamente</em> si <code>sexo</code> y <code>edad</code> están correlacionadas con <code>ingreso</code> y <code>escolaridad</code>.</p>
+<ul>
+<li class="fragment">Necesitamos un modelo por cada par de variables:</li>
+</ul>
+<div class="fragment">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a></a>    <span class="fu">feols</span>(<span class="fu">c</span>(ingreso, escolaridad) <span class="sc">~</span> <span class="fu">sw</span>(edad, sexo)) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a></a>    <span class="fu">etable</span>(</span>
+<span id="cb28-4"><a></a>        <span class="at">title =</span> <span class="st">"Correlación entre ingreso, escolaridad, edad y sexo"</span>,</span>
+<span id="cb28-5"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb28-6"><a></a>        <span class="at">markdown =</span> T</span>
+<span id="cb28-7"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="etable">
-<img src="./images/etable/etable_tex_2025-04-07_1563158499.png">
+<img src="./images/etable/etable_tex_2025-04-22_1.07168771.png">
 </div>
+<ul>
+<li class="fragment"><p>Para saber si existe correlación, podemos ir a la prueba F, que indica la relevancia del modelo completo.</p></li>
+<li class="fragment"><p>Las pruebas F de todas las regresiónes son más grandes que 100, lo que indica que todos los modelos son relevantes y que <code>sexo</code> y <code>edad</code> están correlacionadas con <code>ingreso</code> y <code>escolaridad</code>.</p></li>
+</ul>
+</div>
+</section><section id="implementación-del-modelo" class="slide level2"><h2>Implementación del modelo</h2>
+<p>Veamos cómo afecta la estimación del rendimiento de la escolaridad al incluir <code>edad</code> y <code>sexo</code> en el modelo, una por una:</p>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>simple_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span>
+<span id="cb29-2"><a></a>multiple_fit_1 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad, <span class="at">data =</span> poblacion)</span>
+<span id="cb29-3"><a></a>multiple_fit_2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> sexo, <span class="at">data =</span> poblacion)</span>
+<span id="cb29-4"><a></a>multiple_fit_3 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">data =</span> poblacion)</span>
+<span id="cb29-5"><a></a></span>
+<span id="cb29-6"><a></a></span>
+<span id="cb29-7"><a></a><span class="fu">etable</span>(</span>
+<span id="cb29-8"><a></a>    simple_fit,</span>
+<span id="cb29-9"><a></a>    multiple_fit_1,</span>
+<span id="cb29-10"><a></a>    multiple_fit_2,</span>
+<span id="cb29-11"><a></a>    multiple_fit_3,</span>
+<span id="cb29-12"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal múltiple"</span>,</span>
+<span id="cb29-13"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb29-14"><a></a>    <span class="at">markdown =</span> T</span>
+<span id="cb29-15"><a></a>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="etable">
+<img src="./images/etable/etable_tex_2025-04-22_1268429229.png">
+</div>
+</section><section id="interpretación-de-los-coeficientes-1" class="slide level2"><h2>Interpretación de los coeficientes</h2>
 <ul>
 <li class="fragment"><p>Agregar <code>edad</code> y <code>sexo</code> alivia la preocupación de que puedan estar sesgando el estimador del rendimiento de la escolaridad.</p></li>
 <li class="fragment">
@@ -1027,7 +1165,389 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 </li>
 <li class="fragment"><p>Al incluir ambas variables, el coeficiente de <code>escolaridad</code> en la columna (4) indica que un año adicional de escolaridad está asociado con un aumento de $672.6 en el ingreso, <strong>dejando las demás variables constantes</strong>.</p></li>
+</ul></section><section id="bondad-de-ajuste-1" class="slide level2"><h2>Bondad de ajuste</h2>
+<p>En el modelo de regresión lineal sencillo, descrito por la <a href="#/eq-ols" class="quarto-xref">Ecuación&nbsp;3</a>, hablamos de que el estadístico <span class="math inline">\(R^2\)</span> mide la bindad de ajuste del modelo: la proporción de la varianza de la variable dependiente que es explicada por la variable independiente.</p>
+<ul>
+<li class="fragment"><p>En el mundo de la regresión lineal múltiple, la interpretación cambia.</p></li>
+<li class="fragment"><p>Agregar una variabla al modelo siempre va a aumentar la <span class="math inline">\(R^2\)</span>, porque siempre va a poder explicar más proporción de la varianza de la variable dependiente.</p></li>
+<li class="fragment"><p>En regresión múltiple, la <span class="math inline">\(R^2\)</span> ajustada penaliza por la inclusión de variables, para intentar aproximar la <span class="math inline">\(R^2\)</span> a la proporción de varianza explicada por el modelo.</p></li>
 </ul>
+<div class="fragment">
+<p>En la tabla de coeficientes, agergar los controles al modelo sí mejora el ajuste del model.</p>
+</div>
+</section><section id="resumen" class="slide level2"><h2>Resumen</h2>
+<ul>
+<li class="fragment"><p>La regresión lineal múltiple es una extensión de la regresión lineal simple, que permite incluir más de una variable independiente.</p></li>
+<li class="fragment"><p>La interpretación de los coeficientes cambia, porque ahora representan el efecto de la variable independiente en la variable dependiente, <strong>dejando las demás variables constantes</strong>.</p></li>
+<li class="fragment"><p>La regresión lineal múltiple es útil para controlar por variables que pueden estar sesgando el estimador de la variable de interés.</p></li>
+</ul>
+<p>Muy importante: sin importar cuántos controles agreguemos, siempre habrá una variable omitida que puede estar sesgando los resultados.</p>
+<ul>
+<li class="fragment">
+<p>Para esto, hay métodos experimentales y cuasi-experimentales que pueden ayudar a identificar el efecto causal de una variable sobre otra.</p>
+<ul>
+<li class="fragment"><p>Tristemente, no podremos cubrir estos métodos en este curso.</p></li>
+<li class="fragment"><p>Pero <span class="citation" data-cites="cunningham2021">Cunningham (<a href="#/referencias" role="doc-biblioref" onclick="">2021</a>)</span> es un excelente libro para aprender más sobre inferencia causal.</p></li>
+</ul>
+</li>
+</ul></section></section><section><section id="efectos-fijos" class="title-slide slide level1 center"><h1>Efectos fijos</h1>
+
+</section><section id="motivación-1" class="slide level2"><h2>Motivación</h2>
+<p>Imaginemos que mostramos a alguien nuestro modelo de regresión lineal múltiple y nos dice:</p>
+<div class="fragment">
+<blockquote>
+<p>Pero no estás tomando en cuenta que en distintos municipios hay diferentes niveles de ingreso, costos de vida, y niveles de escolaridad. Puedes solo estar midiendo la varianza que hay entre municipios que son diferentes entre sí.</p>
+</blockquote>
+</div>
+<div class="fragment">
+<p>Esta es una crítica muy válida.</p>
+</div>
+</section><section id="comparación-al-interior-de-un-municipio" class="slide level2"><h2>Comparación al interior de un municipio</h2>
+<p>Podríamos empezar a atender esta crítica comparando el ingreso de las personas al interior de un municipio en particular.</p>
+<ul>
+<li class="fragment"><p>Por ejemplo, en Azcapotzalco, CDMX.</p></li>
+<li class="fragment"><p>Algo que todavía no discutimos es que la ENIGH es una encuesta, por lo que, para tener un estimador representativo, tenemos que ponderar por el factor de expanción usando el argumento <code>weights</code> de la función <code>feols()</code>.</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>azcapotzalco <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a></a>    <span class="fu">filter</span>(cve_ent <span class="sc">==</span> <span class="st">"09"</span>, cve_mun <span class="sc">==</span> <span class="st">"002"</span>) <span class="co"># Azcapotzalco, CDMX</span></span>
+<span id="cb30-3"><a></a></span>
+<span id="cb30-4"><a></a>pob_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<span id="cb30-5"><a></a>    <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">weights =</span> <span class="sc">~</span>factor)</span>
+<span id="cb30-6"><a></a></span>
+<span id="cb30-7"><a></a>azc_fit <span class="ot">&lt;-</span> azcapotzalco <span class="sc">|&gt;</span></span>
+<span id="cb30-8"><a></a>    <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">weights =</span> <span class="sc">~</span>factor)</span>
+<span id="cb30-9"><a></a></span>
+<span id="cb30-10"><a></a><span class="fu">etable</span>(</span>
+<span id="cb30-11"><a></a>    pob_fit,</span>
+<span id="cb30-12"><a></a>    azc_fit,</span>
+<span id="cb30-13"><a></a>    <span class="at">title =</span> <span class="st">"Nacional vs Azcapotzalco"</span>,</span>
+<span id="cb30-14"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb30-15"><a></a>    <span class="at">markdown =</span> T,</span>
+<span id="cb30-16"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Nacional"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Azcapotzalco"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
+<span id="cb30-17"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="etable">
+<img src="./images/etable/etable_tex_2025-04-22_1835314266.png">
+</div>
+</div>
+</div>
+</section><section id="comparación-al-interior-de-un-municipio-1" class="slide level2"><h2>Comparación al interior de un municipio</h2>
+<p>Encontramos que la el rendimiento de la educación en Azcapotzalco es algo mayor que en la población nacional.</p>
+<ul>
+<li class="fragment"><p>Podríamos replicar el ejercicio para cada municipio y después tomar un promedio ponderado de todos los rendimientos de la escolaridad.</p></li>
+<li class="fragment"><p>Sin embargo, esto no es práctico.</p></li>
+</ul></section><section id="modelo-de-efectos-fijos" class="slide level2"><h2>Modelo de efectos fijos</h2>
+<p>El modelo de efectos fijos es una manera de controlar por las diferencias entre municipios.</p>
+<ul>
+<li class="fragment"><p>Introduce una variable indicadora por cada municipio, que toma el valor 1 si la persona pertenece a ese municipio y 0 si no.</p></li>
+<li class="fragment"><p>Esto permite controlar por diferencias entre municipios, para medir el rendimiento de la escolaridad <em>dentro</em> de cada municipio.</p></li>
+</ul>
+<div class="fragment">
+<p>Si introducimos efectos fijos por municipio, atenderemos la crítica de que hay heterogeneidad entre municipios.</p>
+</div>
+</section><section id="modelo-de-efectos-fijos-1" class="slide level2"><h2>Modelo de efectos fijos</h2>
+<p>El modelo de efectos fijos se puede escribir de la siguiente manera:</p>
+<p><span class="math display">\[
+y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
+\]</span></p>
+<p>Donde:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(y_i\)</span> es la variable dependiente: el ingreso de la persona <span class="math inline">\(i\)</span>,</p></li>
+<li class="fragment"><p><span class="math inline">\(x_i\)</span> es la variable independiente <strong>de interés</strong>: la escolaridad de la persona <span class="math inline">\(i\)</span>,</p></li>
+<li class="fragment"><p><span class="math inline">\(C_i\)</span> es un vector de variables de control, tales como la edad y el sexo de la persona <span class="math inline">\(i\)</span>,</p></li>
+<li class="fragment"><p><span class="math inline">\(\lambda_m\)</span> son efectos fijos por municipio.</p></li>
+</ul>
+<div class="fragment">
+<p>Incluir el término <span class="math inline">\(\lambda_m\)</span> en el modelo es equivalente a incluir una variable indicadora por cada municipio.</p>
+</div>
+</section><section id="estimación" class="slide level2"><h2>Estimación</h2>
+<p><code>fixest</code> es el paquete perfecto para estimar modelos de efectos fijos.</p>
+<ul>
+<li class="fragment">Simplemente agregamos la variable <code>municipio</code> después de un <code>|</code> al final de la fórmula del modelo.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>fe_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb31-2"><a></a>    ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo <span class="sc">|</span> municipio,</span>
+<span id="cb31-3"><a></a>    <span class="at">data =</span> poblacion,</span>
+<span id="cb31-4"><a></a>    <span class="at">weights =</span> <span class="sc">~</span> factor,</span>
+<span id="cb31-5"><a></a>    <span class="at">se =</span> <span class="st">"cluster"</span></span>
+<span id="cb31-6"><a></a>)</span>
+<span id="cb31-7"><a></a></span>
+<span id="cb31-8"><a></a><span class="fu">etable</span>(</span>
+<span id="cb31-9"><a></a>    pob_fit,</span>
+<span id="cb31-10"><a></a>    fe_fit,</span>
+<span id="cb31-11"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal múltiple"</span>,</span>
+<span id="cb31-12"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb31-13"><a></a>    <span class="at">markdown =</span> T</span>
+<span id="cb31-14"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="etable">
+<img src="./images/etable/etable_tex_2025-04-22_4045803948.png">
+</div>
+</div>
+</div>
+</section><section id="interpretación" class="slide level2"><h2>Interpretación</h2>
+<p>Incluir efectos fijos no cambia mucho la magnitud del rendimiento de la escolaridad.</p>
+<ul>
+<li class="fragment">Dentro de cada municipio, un año adicional de escolaridad está asociado con un aumento de $647.3 en el ingreso, todo lo demás constante.</li>
+</ul>
+<!-- ## Visualización --><!-- ## Visualización --></section></section><section><section id="variables-dicotómicas" class="title-slide slide level1 center"><h1>Variables dicotómicas</h1>
+
+</section><section id="variables-dicotómicas-1" class="slide level2"><h2>Variables dicotómicas</h2>
+<p>Ya incluímos la variable <code>sexo</code> en el modelo de regresión lineal múltiple.</p>
+<ul>
+<li class="fragment">
+<p>A pesar de que <code>sexo</code> está codificada como un factor en la tabla <code>poblacion</code>, la pudimos incluir en el modelo, y R la interpretó como una variable dicotómica.</p>
+<ul>
+<li class="fragment"><p>En particular usó, <code>sex == "Female"</code> como variable independiente.</p></li>
+<li class="fragment"><p>Esto nos permite interpretar el coeficiente de <code>sexo</code> como el efecto diferencial de ser mujer en el ingreso, todo lo demás constante.</p></li>
+</ul>
+</li>
+</ul></section><section id="discriminación-por-género" class="slide level2"><h2>Discriminación por género</h2>
+<p>Vale la pena que retomemos el ejemplo de la <a href="../lectures/lecture2.html">Clase 2</a> sobre la discriminación por género.</p>
+<ul>
+<li class="fragment">Cargamos los datos del experimento que explora si existe discriminación por género en la decisión de promoción para gerente de banco en Estados Unidos.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(openintro)</span>
+<span id="cb32-2"><a></a></span>
+<span id="cb32-3"><a></a>sex_discrimination</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 48 × 2
+   sex   decision
+   &lt;fct&gt; &lt;fct&gt;   
+ 1 male  promoted
+ 2 male  promoted
+ 3 male  promoted
+ 4 male  promoted
+ 5 male  promoted
+ 6 male  promoted
+ 7 male  promoted
+ 8 male  promoted
+ 9 male  promoted
+10 male  promoted
+# ℹ 38 more rows</code></pre>
+</div>
+</div>
+</div>
+</section><section id="prueba-de-hipótesis" class="slide level2"><h2>Prueba de hipótesis</h2>
+<p>En la <a href="../lectures/lecture2.html">Clase 2</a>, hicimos una prueba de hipótesis en la que encontramos que la tasa de promoción era tan diferente entre hombres y mujeres, que podíamos rechazar la hipótesis nula de que no había discriminación por género.</p>
+<ul>
+<li class="fragment"><p>Ahora, veremos cómo podemos incluir la variable <code>sex</code> en un modelo de regresión lineal sencillo para hacer la misma prueba de hipótesis.</p></li>
+<li class="fragment"><p>Para tener la interpretación correcta, vamos a crear nuevas variables indicadoras (que toman el valor 1 o 0) para <code>female</code> y <code>promoted</code>.</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>sex_discrimination <span class="ot">&lt;-</span> sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb34-3"><a></a>        <span class="at">female =</span> <span class="fu">as.numeric</span>(sex <span class="sc">==</span> <span class="st">"female"</span>),</span>
+<span id="cb34-4"><a></a>        <span class="at">promoted =</span> <span class="fu">as.numeric</span>(decision <span class="sc">==</span> <span class="st">"promoted"</span>)</span>
+<span id="cb34-5"><a></a>    ) </span>
+<span id="cb34-6"><a></a></span>
+<span id="cb34-7"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb34-8"><a></a>    <span class="fu">group_by</span>(female) <span class="sc">|&gt;</span></span>
+<span id="cb34-9"><a></a>    <span class="fu">summarise</span>(</span>
+<span id="cb34-10"><a></a>        <span class="at">promoted =</span> <span class="fu">mean</span>(promoted)</span>
+<span id="cb34-11"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  female promoted
+   &lt;dbl&gt;    &lt;dbl&gt;
+1      0    0.875
+2      1    0.583</code></pre>
+</div>
+</div>
+</div>
+</section><section id="modelo-de-probabilidad-lineal" class="slide level2"><h2>Modelo de probabilidad lineal</h2>
+<p>El modelo que estimaremos es:</p>
+<p><span id="eq-lpm"><span class="math display">\[
+y_i = \alpha + \tau x_i + \epsilon_i
+\qquad(6)\]</span></span></p>
+<p>Donde:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(y_i\)</span> es la variable <strong>dependiente</strong>: si la candidata <span class="math inline">\(i\)</span> fue <strong>promovida</strong>,</p></li>
+<li class="fragment"><p><span class="math inline">\(x_i\)</span> es la variable independiente <strong>de interés</strong>: si la candidata <span class="math inline">\(i\)</span> es <strong>mujer</strong>,</p></li>
+<li class="fragment"><p><span class="math inline">\(\alpha\)</span> es el intercepto: la tasa (o probabilidad) de promoción cuando <span class="math inline">\(X_i = 0\)</span>, es decir, cuando el candidato es hombre.</p></li>
+<li class="fragment"><p><span class="math inline">\(\tau\)</span> es el coeficiente de la variable independiente: la <strong>diferencia</strong> en la tasa de promoción entre hombres y mujeres.</p></li>
+</ul>
+<div class="fragment">
+<p>Por que el sexo de la candidata es aleatorio y ortogonal a las demás características de la candidata, podemos decir que <span class="math inline">\(\tau\)</span> es el <strong>efecto causal</strong> de que la candidata sea mujer en la probabilidad de promoción.</p>
+<ul>
+<li class="fragment">Decimos que el modelo descrito en la <a href="#/eq-lpm" class="quarto-xref">Ecuación&nbsp;6</a> es un <strong>modelo de probabilidad lineal</strong> porque la variable dependiente es una variable dicotómica (0 o 1).</li>
+</ul>
+</div>
+</section><section id="estimación-1" class="slide level2"><h2>Estimación</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a></a>    <span class="fu">feols</span>(</span>
+<span id="cb36-3"><a></a>        promoted <span class="sc">~</span> female</span>
+<span id="cb36-4"><a></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb36-5"><a></a>    <span class="fu">etable</span>(</span>
+<span id="cb36-6"><a></a>        <span class="at">title =</span> <span class="st">"Modelo de probabilidad lineal"</span>,</span>
+<span id="cb36-7"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb36-8"><a></a>        <span class="at">markdown =</span> T</span>
+<span id="cb36-9"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="etable">
+<img src="./images/etable/etable_tex_2025-04-23_3786321389.png">
+</div>
+</div>
+</section><section id="interpretación-1" class="slide level2"><h2>Interpretación</h2>
+<ul>
+<li class="fragment"><p>La probabilidad de promoción para un hombre es de 87%.</p></li>
+<li class="fragment">
+<p>El efecto causal de ser mujer en la probabilidad de promoción es de -0.29.</p>
+<ul>
+<li class="fragment">Este efecto es significativo al 5%.</li>
+</ul>
+</li>
+</ul></section></section><section><section id="pendientes-diferentes" class="title-slide slide level1 center"><h1>Pendientes diferentes</h1>
+
+</section><section id="rendimiento-de-la-escolaridad-por-género" class="slide level2"><h2>Rendimiento de la escolaridad por género</h2>
+<p>Ya estimamos el rendimiento de la escolaridad promedio controlando por sexo.</p>
+<ul>
+<li class="fragment">Una pregunta adicional es si el rendimiento de la escolaridad es <strong>diferente entre hombres y mujeres</strong>.</li>
+</ul></section><section id="modelo-de-regresión-lineal-con-interacción" class="slide level2"><h2>Modelo de regresión lineal con interacción</h2>
+<p>Para estimar el rendimiento de la escolaridad por género, podemos usar un modelo de regresión lineal con interacción descrito por:</p>
+<p><span id="eq-interaction"><span class="math display">\[
+y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon_i
+\qquad(7)\]</span></span></p>
+<p>Donde:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(y_i\)</span> es la variable dependiente: el ingreso de la persona <span class="math inline">\(i\)</span>,</p></li>
+<li class="fragment"><p><span class="math inline">\(e_i\)</span> es la variable independiente <strong>de interés</strong>: los años de escolaridad de la persona <span class="math inline">\(i\)</span>,</p></li>
+<li class="fragment"><p><span class="math inline">\(s_i\)</span> es una variable dicotómica que toma el valor 1 si la persona es mujer y 0 si es hombre.</p></li>
+<li class="fragment"><p>El término <span class="math inline">\(e_i \times s_i\)</span> es el producto de las dos variables independientes, que en regresión llamamos: <strong>interacción entre sexo y educación</strong>. Usar la interacción nos permite estimar un <strong>rendimiento diferencial</strong> de la escolaridad para mujeres respecto de hombres.</p></li>
+</ul></section><section id="coeficientes" class="slide level2"><h2>Coeficientes</h2>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\beta_0\)</span> es el ingreso promedio de una persona sin escolaridad y cuyo sexo es hombre.</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_1\)</span> es el rendimiento de la escolaridad para hombres: el cambio en el ingreso por cada año adicional de escolaridad.</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_2\)</span> es la diferencia en el ingreso que tienen las mujeres sin escolaridad respecto a los hombres sin escolaridad.</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_3\)</span> (tiene la interpretación más complicada) es el cambio en el rendimiento de la escolaridad para mujeres respecto a hombres: Es la diferencia en rendimiento a la escolaridad que tienen las mujeres respecto a los hombres.</p></li>
+</ul>
+<div class="fragment">
+<p>Evaluar si <span class="math inline">\(\beta_3\)</span> es diferente de 0 nos permite evaluar si el rendimiento de la escolaridad es diferente entre hombres y mujeres.</p>
+</div>
+<div class="fragment">
+<p>En otras palabras, la prueba de hipótesis definida por <span class="math inline">\(H_0: \beta_3 = 0\)</span> responderá la pregunta de si las mujeres se benefician de la escolaridad de la misma manera que los hombres, o si el rendimiento de la escolaridad es diferente entre hombres y mujeres.</p>
+</div>
+</section><section id="estimación-2" class="slide level2"><h2>Estimación</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>interaction_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb37-2"><a></a>    ingreso <span class="sc">~</span> escolaridad <span class="sc">*</span> sexo,</span>
+<span id="cb37-3"><a></a>    <span class="at">weights =</span> <span class="sc">~</span> factor,</span>
+<span id="cb37-4"><a></a>    <span class="at">data =</span> poblacion</span>
+<span id="cb37-5"><a></a>)</span>
+<span id="cb37-6"><a></a></span>
+<span id="cb37-7"><a></a><span class="fu">etable</span>(</span>
+<span id="cb37-8"><a></a>    interaction_fit,</span>
+<span id="cb37-9"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal con interacción"</span>,</span>
+<span id="cb37-10"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb37-11"><a></a>    <span class="at">markdown =</span> T</span>
+<span id="cb37-12"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="etable">
+<img src="./images/etable/etable_tex_2025-04-23_1094737105.png">
+</div>
+</div>
+</section><section id="interpretación-2" class="slide level2"><h2>Interpretación</h2>
+<ul>
+<li class="fragment">
+<p>En promedio el rendimiento de la escolaridad es $18.5 menor para las mujeres que para los hombres.</p>
+<p>El efecto es significativo al 5%.</p>
+</li>
+</ul></section></section><section><section id="transofrmación-de-variables-en-regresión-lineal" class="title-slide slide level1 center"><h1>Transofrmación de variables en regresión lineal</h1>
+
+</section><section id="transformación-polinomial" class="slide level2"><h2>Transformación polinomial</h2>
+<p>Recordemos de la sección de estadística descriptiva que estimamos el ingreso promedio por escolaridad.</p>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-40-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>La relación entre escolaridad e ingreso parece ser no lineal: para algunos años de escolaridad, el rendimiento es mayor que para otros: la pendiente de la línea de regresión cambia.</p></li>
+<li class="fragment"><p>La regresión no paramétrica modela bien esta relación no lineal, pero no nos da la información sobre el rendimiento de la escolaridad que queremos.</p></li>
+</ul>
+</div>
+</section><section id="modelo" class="slide level2"><h2>Modelo</h2>
+<p>Podemos incluir el efecto no lineal de la escolaridad usando una versión de la ecuación de Mincer:</p>
+<p><span id="eq-polynomial"><span class="math display">\[
+y_i = \beta_0 + \beta_1 e_i + \beta_2 e_i^2 + \epsilon_i
+\qquad(8)\]</span></span></p>
+<div class="fragment">
+<p>Decimos que el modelo {<a href="#/eq-polynomial" class="quarto-xref">Ecuación&nbsp;8</a>} sigue siendo un modelo lineal porque la transformación que hicimos a la variable independiente entra de manera lineal al modelo.</p>
+</div>
+</section><section id="estimación-3" class="slide level2"><h2>Estimación</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>polinom_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a></a>    <span class="fu">feols</span>(</span>
+<span id="cb38-3"><a></a>        ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> <span class="fu">I</span>(escolaridad<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb38-4"><a></a>        <span class="at">weights =</span> <span class="sc">~</span> factor</span>
+<span id="cb38-5"><a></a>    ) </span>
+<span id="cb38-6"><a></a></span>
+<span id="cb38-7"><a></a>polinom_fit <span class="sc">|&gt;</span></span>
+<span id="cb38-8"><a></a>    <span class="fu">etable</span>(</span>
+<span id="cb38-9"><a></a>        <span class="at">title =</span> <span class="st">"Modelo de regresión lineal con transformación polinomial"</span>,</span>
+<span id="cb38-10"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb38-11"><a></a>        <span class="at">markdown =</span> T</span>
+<span id="cb38-12"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section><section id="estimación-3-output" class="slide level2 output-location-slide"><h2>Estimación</h2><div class="cell output-location-slide">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;div class = "etable"&gt;&lt;img src = "./images/etable/etable_tex_2025-04-23_1616937349.png"&gt;&lt;/div&gt;</code></pre>
+</div>
+</div></section><section id="interpretación-3" class="slide level2"><h2>Interpretación</h2>
+<p>La interpretación de los coeficientes como se rpesentan en la tabla de coeficientes es complicada.</p>
+<ul>
+<li class="fragment">Porque estamos proponiendo que el rendimiento de la escolaridad es no lineal, tenemos que calcular el rendimiento de la escolaridad en un punto específico de la curva.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(marginaleffects)</span>
+<span id="cb40-2"><a></a></span>
+<span id="cb40-3"><a></a><span class="fu">slopes</span>(</span>
+<span id="cb40-4"><a></a>    polinom_fit,</span>
+<span id="cb40-5"><a></a>    <span class="at">newdata =</span> <span class="fu">tibble</span>(</span>
+<span id="cb40-6"><a></a>        <span class="at">escolaridad =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">25</span>)</span>
+<span id="cb40-7"><a></a>    ),</span>
+<span id="cb40-8"><a></a>    <span class="at">variables =</span> <span class="st">"escolaridad"</span>,</span>
+<span id="cb40-9"><a></a>    <span class="at">at =</span> <span class="fu">list</span>(<span class="at">escolaridad =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">25</span>)),</span>
+<span id="cb40-10"><a></a>    <span class="at">se =</span> <span class="cn">TRUE</span></span>
+<span id="cb40-11"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Estimate Std. Error     z Pr(&gt;|z|)     S 2.5 % 97.5 %
+     -388      15.08 -25.7   &lt;0.001 481.6  -417   -358
+      138       8.03  17.2   &lt;0.001 218.0   122    154
+      664       3.99 166.3   &lt;0.001   Inf   656    672
+     1190       9.06 131.4   &lt;0.001   Inf  1172   1208
+     1804      17.43 103.5   &lt;0.001   Inf  1769   1838
+
+Term: escolaridad
+Type:  response 
+Comparison: dY/dX</code></pre>
+</div>
+</div>
 </div>
 </section><section id="referencias" class="slide level2 smaller scrollable"><h2>Referencias</h2>
 
@@ -1035,6 +1555,12 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-aguilaresteva" class="csl-entry" role="listitem">
 Aguilar Esteva, Arturo. s.&nbsp;f. <span>«Notas de Microeconometría»</span>. <a href="https://bookdown.org/viclzrz/notasmicro/">https://bookdown.org/viclzrz/notasmicro/</a>.
+</div>
+<div id="ref-çetinkaya-rundel2024" class="csl-entry" role="listitem">
+Çetinkaya-Rundel, Mine, y Johanna Hardin. 2024. <em>Introduction to Modern Statistics</em>. Vereinigte Staaten: OpenIntro, Inc. <a href="https://openintro-ims.netlify.app/">https://openintro-ims.netlify.app/</a>.
+</div>
+<div id="ref-cunningham2021" class="csl-entry" role="listitem">
+Cunningham, Scott. 2021. <em>Causal Inference: The Mixtape</em>. Yale University Press. <a href="https://www.jstor.org/stable/j.ctv1c29t27">https://www.jstor.org/stable/j.ctv1c29t27</a>.
 </div>
 <div id="ref-world_bank_estimating_2016" class="csl-entry" role="listitem">
 World Bank, y Harry Patrinos. 2016. <span>«Estimating the Return to Schooling Using the <span>Mincer</span> Equation»</span>. <em>IZA World of Labor</em>. <a href="https://doi.org/10.15185/izawol.278">https://doi.org/10.15185/izawol.278</a>.
