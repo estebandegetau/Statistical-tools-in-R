@@ -7,8 +7,9 @@ format:
     footer: "[Herramientas estadísticas en R](https://estebandegetau.com/Statistical-tools-in-R/)"
     code-link: true
     incremental: true
+    output-location: fragment
 
 execute: 
   echo: true
 
-output-location: fragment
+

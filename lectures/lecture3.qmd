@@ -3,20 +3,19 @@ title: "Regresión lineal"
 subtitle: "Clase 3"
 date: 2025-04-02
 image: "thmb3.png"
-execute: 
-    cache: true
 nocite: |
-    @world_bank_estimating_2016; @aguilaresteva
+    @world_bank_estimating_2016; @aguilaresteva; @cunningham2021; @çetinkaya-rundel2024
 output-location: slide
 scrollable: true
+execute:
+    cache: true
 ---
-
 
 ```{r}
 #| include: false
 #| cache: false
 
-pacman::p_load(tidyverse, labelled)
+pacman::p_load(tidyverse, labelled, kableExtra, tinytex, pdftools, downlit, xml2, httpgd, fixest)
 
 theme_set(theme_minimal())
 
@@ -31,6 +30,8 @@ theme_set(theme_minimal())
 load("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/poblacion2022.RData")
 
 load("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/ingresos2022.RData")
+
+load("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/concentradohogar2022.RData")
 
 dict <- generate_dictionary(poblacion2022)
 
@@ -92,6 +93,22 @@ escolaridad_complete <- poblacion2022 |>
     select(nivelaprob, gradoaprob, escolaridad) |>
     drop_na()
 
+municipios <- read_csv("//IMSS-EDS/Users/esteban.degetau/OneDrive - INSTITUTO TECNOLOGICO AUTONOMO DE MEXICO/Documentos/My courses/Statistical tools in R/assignments/data/municipios.csv") |>
+    janitor::clean_names()
+
+hogares <- concentradohogar2022 |>
+    distinct(
+        folioviv,
+        foliohog,
+        ubica_geo
+    ) |>
+    rename(
+        cvegeo = ubica_geo
+    ) |>
+    left_join(municipios)
+
+
+
 poblacion <- poblacion2022 |>
     select(
         factor,
@@ -110,12 +127,9 @@ poblacion <- poblacion2022 |>
     ) |>
     drop_na(nivelaprob) |>
     filter(edad >= 18 & edad <= 65) |>
-    # Truncate income to 99th percentile on both sides
-    # filter(
-    #     ingreso < quantile(ingreso, 0.99, na.rm = TRUE),
-    #     ingreso > quantile(ingreso, 0.01, na.rm = TRUE)
-    # ) |>
-    left_join(escolaridad_complete) 
+    left_join(escolaridad_complete) |>
+    left_join(hogares) |>
+    rename(municipio = cvegeo)
 
 
 
@@ -461,13 +475,13 @@ La función `ggplot2::geom_smooth()` ajusta un modelo no paramétrico a los dato
 
 $$
 Y_i = f(X_i) + \epsilon_i
-$$
+$$ {#eq-np}
 
 donde:
 
 - $Y_i$ es el variable dependiente: el ingreso de la persona $i$,
 
-- $X_i$ es el variable independiente: la escolaridad de la persona $i$, y
+- $X_i$ es la variable independiente: la escolaridad de la persona $i$, y
 
 - $f(\cdot)$ es una función que se *ajusta* a los datos.
 
@@ -541,7 +555,7 @@ En este mundo, el ingreso se determina como función de la escolaridad de la sig
 
 $$
 Y_i = 1000 + 200 X_i + \epsilon_i
-$$
+$$ {#eq-sim}
 
 . . .
 
@@ -597,7 +611,7 @@ Podemos estimar un modelo de regresión lineal, descrito con la siguiente ecuaci
 
 $$
 y_i=\beta_0 + \beta_1 x_i + \epsilon_i
-$$
+$$ {#eq-ols}
 
 . . . 
 
@@ -681,7 +695,7 @@ ingresos_simulados |>
 
 $$
 RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat \epsilon_i^2}
-$$
+$$ {#eq-rmse}
 
 Elevamos al cuadrado el error para penalizar los errores negativos y positivos, y penalizar más a los errores grandes.
 
@@ -877,18 +891,21 @@ poblacion_fit <- feols(ingreso ~ escolaridad, data = poblacion)
 ## Rendimientos de la escolaridad
 
 ```{r}
-#| label: fig-ols
 #| echo: fenced
 #| results: asis
 
+# Ojo para producir esta tabla en Quarto. Necesitamos:
+# 1. Incluir la opción etable(..., markdown = T)
+# 2. Usar `results: asis` en la opciones del chunk (ver arriba)
 
 etable(
     ingresos_fit,
     poblacion_fit,
     title = "Modelo de regresión lineal",
     fitstat = ~ n + r2 + my + f,
-    markdown = T
-)
+    markdown = T,
+    headers = list("Simulación" = 1, "ENIGH 2022" = 1)
+) 
 
 
 ```
@@ -918,7 +935,12 @@ Imaginemos que tomamos métricas de escolaridad y de ingresos en una muestra ale
 
 
 ```{r}
-#| results: asis
+#| label: fig-var
+#| output-location: fragment
+#| output: asis
+
+
+
 ingresos_simulados_2 <- tibble(
     id = 1:n,
     escolaridad = runif(n, min = 0, max = 25),
@@ -928,13 +950,15 @@ ingresos_simulados_2 <- tibble(
 ingresos_sim_fit <- feols(ingreso ~ escolaridad, data = ingresos_simulados)
 ingresos_sim_fit_2 <- feols(ingreso ~ escolaridad, data = ingresos_simulados_2)
 
+
 etable(
     ingresos_sim_fit,
     ingresos_sim_fit_2,
-    title = "Modelo de regresión lineal",
     fitstat = ~ n + r2 + my + f,
-    markdown = T
-)
+    markdown = T,
+    headers = list("Simulación 1" = 1, "Simulación 2" = 1)
+) 
+
 ```
 
 
@@ -947,9 +971,9 @@ Encontramos que los coeficientes han variado al usar una muestra diferente.
 Ahora cuantificaremos la variabilidad de los estimadores de los coeficientes para muchas muestras aleatorias, para entender cómo se distribuyen.
 
 ```{r}
+#| output: none
 
-n_sim <- 1000
-
+n_sim <- 10000
 
 simular_datos <- function(x, n = 1000) {
     tibble(
@@ -958,7 +982,6 @@ simular_datos <- function(x, n = 1000) {
         ingreso = 1000 + (200 * escolaridad) + rnorm(n, mean = 0, sd = 1000)
     ) 
 }
-
 
 simulaciones <- tibble(
     id = 1:n_sim,
@@ -975,10 +998,11 @@ simulaciones <- tibble(
 ```
 
 
-## Variabilidad en los estimadores
+## Variabilidad en los estimadores {.scrollable}
 
 ```{r}
-#| echo: false
+#| output-location: fragment
+#| cache: false
 
 simulaciones_long <- simulaciones |>
     pivot_longer(
@@ -1015,8 +1039,8 @@ simulaciones_long |>
     labs(
         x = "Valor del coeficiente",
         y = "Densidad",
-        title = "Distribución de los coeficientes del modelo de regresión lineal",
-        subtitle = "1000 simulaciones, n = 1000"
+        title = "Distribución de los coeficientes MCO",
+        subtitle = "10,000 simulaciones, n = 1,000"
     )
 
 ```
@@ -1042,13 +1066,15 @@ Regresemos a la tabla de coeficientes, donde podremos encontrar algunas pruebas 
 #| echo: false
 #| output: asis
 
+
 etable(
     ingresos_fit,
     poblacion_fit,
     title = "Modelo de regresión lineal",
     fitstat = ~ n + r2 + my + f,
-    markdown = T
-)
+    markdown = T,
+    headers = list("Simulación" = 1, "ENIGH 2022" = 1)
+) 
 
 
 ```
@@ -1085,8 +1111,10 @@ Sin embargo, puede haber una variable `habilidad` que determina tanto la escolar
 pacman::p_load(ggdag)
 
 
+
 confounder_triangle(x = "Escolaridad", y = "Ingreso", z = "Habilidad",x_y_associated = T) %>%
   ggdag_dconnected(text = FALSE, use_labels = "label") +
+  theme_dag_blank() +
   theme(legend.position = "none")
 
 ```
@@ -1103,8 +1131,10 @@ En la ENIGH no tenemos información sobre la variable `habilidad`...
 
 ¡Pero podemos simularla!
 
+. . .
 
 ```{r}
+#| output: none
 
 habilidad_sim <- tibble(
     id = 1:n,
@@ -1119,6 +1149,8 @@ habilidad_sim <- tibble(
 ```{r}
 #| echo: false
 #| output: asis
+
+
 habilidad_fit_1 <- feols(ingreso ~ escolaridad, data = habilidad_sim)
 habilidad_fit_2 <- feols(ingreso ~ escolaridad + habilidad, data = habilidad_sim)
 
@@ -1128,37 +1160,126 @@ etable(
     title = "Sesgo por variable omitida",
     fitstat = ~ n + r2 + my + f,
     markdown = T
-)
+) 
 
 ```
 
 - El modelo que omitió la variable `habilidad` **sobreestimó** el efecto de la escolaridad en el ingreso. 
 
-- Esto siempre pasará cuando exista una variable omitida que esté correlacionada con la variable dependiente **y** la variable independiente.
+- Esto siempre pasará cuando exista una variable omitida que esté correlacionada con la variable dependiente **y** con la variable independiente.
+
+- El modelo MCO solo será insesgado cuando no haya variables omitidas.
 
 
 
 # Regresión lineal múltiple
 
-## Modelo de regresión lineal múltiple
+## Regresión lineal múltiple
 
-Recordemos que encontramos que las variables `sexo` y `edad` también pueden ser determinantes del ingreso y de la escolaridad.
+- En el ejemplo de variable omitida, definimos una variable `habilidad` que afecta tanto a la escolaridad como a el ingreso.	
+
+- Para evitar el sesgo por variable omitida, simplemente incluimos la variable `habilidad` en el modelo de regresión lineal:
+
+    - Acabamos con un modelo con dos variables independientes, sin hablar mucho de la teoría detrás de la regresión lineal múltiple.
 
 . . .
 
-No incluirlas puede sesgar el estimador del rendimiento de la escolaridad.
+En esta sección, quiero formalizar el concepto de *regresión lineal múltiple* y su interpretación.
+
+## Regresión lineal múltiple
+
+Supongamos que queremos estimar el modelo de regresión lineal:
 
 . . .
 
-Para *controlar* por estas variables, podemos incluirlas en el modelo de regresión lineal.
+$$
+y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
+$$ {#eq-mlr}
+
+
+. . .
+
+Donde:
+
+- $y_i$ es la variable dependiente: el ingreso de la persona $i$,
+
+- $x_i$ es la variable independiente **de interés**: la escolaridad de la persona $i$,
+
+- $c_i$ es una variable independiente **de control**: la habilidad de la persona $i$
+
+. . .
+
+Decimos que el modelo en la @eq-mlr es lineal porque la variable dependiente es una combinación lineal de las variables independientes.
+
+. . . 
+
+Y decimos que es múltiple porque tiene más de una variable independiente.
+
+. . .
+
+El tratamiento de este tipo de modelos es muy similar al de regresión lineal simple, pero hay que tener cuidado con la interpretación de los coeficientes.
+
+## Interpretación de los coeficientes
+
+Interpretamos los coeficientes del modelo en la @eq-mlr de la siguiente manera:
+
+- El intercepto $\beta_0$ representa el ingreso promedio de una persona sin escolaridad y con habilidad = 0.
+
+-  El coeficiente $\beta_1$ representa el rendimiento de la escolaridad: el cambio en el ingreso por cada año adicional de escolaridad, **dejando la habilidad constante**.
+
+- El coeficiente $\beta_2$ representa el cambio en el ingreso por cada unidad adicional de habilidad, **dejando la escolaridad constante**.
+
+. . .
+
+En general, podemos decir que el coeficiente $\beta_k: k>0$ representa el cambio en la variable dependiente por cada unidad adicional de la variable $k$, **todo lo demás constante**.
+
+
+## Regresión lineal múltiple con la ENIGH 2022
+
+Recordemos de la sección de estadística descriptiva que las variables `sexo` y `edad` también pueden ser determinantes del ingreso y de la escolaridad.
+
+
+- No incluirlas puede sesgar el estimador del rendimiento de la escolaridad.
+
+
+
+## Correlación entre ingreso, escolaridad, edad y sexo
+
+
+Revisemos *empíricamente* si `sexo` y `edad` están correlacionadas con `ingreso` y `escolaridad`.
+
+
+- Necesitamos un modelo por cada par de variables:
 
 . . .
 
 ```{r}
 #| output: asis
-#| echo: false
-pacman::p_load(fixest)
 
+poblacion |>
+    feols(c(ingreso, escolaridad) ~ sw(edad, sexo)) |>
+    etable(
+        title = "Correlación entre ingreso, escolaridad, edad y sexo",
+        fitstat = ~ n + r2 + my + f,
+        markdown = T
+    )
+
+
+```
+
+- Para saber si existe correlación, podemos ir a la prueba F, que indica la relevancia del modelo completo.
+
+- Las pruebas F de todas las regresiónes son más grandes que 100, lo que indica que todos los modelos son relevantes y que `sexo` y `edad` están correlacionadas con `ingreso` y `escolaridad`.
+
+
+
+## Implementación del modelo
+
+Veamos cómo afecta la estimación del rendimiento de la escolaridad al incluir `edad` y `sexo` en el modelo, una por una:
+
+
+```{r}
+#| output: asis
 
 simple_fit <- feols(ingreso ~ escolaridad, data = poblacion)
 multiple_fit_1 <- feols(ingreso ~ escolaridad + edad, data = poblacion)
@@ -1172,10 +1293,12 @@ etable(
     multiple_fit_2,
     multiple_fit_3,
     title = "Modelo de regresión lineal múltiple",
-    fitstat = ~ n + r2 + my + f,
+    fitstat = ~ n + r2 + ar2 + my + f,
     markdown = T
 ) 
 ```
+
+## Interpretación de los coeficientes 
 
 - Agregar `edad` y `sexo` alivia la preocupación de que puedan estar sesgando el estimador del rendimiento de la escolaridad.
 
@@ -1194,5 +1317,511 @@ etable(
     - El coeficiente de `sexo` indica que, en promedio, las mujeres tienen un ingreso $3,100 menor que los hombres, **dejando la escolaridad constante**.
 
 - Al incluir ambas variables, el coeficiente de `escolaridad` en la columna (4) indica que un año adicional de escolaridad está asociado con un aumento de $672.6 en el ingreso, **dejando las demás variables constantes**.
+
+## Bondad de ajuste
+
+En el modelo de regresión lineal sencillo, descrito por la @eq-ols, hablamos de que el estadístico $R^2$ mide la bindad de ajuste del modelo: la proporción de la varianza de la variable dependiente que es explicada por la variable independiente.
+
+- En el mundo de la regresión lineal múltiple, la interpretación cambia.
+
+- Agregar una variabla al modelo siempre va a aumentar la $R^2$, porque siempre va a poder explicar más proporción de la varianza de la variable dependiente.
+
+- En regresión múltiple, la $R^2$ ajustada penaliza por la inclusión de variables, para intentar aproximar la $R^2$ a la proporción de varianza explicada por el modelo.
+
+. . .
+
+En la tabla de coeficientes, agergar los controles al modelo sí mejora el ajuste del model.
+
+
+## Resumen
+
+- La regresión lineal múltiple es una extensión de la regresión lineal simple, que permite incluir más de una variable independiente.
+
+- La interpretación de los coeficientes cambia, porque ahora representan el efecto de la variable independiente en la variable dependiente, **dejando las demás variables constantes**.
+
+- La regresión lineal múltiple es útil para controlar por variables que pueden estar sesgando el estimador de la variable de interés.
+
+Muy importante: sin importar cuántos controles agreguemos, siempre habrá una variable omitida que puede estar sesgando los resultados. 
+
+- Para esto, hay métodos experimentales y cuasi-experimentales que pueden ayudar a identificar el efecto causal de una variable sobre otra.
+
+    - Tristemente, no podremos cubrir estos métodos en este curso.
+
+    - Pero @cunningham2021 es un excelente libro para aprender más sobre inferencia causal.
+
+# Efectos fijos
+
+## Motivación
+
+Imaginemos que mostramos a alguien nuestro modelo de regresión lineal múltiple y nos dice:
+
+. . .
+
+> Pero no estás tomando en cuenta que en distintos municipios hay diferentes niveles de ingreso, costos de vida, y niveles de escolaridad. Puedes solo estar midiendo la varianza que hay entre municipios que son diferentes entre sí.
+
+. . .
+
+Esta es una crítica muy válida.
+
+## Comparación al interior de un municipio
+
+Podríamos empezar a atender esta crítica comparando el ingreso de las personas al interior de un municipio en particular.
+
+- Por ejemplo, en Azcapotzalco, CDMX.
+
+- Algo que todavía no discutimos es que la ENIGH es una encuesta, por lo que, para tener un estimador representativo, tenemos que ponderar por el factor de expanción usando el argumento `weights` de la función `feols()`.
+
+. . .
+
+```{r}
+#| output: asis
+#| output-location: fragment
+
+azcapotzalco <- poblacion |>
+    filter(cve_ent == "09", cve_mun == "002") # Azcapotzalco, CDMX
+
+pob_fit <- poblacion |>
+    feols(ingreso ~ escolaridad + edad + sexo, weights = ~factor)
+
+azc_fit <- azcapotzalco |>
+    feols(ingreso ~ escolaridad + edad + sexo, weights = ~factor)
+
+etable(
+    pob_fit,
+    azc_fit,
+    title = "Nacional vs Azcapotzalco",
+    fitstat = ~ n + r2 + ar2 + my + f,
+    markdown = T,
+    headers = list("Nacional" = 1, "Azcapotzalco" = 1)
+)
+
+```
+
+## Comparación al interior de un municipio
+
+Encontramos que la el rendimiento de la educación en Azcapotzalco es algo mayor que en la población nacional.
+
+- Podríamos replicar el ejercicio para cada municipio y después tomar un promedio ponderado de todos los rendimientos de la escolaridad.
+
+- Sin embargo, esto no es práctico.
+
+## Modelo de efectos fijos
+
+El modelo de efectos fijos es una manera de controlar por las diferencias entre municipios.
+
+- Introduce una variable indicadora por cada municipio, que toma el valor 1 si la persona pertenece a ese municipio y 0 si no.
+
+- Esto permite controlar por diferencias entre municipios, para medir el rendimiento de la escolaridad *dentro* de cada municipio.
+
+. . .
+
+Si introducimos efectos fijos por municipio, atenderemos la crítica de que hay heterogeneidad entre municipios.
+
+## Modelo de efectos fijos
+
+El modelo de efectos fijos se puede escribir de la siguiente manera:
+
+$$
+y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
+$$
+
+Donde:
+
+- $y_i$ es la variable dependiente: el ingreso de la persona $i$,
+
+- $x_i$ es la variable independiente **de interés**: la escolaridad de la persona $i$,
+
+- $C_i$ es un vector de variables de control, tales como la edad y el sexo de la persona $i$,
+
+- $\lambda_m$ son efectos fijos por municipio.
+
+. . . 
+
+Incluir el término $\lambda_m$ en el modelo es equivalente a incluir una variable indicadora por cada municipio.
+
+## Estimación
+
+`fixest` es el paquete perfecto para estimar modelos de efectos fijos.
+
+- Simplemente agregamos la variable `municipio` después de un `|` al final de la fórmula del modelo.
+
+. . .
+
+```{r}
+#| output: asis
+#| output-location: fragment
+
+fe_fit <- feols(
+    ingreso ~ escolaridad + edad + sexo | municipio,
+    data = poblacion,
+    weights = ~ factor,
+    se = "cluster"
+)
+
+etable(
+    pob_fit,
+    fe_fit,
+    title = "Modelo de regresión lineal múltiple",
+    fitstat = ~ n + ar2 + my + f,
+    markdown = T
+)
+
+```
+
+## Interpretación
+
+Incluir efectos fijos no cambia mucho la magnitud del rendimiento de la escolaridad.
+
+- Dentro de cada municipio, un año adicional de escolaridad está asociado con un aumento de $647.3 en el ingreso, todo lo demás constante.
+
+<!-- ## Visualización -->
+
+```{r}
+#| output-location: fragment
+#| eval: false
+#| include: false
+
+n <- 10000
+
+municipios_sim <- tibble(
+    municipio = factor(1:5),
+    efecto_ingreso = rnorm(5, mean = 5000, sd = 500),
+    efecto_educacion = rnorm(5, mean = 0, sd = 5)
+)
+
+sim_fe <- tibble(
+    id = 1:n,
+    municipio = factor(sample(1:5, n, replace = TRUE))) |>
+    left_join(municipios_sim) |>
+    mutate(
+        escolaridad = efecto_educacion + rnorm(n, 12, 6),
+        ingreso =  efecto_ingreso + (200 * escolaridad) + rnorm(n, mean = 0, sd = 1000)
+    )
+
+
+no_fe_fit <- feols(
+    ingreso ~ escolaridad,
+    data = sim_fe,
+) 
+
+intercept <- coef(no_fe_fit)[1]
+slope <- coef(no_fe_fit)[2]
+
+sim_fe |>
+    ggplot(aes(x = escolaridad, y = ingreso)) +
+    geom_point() +
+    geom_abline(
+        aes(
+            intercept = intercept,
+            slope = slope,
+            color = "Modelo sin efectos fijos"
+        ),
+        size = 1
+    ) 
+
+
+
+```
+
+<!-- ## Visualización -->
+
+```{r}
+#| cache: false
+#| eval: false
+#| include: false
+
+
+fe_fit <- feols(
+    ingreso ~ escolaridad | municipio,
+    data = sim_fe,
+)
+
+
+
+
+effects <- tibble(
+    effect = fixest::fixef(fe_fit) |> unlist(),
+    municipio = factor(1:5),
+    slope = coef(fe_fit)[1]
+)
+
+
+#sim_fe |>
+    ggplot(aes(x = escolaridad, y = ingreso, color = factor(municipio))) +
+   # geom_point() +
+    geom_abline(
+        data = effects,
+        mapping = aes(
+            intercept = effect,
+            slope = slope,
+            color = municipio
+        )
+    )
+
+```
+
+# Variables dicotómicas
+
+## Variables dicotómicas
+
+Ya incluímos la variable `sexo` en el modelo de regresión lineal múltiple.
+
+- A pesar de que `sexo` está codificada como un factor en la tabla `poblacion`, la pudimos incluir en el modelo, y R la interpretó como una variable dicotómica. 
+
+    - En particular usó, `sex == "Female" ` como variable independiente. 
+
+    - Esto nos permite interpretar el coeficiente de `sexo` como el efecto diferencial de ser mujer en el ingreso, todo lo demás constante.
+
+## Discriminación por género
+
+Vale la pena que retomemos el ejemplo de la [Clase 2](lecture2.qmd) sobre la discriminación por género.
+
+- Cargamos los datos del experimento que explora si existe discriminación por género en la decisión de promoción para gerente de banco en Estados Unidos.
+
+. . .
+
+```{r}
+#| output-location: fragment
+pacman::p_load(openintro)
+
+sex_discrimination
+
+```
+
+## Prueba de hipótesis
+
+En la [Clase 2](lecture2.qmd), hicimos una prueba de hipótesis en la que encontramos que la tasa de promoción era tan diferente entre hombres y mujeres, que podíamos rechazar la hipótesis nula de que no había discriminación por género.
+
+- Ahora, veremos cómo podemos incluir la variable `sex` en un modelo de regresión lineal sencillo para hacer la misma prueba de hipótesis.
+
+- Para tener la interpretación correcta, vamos a crear nuevas variables indicadoras (que toman el valor 1 o 0) para `female` y `promoted`.
+
+. . .
+
+```{r}
+#| output-location: fragment
+sex_discrimination <- sex_discrimination |>
+    mutate(
+        female = as.numeric(sex == "female"),
+        promoted = as.numeric(decision == "promoted")
+    ) 
+
+sex_discrimination |>
+    group_by(female) |>
+    summarise(
+        promoted = mean(promoted)
+    )
+```
+
+
+## Modelo de probabilidad lineal
+
+El modelo que estimaremos es:
+
+$$
+y_i = \alpha + \tau x_i + \epsilon_i
+$$ {#eq-lpm}
+
+Donde:
+
+- $y_i$ es la variable **dependiente**: si la candidata $i$ fue **promovida**,
+
+- $x_i$ es la variable independiente **de interés**: si la candidata $i$ es **mujer**,
+
+- $\alpha$ es el intercepto: la tasa (o probabilidad) de promoción cuando $X_i = 0$, es decir, cuando el candidato es hombre.
+
+- $\tau$ es el coeficiente de la variable independiente: la **diferencia** en la tasa de promoción entre hombres y mujeres.
+
+. . .
+
+Por que el sexo de la candidata es aleatorio y ortogonal a las demás características de la candidata, podemos decir que $\tau$ es el **efecto causal** de que la candidata sea mujer en la probabilidad de promoción.
+
+
+- Decimos que el modelo descrito en la @eq-lpm es un **modelo de probabilidad lineal** porque la variable dependiente es una variable dicotómica (0 o 1).
+
+## Estimación
+
+```{r}
+#| output: asis
+#| output-location: fragment
+sex_discrimination |>
+    feols(
+        promoted ~ female
+    ) |>
+    etable(
+        title = "Modelo de probabilidad lineal",
+        fitstat = ~ n + r2 + my + f,
+        markdown = T
+    )
+```
+
+## Interpretación
+
+- La probabilidad de promoción para un hombre es de 87%.
+
+- El efecto causal de ser mujer en la probabilidad de promoción es de -0.29.
+
+    - Este efecto es significativo al 5%.
+
+# Pendientes diferentes
+
+## Rendimiento de la escolaridad por género
+
+Ya estimamos el rendimiento de la escolaridad promedio controlando por sexo. 
+
+- Una pregunta adicional es si el rendimiento de la escolaridad es **diferente entre hombres y mujeres**.
+
+## Modelo de regresión lineal con interacción
+
+Para estimar el rendimiento de la escolaridad por género, podemos usar un modelo de regresión lineal con interacción descrito por:
+
+$$
+y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon_i
+$$ {#eq-interaction}
+
+Donde:
+
+- $y_i$ es la variable dependiente: el ingreso de la persona $i$,
+
+- $e_i$ es la variable independiente **de interés**: los años de escolaridad de la persona $i$,
+
+- $s_i$ es una variable dicotómica que toma el valor 1 si la persona es mujer y 0 si es hombre.
+
+- El término $e_i \times s_i$ es el producto de las dos variables independientes, que en regresión llamamos: **interacción entre sexo y educación**. Usar la interacción nos permite estimar un **rendimiento diferencial** de la escolaridad para mujeres respecto de hombres.
+
+
+
+## Coeficientes
+
+- $\beta_0$ es el ingreso promedio de una persona sin escolaridad y cuyo sexo es hombre.
+
+- $\beta_1$ es el rendimiento de la escolaridad para hombres: el cambio en el ingreso por cada año adicional de escolaridad.
+
+- $\beta_2$ es la diferencia en el ingreso que tienen las mujeres sin escolaridad respecto a los hombres sin escolaridad.
+
+- $\beta_3$ (tiene la interpretación más complicada) es el cambio en el rendimiento de la escolaridad para mujeres respecto a hombres: Es la diferencia en rendimiento a la escolaridad que tienen las mujeres respecto a los hombres.
+
+. . .
+
+Evaluar si $\beta_3$ es diferente de 0 nos permite evaluar si el rendimiento de la escolaridad es diferente entre hombres y mujeres.
+
+. . .
+
+En otras palabras, la prueba de hipótesis definida por $H_0: \beta_3 = 0$ responderá la pregunta de si las mujeres se benefician de la escolaridad de la misma manera que los hombres, o si el rendimiento de la escolaridad es diferente entre hombres y mujeres.
+
+## Estimación
+
+```{r}
+#| output: asis
+#| output-location: fragment
+interaction_fit <- feols(
+    ingreso ~ escolaridad * sexo,
+    weights = ~ factor,
+    data = poblacion
+)
+
+etable(
+    interaction_fit,
+    title = "Modelo de regresión lineal con interacción",
+    fitstat = ~ n + r2 + my + f,
+    markdown = T
+)
+```
+
+
+## Interpretación
+
+- En promedio el rendimiento de la escolaridad es $18.5 menor para las mujeres que para los hombres.
+
+    El efecto es significativo al 5%.
+
+# Transofrmación de variables en regresión lineal
+
+## Transformación polinomial
+
+Recordemos de la sección de estadística descriptiva que estimamos el ingreso promedio por escolaridad.
+
+. . .
+
+```{r}
+#| echo: false
+poblacion |>
+    ggplot(aes(x = escolaridad, y = ingreso)) +
+    stat_summary() + # Promedio y IC
+    geom_smooth() +  # Ajuste no paramétrico
+    scale_y_log10(labels = scales::dollar) +
+    labs(
+        x = "Escolaridad",
+        y = "Ingreso mensual",
+        title = "Relación entre escolaridad e ingreso",
+        subtitle = "Tamaño de los puntos proporcional al número de personas"
+    ) +
+    theme(legend.position = "top") +
+    scale_size_continuous(
+        range = c(1, 10),
+        labels = scales::comma,
+        name = "Personas"
+    ) 
+
+
+```
+
+- La relación entre escolaridad e ingreso parece ser no lineal: para algunos años de escolaridad, el rendimiento es mayor que para otros: la pendiente de la línea de regresión cambia.
+
+- La regresión no paramétrica modela bien esta relación no lineal, pero no nos da la información sobre el rendimiento de la escolaridad que queremos.
+
+## Modelo
+
+Podemos incluir el efecto no lineal de la escolaridad usando una versión de la ecuación de Mincer:
+
+$$
+y_i = \beta_0 + \beta_1 e_i + \beta_2 e_i^2 + \epsilon_i
+$$ {#eq-polynomial}
+
+. . .
+
+Decimos que el modelo {@eq-polynomial} sigue siendo un modelo lineal porque la transformación que hicimos a la variable independiente entra de manera lineal al modelo.
+
+## Estimación
+
+```{r}
+
+polinom_fit <- poblacion |>
+    feols(
+        ingreso ~ escolaridad + I(escolaridad^2),
+        weights = ~ factor
+    ) 
+
+polinom_fit |>
+    etable(
+        title = "Modelo de regresión lineal con transformación polinomial",
+        fitstat = ~ n + r2 + my + f,
+        markdown = T
+    )
+
+```
+
+## Interpretación
+
+La interpretación de los coeficientes como se rpesentan en la tabla de coeficientes es complicada.
+
+- Porque estamos proponiendo que el rendimiento de la escolaridad es no lineal, tenemos que calcular el rendimiento de la escolaridad en un punto específico de la curva. 
+
+. . .
+
+```{r}
+#| output-location: fragment
+pacman::p_load(marginaleffects)
+
+slopes(
+    polinom_fit,
+    newdata = tibble(
+        escolaridad = c(0, 6, 12, 18, 25)
+    ),
+    variables = "escolaridad",
+    at = list(escolaridad = c(0, 6, 12, 18, 25)),
+    se = TRUE
+)
+```
 
 ## Referencias
