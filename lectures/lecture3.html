@@ -314,7 +314,7 @@ Esteban Degetau
 </section><section id="distribución-de-nivel-aprobado-output" class="slide level2 output-location-slide"><h2>Distribución de nivel aprobado</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -345,45 +345,57 @@ Esteban Degetau
 
 </div>
 </section><section id="distribución-del-ingreso-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso</h2><div class="cell output-location-slide">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(density)` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 35855 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 35855 rows containing non-finite outside the scale range
+(`stat_density()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div></section><section id="distribución-del-ingreso-después-de-truncar" class="slide level2"><h2>Distribución del ingreso después de truncar</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>poblacion <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a></a>    <span class="fu">filter</span>(</span>
-<span id="cb5-3"><a></a>        ingreso <span class="sc">&lt;</span> <span class="fu">quantile</span>(ingreso, <span class="fl">0.99</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb5-4"><a></a>        ingreso <span class="sc">&gt;</span> <span class="fu">quantile</span>(ingreso, <span class="fl">0.01</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-5"><a></a>    )</span>
-<span id="cb5-6"><a></a></span>
-<span id="cb5-7"><a></a>poblacion <span class="sc">|&gt;</span></span>
-<span id="cb5-8"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ingreso)) <span class="sc">+</span></span>
-<span id="cb5-9"><a></a>    <span class="fu">geom_histogram</span>(</span>
-<span id="cb5-10"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
-<span id="cb5-11"><a></a>        <span class="at">bins =</span> <span class="dv">50</span>,</span>
-<span id="cb5-12"><a></a>        <span class="at">fill =</span> <span class="st">"lightblue"</span>,</span>
-<span id="cb5-13"><a></a>        <span class="at">color =</span> <span class="st">"black"</span></span>
-<span id="cb5-14"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb5-15"><a></a>    <span class="fu">geom_density</span>(</span>
-<span id="cb5-16"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
-<span id="cb5-17"><a></a>        <span class="at">color =</span> <span class="st">"blue"</span></span>
-<span id="cb5-18"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb5-19"><a></a>    <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span>dollar) <span class="sc">+</span></span>
-<span id="cb5-20"><a></a>    <span class="fu">labs</span>(</span>
-<span id="cb5-21"><a></a>        <span class="at">x =</span> <span class="st">"Ingreso mensual (escala logarítmica)"</span>,</span>
-<span id="cb5-22"><a></a>        <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
-<span id="cb5-23"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de los ingresos"</span>,</span>
-<span id="cb5-24"><a></a>        <span class="at">subtitle =</span> <span class="st">"ENIGH 2022, truncado al 1% superior e inferior"</span></span>
-<span id="cb5-25"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>poblacion <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a></a>    <span class="fu">filter</span>(</span>
+<span id="cb8-3"><a></a>        ingreso <span class="sc">&lt;</span> <span class="fu">quantile</span>(ingreso, <span class="fl">0.99</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-4"><a></a>        ingreso <span class="sc">&gt;</span> <span class="fu">quantile</span>(ingreso, <span class="fl">0.01</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-5"><a></a>    )</span>
+<span id="cb8-6"><a></a></span>
+<span id="cb8-7"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<span id="cb8-8"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb8-9"><a></a>    <span class="fu">geom_histogram</span>(</span>
+<span id="cb8-10"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
+<span id="cb8-11"><a></a>        <span class="at">bins =</span> <span class="dv">50</span>,</span>
+<span id="cb8-12"><a></a>        <span class="at">fill =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb8-13"><a></a>        <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb8-14"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb8-15"><a></a>    <span class="fu">geom_density</span>(</span>
+<span id="cb8-16"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
+<span id="cb8-17"><a></a>        <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb8-18"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb8-19"><a></a>    <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span>dollar) <span class="sc">+</span></span>
+<span id="cb8-20"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb8-21"><a></a>        <span class="at">x =</span> <span class="st">"Ingreso mensual (escala logarítmica)"</span>,</span>
+<span id="cb8-22"><a></a>        <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
+<span id="cb8-23"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de los ingresos"</span>,</span>
+<span id="cb8-24"><a></a>        <span class="at">subtitle =</span> <span class="st">"ENIGH 2022, truncado al 1% superior e inferior"</span></span>
+<span id="cb8-25"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="distribución-del-ingreso-después-de-truncar-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso después de truncar</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -391,20 +403,20 @@ Esteban Degetau
 <p>Una manera de aproximarnos a la relación entre escolaridad e ingreso es calcular el ingreso promedio por nivel aprobado.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>niveles <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>    <span class="fu">group_by</span>(nivelaprob) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a></a>    <span class="fu">summarise</span>(</span>
-<span id="cb6-4"><a></a>        <span class="at">ingreso_prom =</span> <span class="fu">weighted.mean</span>(<span class="at">x =</span> ingreso,<span class="at">w =</span> factor, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb6-5"><a></a>        <span class="at">sd =</span> <span class="fu">sd</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb6-6"><a></a>        <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb6-7"><a></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb6-8"><a></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-9"><a></a>    <span class="fu">mutate</span>(</span>
-<span id="cb6-10"><a></a>        <span class="at">lower =</span> ingreso_prom <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n),</span>
-<span id="cb6-11"><a></a>        <span class="at">upper =</span> ingreso_prom <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
-<span id="cb6-12"><a></a>    ) </span>
-<span id="cb6-13"><a></a>    </span>
-<span id="cb6-14"><a></a>niveles</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>niveles <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a></a>    <span class="fu">group_by</span>(nivelaprob) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a></a>    <span class="fu">summarise</span>(</span>
+<span id="cb9-4"><a></a>        <span class="at">ingreso_prom =</span> <span class="fu">weighted.mean</span>(<span class="at">x =</span> ingreso,<span class="at">w =</span> factor, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-5"><a></a>        <span class="at">sd =</span> <span class="fu">sd</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-6"><a></a>        <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb9-7"><a></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb9-8"><a></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-9"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb9-10"><a></a>        <span class="at">lower =</span> ingreso_prom <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n),</span>
+<span id="cb9-11"><a></a>        <span class="at">upper =</span> ingreso_prom <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
+<span id="cb9-12"><a></a>    ) </span>
+<span id="cb9-13"><a></a>    </span>
+<span id="cb9-14"><a></a>niveles</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -426,30 +438,30 @@ Esteban Degetau
 </div>
 </section><section id="ingreso-promedio-por-nivel-aprobado-1" class="slide level2"><h2>Ingreso promedio por nivel aprobado</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>niveles <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nivelaprob, <span class="at">y =</span> ingreso_prom)) <span class="sc">+</span></span>
-<span id="cb8-3"><a></a>    <span class="fu">geom_pointrange</span>(</span>
-<span id="cb8-4"><a></a>        <span class="fu">aes</span>(</span>
-<span id="cb8-5"><a></a>            <span class="at">ymin =</span> lower,</span>
-<span id="cb8-6"><a></a>            <span class="at">ymax =</span> upper</span>
-<span id="cb8-7"><a></a>        )</span>
-<span id="cb8-8"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb8-9"><a></a>    <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb8-10"><a></a>        <span class="at">labels =</span> scales<span class="sc">::</span>dollar,</span>
-<span id="cb8-11"><a></a>        <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">5000</span>, <span class="dv">40000</span>, <span class="dv">5000</span>)</span>
-<span id="cb8-12"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb8-13"><a></a>    <span class="fu">labs</span>(</span>
-<span id="cb8-14"><a></a>        <span class="at">x =</span> <span class="st">"Nivel aprobado"</span>,</span>
-<span id="cb8-15"><a></a>        <span class="at">y =</span> <span class="st">"Ingreso promedio"</span>,</span>
-<span id="cb8-16"><a></a>        <span class="at">title =</span> <span class="st">"Ingreso promedio por nivel aprobado"</span>,</span>
-<span id="cb8-17"><a></a>        <span class="at">subtitle =</span> <span class="st">"Intervalos de confianza del 95%"</span></span>
-<span id="cb8-18"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>niveles <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nivelaprob, <span class="at">y =</span> ingreso_prom)) <span class="sc">+</span></span>
+<span id="cb11-3"><a></a>    <span class="fu">geom_pointrange</span>(</span>
+<span id="cb11-4"><a></a>        <span class="fu">aes</span>(</span>
+<span id="cb11-5"><a></a>            <span class="at">ymin =</span> lower,</span>
+<span id="cb11-6"><a></a>            <span class="at">ymax =</span> upper</span>
+<span id="cb11-7"><a></a>        )</span>
+<span id="cb11-8"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb11-9"><a></a>    <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb11-10"><a></a>        <span class="at">labels =</span> scales<span class="sc">::</span>dollar,</span>
+<span id="cb11-11"><a></a>        <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">5000</span>, <span class="dv">40000</span>, <span class="dv">5000</span>)</span>
+<span id="cb11-12"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb11-13"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb11-14"><a></a>        <span class="at">x =</span> <span class="st">"Nivel aprobado"</span>,</span>
+<span id="cb11-15"><a></a>        <span class="at">y =</span> <span class="st">"Ingreso promedio"</span>,</span>
+<span id="cb11-16"><a></a>        <span class="at">title =</span> <span class="st">"Ingreso promedio por nivel aprobado"</span>,</span>
+<span id="cb11-17"><a></a>        <span class="at">subtitle =</span> <span class="st">"Intervalos de confianza del 95%"</span></span>
+<span id="cb11-18"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="ingreso-promedio-por-nivel-aprobado-1-output" class="slide level2 output-location-slide"><h2>Ingreso promedio por nivel aprobado</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-7-1.png" width="1152"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-7-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -469,28 +481,28 @@ Esteban Degetau
 </div>
 </section><section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo-1" class="slide level2"><h2>Distribución del ingreso por nivel aprobado y sexo</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a></a>    <span class="fu">ggplot</span>(</span>
-<span id="cb9-3"><a></a>        <span class="fu">aes</span>(</span>
-<span id="cb9-4"><a></a>            <span class="at">x =</span> nivelaprob, </span>
-<span id="cb9-5"><a></a>            <span class="at">y =</span> ingreso, </span>
-<span id="cb9-6"><a></a>            <span class="at">fill =</span> sexo</span>
-<span id="cb9-7"><a></a>            )) <span class="sc">+</span></span>
-<span id="cb9-8"><a></a>    <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb9-9"><a></a>    <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span>dollar) <span class="sc">+</span></span>
-<span id="cb9-10"><a></a>    <span class="fu">labs</span>(</span>
-<span id="cb9-11"><a></a>        <span class="at">x =</span> <span class="st">"Nivel aprobado"</span>,</span>
-<span id="cb9-12"><a></a>        <span class="at">y =</span> <span class="st">"Ingreso mensual (escala logarítmica)"</span>,</span>
-<span id="cb9-13"><a></a>        <span class="at">title =</span> <span class="st">"Distribución del ingreso por nivel aprobado y sexo"</span>,</span>
-<span id="cb9-14"><a></a>        <span class="at">fill =</span> <span class="st">""</span></span>
-<span id="cb9-15"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb9-16"><a></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a></a>    <span class="fu">ggplot</span>(</span>
+<span id="cb12-3"><a></a>        <span class="fu">aes</span>(</span>
+<span id="cb12-4"><a></a>            <span class="at">x =</span> nivelaprob, </span>
+<span id="cb12-5"><a></a>            <span class="at">y =</span> ingreso, </span>
+<span id="cb12-6"><a></a>            <span class="at">fill =</span> sexo</span>
+<span id="cb12-7"><a></a>            )) <span class="sc">+</span></span>
+<span id="cb12-8"><a></a>    <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a></a>    <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span>dollar) <span class="sc">+</span></span>
+<span id="cb12-10"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb12-11"><a></a>        <span class="at">x =</span> <span class="st">"Nivel aprobado"</span>,</span>
+<span id="cb12-12"><a></a>        <span class="at">y =</span> <span class="st">"Ingreso mensual (escala logarítmica)"</span>,</span>
+<span id="cb12-13"><a></a>        <span class="at">title =</span> <span class="st">"Distribución del ingreso por nivel aprobado y sexo"</span>,</span>
+<span id="cb12-14"><a></a>        <span class="at">fill =</span> <span class="st">""</span></span>
+<span id="cb12-15"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb12-16"><a></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo-1-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso por nivel aprobado y sexo</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-8-1.png" width="1152"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-8-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -502,22 +514,22 @@ Esteban Degetau
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nivelaprob, <span class="at">y =</span> edad)) <span class="sc">+</span></span>
-<span id="cb10-3"><a></a>    <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb10-4"><a></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb10-5"><a></a>    <span class="fu">labs</span>(</span>
-<span id="cb10-6"><a></a>        <span class="at">x =</span> <span class="st">"Nivel aprobado"</span>,</span>
-<span id="cb10-7"><a></a>        <span class="at">y =</span> <span class="st">"Edad"</span>,</span>
-<span id="cb10-8"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de la edad por nivel aprobado"</span></span>
-<span id="cb10-9"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nivelaprob, <span class="at">y =</span> edad)) <span class="sc">+</span></span>
+<span id="cb13-3"><a></a>    <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb13-5"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb13-6"><a></a>        <span class="at">x =</span> <span class="st">"Nivel aprobado"</span>,</span>
+<span id="cb13-7"><a></a>        <span class="at">y =</span> <span class="st">"Edad"</span>,</span>
+<span id="cb13-8"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de la edad por nivel aprobado"</span></span>
+<span id="cb13-9"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </div>
 </section><section id="escolaridad-y-edad-output" class="slide level2 output-location-slide"><h2>Escolaridad y edad</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -533,7 +545,7 @@ Esteban Degetau
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-10-1.png" width="1152"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-10-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -559,29 +571,33 @@ Y_i = f(X_i) + \epsilon_i
 </div>
 </section><section id="relación-no-paramétrica-entre-escolaridad-e-ingreso-1" class="slide level2"><h2>Relación no paramétrica entre escolaridad e ingreso</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> escolaridad, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
-<span id="cb11-3"><a></a>    <span class="fu">stat_summary</span>() <span class="sc">+</span> <span class="co"># Promedio y IC</span></span>
-<span id="cb11-4"><a></a>    <span class="fu">geom_smooth</span>() <span class="sc">+</span>  <span class="co"># Ajuste no paramétrico</span></span>
-<span id="cb11-5"><a></a>    <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span>dollar) <span class="sc">+</span></span>
-<span id="cb11-6"><a></a>    <span class="fu">labs</span>(</span>
-<span id="cb11-7"><a></a>        <span class="at">x =</span> <span class="st">"Escolaridad"</span>,</span>
-<span id="cb11-8"><a></a>        <span class="at">y =</span> <span class="st">"Ingreso mensual"</span>,</span>
-<span id="cb11-9"><a></a>        <span class="at">title =</span> <span class="st">"Relación entre escolaridad e ingreso"</span>,</span>
-<span id="cb11-10"><a></a>        <span class="at">subtitle =</span> <span class="st">"Tamaño de los puntos proporcional al número de personas"</span></span>
-<span id="cb11-11"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb11-12"><a></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>) <span class="sc">+</span></span>
-<span id="cb11-13"><a></a>    <span class="fu">scale_size_continuous</span>(</span>
-<span id="cb11-14"><a></a>        <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>),</span>
-<span id="cb11-15"><a></a>        <span class="at">labels =</span> scales<span class="sc">::</span>comma,</span>
-<span id="cb11-16"><a></a>        <span class="at">name =</span> <span class="st">"Personas"</span></span>
-<span id="cb11-17"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> escolaridad, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb14-3"><a></a>    <span class="fu">stat_summary</span>() <span class="sc">+</span> <span class="co"># Promedio y IC</span></span>
+<span id="cb14-4"><a></a>    <span class="fu">geom_smooth</span>() <span class="sc">+</span>  <span class="co"># Ajuste no paramétrico</span></span>
+<span id="cb14-5"><a></a>    <span class="fu">scale_y_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span>dollar) <span class="sc">+</span></span>
+<span id="cb14-6"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb14-7"><a></a>        <span class="at">x =</span> <span class="st">"Escolaridad"</span>,</span>
+<span id="cb14-8"><a></a>        <span class="at">y =</span> <span class="st">"Ingreso mensual"</span>,</span>
+<span id="cb14-9"><a></a>        <span class="at">title =</span> <span class="st">"Relación entre escolaridad e ingreso"</span>,</span>
+<span id="cb14-10"><a></a>        <span class="at">subtitle =</span> <span class="st">"Tamaño de los puntos proporcional al número de personas"</span></span>
+<span id="cb14-11"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb14-12"><a></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>) <span class="sc">+</span></span>
+<span id="cb14-13"><a></a>    <span class="fu">scale_size_continuous</span>(</span>
+<span id="cb14-14"><a></a>        <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>),</span>
+<span id="cb14-15"><a></a>        <span class="at">labels =</span> scales<span class="sc">::</span>comma,</span>
+<span id="cb14-16"><a></a>        <span class="at">name =</span> <span class="st">"Personas"</span></span>
+<span id="cb14-17"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="relación-no-paramétrica-entre-escolaridad-e-ingreso-1-output" class="slide level2 output-location-slide"><h2>Relación no paramétrica entre escolaridad e ingreso</h2><div class="cell output-location-slide">
+<div class="cell-output cell-output-stderr">
+<pre><code>No summary function supplied, defaulting to `mean_se()`
+`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-11-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -631,25 +647,25 @@ Y_i = 1000 + 200 X_i + \epsilon_i
 </div>
 </section><section id="simulación-de-un-modelo-de-regresión-lineal-1" class="slide level2"><h2>Simulación de un modelo de regresión lineal</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb12-2"><a></a></span>
-<span id="cb12-3"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb12-4"><a></a></span>
-<span id="cb12-5"><a></a>ingresos_simulados <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb12-6"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
-<span id="cb12-7"><a></a>    <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
-<span id="cb12-8"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
-<span id="cb12-9"><a></a>) </span>
-<span id="cb12-10"><a></a></span>
-<span id="cb12-11"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
-<span id="cb12-12"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> escolaridad, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
-<span id="cb12-13"><a></a>    <span class="fu">geom_point</span>() </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb16-4"><a></a></span>
+<span id="cb16-5"><a></a>ingresos_simulados <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb16-6"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb16-7"><a></a>    <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
+<span id="cb16-8"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
+<span id="cb16-9"><a></a>) </span>
+<span id="cb16-10"><a></a></span>
+<span id="cb16-11"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
+<span id="cb16-12"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> escolaridad, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb16-13"><a></a>    <span class="fu">geom_point</span>() </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="simulación-de-un-modelo-de-regresión-lineal-1-output" class="slide level2 output-location-slide"><h2>Simulación de un modelo de regresión lineal</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -681,18 +697,18 @@ y_i=\beta_0 + \beta_1 x_i + \epsilon_i
 </div>
 <p>Podemos calcular el <em>ingreso estimado</em> <span class="math inline">\(\hat y_i\)</span> de cada persona y el <em>error de estimación</em> <span class="math inline">\(\hat \epsilon_i\)</span>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>ingresos_simulados <span class="ot">&lt;-</span> ingresos_simulados <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a></a>    <span class="fu">mutate</span>(</span>
-<span id="cb13-3"><a></a>        <span class="at">y_hat_1 =</span> <span class="dv">0</span> <span class="sc">+</span> (<span class="dv">300</span> <span class="sc">*</span> escolaridad),</span>
-<span id="cb13-4"><a></a>        <span class="at">error_1 =</span> ingreso <span class="sc">-</span> y_hat_1</span>
-<span id="cb13-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>ingresos_simulados <span class="ot">&lt;-</span> ingresos_simulados <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a></a>        <span class="at">y_hat_1 =</span> <span class="dv">0</span> <span class="sc">+</span> (<span class="dv">300</span> <span class="sc">*</span> escolaridad),</span>
+<span id="cb17-4"><a></a>        <span class="at">error_1 =</span> ingreso <span class="sc">-</span> y_hat_1</span>
+<span id="cb17-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="estimación-del-modelo-output" class="slide level2 output-location-slide"><h2>Estimación del modelo</h2><div class="cell output-location-slide">
 
 </div></section><section id="estimación-del-modelo-1" class="slide level2"><h2>Estimación del modelo</h2>
 
-<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section><section id="bondad-de-ajuste" class="slide level2"><h2>Bondad de ajuste</h2>
+<img data-src="lecture3_files/figure-html/unnamed-chunk-14-1.png" width="672" class="r-stretch"></section><section id="bondad-de-ajuste" class="slide level2"><h2>Bondad de ajuste</h2>
 <p>¿Qué tan bien se ajusta el modelo a los datos observados?</p>
 <ul>
 <li class="fragment"><p>Hay muchas métricas para evaluar el ajuste de un modelo de regresión lineal.</p></li>
@@ -709,10 +725,10 @@ RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat \epsilon_i^2}
 </div>
 </section><section id="rmse" class="slide level2"><h2>RMSE</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a></a>    <span class="fu">summarise</span>(</span>
-<span id="cb14-3"><a></a>        <span class="at">rmse =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_1<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb14-4"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a></a>    <span class="fu">summarise</span>(</span>
+<span id="cb18-3"><a></a>        <span class="at">rmse =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_1<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb18-4"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -744,16 +760,16 @@ RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat \epsilon_i^2}
 <div class="fragment">
 <p>El lenguaje para describirle a R el modelo que queremos estimar es:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>model_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>model_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </div>
 <div class="fragment">
 <p>En nuestro caso, el modelo es:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>ingresos_sim_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
-<span id="cb17-2"><a></a></span>
-<span id="cb17-3"><a></a><span class="fu">summary</span>(ingresos_sim_fit)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>ingresos_sim_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
+<span id="cb21-2"><a></a></span>
+<span id="cb21-3"><a></a><span class="fu">summary</span>(ingresos_sim_fit)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -782,27 +798,32 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 
 </div></section><section id="visualización-del-modelo-mco" class="slide level2"><h2>Visualización del modelo MCO</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>ingresos_simulados <span class="ot">&lt;-</span> ingresos_simulados <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a></a>    <span class="fu">mutate</span>(</span>
-<span id="cb19-3"><a></a>        <span class="at">y_hat_2 =</span> <span class="fu">fitted</span>(ingresos_sim_fit), <span class="co"># Saca los valores ajustados</span></span>
-<span id="cb19-4"><a></a>        <span class="at">error_2 =</span> <span class="fu">residuals</span>(ingresos_sim_fit) </span>
-<span id="cb19-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>ingresos_simulados <span class="ot">&lt;-</span> ingresos_simulados <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb23-3"><a></a>        <span class="at">y_hat_2 =</span> <span class="fu">fitted</span>(ingresos_sim_fit), <span class="co"># Saca los valores ajustados</span></span>
+<span id="cb23-4"><a></a>        <span class="at">error_2 =</span> <span class="fu">residuals</span>(ingresos_sim_fit) </span>
+<span id="cb23-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section><section id="visualización-del-modelo-mco-output" class="slide level2 output-location-slide"><h2>Visualización del modelo MCO</h2><div class="cell output-location-slide">
+<img data-src="lecture3_files/figure-html/unnamed-chunk-19-1.png" width="672" class="r-stretch"></section><section id="visualización-del-modelo-mco-output" class="slide level2 output-location-slide"><h2>Visualización del modelo MCO</h2><div class="cell output-location-slide">
 
 </div></section><section id="comparación-de-los-modelos" class="slide level2"><h2>Comparación de los modelos</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
 
-<img data-src="lecture3_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section><section id="comparación-de-los-modelos-1" class="slide level2"><h2>Comparación de los modelos</h2>
+</div>
+<img data-src="lecture3_files/figure-html/unnamed-chunk-20-1.png" width="672" class="r-stretch"></section><section id="comparación-de-los-modelos-1" class="slide level2"><h2>Comparación de los modelos</h2>
 <p>Una vez que tenemos los dos modelos, podemos comparar el error de estimación de cada uno.</p>
 <div class="fragment">
 <div class="cell" data-df-print="kable">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a></a>    <span class="fu">summarise</span>(</span>
-<span id="cb20-3"><a></a>        <span class="at">rmse_1 =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_1<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb20-4"><a></a>        <span class="at">rmse_2 =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_2<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb20-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a></a>    <span class="fu">summarise</span>(</span>
+<span id="cb25-3"><a></a>        <span class="at">rmse_1 =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_1<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb25-4"><a></a>        <span class="at">rmse_2 =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_2<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb25-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-df-print="kable">
 <div class="cell-output cell-output-stdout">
@@ -825,34 +846,34 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(fixest)</span>
-<span id="cb22-2"><a></a></span>
-<span id="cb22-3"><a></a>ingresos_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
-<span id="cb22-4"><a></a>poblacion_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(fixest)</span>
+<span id="cb27-2"><a></a></span>
+<span id="cb27-3"><a></a>ingresos_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
+<span id="cb27-4"><a></a>poblacion_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </div>
 </section><section id="rendimientos-de-la-escolaridad-output" class="slide level2 output-location-slide"><h2>Rendimientos de la escolaridad</h2><div class="cell output-location-slide">
 
 </div></section><section id="rendimientos-de-la-escolaridad-1" class="slide level2"><h2>Rendimientos de la escolaridad</h2>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb23-2"><a></a><span class="in">#| results: asis</span></span>
-<span id="cb23-3"><a></a></span>
-<span id="cb23-4"><a></a><span class="in"># Ojo para producir esta tabla en Quarto. Necesitamos:</span></span>
-<span id="cb23-5"><a></a><span class="in"># 1. Incluir la opción etable(..., markdown = T)</span></span>
-<span id="cb23-6"><a></a><span class="in"># 2. Usar `results: asis` en la opciones del chunk (ver arriba)</span></span>
-<span id="cb23-7"><a></a></span>
-<span id="cb23-8"><a></a><span class="in">etable(</span></span>
-<span id="cb23-9"><a></a><span class="in">    ingresos_fit,</span></span>
-<span id="cb23-10"><a></a><span class="in">    poblacion_fit,</span></span>
-<span id="cb23-11"><a></a><span class="in">    title = "Modelo de regresión lineal",</span></span>
-<span id="cb23-12"><a></a><span class="in">    fitstat = ~ n + r2 + my + f,</span></span>
-<span id="cb23-13"><a></a><span class="in">    markdown = T,</span></span>
-<span id="cb23-14"><a></a><span class="in">    headers = list("Simulación" = 1, "ENIGH 2022" = 1)</span></span>
-<span id="cb23-15"><a></a><span class="in">) </span></span>
-<span id="cb23-16"><a></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a></a><span class="in">```{r}</span></span>
+<span id="cb28-2"><a></a><span class="in">#| results: asis</span></span>
+<span id="cb28-3"><a></a></span>
+<span id="cb28-4"><a></a><span class="in"># Ojo para producir esta tabla en Quarto. Necesitamos:</span></span>
+<span id="cb28-5"><a></a><span class="in"># 1. Incluir la opción etable(..., markdown = T)</span></span>
+<span id="cb28-6"><a></a><span class="in"># 2. Usar `results: asis` en la opciones del chunk (ver arriba)</span></span>
+<span id="cb28-7"><a></a></span>
+<span id="cb28-8"><a></a><span class="in">etable(</span></span>
+<span id="cb28-9"><a></a><span class="in">    ingresos_fit,</span></span>
+<span id="cb28-10"><a></a><span class="in">    poblacion_fit,</span></span>
+<span id="cb28-11"><a></a><span class="in">    title = "Modelo de regresión lineal",</span></span>
+<span id="cb28-12"><a></a><span class="in">    fitstat = ~ n + r2 + my + f,</span></span>
+<span id="cb28-13"><a></a><span class="in">    markdown = T,</span></span>
+<span id="cb28-14"><a></a><span class="in">    headers = list("Simulación" = 1, "ENIGH 2022ls " = 1)</span></span>
+<span id="cb28-15"><a></a><span class="in">) </span></span>
+<span id="cb28-16"><a></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="etable">
-<img src="./images/etable/etable_tex_2025-04-22_2901451801.png">
+<img src="./images/etable/etable_tex_2025-04-29_1.33194967.png">
 </div>
 <div class="fragment">
 <ul>
@@ -874,23 +895,23 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="fragment">
 <p>Imaginemos que tomamos métricas de escolaridad y de ingresos en una muestra aleatoria diferente, pero que comparte las características de la población simulada original.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>ingresos_simulados_2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb24-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
-<span id="cb24-3"><a></a>    <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
-<span id="cb24-4"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
-<span id="cb24-5"><a></a>) </span>
-<span id="cb24-6"><a></a></span>
-<span id="cb24-7"><a></a>ingresos_sim_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
-<span id="cb24-8"><a></a>ingresos_sim_fit_2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados_2)</span>
-<span id="cb24-9"><a></a></span>
-<span id="cb24-10"><a></a></span>
-<span id="cb24-11"><a></a><span class="fu">etable</span>(</span>
-<span id="cb24-12"><a></a>    ingresos_sim_fit,</span>
-<span id="cb24-13"><a></a>    ingresos_sim_fit_2,</span>
-<span id="cb24-14"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb24-15"><a></a>    <span class="at">markdown =</span> T,</span>
-<span id="cb24-16"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Simulación 1"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Simulación 2"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
-<span id="cb24-17"><a></a>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>ingresos_simulados_2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb29-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb29-3"><a></a>    <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
+<span id="cb29-4"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
+<span id="cb29-5"><a></a>) </span>
+<span id="cb29-6"><a></a></span>
+<span id="cb29-7"><a></a>ingresos_sim_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
+<span id="cb29-8"><a></a>ingresos_sim_fit_2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados_2)</span>
+<span id="cb29-9"><a></a></span>
+<span id="cb29-10"><a></a></span>
+<span id="cb29-11"><a></a><span class="fu">etable</span>(</span>
+<span id="cb29-12"><a></a>    ingresos_sim_fit,</span>
+<span id="cb29-13"><a></a>    ingresos_sim_fit_2,</span>
+<span id="cb29-14"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb29-15"><a></a>    <span class="at">markdown =</span> T,</span>
+<span id="cb29-16"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Simulación 1"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Simulación 2"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
+<span id="cb29-17"><a></a>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
@@ -904,74 +925,74 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section><section id="variabilidad-en-los-estimadores-1" class="slide level2"><h2>Variabilidad en los estimadores</h2>
 <p>Ahora cuantificaremos la variabilidad de los estimadores de los coeficientes para muchas muestras aleatorias, para entender cómo se distribuyen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb25-2"><a></a></span>
-<span id="cb25-3"><a></a>simular_datos <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">1000</span>) {</span>
-<span id="cb25-4"><a></a>    <span class="fu">tibble</span>(</span>
-<span id="cb25-5"><a></a>        <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
-<span id="cb25-6"><a></a>        <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
-<span id="cb25-7"><a></a>        <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
-<span id="cb25-8"><a></a>    ) </span>
-<span id="cb25-9"><a></a>}</span>
-<span id="cb25-10"><a></a></span>
-<span id="cb25-11"><a></a>simulaciones <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb25-12"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n_sim,</span>
-<span id="cb25-13"><a></a>    <span class="at">simulacion =</span> <span class="fu">map</span>(id, simular_datos),</span>
-<span id="cb25-14"><a></a>    <span class="at">fit =</span> <span class="fu">map</span>(simulacion, <span class="sc">~</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> .x)),</span>
-<span id="cb25-15"><a></a>    <span class="at">coef =</span> <span class="fu">map</span>(fit, coef),</span>
-<span id="cb25-16"><a></a>    <span class="at">intercept =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">1</span>),</span>
-<span id="cb25-17"><a></a>    <span class="at">escolaridad =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">2</span>)</span>
-<span id="cb25-18"><a></a>) <span class="sc">|&gt;</span></span>
-<span id="cb25-19"><a></a>    <span class="fu">select</span>(id, intercept, escolaridad) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb30-2"><a></a></span>
+<span id="cb30-3"><a></a>simular_datos <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">1000</span>) {</span>
+<span id="cb30-4"><a></a>    <span class="fu">tibble</span>(</span>
+<span id="cb30-5"><a></a>        <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb30-6"><a></a>        <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
+<span id="cb30-7"><a></a>        <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
+<span id="cb30-8"><a></a>    ) </span>
+<span id="cb30-9"><a></a>}</span>
+<span id="cb30-10"><a></a></span>
+<span id="cb30-11"><a></a>simulaciones <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb30-12"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n_sim,</span>
+<span id="cb30-13"><a></a>    <span class="at">simulacion =</span> <span class="fu">map</span>(id, simular_datos),</span>
+<span id="cb30-14"><a></a>    <span class="at">fit =</span> <span class="fu">map</span>(simulacion, <span class="sc">~</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> .x)),</span>
+<span id="cb30-15"><a></a>    <span class="at">coef =</span> <span class="fu">map</span>(fit, coef),</span>
+<span id="cb30-16"><a></a>    <span class="at">intercept =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">1</span>),</span>
+<span id="cb30-17"><a></a>    <span class="at">escolaridad =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">2</span>)</span>
+<span id="cb30-18"><a></a>) <span class="sc">|&gt;</span></span>
+<span id="cb30-19"><a></a>    <span class="fu">select</span>(id, intercept, escolaridad) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="variabilidad-en-los-estimadores-1-output" class="slide level2 output-location-slide"><h2>Variabilidad en los estimadores</h2><div class="cell output-location-slide">
 
 </div></section><section id="variabilidad-en-los-estimadores-2" class="slide level2 scrollable"><h2>Variabilidad en los estimadores</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>simulaciones_long <span class="ot">&lt;-</span> simulaciones <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a></a>    <span class="fu">pivot_longer</span>(</span>
-<span id="cb26-3"><a></a>        <span class="at">cols =</span> <span class="fu">c</span>(intercept, escolaridad),</span>
-<span id="cb26-4"><a></a>        <span class="at">names_to =</span> <span class="st">"coef"</span>,</span>
-<span id="cb26-5"><a></a>        <span class="at">values_to =</span> <span class="st">"valor"</span></span>
-<span id="cb26-6"><a></a>    ) </span>
-<span id="cb26-7"><a></a></span>
-<span id="cb26-8"><a></a></span>
-<span id="cb26-9"><a></a>simulaciones_long <span class="sc">|&gt;</span></span>
-<span id="cb26-10"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
-<span id="cb26-11"><a></a>    <span class="fu">geom_histogram</span>(</span>
-<span id="cb26-12"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
-<span id="cb26-13"><a></a>        <span class="at">bins =</span> <span class="dv">50</span>,</span>
-<span id="cb26-14"><a></a>        <span class="at">fill =</span> <span class="st">"lightblue"</span>,</span>
-<span id="cb26-15"><a></a>        <span class="at">color =</span> <span class="st">"black"</span></span>
-<span id="cb26-16"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb26-17"><a></a>    <span class="fu">geom_density</span>(</span>
-<span id="cb26-18"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
-<span id="cb26-19"><a></a>        <span class="at">color =</span> <span class="st">"blue"</span></span>
-<span id="cb26-20"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb26-21"><a></a>    <span class="co"># Add means</span></span>
-<span id="cb26-22"><a></a>    <span class="fu">geom_vline</span>(</span>
-<span id="cb26-23"><a></a>        <span class="at">data =</span> simulaciones_long <span class="sc">|&gt;</span></span>
-<span id="cb26-24"><a></a>            <span class="fu">summarise</span>(</span>
-<span id="cb26-25"><a></a>                <span class="at">.by =</span> coef,</span>
-<span id="cb26-26"><a></a>                <span class="at">mean =</span> <span class="fu">mean</span>(valor)</span>
-<span id="cb26-27"><a></a>            ),</span>
-<span id="cb26-28"><a></a>        <span class="fu">aes</span>(<span class="at">xintercept =</span> mean),</span>
-<span id="cb26-29"><a></a>        <span class="at">color =</span> <span class="st">"red"</span>,</span>
-<span id="cb26-30"><a></a>        <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
-<span id="cb26-31"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb26-32"><a></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> coef, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb26-33"><a></a>    <span class="fu">labs</span>(</span>
-<span id="cb26-34"><a></a>        <span class="at">x =</span> <span class="st">"Valor del coeficiente"</span>,</span>
-<span id="cb26-35"><a></a>        <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
-<span id="cb26-36"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de los coeficientes MCO"</span>,</span>
-<span id="cb26-37"><a></a>        <span class="at">subtitle =</span> <span class="st">"10,000 simulaciones, n = 1,000"</span></span>
-<span id="cb26-38"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>simulaciones_long <span class="ot">&lt;-</span> simulaciones <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a></a>    <span class="fu">pivot_longer</span>(</span>
+<span id="cb31-3"><a></a>        <span class="at">cols =</span> <span class="fu">c</span>(intercept, escolaridad),</span>
+<span id="cb31-4"><a></a>        <span class="at">names_to =</span> <span class="st">"coef"</span>,</span>
+<span id="cb31-5"><a></a>        <span class="at">values_to =</span> <span class="st">"valor"</span></span>
+<span id="cb31-6"><a></a>    ) </span>
+<span id="cb31-7"><a></a></span>
+<span id="cb31-8"><a></a></span>
+<span id="cb31-9"><a></a>simulaciones_long <span class="sc">|&gt;</span></span>
+<span id="cb31-10"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
+<span id="cb31-11"><a></a>    <span class="fu">geom_histogram</span>(</span>
+<span id="cb31-12"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
+<span id="cb31-13"><a></a>        <span class="at">bins =</span> <span class="dv">50</span>,</span>
+<span id="cb31-14"><a></a>        <span class="at">fill =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb31-15"><a></a>        <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb31-16"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb31-17"><a></a>    <span class="fu">geom_density</span>(</span>
+<span id="cb31-18"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
+<span id="cb31-19"><a></a>        <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb31-20"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb31-21"><a></a>    <span class="co"># Add means</span></span>
+<span id="cb31-22"><a></a>    <span class="fu">geom_vline</span>(</span>
+<span id="cb31-23"><a></a>        <span class="at">data =</span> simulaciones_long <span class="sc">|&gt;</span></span>
+<span id="cb31-24"><a></a>            <span class="fu">summarise</span>(</span>
+<span id="cb31-25"><a></a>                <span class="at">.by =</span> coef,</span>
+<span id="cb31-26"><a></a>                <span class="at">mean =</span> <span class="fu">mean</span>(valor)</span>
+<span id="cb31-27"><a></a>            ),</span>
+<span id="cb31-28"><a></a>        <span class="fu">aes</span>(<span class="at">xintercept =</span> mean),</span>
+<span id="cb31-29"><a></a>        <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb31-30"><a></a>        <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
+<span id="cb31-31"><a></a>    ) <span class="sc">+</span></span>
+<span id="cb31-32"><a></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> coef, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb31-33"><a></a>    <span class="fu">labs</span>(</span>
+<span id="cb31-34"><a></a>        <span class="at">x =</span> <span class="st">"Valor del coeficiente"</span>,</span>
+<span id="cb31-35"><a></a>        <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
+<span id="cb31-36"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de los coeficientes MCO"</span>,</span>
+<span id="cb31-37"><a></a>        <span class="at">subtitle =</span> <span class="st">"10,000 simulaciones, n = 1,000"</span></span>
+<span id="cb31-38"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-25-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1017,7 +1038,7 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-27-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1033,12 +1054,12 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>habilidad_sim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb27-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
-<span id="cb27-3"><a></a>    <span class="at">habilidad =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb27-4"><a></a>    <span class="at">escolaridad =</span> <span class="dv">2</span> <span class="sc">*</span> habilidad <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb27-5"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> (<span class="dv">500</span> <span class="sc">*</span> habilidad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
-<span id="cb27-6"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>habilidad_sim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb32-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb32-3"><a></a>    <span class="at">habilidad =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb32-4"><a></a>    <span class="at">escolaridad =</span> <span class="dv">2</span> <span class="sc">*</span> habilidad <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb32-5"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> (<span class="dv">500</span> <span class="sc">*</span> habilidad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
+<span id="cb32-6"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <div class="etable">
@@ -1111,13 +1132,13 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <li class="fragment">Necesitamos un modelo por cada par de variables:</li>
 </ul>
 <div class="fragment">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a></a>    <span class="fu">feols</span>(<span class="fu">c</span>(ingreso, escolaridad) <span class="sc">~</span> <span class="fu">sw</span>(edad, sexo)) <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a></a>    <span class="fu">etable</span>(</span>
-<span id="cb28-4"><a></a>        <span class="at">title =</span> <span class="st">"Correlación entre ingreso, escolaridad, edad y sexo"</span>,</span>
-<span id="cb28-5"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb28-6"><a></a>        <span class="at">markdown =</span> T</span>
-<span id="cb28-7"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a></a>    <span class="fu">feols</span>(<span class="fu">c</span>(ingreso, escolaridad) <span class="sc">~</span> <span class="fu">sw</span>(edad, sexo)) <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a></a>    <span class="fu">etable</span>(</span>
+<span id="cb33-4"><a></a>        <span class="at">title =</span> <span class="st">"Correlación entre ingreso, escolaridad, edad y sexo"</span>,</span>
+<span id="cb33-5"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb33-6"><a></a>        <span class="at">markdown =</span> T</span>
+<span id="cb33-7"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="etable">
 <img src="./images/etable/etable_tex_2025-04-22_1.07168771.png">
 </div>
@@ -1128,21 +1149,21 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 </div>
 </section><section id="implementación-del-modelo" class="slide level2"><h2>Implementación del modelo</h2>
 <p>Veamos cómo afecta la estimación del rendimiento de la escolaridad al incluir <code>edad</code> y <code>sexo</code> en el modelo, una por una:</p>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>simple_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span>
-<span id="cb29-2"><a></a>multiple_fit_1 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad, <span class="at">data =</span> poblacion)</span>
-<span id="cb29-3"><a></a>multiple_fit_2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> sexo, <span class="at">data =</span> poblacion)</span>
-<span id="cb29-4"><a></a>multiple_fit_3 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">data =</span> poblacion)</span>
-<span id="cb29-5"><a></a></span>
-<span id="cb29-6"><a></a></span>
-<span id="cb29-7"><a></a><span class="fu">etable</span>(</span>
-<span id="cb29-8"><a></a>    simple_fit,</span>
-<span id="cb29-9"><a></a>    multiple_fit_1,</span>
-<span id="cb29-10"><a></a>    multiple_fit_2,</span>
-<span id="cb29-11"><a></a>    multiple_fit_3,</span>
-<span id="cb29-12"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal múltiple"</span>,</span>
-<span id="cb29-13"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb29-14"><a></a>    <span class="at">markdown =</span> T</span>
-<span id="cb29-15"><a></a>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>simple_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span>
+<span id="cb34-2"><a></a>multiple_fit_1 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad, <span class="at">data =</span> poblacion)</span>
+<span id="cb34-3"><a></a>multiple_fit_2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> sexo, <span class="at">data =</span> poblacion)</span>
+<span id="cb34-4"><a></a>multiple_fit_3 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">data =</span> poblacion)</span>
+<span id="cb34-5"><a></a></span>
+<span id="cb34-6"><a></a></span>
+<span id="cb34-7"><a></a><span class="fu">etable</span>(</span>
+<span id="cb34-8"><a></a>    simple_fit,</span>
+<span id="cb34-9"><a></a>    multiple_fit_1,</span>
+<span id="cb34-10"><a></a>    multiple_fit_2,</span>
+<span id="cb34-11"><a></a>    multiple_fit_3,</span>
+<span id="cb34-12"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal múltiple"</span>,</span>
+<span id="cb34-13"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb34-14"><a></a>    <span class="at">markdown =</span> T</span>
+<span id="cb34-15"><a></a>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="etable">
 <img src="./images/etable/etable_tex_2025-04-22_1268429229.png">
 </div>
@@ -1210,23 +1231,23 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>azcapotzalco <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
-<span id="cb30-2"><a></a>    <span class="fu">filter</span>(cve_ent <span class="sc">==</span> <span class="st">"09"</span>, cve_mun <span class="sc">==</span> <span class="st">"002"</span>) <span class="co"># Azcapotzalco, CDMX</span></span>
-<span id="cb30-3"><a></a></span>
-<span id="cb30-4"><a></a>pob_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
-<span id="cb30-5"><a></a>    <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">weights =</span> <span class="sc">~</span>factor)</span>
-<span id="cb30-6"><a></a></span>
-<span id="cb30-7"><a></a>azc_fit <span class="ot">&lt;-</span> azcapotzalco <span class="sc">|&gt;</span></span>
-<span id="cb30-8"><a></a>    <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">weights =</span> <span class="sc">~</span>factor)</span>
-<span id="cb30-9"><a></a></span>
-<span id="cb30-10"><a></a><span class="fu">etable</span>(</span>
-<span id="cb30-11"><a></a>    pob_fit,</span>
-<span id="cb30-12"><a></a>    azc_fit,</span>
-<span id="cb30-13"><a></a>    <span class="at">title =</span> <span class="st">"Nacional vs Azcapotzalco"</span>,</span>
-<span id="cb30-14"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb30-15"><a></a>    <span class="at">markdown =</span> T,</span>
-<span id="cb30-16"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Nacional"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Azcapotzalco"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
-<span id="cb30-17"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>azcapotzalco <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a></a>    <span class="fu">filter</span>(cve_ent <span class="sc">==</span> <span class="st">"09"</span>, cve_mun <span class="sc">==</span> <span class="st">"002"</span>) <span class="co"># Azcapotzalco, CDMX</span></span>
+<span id="cb35-3"><a></a></span>
+<span id="cb35-4"><a></a>pob_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<span id="cb35-5"><a></a>    <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">weights =</span> <span class="sc">~</span>factor)</span>
+<span id="cb35-6"><a></a></span>
+<span id="cb35-7"><a></a>azc_fit <span class="ot">&lt;-</span> azcapotzalco <span class="sc">|&gt;</span></span>
+<span id="cb35-8"><a></a>    <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">weights =</span> <span class="sc">~</span>factor)</span>
+<span id="cb35-9"><a></a></span>
+<span id="cb35-10"><a></a><span class="fu">etable</span>(</span>
+<span id="cb35-11"><a></a>    pob_fit,</span>
+<span id="cb35-12"><a></a>    azc_fit,</span>
+<span id="cb35-13"><a></a>    <span class="at">title =</span> <span class="st">"Nacional vs Azcapotzalco"</span>,</span>
+<span id="cb35-14"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb35-15"><a></a>    <span class="at">markdown =</span> T,</span>
+<span id="cb35-16"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Nacional"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Azcapotzalco"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
+<span id="cb35-17"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
@@ -1270,20 +1291,20 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>fe_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb31-2"><a></a>    ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo <span class="sc">|</span> municipio,</span>
-<span id="cb31-3"><a></a>    <span class="at">data =</span> poblacion,</span>
-<span id="cb31-4"><a></a>    <span class="at">weights =</span> <span class="sc">~</span> factor,</span>
-<span id="cb31-5"><a></a>    <span class="at">se =</span> <span class="st">"cluster"</span></span>
-<span id="cb31-6"><a></a>)</span>
-<span id="cb31-7"><a></a></span>
-<span id="cb31-8"><a></a><span class="fu">etable</span>(</span>
-<span id="cb31-9"><a></a>    pob_fit,</span>
-<span id="cb31-10"><a></a>    fe_fit,</span>
-<span id="cb31-11"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal múltiple"</span>,</span>
-<span id="cb31-12"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb31-13"><a></a>    <span class="at">markdown =</span> T</span>
-<span id="cb31-14"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>fe_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb36-2"><a></a>    ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo <span class="sc">|</span> municipio,</span>
+<span id="cb36-3"><a></a>    <span class="at">data =</span> poblacion,</span>
+<span id="cb36-4"><a></a>    <span class="at">weights =</span> <span class="sc">~</span> factor,</span>
+<span id="cb36-5"><a></a>    <span class="at">se =</span> <span class="st">"cluster"</span></span>
+<span id="cb36-6"><a></a>)</span>
+<span id="cb36-7"><a></a></span>
+<span id="cb36-8"><a></a><span class="fu">etable</span>(</span>
+<span id="cb36-9"><a></a>    pob_fit,</span>
+<span id="cb36-10"><a></a>    fe_fit,</span>
+<span id="cb36-11"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal múltiple"</span>,</span>
+<span id="cb36-12"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb36-13"><a></a>    <span class="at">markdown =</span> T</span>
+<span id="cb36-14"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
@@ -1315,9 +1336,9 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(openintro)</span>
-<span id="cb32-2"><a></a></span>
-<span id="cb32-3"><a></a>sex_discrimination</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(openintro)</span>
+<span id="cb37-2"><a></a></span>
+<span id="cb37-3"><a></a>sex_discrimination</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1346,17 +1367,17 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>sex_discrimination <span class="ot">&lt;-</span> sex_discrimination <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a></a>    <span class="fu">mutate</span>(</span>
-<span id="cb34-3"><a></a>        <span class="at">female =</span> <span class="fu">as.numeric</span>(sex <span class="sc">==</span> <span class="st">"female"</span>),</span>
-<span id="cb34-4"><a></a>        <span class="at">promoted =</span> <span class="fu">as.numeric</span>(decision <span class="sc">==</span> <span class="st">"promoted"</span>)</span>
-<span id="cb34-5"><a></a>    ) </span>
-<span id="cb34-6"><a></a></span>
-<span id="cb34-7"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
-<span id="cb34-8"><a></a>    <span class="fu">group_by</span>(female) <span class="sc">|&gt;</span></span>
-<span id="cb34-9"><a></a>    <span class="fu">summarise</span>(</span>
-<span id="cb34-10"><a></a>        <span class="at">promoted =</span> <span class="fu">mean</span>(promoted)</span>
-<span id="cb34-11"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>sex_discrimination <span class="ot">&lt;-</span> sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb39-3"><a></a>        <span class="at">female =</span> <span class="fu">as.numeric</span>(sex <span class="sc">==</span> <span class="st">"female"</span>),</span>
+<span id="cb39-4"><a></a>        <span class="at">promoted =</span> <span class="fu">as.numeric</span>(decision <span class="sc">==</span> <span class="st">"promoted"</span>)</span>
+<span id="cb39-5"><a></a>    ) </span>
+<span id="cb39-6"><a></a></span>
+<span id="cb39-7"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb39-8"><a></a>    <span class="fu">group_by</span>(female) <span class="sc">|&gt;</span></span>
+<span id="cb39-9"><a></a>    <span class="fu">summarise</span>(</span>
+<span id="cb39-10"><a></a>        <span class="at">promoted =</span> <span class="fu">mean</span>(promoted)</span>
+<span id="cb39-11"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1388,15 +1409,15 @@ y_i = \alpha + \tau x_i + \epsilon_i
 </div>
 </section><section id="estimación-1" class="slide level2"><h2>Estimación</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
-<span id="cb36-2"><a></a>    <span class="fu">feols</span>(</span>
-<span id="cb36-3"><a></a>        promoted <span class="sc">~</span> female</span>
-<span id="cb36-4"><a></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb36-5"><a></a>    <span class="fu">etable</span>(</span>
-<span id="cb36-6"><a></a>        <span class="at">title =</span> <span class="st">"Modelo de probabilidad lineal"</span>,</span>
-<span id="cb36-7"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb36-8"><a></a>        <span class="at">markdown =</span> T</span>
-<span id="cb36-9"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a></a>    <span class="fu">feols</span>(</span>
+<span id="cb41-3"><a></a>        promoted <span class="sc">~</span> female</span>
+<span id="cb41-4"><a></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb41-5"><a></a>    <span class="fu">etable</span>(</span>
+<span id="cb41-6"><a></a>        <span class="at">title =</span> <span class="st">"Modelo de probabilidad lineal"</span>,</span>
+<span id="cb41-7"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb41-8"><a></a>        <span class="at">markdown =</span> T</span>
+<span id="cb41-9"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
@@ -1444,18 +1465,18 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon
 </div>
 </section><section id="estimación-2" class="slide level2"><h2>Estimación</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>interaction_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb37-2"><a></a>    ingreso <span class="sc">~</span> escolaridad <span class="sc">*</span> sexo,</span>
-<span id="cb37-3"><a></a>    <span class="at">weights =</span> <span class="sc">~</span> factor,</span>
-<span id="cb37-4"><a></a>    <span class="at">data =</span> poblacion</span>
-<span id="cb37-5"><a></a>)</span>
-<span id="cb37-6"><a></a></span>
-<span id="cb37-7"><a></a><span class="fu">etable</span>(</span>
-<span id="cb37-8"><a></a>    interaction_fit,</span>
-<span id="cb37-9"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal con interacción"</span>,</span>
-<span id="cb37-10"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb37-11"><a></a>    <span class="at">markdown =</span> T</span>
-<span id="cb37-12"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>interaction_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb42-2"><a></a>    ingreso <span class="sc">~</span> escolaridad <span class="sc">*</span> sexo,</span>
+<span id="cb42-3"><a></a>    <span class="at">weights =</span> <span class="sc">~</span> factor,</span>
+<span id="cb42-4"><a></a>    <span class="at">data =</span> poblacion</span>
+<span id="cb42-5"><a></a>)</span>
+<span id="cb42-6"><a></a></span>
+<span id="cb42-7"><a></a><span class="fu">etable</span>(</span>
+<span id="cb42-8"><a></a>    interaction_fit,</span>
+<span id="cb42-9"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal con interacción"</span>,</span>
+<span id="cb42-10"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb42-11"><a></a>    <span class="at">markdown =</span> T</span>
+<span id="cb42-12"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
@@ -1474,9 +1495,13 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon
 <p>Recordemos de la sección de estadística descriptiva que estimamos el ingreso promedio por escolaridad.</p>
 <div class="fragment">
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>No summary function supplied, defaulting to `mean_se()`
+`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-revealjs/unnamed-chunk-40-1.png" width="960"></p>
+<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-40-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1496,18 +1521,18 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 e_i^2 + \epsilon_i
 </div>
 </section><section id="estimación-3" class="slide level2"><h2>Estimación</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>polinom_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
-<span id="cb38-2"><a></a>    <span class="fu">feols</span>(</span>
-<span id="cb38-3"><a></a>        ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> <span class="fu">I</span>(escolaridad<span class="sc">^</span><span class="dv">2</span>),</span>
-<span id="cb38-4"><a></a>        <span class="at">weights =</span> <span class="sc">~</span> factor</span>
-<span id="cb38-5"><a></a>    ) </span>
-<span id="cb38-6"><a></a></span>
-<span id="cb38-7"><a></a>polinom_fit <span class="sc">|&gt;</span></span>
-<span id="cb38-8"><a></a>    <span class="fu">etable</span>(</span>
-<span id="cb38-9"><a></a>        <span class="at">title =</span> <span class="st">"Modelo de regresión lineal con transformación polinomial"</span>,</span>
-<span id="cb38-10"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
-<span id="cb38-11"><a></a>        <span class="at">markdown =</span> T</span>
-<span id="cb38-12"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>polinom_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a></a>    <span class="fu">feols</span>(</span>
+<span id="cb44-3"><a></a>        ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> <span class="fu">I</span>(escolaridad<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb44-4"><a></a>        <span class="at">weights =</span> <span class="sc">~</span> factor</span>
+<span id="cb44-5"><a></a>    ) </span>
+<span id="cb44-6"><a></a></span>
+<span id="cb44-7"><a></a>polinom_fit <span class="sc">|&gt;</span></span>
+<span id="cb44-8"><a></a>    <span class="fu">etable</span>(</span>
+<span id="cb44-9"><a></a>        <span class="at">title =</span> <span class="st">"Modelo de regresión lineal con transformación polinomial"</span>,</span>
+<span id="cb44-10"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb44-11"><a></a>        <span class="at">markdown =</span> T</span>
+<span id="cb44-12"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 </section><section id="estimación-3-output" class="slide level2 output-location-slide"><h2>Estimación</h2><div class="cell output-location-slide">
@@ -1521,19 +1546,35 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 e_i^2 + \epsilon_i
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(marginaleffects)</span>
-<span id="cb40-2"><a></a></span>
-<span id="cb40-3"><a></a><span class="fu">slopes</span>(</span>
-<span id="cb40-4"><a></a>    polinom_fit,</span>
-<span id="cb40-5"><a></a>    <span class="at">newdata =</span> <span class="fu">tibble</span>(</span>
-<span id="cb40-6"><a></a>        <span class="at">escolaridad =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">25</span>)</span>
-<span id="cb40-7"><a></a>    ),</span>
-<span id="cb40-8"><a></a>    <span class="at">variables =</span> <span class="st">"escolaridad"</span>,</span>
-<span id="cb40-9"><a></a>    <span class="at">at =</span> <span class="fu">list</span>(<span class="at">escolaridad =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">25</span>)),</span>
-<span id="cb40-10"><a></a>    <span class="at">se =</span> <span class="cn">TRUE</span></span>
-<span id="cb40-11"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(marginaleffects)</span>
+<span id="cb46-2"><a></a></span>
+<span id="cb46-3"><a></a><span class="fu">slopes</span>(</span>
+<span id="cb46-4"><a></a>    polinom_fit,</span>
+<span id="cb46-5"><a></a>    <span class="at">newdata =</span> <span class="fu">tibble</span>(</span>
+<span id="cb46-6"><a></a>        <span class="at">escolaridad =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">25</span>)</span>
+<span id="cb46-7"><a></a>    ),</span>
+<span id="cb46-8"><a></a>    <span class="at">variables =</span> <span class="st">"escolaridad"</span>,</span>
+<span id="cb46-9"><a></a>    <span class="at">at =</span> <span class="fu">list</span>(<span class="at">escolaridad =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">25</span>)),</span>
+<span id="cb46-10"><a></a>    <span class="at">se =</span> <span class="cn">TRUE</span></span>
+<span id="cb46-11"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: These arguments are not known to be supported for models of class
+`fixest`: se. All arguments are still passed to the model-specific prediction
+function, but users are encouraged to check if the argument is indeed supported
+by their modeling package. Please file a request on Github if you believe that
+an unknown argument should be added to the `marginaleffects` white list of
+known arguments, in order to avoid raising this warning:
+https://github.com/vincentarelbundock/marginaleffects/issues
+Warning: These arguments are not known to be supported for models of class
+`fixest`: se. All arguments are still passed to the model-specific prediction
+function, but users are encouraged to check if the argument is indeed supported
+by their modeling package. Please file a request on Github if you believe that
+an unknown argument should be added to the `marginaleffects` white list of
+known arguments, in order to avoid raising this warning:
+https://github.com/vincentarelbundock/marginaleffects/issues</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  Estimate Std. Error     z Pr(&gt;|z|)     S 2.5 % 97.5 %
@@ -1765,41 +1806,6 @@ World Bank, y Harry Patrinos. 2016. <span>«Estimating the Return to Schooling U
           RevealZoom
         ]
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-    
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-    
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-    
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-    
-      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
