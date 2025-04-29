@@ -1,9 +1,9 @@
 ---
 title: "Introducción a R"
 subtitle: "Solución a la Tarea 1"
+date: 2025-03-31
 format:
     pdf: 
-        date: 2025-03-31
         date-format: long
         author: "Esteban Degetau"
         lang: es

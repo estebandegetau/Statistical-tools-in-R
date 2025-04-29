@@ -904,7 +904,7 @@ etable(
     title = "Modelo de regresión lineal",
     fitstat = ~ n + r2 + my + f,
     markdown = T,
-    headers = list("Simulación" = 1, "ENIGH 2022" = 1)
+    headers = list("Simulación" = 1, "ENIGH 2022ls " = 1)
 ) 
 
 
