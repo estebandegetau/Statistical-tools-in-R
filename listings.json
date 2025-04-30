@@ -1,5 +1,17 @@
 [
   {
+    "listing": "/index.html",
+    "items": [
+      "/assignments/assignment0/instructions.html",
+      "/assignments/assignment1/instructions.html",
+      "/assignments/assignment2/instructions.html",
+      "/lectures/lecture1.html",
+      "/lectures/lecture2.html",
+      "/lectures/lecture3.html",
+      "/lectures/lecture4.html"
+    ]
+  },
+  {
     "listing": "/assignments.html",
     "items": [
       "/assignments/assignment0/instructions.html",
@@ -10,22 +22,12 @@
     ]
   },
   {
-    "listing": "/index.html",
-    "items": [
-      "/assignments/assignment0/instructions.html",
-      "/assignments/assignment1/instructions.html",
-      "/assignments/assignment2/instructions.html",
-      "/lectures/lecture1.html",
-      "/lectures/lecture2.html",
-      "/lectures/lecture3.html"
-    ]
-  },
-  {
     "listing": "/lectures.html",
     "items": [
       "/lectures/lecture1.html",
       "/lectures/lecture2.html",
-      "/lectures/lecture3.html"
+      "/lectures/lecture3.html",
+      "/lectures/lecture4.html"
     ]
   }
 ]
