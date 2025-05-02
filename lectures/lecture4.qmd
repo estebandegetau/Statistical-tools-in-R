@@ -1,0 +1,725 @@
+---
+title: "Predicción, clasificación y pronóstico"
+subtitle: "Clase 4"
+date: 2025-04-30
+image: "thmb4.png"
+nocite: |
+    @james2021; @athey2019; @hyndman2021
+output-location: fragment
+scrollable: true
+execute:
+    cache: true    
+---
+
+
+```{r}
+#| label: setup
+#| cache: false
+#| include: false
+
+rm(list = ls())
+gc()
+
+pacman::p_load(ggplot2)
+
+theme_set(theme_minimal())
+
+```
+
+# Motivación
+
+## Preguntas anteriores
+
+En clases anteriores, vimos cómo hacer **inferencia** sobre algunas relaciones entre variables.
+
+- Respondimos preguntas como: 
+
+    - ¿Qué **relación lineal** guardan los ingresos de las personas dependiendo de su educación?
+
+    - ¿Cuál es el **efecto causal** del género de una candidatura sobre su probabilidad de promoción?
+
+    - ¿Podemos estar seguros de que estas relaciones son **estadísticamente significativas**?
+
+## Pregunta de investigación
+
+En esta clase, usaremos herramientas estadísticas para responder preguntas relacionadas con **predicción, clasificación y pronóstico**.
+
+- ¿Qué probabilidad tiene una persona en particular de incumplir su deuda, dependiendo sus características observables?
+
+- Cómo puedo clasificar a una persona en grupos de riesgo (alto o bajo) de incumplimiento?
+
+- ¿Cuántas personas incumplirán su deuda durante los próximos meses?	
+
+## Tareas de predicción vs inferencia
+
+Cuando usamos OLS para hacer inferencia, nos interesaba la relación entre dos variables. 
+
+- Decíamos que una variable independiente ($X$), tenía una relación sobre una variable dependiente ($Y$).
+
+. . .
+
+En tareas de **predicción supervisada**, seguiremos utilizando herramientas estadísticas del tipo $Y = f(X) + \epsilon$, pero cambiaremos el lenguaje que usamos para describir el problema.
+
+- Ahora, hablaremos de que una variable de respuesta ($Y$) es una función de un conjunto de variables predictoras ($X$).
+
+
+## Datos
+
+Vamos a usar el conjunto de datos `Default` del paquete `ISLR`.
+
+Este conjunto de datos contiene información sobre personas deudoras de tarjeta de crédito, si han incumplido o no su deuda y algunas características individuales.
+
+. . .
+
+```{r}
+pacman::p_load(ISLR, tidyverse)
+
+data(Default)
+summary(Default)
+```
+
+# OLS como herramienta de predicción
+
+## Modelo de probabilidad lineal
+
+Igual que en la [Clase 3](lecture3.qmd), podemos ajustar un modelo de OLS para:
+
+1. Estudiar la **relación lineal** entre las características de los individuos y su probabilidad de incumplimiento, y
+
+2. **Predecir** la probabilidad de incumplimiento de un individuo en particular.
+
+## Relación lineal de las variables con incumplimiento
+
+Respondamos la primera pregunta: cómo afecta **cada una** de las variables a la probabilidad de incumplimiento.
+
+. . .
+
+Para esto, ajustamos un modelo de probabilidad lineal **por cada una** de las variables independientes:
+
+. . .
+
+```{r}
+#| output: asis
+#| output-location: column-fragment
+pacman::p_load(fixest)
+
+Default <- Default |>
+    mutate(
+      default = as.numeric(default == "Yes"),
+      student = as.numeric(student == "Yes")
+    )
+
+Default |>
+    feols(
+      default ~ sw(balance, income, student)
+      ) |>
+    etable(
+        title = "Modelo de probabilidad lineal",
+        fitstat = ~ n + r2 + my + f,
+        markdown = T,
+        digits = 3
+    )
+
+```
+
+. . .
+
+**Pregunta**: ¿Cómo interpretamos los resultados?
+
+## Predicción con OLS
+
+Para modelar la probabilidad de incumplimiento con OLS, usamos la siguiente especificación:
+
+$$
+D_i = \beta_0 + \beta_1 balance_i + \beta_2 income_i + \beta_3 student_i + \epsilon_i
+$$ {#eq-ols}
+
+Donde:
+
+- $D_i$ es la variable dependiente que indica si el individuo $i$ incumplió su deuda (1) o no (0).
+
+- $balance_i$ es el balance de la tarjeta de crédito del individuo $i$.
+
+- $income_i$ es el ingreso del individuo $i$.
+
+- $student_i$ es una variable dummy que indica si el individuo $i$ es estudiante (1) o no (0).
+
+- $\epsilon_i$ es el término de error.
+
+. . .
+
+De nuevo, el modelo descrito en la @eq-ols es un **modelo de probabilidad lineal** porque su variable dependiente es binaria.
+
+## Estimación
+
+Estimamos el modelo de probabilidad lineal usando OLS como lo hemos hecho antes:
+
+```{r}
+
+
+ols_fit <- feols(default ~ balance + income + student, data = Default)
+summary(ols_fit)
+```
+
+. . .
+
+Aquí, no nos interesa la interpretación de los coeficientes, porque la tarea es predecir la probabilidad de incumplimiento de un individuo en particular.
+
+## Predicción
+
+Con el modelo que estimamos, `ols_fit`, podemos responder la siguiente pregunta:
+
+::: {#exm-pred}
+
+¿Cuál es la probabilidad de incumplimiento de un individuo con balance de $1000, ingreso de $50000 y que no es estudiante?
+
+:::
+
+. . .
+
+```{r}
+
+to_predict <- tibble(
+  balance = 1000,
+  income = 50000,
+  student = 0
+)
+
+predicted_prob <- predict(ols_fit, newdata = to_predict)
+predicted_prob
+```
+
+. . .
+
+Una persona con balance de $1,000, ingreso de $50,000 y que no es estudiante tiene una probabilidad de incumplimiento de `r predicted_prob |> scales::percent(accuracy = 0.01)`.    
+
+## Otro problema
+
+::: {#exm-ols-prob}
+¿Cuál es la probabilidad de incumplimiento de un individuo con balance de $100000, ingreso de $500 y que es estudiante?
+:::
+
+. . .
+
+```{r}
+to_predict <- tibble(
+  balance = 100000,
+  income = 500,
+  student = 1
+)
+
+predicted_prob <- predict(ols_fit, newdata = to_predict)
+predicted_prob
+```
+
+. . .
+
+Una persona con balance de $100,000, ingreso de $500 y que es estudiante tiene una probabilidad de incumplimiento de `r predicted_prob |> scales::percent(accuracy = 0.01, commas = T)`.
+
+. . .
+
+**Pregunta**: ¿Qué problema tiene esta predicción?
+
+## Limitaciones de OLS
+
+Recordemos que OLS ajusta un plano a los datos. Esto nos va a dar dos problemas para modelar probabilidades:
+
+1. **Predicciones fuera del rango [0, 1]**: Al extrapolar, OLS puede predecir probabilidades negativas o mayores a 1.
+
+2. **Relación lineal**: OLS asume que la relación entre las variables es lineal. En la realidad podemos encontrarnos con relaciones no lineales. 
+
+## Visualización de la predicción
+
+```{r}
+#| output-location: slide
+Default |>
+  mutate(prob_default = predict(ols_fit)) |>
+  ggplot(aes(x = balance, y = prob_default, color = as.factor(student))) +
+  geom_point(alpha = 0.2) +
+  geom_hline(yintercept = c(0, 1), linetype = "dashed") +
+  labs(
+    title = "Probabilidad de Incumplimiento (Modelo OLS)",
+    subtitle = "Por Balance",
+    x = "Balance",
+    y = "Probabilidad de Incumplimiento",
+    color = "Estudiante"
+  )
+
+
+```
+
+# Regresión Logística para Clasificación
+
+## Modelo Logístico
+
+El modelo logístico o *logit*, viene de una familia de modelos llamados **estimadores de máxima verosimilitud**.
+
+- Análogamente a OLS, que busca minimizar el error de estimación, un modelo de máxima verosimilitud (ML por sus siglas en inglés) busca encontrar los parámetros que **maximizan la probabilidad** de observar los datos.
+
+- A diferencia de OLS, un ML permite incluir variables independientes que **no son lineales**.
+
+- Para modelar una probabilidad, limitamos la estimación a un rango entre 0 y 1 con una función logística con regresores lineales.
+
+## Modelo Logístico
+
+Buscamos estimar el siguiente modelo:
+
+$$
+D_i = X_i' \beta + \epsilon_i
+$$
+
+Donde el término $X_i' \beta$ es la combinación lineal de las variables independientes con sus coeficientes.
+
+La función que acota la probabilidad entre 0 y 1 es la función logística:
+
+$$
+\mathbb P (D_i = 1 | X_i) = \Phi(X_i' \beta) = \frac{\exp(X_i' \beta)}{1 + \exp(X_i' \beta)}
+$$ {#eq-logit}
+
+La @eq-logit nos permite tomar los coeficientes estimados para predecir la probabilidad de incumplimiento de un individuo, acotada entre 0 y 1.
+
+## Estimación
+
+
+
+```{r}
+logit_model <- glm(default ~ ., data = Default, family = binomial)
+summary(logit_model)
+```
+
+
+- Usamos la notación `y ~ .` para indicar que queremos usar todas las variables, además de `y` como predictores.
+
+- `stats::glm()` es la función de base R para estimar modelos de máxima verosimilitud.
+
+- `family = binomial` indica que queremos estimar un modelo logístico: que clasificaremos a los datos en dos grupos de manera supervisada.
+
+## Visualización de la predicción
+
+```{r}
+#| output-location: slide
+Default |>
+  mutate(prob_default = predict(logit_model, type = "response")) |>
+  ggplot(aes(x = balance, y = prob_default, color = factor(student))) +
+  geom_hline(yintercept = c(0, 1), linetype = "dashed") +
+  geom_point(alpha = 0.3) +
+  labs(
+    title = "Probabilidad de Incumplimiento (Modelo Logístico)",
+    subtitle = "Por Balance",
+    x = "Balance",
+    y = "Probabilidad de Incumplimiento",
+    color = "Estudiante"
+  )
+```
+
+## Predicción
+
+Para resolver los ejercicios de predicción anteriores, simplemente repetimos el procedimiento que usamos con OLS.
+
+```{r}
+to_predict <- tibble(
+    balance = c(1000, 100000),
+    income = c(50000, 500),
+    student = c(0, 1)
+)
+
+
+predicted_prob <- predict(logit_model, newdata = to_predict, type = "response")
+predicted_prob
+```
+
+
+. . .
+
+Encontramos que las probabilidades de incumplimiento son `r predicted_prob |> scales::percent(accuracy = 0.01)` respectivamente.
+
+## Clasificación
+
+Podemos usar el modelo logístico para **clasificar** a los individuos en *grupos de riesgo*.
+
+- Definimos un umbral de probabilidad, por ejemplo 0.5.
+
+- Si la probabilidad de incumplimiento es mayor a 0.5, clasificamos al individuo como de alto riesgo.
+
+. . .
+
+```{r}
+#| output: none
+groups <- Default |>
+    mutate(
+        prob_default = predict(logit_model, type = "response"),
+        risk = case_when(
+            prob_default > 0.5 ~ "Alto",
+            prob_default <= 0.5 ~ "Bajo"
+        )
+    ) 
+
+```
+
+## Evaluación de la clasificación
+
+Podemos evaluar la precisión del modelo (supervisado) revisando si la predicción por grupo de riesgo coincide con el estado real de incumplimiento.
+
+- Usamos la matriz de confusión para evaluar la clasificación.
+
+- Mediremos con qué frecuencia nuestro modelo clasifica correctamente a los individuos, dependiendo de su estado real de incumplimiento.
+
+. . .
+
+```{r}
+#| output-location: column-fragment
+confusion_matrix <- table(
+    groups$risk,
+    groups$default
+)
+
+confusion_matrix |>
+    knitr::kable()
+
+```
+
+. . .
+
+El modelo logístico clasifica muy bien a las personas que no incumplen su deuda, pero no clasifica bien a las personas que sí incumplen. 
+
+## Limitaciones del modelo logístico
+
+A pesar de que las probabilidades de incumplimiento están acotadas entre 0 y 1, el modelo logístico todavía está limitado por el supuesto de linealidad entre predictores y respuesta. 
+
+# El dilema entre sesgo y varianza
+
+## Simulación
+
+```{r}
+#| echo: false
+
+set.seed(42)
+
+# True function
+f_true <- function(x) sin(x)
+
+# Simulate data
+n_train <- 100
+n_test <- 5000
+
+
+train <- tibble(
+    x = runif(n_train, -2 * pi, 2 * pi),
+    y = f_true(x) + rnorm(n_train, sd = 0.3)
+)
+
+train |>
+    ggplot(aes(x, y)) +
+    geom_point() +
+    geom_hline(yintercept = 0) 
+
+```
+
+## Ajuste de un modelo lineal
+
+```{r}
+
+fit_1 <- lm(y ~ x, data = train)
+
+train <- train |>
+    mutate(
+        y_hat = predict(fit_1))
+
+train |>
+    ggplot(aes(x, y)) +
+    geom_point() +
+    geom_line(aes(y = y_hat), color = "blue") +
+    geom_hline(yintercept = 0) 
+
+
+```
+
+## Ajuste polinomial
+
+```{r}
+#| output: none
+fit_2 <- lm(y ~ poly(x, 2, raw = TRUE), data = train)
+
+```
+
+```{r}
+#| echo: false
+train <- train |>
+    mutate(
+        y_hat = predict(fit_2))
+
+train |>
+    ggplot(aes(x, y)) +
+    geom_point() +
+    geom_line(aes(y = y_hat), color = "blue") +
+    geom_hline(yintercept = 0)
+
+
+
+```
+
+## Ajuste polinomial de mayor orden
+
+```{r}
+#| output: none
+fit_3 <- lm(y ~ poly(x, 15, raw = TRUE), data = train)
+
+```
+
+```{r}
+#| echo: false
+train <- train |>
+    mutate(
+        y_hat = predict(fit_3))
+
+train |>
+    ggplot(aes(x, y)) +
+    geom_point() +
+    geom_line(aes(y = y_hat), color = "blue") +
+    geom_hline(yintercept = 0)
+```
+
+## Ajuste polinomial de mayor orden
+
+Vemos que en la medida en la que aumentamos el orden del polinomio, el modelo se ajusta mejor a los datos de entrenamiento.
+
+**Pregunta**: ¿Un mejor ajuste siempre es mejor?
+
+## Evaluación de los modelos
+
+
+```{r}
+#| echo: false
+
+n_train <- 100
+n_test <- 500
+x_train <- runif(n_train, -2 * pi, 2 * pi)
+y_train <- f_true(x_train) + rnorm(n_train, sd = 0.3)
+x_test <- seq(-2 * pi, 2 * pi, length.out = n_test)
+y_test_true <- f_true(x_test)
+
+# Fit polynomials of degrees 1 to 15 and evaluate test/train error
+results <- map_dfr(1:25, function(degree) {
+  model <- lm(y_train ~ poly(x_train, degree = degree, raw = TRUE))
+  y_train_hat <- predict(model)
+  y_test_hat <- predict(model, newdata = tibble(x_train = x_test))
+  
+  tibble(
+    degree = degree,
+    train_mse = mean((y_train - y_train_hat)^2),
+    test_mse = mean((y_test_true - y_test_hat)^2)
+  )
+})
+
+results |>
+  pivot_longer(cols = c(train_mse, test_mse), names_to = "type", values_to = "mse") |>
+  mutate(type = recode(type, train_mse = "Train", test_mse = "Test")) |>
+  ggplot(aes(x = degree, y = mse, color = type)) +
+  geom_line(size = 1.2) +
+  labs(
+    title = "Dilema entre sesgo y varianza",
+    subtitle = "El error en train decae con la complejidad del modelo, pero el error en test tiene forma de U",
+    x = "Complejidad del modelo (Orden del polinomio)",
+    y = "Error cuadrático medio (MSE)",
+    color = "Muestra"
+  ) +
+  theme_minimal() +
+  coord_cartesian(ylim = c(0, 5))
+
+
+```
+
+## El dilema entre sesgo y varianza
+
+Podemos tener un modelo muy complejo que se ajusta perfectamente a los datos, i.e. con un sesgo muy bajo.
+
+- Sin embargo, al ajustarse tan bien a los datos dentro de la muestra de entrenamiento, el modelo empieza a reflejar una varianza que es idiosincrática del conjunto de entrenamiento.
+
+- Esta varianza no se reproduce en la muestra de prueba y, por lo tanto, el modelo no generaliza bien la relación funcional entre las variables.
+
+## Error irreducible
+
+Al dividir nuestro conjunto en dos partes, uno de entrenamiento y otro de prueba, podemos ver que el error en la muestra de prueba tiene forma de U.
+
+- Agregar complejidad al modelo reduce el error en el conjunto de prueba, solo hasta cierto punto.
+
+- Una vez que llegamos a un cierto nivel de complejidad, el error en la muestra de prueba empieza a aumentar.
+
+- Los métodos automatizados de aprendizaje supervisado, como el *random forest*, encuentran el punto donde el error en la muestra de prueba es mínimo: encuentran el punto de equilibrio entre sesgo y varianza.
+
+
+
+# Aprendizaje no supervisado
+
+## Aprendizaje no supervisado
+
+Hasta ahora, hemos visto cómo predecir la probabilidad de incumplimiento de un individuo en particular.
+
+- Partimos de un conjunto de datos donde tenemos información sobre la respuesta (incumplimiento) y las variables predictoras (balance, ingreso, etc.).
+
+- Escribimos un modelo que describe la forma funcional de la relación entre las variables predictoras y la respuesta:
+
+  $$
+  D_i = f(X_i) + \epsilon_i
+  $$
+
+. . .
+
+- Decimos que el aprendizaje es supervisado porque hemos observado respuestas con las que podemos entrenar y probar el modelo
+
+## Aprendizaje supervizado vs no supervisado
+
+Ahora volteamos a procedimientos de aprendizaje no supervisado:
+
+- No hay una respuesta observada.
+
+- Solo tenemos un conjunto de datos con variables predictoras $X$.
+
+- Buscamos patrones en los datos.
+
+## Agrupamiento por k-means
+
+```{r}
+set.seed(1)
+kmeans_result <- Default |>
+  select(balance, income) |>
+  scale() |>
+  kmeans(centers = 2)
+
+Default |>
+  mutate(cluster = factor(kmeans_result$cluster)) |>
+  ggplot(aes(balance, income, color = cluster)) +
+  geom_point(alpha = 0.6) +
+  labs(title = "Agrupamiento No Supervisado (k-means)")
+```
+
+
+
+
+
+# Random Forest
+
+
+## Random Forest
+
+{{< video https://www.youtube.com/watch?v=gkXX4h3qYm4&ab_channel=IBMTechnology width="100%" height="100%" >}}
+
+
+## Un árbol
+
+```{r}
+
+pacman::p_load(rpart, rpart.plot)
+
+data(Default)
+
+set.seed(42)
+tree_model <- rpart(default ~ ., data = Default)
+
+rpart.plot(tree_model)
+
+```
+
+## El bosque
+
+```{r}
+
+pacman::p_load(randomForest)
+
+rf_fit <- randomForest(
+  default ~ .,
+  data = Default,
+  importance = T,
+  ntree = 1000
+) 
+
+rf_fit
+
+
+```
+
+## Error irreducible
+
+```{r}
+
+plot(rf_fit)
+
+```
+
+
+## Importancia de las variables
+
+```{r}
+varImpPlot(rf_fit)
+```
+
+## Bondades de Random Forest
+
+- Los árboles son fáciles de interpretar.
+
+- Pero se ajustan demasiado a los datos y son inestables.
+
+. . .
+
+Usamos Random Forest porque:
+
+- Reduce la varianza sin aumentar el sesgo.
+
+- *Promedia* el resultado de muchos árboles.	
+
+. . .
+
+Un *ensamble* de predictores débiles y ruidosos de hecho puede ser un muy buen predictor si se combinan adecuadamente.
+
+
+# Pronóstico
+
+
+## Pronóstico de series de tiempo
+
+Ahora pasamos a un nuevo conjunto de herramientas: el pronóstico.
+
+- En tareas de pronóstico nos interesa predecir el comportamiento futuro de una variable en función de su comportamiento pasado.
+
+- Asimismo, queremos brindar una métrica de la incertidumbre de la predicción.
+
+
+## Datos
+
+Simularemos datos del número de incumplimientos de deuda en el tiempo.
+
+```{r}
+
+pacman::p_load(tsibble, fable, feasts, urca)
+
+default_ts <- tibble(
+  date = yearmonth("2018-01") + 0:35,
+  value = round(20 + 5 * sin(2 * pi * 1:36 / 12) + rnorm(36, 0, 2)),
+  group = "n_defaults"
+) |>
+as_tsibble(index = date, key = group)
+
+autoplot(default_ts)
+```
+
+
+## Pronósticos
+
+```{r}
+model_fit <- default_ts |>
+    model(
+        arima = ARIMA(value),
+        ets = ETS(value)
+    )
+
+
+forecast_fit <- model_fit |>
+    forecast(h = "12 months")
+
+autoplot(forecast_fit, default_ts) +
+    facet_wrap(~.model) 
+
+```
+
+
+## Referencias
