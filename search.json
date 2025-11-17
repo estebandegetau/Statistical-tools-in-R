@@ -32,7 +32,7 @@
     "href": "syllabus.html#evaluación",
     "title": "Temario",
     "section": "Evaluación",
-    "text": "Evaluación\n\nTareas: 50%\nA lo largo del curso, asignaré una tarea por cada tema. Las tareas se entregarán en la fecha indicada en clase. Pueden discutir las tareas con sus compañeros, pero cada estudiante debe entregar su propio trabajo.\nLa entrega de la tarea consta de un documento PDF con los análisis requeridos y el código de Quarto que genera el documento. Parte importante de la calificación de las tareas es que el código de Quarto corra sin errores en mi computadora.\nLas tareas serán difíciles y requerirán tiempo para completarlas. No dejen las tareas para el último día.\n\n\nProyecto final: 50%\nEl proyecto final debe cumplir con las siguientes características:\n\nAnalizar datos del IMSS.\nComunicar el análisis en un reporte reproducible de Quarto.\nExplorar alguna pregunta importante en tu trabajo.\n\nLos requisitos del proyecto final son intencionalmente vagos para permitir la creatividad y la exploración de temas que te interesen o que estén relacionados con tu trabajo.\nEl objetivo principal del proyecto final es que aprendas cómo puedes usar R y Quarto para resolver problemas cotidianos en tu trabajo.\nAlgunos ejemplos de proyectos finales son:\n\nLa automatización de (alguna porción de) algún reporte o presentación mensual que ya tengas.\nUn ejercicio de predicción de series de tiempo (por ejemplo, fijación de metas).\nUn análisis de regresión de alguna variable de interés.\nUn ejercicio de clasificación supervisada o no supervisada.\n\nCualquier otro proyecto que cumpla con los requisitos es más que bienvenido. Si tienes una idea vaga de qué podrías hacer, podemos discutirlo en clase.\n\n\n\n\n\n\nNo trabajes en Excel\n\n\n\nPuesto que el objetivo del curso es aprender a programar en R y establecer flujos de datos automatizados, no se aceptarán tareas o proyectos que usen Excel para pasos intermedios."
+    "text": "Evaluación\n\nTareas: 50%\nA lo largo del curso, asignaré una tarea por cada tema. Las tareas se entregarán en la fecha indicada en clase. Pueden discutir las tareas con sus compañeros, pero cada estudiante debe entregar su propio trabajo.\nLa entrega de la tarea consta de un documento PDF con los análisis requeridos y el código de Quarto que genera el documento. Parte importante de la calificación de las tareas es que el código de Quarto corra sin errores en mi computadora.\nLas tareas serán difíciles y requerirán tiempo para completarlas. No dejen las tareas para el último día.\n\n\nProyecto final: 50%\nEl proyecto final debe cumplir con las siguientes características:\n\nAnalizar datos del IMSS.\nComunicar el análisis en un reporte reproducible de Quarto.\nExplorar alguna pregunta importante en tu trabajo.\n\nLos requisitos del proyecto final son intencionalmente vagos para permitir la creatividad y la exploración de temas que te interesen o que estén relacionados con tu trabajo.\nEl objetivo principal del proyecto final es que aprendas cómo puedes usar R y Quarto para resolver problemas cotidianos en tu trabajo.\nAlgunos ejemplos de proyectos finales son:\n\nLa automatización de (alguna porción de) algún reporte o presentación mensual que ya tengas.\nUn ejercicio de predicción de series de tiempo (por ejemplo, fijación de metas).\nUn análisis de regresión de alguna variable de interés.\nUn ejercicio de clasificación supervisada o no supervisada.\n\nCualquier otro proyecto que cumpla con los requisitos es más que bienvenido. Si tienes una idea vaga de qué podrías hacer, podemos discutirlo en clase.\n\n\n\n\n\n\nImportanteNo trabajes en Excel\n\n\n\nPuesto que el objetivo del curso es aprender a programar en R y establecer flujos de datos automatizados, no se aceptarán tareas o proyectos que usen Excel para pasos intermedios."
   },
   {
     "objectID": "syllabus.html#recursos-adicionales",
@@ -40,6 +40,13 @@
     "title": "Temario",
     "section": "Recursos adicionales",
     "text": "Recursos adicionales\nAdemás de las referencias en este documento, también puedes encontrar ligas de interés en la página de recursos."
+  },
+  {
+    "objectID": "resources/textbooks.html",
+    "href": "resources/textbooks.html",
+    "title": "",
+    "section": "",
+    "text": "ReutilizaciónCC BY-NC 4.0Cómo citarBibTeX@misc{degetau2025,\n  author = {Degetau, Esteban},\n  publisher = {Instituto Mexicano del Seguro Social},\n  title = {Herramientas estadísticas en R},\n  date = {2025-05-01},\n  url = {https://estebandegetau.github.io/Statistical-tools-in-R/resources/textbooks.html},\n  langid = {es}\n}\nPor favor, cita este trabajo como:\nDegetau, Esteban. 2025. “Herramientas estadísticas en R.”\nInstituto Mexicano del Seguro Social. https://estebandegetau.github.io/Statistical-tools-in-R/resources/textbooks.html."
   },
   {
     "objectID": "lectures/lecture4.html#preguntas-anteriores",
@@ -88,7 +95,7 @@
     "href": "lectures/lecture4.html#predicción-con-ols",
     "title": "Predicción, clasificación y pronóstico",
     "section": "Predicción con OLS",
-    "text": "Predicción con OLS\nPara modelar la probabilidad de incumplimiento con OLS, usamos la siguiente especificación:\n\\[\nD_i = \\beta_0 + \\beta_1 balance_i + \\beta_2 income_i + \\beta_3 student_i + \\epsilon_i\n\\qquad(1)\\]\nDonde:\n\n\\(D_i\\) es la variable dependiente que indica si el individuo \\(i\\) incumplió su deuda (1) o no (0).\n\\(balance_i\\) es el balance de la tarjeta de crédito del individuo \\(i\\).\n\\(income_i\\) es el ingreso del individuo \\(i\\).\n\\(student_i\\) es una variable dummy que indica si el individuo \\(i\\) es estudiante (1) o no (0).\n\\(\\epsilon_i\\) es el término de error.\n\n\nDe nuevo, el modelo descrito en la Ecuación 1 es un modelo de probabilidad lineal porque su variable dependiente es binaria."
+    "text": "Predicción con OLS\nPara modelar la probabilidad de incumplimiento con OLS, usamos la siguiente especificación:\n\\[\nD_i = \\beta_0 + \\beta_1 balance_i + \\beta_2 income_i + \\beta_3 student_i + \\epsilon_i\n\\tag{1}\\]\nDonde:\n\n\\(D_i\\) es la variable dependiente que indica si el individuo \\(i\\) incumplió su deuda (1) o no (0).\n\\(balance_i\\) es el balance de la tarjeta de crédito del individuo \\(i\\).\n\\(income_i\\) es el ingreso del individuo \\(i\\).\n\\(student_i\\) es una variable dummy que indica si el individuo \\(i\\) es estudiante (1) o no (0).\n\\(\\epsilon_i\\) es el término de error.\n\n\nDe nuevo, el modelo descrito en la Ecuación 1 es un modelo de probabilidad lineal porque su variable dependiente es binaria."
   },
   {
     "objectID": "lectures/lecture4.html#estimación",
@@ -144,7 +151,7 @@
     "href": "lectures/lecture4.html#modelo-logístico-1",
     "title": "Predicción, clasificación y pronóstico",
     "section": "Modelo Logístico",
-    "text": "Modelo Logístico\nBuscamos estimar el siguiente modelo:\n\\[\nD_i = X_i' \\beta + \\epsilon_i\n\\]\nDonde el término \\(X_i' \\beta\\) es la combinación lineal de las variables independientes con sus coeficientes.\nLa función que acota la probabilidad entre 0 y 1 es la función logística:\n\\[\n\\mathbb P (D_i = 1 | X_i) = \\Phi(X_i' \\beta) = \\frac{\\exp(X_i' \\beta)}{1 + \\exp(X_i' \\beta)}\n\\qquad(2)\\]\nLa Ecuación 2 nos permite tomar los coeficientes estimados para predecir la probabilidad de incumplimiento de un individuo, acotada entre 0 y 1."
+    "text": "Modelo Logístico\nBuscamos estimar el siguiente modelo:\n\\[\nD_i = X_i' \\beta + \\epsilon_i\n\\]\nDonde el término \\(X_i' \\beta\\) es la combinación lineal de las variables independientes con sus coeficientes.\nLa función que acota la probabilidad entre 0 y 1 es la función logística:\n\\[\n\\mathbb P (D_i = 1 | X_i) = \\Phi(X_i' \\beta) = \\frac{\\exp(X_i' \\beta)}{1 + \\exp(X_i' \\beta)}\n\\tag{2}\\]\nLa Ecuación 2 nos permite tomar los coeficientes estimados para predecir la probabilidad de incumplimiento de un individuo, acotada entre 0 y 1."
   },
   {
     "objectID": "lectures/lecture4.html#estimación-1",
@@ -410,14 +417,14 @@
     "href": "lectures/lecture2.html#datos-observados-3",
     "title": "Inferencia estadística",
     "section": "Datos observados",
-    "text": "Datos observados\n\ntally |&gt;\n    pivot_wider(\n        names_from = decision,\n        values_from = n\n        ) |&gt;\n    mutate(\n        Total = promoted + `not promoted`,\n        `% promoted` = 100 * promoted / Total\n        ) |&gt;\n    # Great tables\n    gt() |&gt;\n    fmt_number(\n        columns = where(is.numeric),\n        decimals = 0\n        ) |&gt;\n    grand_summary_rows(\n        columns = !matches(\"%|sex\"),\n        fns = \"Total\" ~ sum(.)\n        )\n\n\n\n\nTabla 1: Resumen de los resultados del estudio de discriminación por género\n\n\n\n\n\n\n\nsex\npromoted\nnot promoted\nTotal\n% promoted\n\n\n\n\nmale\n21\n3\n24\n88\n\n\n\nfemale\n14\n10\n24\n58\n\n\nTotal\n—\n35\n13\n48\n—\n\n\n\n\n\n\n\n\n\n\nPromovieron al 88% de los hombres, mientras que solo promovieron al 58% de las mujeres."
+    "text": "Datos observados\n\ntally |&gt;\n    pivot_wider(\n        names_from = decision,\n        values_from = n\n        ) |&gt;\n    mutate(\n        Total = promoted + `not promoted`,\n        `% promoted` = 100 * promoted / Total\n        ) |&gt;\n    # Great tables\n    gt() |&gt;\n    fmt_number(\n        columns = where(is.numeric),\n        decimals = 0\n        ) |&gt;\n    grand_summary_rows(\n        columns = !matches(\"%|sex\"),\n        fns = \"Total\" ~ sum(.)\n        )\n\n\n\n\n\nTabla 1: Resumen de los resultados del estudio de discriminación por género\n\n\n\n\n\n\n\n\n\n\nsex\npromoted\nnot promoted\nTotal\n% promoted\n\n\n\n\n\nmale\n21\n3\n24\n88\n\n\n\nfemale\n14\n10\n24\n58\n\n\nTotal\n—\n35\n13\n48\n—\n\n\n\n\n\n\n\n\n\n\n\nPromovieron al 88% de los hombres, mientras que solo promovieron al 58% de las mujeres."
   },
   {
     "objectID": "lectures/lecture2.html#pregunta-central-de-inferencia",
     "href": "lectures/lecture2.html#pregunta-central-de-inferencia",
     "title": "Inferencia estadística",
     "section": "Pregunta central de inferencia",
-    "text": "Pregunta central de inferencia\n¿Tenemos evidencia suficiente para concluir que las mujeres fueron discriminadas en las decisiones de promoción?\n\nHay una diferencia grande en las tasas de promoción por género, lo que sugiere la existencia de discriminación.\n\nSin embargo, todavía no estamos seguros de que la diferencia representa discriminación o si es solo resultado de la variabilidad natural de los datos.\n\nComo en el Ejemplo 1, podríamos ver variación por azar."
+    "text": "Pregunta central de inferencia\n¿Tenemos evidencia suficiente para concluir que las mujeres fueron discriminadas en las decisiones de promoción?\n\nHay una diferencia grande en las tasas de promoción por género, lo que sugiere la existencia de discriminación.\nSin embargo, todavía no estamos seguros de que la diferencia representa discriminación o si es solo resultado de la variabilidad natural de los datos.\n\nComo en el Ejemplo 1, podríamos ver variación por azar."
   },
   {
     "objectID": "lectures/lecture2.html#prueba-de-hipótesis",
@@ -431,7 +438,7 @@
     "href": "lectures/lecture2.html#prueba-de-hipótesis-1",
     "title": "Inferencia estadística",
     "section": "Prueba de hipótesis",
-    "text": "Prueba de hipótesis\nVamos a llamar a estas dos narrativas mutuamente excluyentes como:\n\n\n\\(H_0\\): Hipótesis nula: Las variables sex y decision son independientes.\n\nLa diferencia en tasas de promoción de 0.292 es resultado de la variabilidad natural de los datos.\nNo hay discriminación por género.\n\\(\\tau = 0\\)\n\n\n\n\\(H_A\\): Hipótesis alternativa: Las variables sex y decision no son independientes.\n\nLa diferencia en tasas de promoción de 0.292 no es resultado de la variabilidad natural de los datos.\nMujeres con las mismas credenciales que hombres son menos propensas a ser promovidas por hombres.\n\\(\\tau \\neq 0\\)"
+    "text": "Prueba de hipótesis\nVamos a llamar a estas dos narrativas mutuamente excluyentes como:\n\n\\(H_0\\): Hipótesis nula: Las variables sex y decision son independientes.\n\nLa diferencia en tasas de promoción de 0.292 es resultado de la variabilidad natural de los datos.\nNo hay discriminación por género.\n\\(\\tau = 0\\)\n\n\\(H_A\\): Hipótesis alternativa: Las variables sex y decision no son independientes.\n\nLa diferencia en tasas de promoción de 0.292 no es resultado de la variabilidad natural de los datos.\nMujeres con las mismas credenciales que hombres son menos propensas a ser promovidas por hombres.\n\\(\\tau \\neq 0\\)"
   },
   {
     "objectID": "lectures/lecture2.html#prueba-de-hipótesis-2",
@@ -452,7 +459,7 @@
     "href": "lectures/lecture2.html#simulación-de-aleatorización",
     "title": "Inferencia estadística",
     "section": "Simulación de aleatorización",
-    "text": "Simulación de aleatorización\n\nset.seed(2025)\n\noptions &lt;- c(\"promoted\", \"not promoted\")\n\nsim &lt;- tibble(\n    sex = c(rep(\"female\", 24), rep(\"male\", 24)),\n    decision = sample(options, size = 48, replace = TRUE)\n)\n\n\n\n\n\n\n\n\nTabla 2: Resumen de los resultados simulados de discriminación por género\n\n\n\n\n\n\n\nsex\nnot promoted\npromoted\nTotal\n% promoted\n\n\n\n\nfemale\n9\n15\n24\n62\n\n\n\nmale\n11\n13\n24\n54\n\n\nTotal\n—\n20\n28\n48\n—\n\n\n\n\n\n\n\n\n\n\n\nLa Tabla 2 muestra que la diferencia en las tasas de promoción entre hombres y mujeres es de \\(\\hat \\tau =\\) -0.083.\n\n\nEn este mundo simulado, los hombres tuvieron una tasa de contratación menor que las mujeres."
+    "text": "Simulación de aleatorización\n\nset.seed(2025)\n\noptions &lt;- c(\"promoted\", \"not promoted\")\n\nsim &lt;- tibble(\n    sex = c(rep(\"female\", 24), rep(\"male\", 24)),\n    decision = sample(options, size = 48, replace = TRUE)\n)\n\n\n\n\n\n\n\n\n\nTabla 2: Resumen de los resultados simulados de discriminación por género\n\n\n\n\n\n\n\n\n\n\nsex\nnot promoted\npromoted\nTotal\n% promoted\n\n\n\n\n\nfemale\n9\n15\n24\n62\n\n\n\nmale\n11\n13\n24\n54\n\n\nTotal\n—\n20\n28\n48\n—\n\n\n\n\n\n\n\n\n\n\n\n\nLa Tabla 2 muestra que la diferencia en las tasas de promoción entre hombres y mujeres es de \\(\\hat \\tau =\\) -0.083.\n\n\nEn este mundo simulado, los hombres tuvieron una tasa de contratación menor que las mujeres."
   },
   {
     "objectID": "lectures/lecture2.html#estadístico-de-prueba",
@@ -501,7 +508,7 @@
     "href": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-4",
     "title": "Inferencia estadística",
     "section": "Simulación de 100 aleatorizaciones",
-    "text": "Simulación de 100 aleatorizaciones\nVisualicemos la distribución de \\(\\tau\\) para las 100 simulaciones y comparémosla con el valor observado en el experimento.\n\n\nggplot() +\n    geom_dotplot(data = simulations, aes(x = tau)) +\n    scale_y_continuous(breaks = NULL) +\n    geom_vline(\n        xintercept = obs_effect,\n        color = \"blue\",\n        linetype = \"dashed\") +\n    geom_vline(xintercept = 0) +\n    labs(\n        x = expression(tau),\n        y = \"\"\n    ) \n\n\n\n\n\n\n\n\nFigura 1: Distribución de la diferencia en tasas de promoción"
+    "text": "Simulación de 100 aleatorizaciones\nVisualicemos la distribución de \\(\\tau\\) para las 100 simulaciones y comparémosla con el valor observado en el experimento.\n\n\nggplot() +\n    geom_dotplot(data = simulations, aes(x = tau)) +\n    scale_y_continuous(breaks = NULL) +\n    geom_vline(\n        xintercept = obs_effect,\n        color = \"blue\",\n        linetype = \"dashed\") +\n    geom_vline(xintercept = 0) +\n    labs(\n        x = expression(tau),\n        y = \"\"\n    ) \n\n\n\n\n\n\n\n\n\nFigura 1: Distribución de la diferencia en tasas de promoción"
   },
   {
     "objectID": "lectures/lecture2.html#simulación-de-100-aleatorizaciones-5",
@@ -535,8 +542,8 @@
     "objectID": "lectures/lecture2.html#valor-p",
     "href": "lectures/lecture2.html#valor-p",
     "title": "Inferencia estadística",
-    "section": "Valor \\(p\\)\n",
-    "text": "Valor \\(p\\)\n\nLa probabilidad del 2% que encontramos es lo que llamamos valor-p.\n\nEsta probabilidad cuantifica la fuerza de la evidencia en contra de la hipótesis nula, dados los datos observados.\n\n\nCuando el valor-p es pequeño, es decir, menor que un nivel predeterminado, decimos que los resultados estadísticamente significativos.\n\n\nOtra manera de interpretar el valor-p es como la probabilidad del error tipo I: la probabilidad de rechazar la hipótesis nula siendo que ésta es verdadera."
+    "section": "Valor \\(p\\)",
+    "text": "Valor \\(p\\)\nLa probabilidad del 2% que encontramos es lo que llamamos valor-p.\n\nEsta probabilidad cuantifica la fuerza de la evidencia en contra de la hipótesis nula, dados los datos observados.\n\n\nCuando el valor-p es pequeño, es decir, menor que un nivel predeterminado, decimos que los resultados estadísticamente significativos.\n\n\nOtra manera de interpretar el valor-p es como la probabilidad del error tipo I: la probabilidad de rechazar la hipótesis nula siendo que ésta es verdadera."
   },
   {
     "objectID": "lectures/lecture2.html#significancia-estadística",
@@ -564,7 +571,7 @@
     "href": "lectures/lecture2.html#resultados-del-experimento",
     "title": "Inferencia estadística",
     "section": "Resultados del experimento",
-    "text": "Resultados del experimento\nPodemos resumir la evidencia del experimento de discriminación por género usando la función ggplot2::stat_summary().\n\nPor defecto, stat_summary() calcula la media y el intervalo de confianza del 95% del aesthetic y.\n\n\n\nsex_discrimination &lt;- sex_discrimination |&gt;\n    mutate(\n        promoted = as.numeric(decision == \"promoted\")\n    ) \n\nsex_discrimination |&gt;\n    ggplot(aes(x = sex, y = promoted)) +\n    stat_summary() +\n    labs(\n        x = \"Sexo\",\n        y = \"Proporción de promociones\",\n        title = \"Proporción de promociones por género\",\n        subtitle = \"Intervalos de confianza del 95%\"\n    ) +\n    scale_y_continuous(labels = scales::percent) \n\n\n\n\n\n\n\n\nFigura 2: Proporción de promociones por género\n\n\n\n\n\n\nLa Figura 2 muestra que la hipótesis nula se puede rechazar con un nivel de significancia del 5%, porque los intervalos de confianza no se traslapan."
+    "text": "Resultados del experimento\nPodemos resumir la evidencia del experimento de discriminación por género usando la función ggplot2::stat_summary().\n\nPor defecto, stat_summary() calcula la media y el intervalo de confianza del 95% del aesthetic y.\n\n\n\nsex_discrimination &lt;- sex_discrimination |&gt;\n    mutate(\n        promoted = as.numeric(decision == \"promoted\")\n    ) \n\nsex_discrimination |&gt;\n    ggplot(aes(x = sex, y = promoted)) +\n    stat_summary() +\n    labs(\n        x = \"Sexo\",\n        y = \"Proporción de promociones\",\n        title = \"Proporción de promociones por género\",\n        subtitle = \"Intervalos de confianza del 95%\"\n    ) +\n    scale_y_continuous(labels = scales::percent) \n\n\n\n\n\n\n\n\n\nFigura 2: Proporción de promociones por género\n\n\n\n\n\n\n\nLa Figura 2 muestra que la hipótesis nula se puede rechazar con un nivel de significancia del 5%, porque los intervalos de confianza no se traslapan."
   },
   {
     "objectID": "lectures/lecture2.html#interpretación-de-los-intervalos-de-confianza",
@@ -647,57 +654,57 @@
     "objectID": "lectures/lecture2.html#intervalos-de-confianza-analíticos",
     "href": "lectures/lecture2.html#intervalos-de-confianza-analíticos",
     "title": "Inferencia estadística",
-    "section": "Intervalos de confianza analíticos\n",
-    "text": "Intervalos de confianza analíticos\n\nPara encontrar los valores del ingreso que acumulen el 95% de probabilidad de contener el verdadero valor del parámetro de interés, el promedio poblacional \\(\\mu\\), usamos la siguiente fórmula:\n\\[\nSE = \\frac{\\sigma}{\\sqrt{n}}\n\\]\n\\[\nCI = \\bar Y \\pm z_{\\alpha/2} \\cdot ES\n\\]\nDonde:\n\n\\(\\sigma\\) es la desviación estándar de la población\n\\(n\\) es el tamaño de la muestra\n\\(SE\\) decimos que es el error estándar\n\\(z_{\\alpha/2}\\) es el valor crítico de la distribución normal estándar que corresponde a un nivel de confianza del \\(1-\\alpha\\)."
+    "section": "Intervalos de confianza analíticos",
+    "text": "Intervalos de confianza analíticos\nPara encontrar los valores del ingreso que acumulen el 95% de probabilidad de contener el verdadero valor del parámetro de interés, el promedio poblacional \\(\\mu\\), usamos la siguiente fórmula:\n\\[\nSE = \\frac{\\sigma}{\\sqrt{n}}\n\\]\n\\[\nCI = \\bar Y \\pm z_{\\alpha/2} \\cdot ES\n\\]\nDonde:\n\n\\(\\sigma\\) es la desviación estándar de la población\n\\(n\\) es el tamaño de la muestra\n\\(SE\\) decimos que es el error estándar\n\\(z_{\\alpha/2}\\) es el valor crítico de la distribución normal estándar que corresponde a un nivel de confianza del \\(1-\\alpha\\)."
   },
   {
     "objectID": "lectures/lecture2.html#intervalos-de-confianza-analíticos-1",
     "href": "lectures/lecture2.html#intervalos-de-confianza-analíticos-1",
     "title": "Inferencia estadística",
-    "section": "Intervalos de confianza analíticos\n",
-    "text": "Intervalos de confianza analíticos\n\n\nse &lt;- sd(ingresos) / sqrt(n_hogares)\nci &lt;- c(\n    mean(ingresos) - qnorm(0.975) * se,\n    mean(ingresos) + qnorm(0.975) * se\n)\n\n\nsamples |&gt;\n    ggplot(aes(x = means)) +\n    geom_histogram(aes(y = ..density..), bins = 30) +\n    geom_vline(xintercept = ci[1], color = \"red\") +\n    geom_vline(xintercept = ci[2], color = \"red\") +\n    geom_vline(xintercept = mean(ingresos), color = \"blue\") +\n    scale_x_continuous(\n        labels = scales::dollar_format(),\n        breaks = seq(mean(ingresos) - 3 * se, mean(ingresos) + 3 * se, by = se)\n        ) +\n    labs(\n        x = \"Ingerso mensual\"\n    )"
+    "section": "Intervalos de confianza analíticos",
+    "text": "Intervalos de confianza analíticos\n\nse &lt;- sd(ingresos) / sqrt(n_hogares)\nci &lt;- c(\n    mean(ingresos) - qnorm(0.975) * se,\n    mean(ingresos) + qnorm(0.975) * se\n)\n\n\nsamples |&gt;\n    ggplot(aes(x = means)) +\n    geom_histogram(aes(y = ..density..), bins = 30) +\n    geom_vline(xintercept = ci[1], color = \"red\") +\n    geom_vline(xintercept = ci[2], color = \"red\") +\n    geom_vline(xintercept = mean(ingresos), color = \"blue\") +\n    scale_x_continuous(\n        labels = scales::dollar_format(),\n        breaks = seq(mean(ingresos) - 3 * se, mean(ingresos) + 3 * se, by = se)\n        ) +\n    labs(\n        x = \"Ingerso mensual\"\n    )"
   },
   {
     "objectID": "lectures/lecture2.html#intervalos-de-confianza-con-bootstrap",
     "href": "lectures/lecture2.html#intervalos-de-confianza-con-bootstrap",
     "title": "Inferencia estadística",
-    "section": "Intervalos de confianza con bootstrap\n",
-    "text": "Intervalos de confianza con bootstrap\n\nEl método de bootstrap es una forma de estimar la variabilidad de un estimador, introduciendo aleatoriedad con remuestreo a partir de una sola muestra.\n\nEs muy útil para estimar la variabilidad de un estimador cuando no tenemos una idea clara de la distribución de la población.\n\n\nPor ejemplo:\n\\[\nVar(\\bar Y) = \\frac{\\sigma^2}{n}\n\\]\n\n\n¿Cómo se distribuye \\(Var(\\bar Y)\\)? El Teorema Central del Límite no nos puede ayudar aquí."
+    "section": "Intervalos de confianza con bootstrap",
+    "text": "Intervalos de confianza con bootstrap\nEl método de bootstrap es una forma de estimar la variabilidad de un estimador, introduciendo aleatoriedad con remuestreo a partir de una sola muestra.\n\nEs muy útil para estimar la variabilidad de un estimador cuando no tenemos una idea clara de la distribución de la población.\n\n\nPor ejemplo:\n\\[\nVar(\\bar Y) = \\frac{\\sigma^2}{n}\n\\]\n\n\n¿Cómo se distribuye \\(Var(\\bar Y)\\)? El Teorema Central del Límite no nos puede ayudar aquí."
   },
   {
     "objectID": "lectures/lecture2.html#intervalos-de-confianza-con-bootstrap-1",
     "href": "lectures/lecture2.html#intervalos-de-confianza-con-bootstrap-1",
     "title": "Inferencia estadística",
-    "section": "Intervalos de confianza con bootstrap\n",
-    "text": "Intervalos de confianza con bootstrap\n\nPodemos inferir la distribución de un estimador cualquiera \\(\\bar Y\\) empíricamente usando el método de bootstrap.\n\nUtilizando las observaciones de la muestra, elige una submuestra aleatoria de tamaño \\(n\\) (mismo tamaño que la muestra) con reemplazo. Esto hará que algunas observaciones se repitan y otras no aparezcan.\nCalcula el estimador \\(\\bar Y\\) para la submuestra.\nRepite los pasos anteriores \\(M\\) veces. Esto te dará \\(M\\) observaciones para \\(\\bar Y:{\\bar Y_1, \\bar Y_2, \\ldots, \\bar Y_M}\\).\nEncuentra el intervalo de confianza del 95% para \\(\\bar Y\\) usando los percentiles 2.5 y 97.5 de la distribución empírica de \\(\\bar Y\\)."
+    "section": "Intervalos de confianza con bootstrap",
+    "text": "Intervalos de confianza con bootstrap\nPodemos inferir la distribución de un estimador cualquiera \\(\\bar Y\\) empíricamente usando el método de bootstrap.\n\nUtilizando las observaciones de la muestra, elige una submuestra aleatoria de tamaño \\(n\\) (mismo tamaño que la muestra) con reemplazo. Esto hará que algunas observaciones se repitan y otras no aparezcan.\nCalcula el estimador \\(\\bar Y\\) para la submuestra.\nRepite los pasos anteriores \\(M\\) veces. Esto te dará \\(M\\) observaciones para \\(\\bar Y:{\\bar Y_1, \\bar Y_2, \\ldots, \\bar Y_M}\\).\nEncuentra el intervalo de confianza del 95% para \\(\\bar Y\\) usando los percentiles 2.5 y 97.5 de la distribución empírica de \\(\\bar Y\\)."
   },
   {
     "objectID": "lectures/lecture2.html#intervalos-de-confianza-con-bootstrap-2",
     "href": "lectures/lecture2.html#intervalos-de-confianza-con-bootstrap-2",
     "title": "Inferencia estadística",
-    "section": "Intervalos de confianza con bootstrap\n",
-    "text": "Intervalos de confianza con bootstrap\n\nPara nuestra suerte, las medias muestrales que calculé en el vector sample_means son el resultado de un remuestreo con reemplazo, con bootstrap, de tamaño \\(M=1000\\).\n\nsamples |&gt;\n    ggplot(aes(x = means)) +\n    stat_ecdf() +\n    geom_hline(\n        yintercept = 0.025,\n        color = \"red\",\n        linetype = \"dashed\"\n    ) +\n    geom_hline(\n        yintercept = 0.975,\n        color = \"red\",\n        linetype = \"dashed\"\n    ) +\n    labs(\n        x = \"Ingreso mensual\",\n        y = \"Proporción de observaciones\",\n    )"
+    "section": "Intervalos de confianza con bootstrap",
+    "text": "Intervalos de confianza con bootstrap\nPara nuestra suerte, las medias muestrales que calculé en el vector sample_means son el resultado de un remuestreo con reemplazo, con bootstrap, de tamaño \\(M=1000\\).\n\nsamples |&gt;\n    ggplot(aes(x = means)) +\n    stat_ecdf() +\n    geom_hline(\n        yintercept = 0.025,\n        color = \"red\",\n        linetype = \"dashed\"\n    ) +\n    geom_hline(\n        yintercept = 0.975,\n        color = \"red\",\n        linetype = \"dashed\"\n    ) +\n    labs(\n        x = \"Ingreso mensual\",\n        y = \"Proporción de observaciones\",\n    )"
   },
   {
     "objectID": "lectures/lecture2.html#intervalos-de-confianza-con-bootstrap-3",
     "href": "lectures/lecture2.html#intervalos-de-confianza-con-bootstrap-3",
     "title": "Inferencia estadística",
-    "section": "Intervalos de confianza con bootstrap\n",
-    "text": "Intervalos de confianza con bootstrap\n\n\nleft &lt;- sample_means |&gt;\n    quantile(0.025)\n\nright &lt;- sample_means |&gt;\n    quantile(0.975)\n\n\nsamples |&gt;\n    ggplot(aes(x = means)) +\n    geom_histogram(aes(y = ..density..), bins = 30) +\n    geom_vline(xintercept = left, color = \"red\") +\n    geom_vline(xintercept = right, color = \"red\") +\n    geom_vline(xintercept = mean(ingresos), color = \"blue\") +\n    scale_x_continuous(\n        labels = scales::dollar_format(),\n        breaks = seq(mean(ingresos) - 3 * se, mean(ingresos) + 3 * se, by = se)\n        ) +\n    labs(\n        x = \"Ingerso mensual\"\n    )"
+    "section": "Intervalos de confianza con bootstrap",
+    "text": "Intervalos de confianza con bootstrap\n\nleft &lt;- sample_means |&gt;\n    quantile(0.025)\n\nright &lt;- sample_means |&gt;\n    quantile(0.975)\n\n\nsamples |&gt;\n    ggplot(aes(x = means)) +\n    geom_histogram(aes(y = ..density..), bins = 30) +\n    geom_vline(xintercept = left, color = \"red\") +\n    geom_vline(xintercept = right, color = \"red\") +\n    geom_vline(xintercept = mean(ingresos), color = \"blue\") +\n    scale_x_continuous(\n        labels = scales::dollar_format(),\n        breaks = seq(mean(ingresos) - 3 * se, mean(ingresos) + 3 * se, by = se)\n        ) +\n    labs(\n        x = \"Ingerso mensual\"\n    )"
   },
   {
     "objectID": "lectures/lecture2.html#intervalos-analíticos-vs.-bootstrap",
     "href": "lectures/lecture2.html#intervalos-analíticos-vs.-bootstrap",
     "title": "Inferencia estadística",
-    "section": "Intervalos analíticos vs. bootstrap\n",
-    "text": "Intervalos analíticos vs. bootstrap\n\n\nPor construcción, los intervalos analíticos siempre son simétricos.\nLos intervalos bootstrap pueden ser asimétricos.\nCon muestras grandes como la de la ENIGH, los intervalos analíticos y bootstrap son muy parecidos."
+    "section": "Intervalos analíticos vs. bootstrap",
+    "text": "Intervalos analíticos vs. bootstrap\n\nPor construcción, los intervalos analíticos siempre son simétricos.\nLos intervalos bootstrap pueden ser asimétricos.\nCon muestras grandes como la de la ENIGH, los intervalos analíticos y bootstrap son muy parecidos."
   },
   {
     "objectID": "lectures/lecture2.html#inferencia-analítica-vs.-inferencia-bootstrap",
     "href": "lectures/lecture2.html#inferencia-analítica-vs.-inferencia-bootstrap",
     "title": "Inferencia estadística",
-    "section": "Inferencia analítica vs. inferencia bootstrap\n",
-    "text": "Inferencia analítica vs. inferencia bootstrap\n\n\n\nLa inferencia analítica es muy útil cuando conocemos la distribución del estimador: cuando calculamos promedios.\n\nEn el mundo de los promedios, será muy cómodo usar la fórmula:\n\n\\[\n  IC = \\bar Y \\pm 1.94 \\cdot \\frac{\\sigma}{\\sqrt{n}}\n  \\]\n\nPara todo lo demás (varianza, medianas, índices sin unidades), la inferencia bootstrap es una herramienta poderosa para entender la variabilidad de un estimador y evaluar pruebas de hipótesis más complejas que la diferencia de promedios."
+    "section": "Inferencia analítica vs. inferencia bootstrap",
+    "text": "Inferencia analítica vs. inferencia bootstrap\n\nLa inferencia analítica es muy útil cuando conocemos la distribución del estimador: cuando calculamos promedios.\n\nEn el mundo de los promedios, será muy cómodo usar la fórmula:\n\n\\[\n  IC = \\bar Y \\pm 1.94 \\cdot \\frac{\\sigma}{\\sqrt{n}}\n  \\]\nPara todo lo demás (varianza, medianas, índices sin unidades), la inferencia bootstrap es una herramienta poderosa para entender la variabilidad de un estimador y evaluar pruebas de hipótesis más complejas que la diferencia de promedios."
   },
   {
     "objectID": "lectures/lecture2.html#resumen-1",
@@ -725,14 +732,14 @@
     "href": "index.html#clases",
     "title": "Herramientas estadísticas en R",
     "section": "Clases",
-    "text": "Clases\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n19 mar 2025\n\n\n\n\nInferencia estadística\n\n\nClase 2\n\n\n26 mar 2025\n\n\n\n\nRegresión lineal\n\n\nClase 3\n\n\n2 abr 2025\n\n\n\n\nPredicción, clasificación y pronóstico\n\n\nClase 4\n\n\n30 abr 2025\n\n\n\n\n\nNo hay resultados"
+    "text": "Clases\n\n\n   \n    \n    \n      Ordenar por\n      Por defecto\n      \n        Fecha - Más antiguo\n      \n      \n        Fecha - Más reciente\n      \n      \n        Título\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTítulo\n\n\n\nSubtítulo\n\n\n\nFecha\n\n\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n19 mar 2025\n\n\n\n\n\n\nInferencia estadística\n\n\nClase 2\n\n\n26 mar 2025\n\n\n\n\n\n\nRegresión lineal\n\n\nClase 3\n\n\n2 abr 2025\n\n\n\n\n\n\nPredicción, clasificación y pronóstico\n\n\nClase 4\n\n\n30 abr 2025\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "index.html#tareas",
     "href": "index.html#tareas",
     "title": "Herramientas estadísticas en R",
     "section": "Tareas",
-    "text": "Tareas\n\n\n   \n     \n     \n       Ordenar por\n       Por defecto\n         \n          Fecha - Menos reciente\n        \n         \n          Fecha - Más reciente\n        \n         \n          Título\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTítulo\n\n\nSubtítulo\n\n\nFecha\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n14 mar 2025\n\n\n\n\nIntroducción a la ciencia de datos con R\n\n\nTarea 1\n\n\n20 mar 2025\n\n\n\n\nInferencia Estadística\n\n\nTarea 2\n\n\n10 abr 2025\n\n\n\n\n\nNo hay resultados"
+    "text": "Tareas\n\n\n   \n    \n    \n      Ordenar por\n      Por defecto\n      \n        Fecha - Más antiguo\n      \n      \n        Fecha - Más reciente\n      \n      \n        Título\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTítulo\n\n\n\nSubtítulo\n\n\n\nFecha\n\n\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n14 mar 2025\n\n\n\n\n\n\nIntroducción a la ciencia de datos con R\n\n\nTarea 1\n\n\n20 mar 2025\n\n\n\n\n\n\nInferencia Estadística\n\n\nTarea 2\n\n\n10 abr 2025\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "assignments/assignment2/solutions.html",
@@ -893,14 +900,14 @@
     "href": "assignments.html#tareas",
     "title": "Tareas",
     "section": "Tareas",
-    "text": "Tareas\n\n\n\n\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n\n14 mar 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroducción a la ciencia de datos con R\n\n\nTarea 1\n\n\n\n20 mar 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInferencia Estadística\n\n\nTarea 2\n\n\n\n10 abr 2025\n\n\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Tareas\n\n\n\n\n\n\n\n\n\n\nInstalación del software\n\n\nTarea 0\n\n\n\n14 mar 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroducción a la ciencia de datos con R\n\n\nTarea 1\n\n\n\n20 mar 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInferencia Estadística\n\n\nTarea 2\n\n\n\n10 abr 2025\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "assignments.html#soluciones",
     "href": "assignments.html#soluciones",
     "title": "Tareas",
     "section": "Soluciones",
-    "text": "Soluciones\n\n\n\n\n\n\n\n\n\n\nIntroducción a R\n\n\nSolución a la Tarea 1\n\n\n\n31 mar 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInferencia Estadística\n\n\nSolución a la Tarea 2\n\n\n\n10 abr 2025\n\n\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Soluciones\n\n\n\n\n\n\n\n\n\n\nIntroducción a R\n\n\nSolución a la Tarea 1\n\n\n\n31 mar 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInferencia Estadística\n\n\nSolución a la Tarea 2\n\n\n\n10 abr 2025\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "lectures/lecture1.html#por-qué-usar-r",
@@ -1347,8 +1354,8 @@
     "objectID": "lectures/lecture3.html#clase-factor",
     "href": "lectures/lecture3.html#clase-factor",
     "title": "Regresión lineal",
-    "section": "Clase factor\n",
-    "text": "Clase factor\n\nNotemos que la variable nivelaprob tiene clase factor.\n\nEsta clase es útil para representar variables categóricas.\nAsigna on orden a una serie de categorías, lo que facilita ordenar categorías por su nivel.\nPor esto, Ninguno es menor que Primaria, que es menor que Secundaria, etc.\nUna librería del tidyverse que facilita el trabajo de variables categóricas es forcats."
+    "section": "Clase factor",
+    "text": "Clase factor\nNotemos que la variable nivelaprob tiene clase factor.\n\nEsta clase es útil para representar variables categóricas.\nAsigna on orden a una serie de categorías, lo que facilita ordenar categorías por su nivel.\nPor esto, Ninguno es menor que Primaria, que es menor que Secundaria, etc.\nUna librería del tidyverse que facilita el trabajo de variables categóricas es forcats."
   },
   {
     "objectID": "lectures/lecture3.html#distribución-de-nivel-aprobado",
@@ -1460,7 +1467,7 @@
     "href": "lectures/lecture3.html#relación-no-paramétrica-entre-escolaridad-e-ingreso",
     "title": "Regresión lineal",
     "section": "Relación no paramétrica entre escolaridad e ingreso",
-    "text": "Relación no paramétrica entre escolaridad e ingreso\nDecimos que estimamos un modelo no paramétrico cuando le permitimos al modelo que se ajuste a los datos sin imponerle una forma funcional.\n\nLa función ggplot2::geom_smooth() ajusta un modelo no paramétrico a los datos, de la siguiente manera:\n\\[\nY_i = f(X_i) + \\epsilon_i\n\\qquad(1)\\]\ndonde:\n\n\\(Y_i\\) es el variable dependiente: el ingreso de la persona \\(i\\),\n\\(X_i\\) es la variable independiente: la escolaridad de la persona \\(i\\), y\n\\(f(\\cdot)\\) es una función que se ajusta a los datos.\n\\(\\epsilon_i\\) es el error de estimación de la persona \\(i\\).\n\n\n\nDependiendo de las características de los datos, geom_smooth() ajusta diferentes tipos de modelos no paramétricos."
+    "text": "Relación no paramétrica entre escolaridad e ingreso\nDecimos que estimamos un modelo no paramétrico cuando le permitimos al modelo que se ajuste a los datos sin imponerle una forma funcional.\n\nLa función ggplot2::geom_smooth() ajusta un modelo no paramétrico a los datos, de la siguiente manera:\n\\[\nY_i = f(X_i) + \\epsilon_i\n\\tag{1}\\]\ndonde:\n\n\\(Y_i\\) es el variable dependiente: el ingreso de la persona \\(i\\),\n\\(X_i\\) es la variable independiente: la escolaridad de la persona \\(i\\), y\n\\(f(\\cdot)\\) es una función que se ajusta a los datos.\n\\(\\epsilon_i\\) es el error de estimación de la persona \\(i\\).\n\n\n\nDependiendo de las características de los datos, geom_smooth() ajusta diferentes tipos de modelos no paramétricos."
   },
   {
     "objectID": "lectures/lecture3.html#relación-no-paramétrica-entre-escolaridad-e-ingreso-1",
@@ -1481,7 +1488,7 @@
     "href": "lectures/lecture3.html#conclusiones-de-la-exploración",
     "title": "Regresión lineal",
     "section": "Conclusiones de la exploración",
-    "text": "Conclusiones de la exploración\n\nLas personas que reportan un nivel aprobado más alto tienen salarios más altos en promedio.\nLas mujeres reportaron ingresos, dado que tienen el mismo nivel aprobado, en todos los niveles aprobados.\nLa distribución de la edad es diferente para cada nivel aprobado. Las personas sin escolaridad som más viejas.\n\nNo hay una manera perfecta de imputar la escolaridad, pero podemos ver que se acumulan datos en el último grado de cada nivel aprobado, lo que sugiere que esas personas completaron el nivel.\n\nEsto puede ser importante para la estimación de los rendimientos de la escolaridad: puede ser que aprobar el último grado de un nivel tenga un efecto más grande que aprobar el primer grado de un nivel.\n\n\nLa imputación de escolaridad parece reflejar correctamente la relación entre escolaridad e ingreso."
+    "text": "Conclusiones de la exploración\n\nLas personas que reportan un nivel aprobado más alto tienen salarios más altos en promedio.\nLas mujeres reportaron ingresos, dado que tienen el mismo nivel aprobado, en todos los niveles aprobados.\nLa distribución de la edad es diferente para cada nivel aprobado. Las personas sin escolaridad som más viejas.\nNo hay una manera perfecta de imputar la escolaridad, pero podemos ver que se acumulan datos en el último grado de cada nivel aprobado, lo que sugiere que esas personas completaron el nivel.\n\nEsto puede ser importante para la estimación de los rendimientos de la escolaridad: puede ser que aprobar el último grado de un nivel tenga un efecto más grande que aprobar el primer grado de un nivel.\n\nLa imputación de escolaridad parece reflejar correctamente la relación entre escolaridad e ingreso."
   },
   {
     "objectID": "lectures/lecture3.html#modelo-de-regresión-lineal-1",
@@ -1495,7 +1502,7 @@
     "href": "lectures/lecture3.html#simulación-de-un-modelo-de-regresión-lineal",
     "title": "Regresión lineal",
     "section": "Simulación de un modelo de regresión lineal",
-    "text": "Simulación de un modelo de regresión lineal\nImaginemos un mundo en el que el ingreso solo depende de la escolaridad.\n\nEn este mundo, el ingreso se determina como función de la escolaridad de la siguiente manera:\n\\[\nY_i = 1000 + 200 X_i + \\epsilon_i\n\\qquad(2)\\]\n\n\ndonde:\n\n\\(Y_i\\) es el ingreso de la persona \\(i\\),\n\\(X_i\\) es la escolaridad de la persona \\(i\\),\n\\(\\epsilon_i\\) es el error de estimación de la persona \\(i\\), distribuido \\(N(\\mu = 0, \\sigma = 1,000)\\).\n\n\n\nUna persona sin educación (\\(X_i=0\\)) en promedio tendrá \\(1,000\\).\n\n\nDespués, por cada año adicional de escolaridad, el ingreso aumentará en promedio \\(200\\).\n\n\nPero, como hay un error de estimación, no todas las personas con la misma escolaridad tendrán el mismo ingreso."
+    "text": "Simulación de un modelo de regresión lineal\nImaginemos un mundo en el que el ingreso solo depende de la escolaridad.\n\nEn este mundo, el ingreso se determina como función de la escolaridad de la siguiente manera:\n\\[\nY_i = 1000 + 200 X_i + \\epsilon_i\n\\tag{2}\\]\n\n\ndonde:\n\n\\(Y_i\\) es el ingreso de la persona \\(i\\),\n\\(X_i\\) es la escolaridad de la persona \\(i\\),\n\\(\\epsilon_i\\) es el error de estimación de la persona \\(i\\), distribuido \\(N(\\mu = 0, \\sigma = 1,000)\\).\n\n\n\nUna persona sin educación (\\(X_i=0\\)) en promedio tendrá \\(1,000\\).\n\n\nDespués, por cada año adicional de escolaridad, el ingreso aumentará en promedio \\(200\\).\n\n\nPero, como hay un error de estimación, no todas las personas con la misma escolaridad tendrán el mismo ingreso."
   },
   {
     "objectID": "lectures/lecture3.html#simulación-de-un-modelo-de-regresión-lineal-1",
@@ -1516,7 +1523,7 @@
     "href": "lectures/lecture3.html#modelo-de-regresión-lineal-2",
     "title": "Regresión lineal",
     "section": "Modelo de regresión lineal",
-    "text": "Modelo de regresión lineal\nAhora, si no conociéramos el proceso de generación de datos, podríamos preguntarnos cuál es el rendimiento de la educación es este mundo.\n\nPodemos estimar un modelo de regresión lineal, descrito con la siguiente ecuación:\n\\[\ny_i=\\beta_0 + \\beta_1 x_i + \\epsilon_i\n\\qquad(3)\\]\n\n\ndonde:\n\n\\(\\beta_0\\) es el intercepto del modelo, que representa el ingreso promedio de una persona sin escolaridad (\\(X_i=0\\)).\n\\(\\beta_1\\) es la pendiente del modelo, que representa el rendimiento de la escolaridad: el cambio en el ingreso por cada año adicional de escolaridad.\n\\(\\epsilon_i\\) es el error de estimación de la persona \\(i\\), que representa la diferencia entre su ingreso real y el ingreso estimado por el modelo. Asumimos que \\(\\epsilon_i\\) es distribuido \\(N(\\mu = 0, \\sigma^2)\\).\n\n\n\nVamos a buscar los valores de \\(\\beta_0\\) y \\(\\beta_1\\) que mejor se ajusten a los datos."
+    "text": "Modelo de regresión lineal\nAhora, si no conociéramos el proceso de generación de datos, podríamos preguntarnos cuál es el rendimiento de la educación es este mundo.\n\nPodemos estimar un modelo de regresión lineal, descrito con la siguiente ecuación:\n\\[\ny_i=\\beta_0 + \\beta_1 x_i + \\epsilon_i\n\\tag{3}\\]\n\n\ndonde:\n\n\\(\\beta_0\\) es el intercepto del modelo, que representa el ingreso promedio de una persona sin escolaridad (\\(X_i=0\\)).\n\\(\\beta_1\\) es la pendiente del modelo, que representa el rendimiento de la escolaridad: el cambio en el ingreso por cada año adicional de escolaridad.\n\\(\\epsilon_i\\) es el error de estimación de la persona \\(i\\), que representa la diferencia entre su ingreso real y el ingreso estimado por el modelo. Asumimos que \\(\\epsilon_i\\) es distribuido \\(N(\\mu = 0, \\sigma^2)\\).\n\n\n\nVamos a buscar los valores de \\(\\beta_0\\) y \\(\\beta_1\\) que mejor se ajusten a los datos."
   },
   {
     "objectID": "lectures/lecture3.html#estimación-del-modelo",
@@ -1544,7 +1551,7 @@
     "href": "lectures/lecture3.html#bondad-de-ajuste",
     "title": "Regresión lineal",
     "section": "Bondad de ajuste",
-    "text": "Bondad de ajuste\n¿Qué tan bien se ajusta el modelo a los datos observados?\n\nHay muchas métricas para evaluar el ajuste de un modelo de regresión lineal.\nUna métrica común es la raíz cuadrada del error cuadrático medio (RMSE por sus siglas en inglés):\n\n\n\\[\nRMSE = \\sqrt{\\frac{1}{n} \\sum_{i=1}^n \\hat \\epsilon_i^2}\n\\qquad(4)\\]\nElevamos al cuadrado el error para penalizar los errores negativos y positivos, y penalizar más a los errores grandes.\n\n\nSacamos raíz cuadrada para que la métrica esté en la misma escala que la variable dependiente."
+    "text": "Bondad de ajuste\n¿Qué tan bien se ajusta el modelo a los datos observados?\n\nHay muchas métricas para evaluar el ajuste de un modelo de regresión lineal.\nUna métrica común es la raíz cuadrada del error cuadrático medio (RMSE por sus siglas en inglés):\n\n\n\\[\nRMSE = \\sqrt{\\frac{1}{n} \\sum_{i=1}^n \\hat \\epsilon_i^2}\n\\tag{4}\\]\nElevamos al cuadrado el error para penalizar los errores negativos y positivos, y penalizar más a los errores grandes.\n\n\nSacamos raíz cuadrada para que la métrica esté en la misma escala que la variable dependiente."
   },
   {
     "objectID": "lectures/lecture3.html#rmse",
@@ -1621,7 +1628,7 @@
     "href": "lectures/lecture3.html#rendimientos-de-la-escolaridad-1",
     "title": "Regresión lineal",
     "section": "Rendimientos de la escolaridad",
-    "text": "Rendimientos de la escolaridad\n```{r}\n#| results: asis\n\n# Ojo para producir esta tabla en Quarto. Necesitamos:\n# 1. Incluir la opción etable(..., markdown = T)\n# 2. Usar `results: asis` en la opciones del chunk (ver arriba)\n\netable(\n    ingresos_fit,\n    poblacion_fit,\n    title = \"Modelo de regresión lineal\",\n    fitstat = ~ n + r2 + my + f,\n    markdown = T,\n    headers = list(\"Simulación\" = 1, \"ENIGH 2022ls \" = 1)\n) \n```\n\n\n\n\n\nEn promedio, un año adicional de escolaridad está relacionado con un ingreso adicional de $571 pesos al mes.\nEn promedio, una persona sin escolaridad tiene un ingreso mensual de $1,364.\n\n\\(R^2\\) es una métrica de bondad de ajuste que mide la proporción de la varianza de la variable dependiente que es explicada por el modelo.\n\nLa escolaridad explica el 12% de la variación del ingreso en la población, mientras que el modelo simulado explica el 70% de la variación del ingreso.\nEsto es esperado, porque definimos el modelo simulado de tal manera que la escolaridad es la única variable que afecta el ingreso."
+    "text": "Rendimientos de la escolaridad\n```{r}\n#| results: asis\n\n# Ojo para producir esta tabla en Quarto. Necesitamos:\n# 1. Incluir la opción etable(..., markdown = T)\n# 2. Usar `results: asis` en la opciones del chunk (ver arriba)\n\netable(\n    ingresos_fit,\n    poblacion_fit,\n    title = \"Modelo de regresión lineal\",\n    fitstat = ~ n + r2 + my + f,\n    markdown = T,\n    headers = list(\"Simulación\" = 1, \"ENIGH 2022ls \" = 1)\n) \n```\n\n\n\n\n\nEn promedio, un año adicional de escolaridad está relacionado con un ingreso adicional de $571 pesos al mes.\nEn promedio, una persona sin escolaridad tiene un ingreso mensual de $1,364.\n\\(R^2\\) es una métrica de bondad de ajuste que mide la proporción de la varianza de la variable dependiente que es explicada por el modelo.\n\nLa escolaridad explica el 12% de la variación del ingreso en la población, mientras que el modelo simulado explica el 70% de la variación del ingreso.\nEsto es esperado, porque definimos el modelo simulado de tal manera que la escolaridad es la única variable que afecta el ingreso."
   },
   {
     "objectID": "lectures/lecture3.html#variabilidad-en-los-estimadores",
@@ -1649,7 +1656,7 @@
     "href": "lectures/lecture3.html#variabilidad-en-los-estimadores-2",
     "title": "Regresión lineal",
     "section": "Variabilidad en los estimadores",
-    "text": "Variabilidad en los estimadores\n\nsimulaciones_long &lt;- simulaciones |&gt;\n    pivot_longer(\n        cols = c(intercept, escolaridad),\n        names_to = \"coef\",\n        values_to = \"valor\"\n    ) \n\n\nsimulaciones_long |&gt;\n    ggplot(aes(x = valor)) +\n    geom_histogram(\n        aes(y = ..density..),\n        bins = 50,\n        fill = \"lightblue\",\n        color = \"black\"\n    ) +\n    geom_density(\n        aes(y = ..density..),\n        color = \"blue\"\n    ) +\n    # Add means\n    geom_vline(\n        data = simulaciones_long |&gt;\n            summarise(\n                .by = coef,\n                mean = mean(valor)\n            ),\n        aes(xintercept = mean),\n        color = \"red\",\n        linetype = \"dashed\"\n    ) +\n    facet_wrap(~ coef, scales = \"free\") +\n    labs(\n        x = \"Valor del coeficiente\",\n        y = \"Densidad\",\n        title = \"Distribución de los coeficientes MCO\",\n        subtitle = \"10,000 simulaciones, n = 1,000\"\n    )\n\n\n\n\n\n\n\n\n\n\n\nLos coeficientes de MCO siguen una distribución normal.\n\nEsto sigue de que su interpretación es promedio.\n\n\n\n¡La media de los coeficientes estimados es igual al verdadero valor de los coeficientes!\n\nEsto es una propiedad de los estimadores de MCO: son insesgados.\nEsto significa que, en promedio, el estimador de MCO es igual al verdadero valor del parámetro.\n\n\nLa inferencia de los coeficientes sigue de la misma manera que una prueba de hipótesis de un promedio."
+    "text": "Variabilidad en los estimadores\n\nsimulaciones_long &lt;- simulaciones |&gt;\n    pivot_longer(\n        cols = c(intercept, escolaridad),\n        names_to = \"coef\",\n        values_to = \"valor\"\n    ) \n\n\nsimulaciones_long |&gt;\n    ggplot(aes(x = valor)) +\n    geom_histogram(\n        aes(y = ..density..),\n        bins = 50,\n        fill = \"lightblue\",\n        color = \"black\"\n    ) +\n    geom_density(\n        aes(y = ..density..),\n        color = \"blue\"\n    ) +\n    # Add means\n    geom_vline(\n        data = simulaciones_long |&gt;\n            summarise(\n                .by = coef,\n                mean = mean(valor)\n            ),\n        aes(xintercept = mean),\n        color = \"red\",\n        linetype = \"dashed\"\n    ) +\n    facet_wrap(~ coef, scales = \"free\") +\n    labs(\n        x = \"Valor del coeficiente\",\n        y = \"Densidad\",\n        title = \"Distribución de los coeficientes MCO\",\n        subtitle = \"10,000 simulaciones, n = 1,000\"\n    )\n\n\n\n\n\n\n\n\n\n\n\nLos coeficientes de MCO siguen una distribución normal.\n\nEsto sigue de que su interpretación es promedio.\n\n¡La media de los coeficientes estimados es igual al verdadero valor de los coeficientes!\n\nEsto es una propiedad de los estimadores de MCO: son insesgados.\nEsto significa que, en promedio, el estimador de MCO es igual al verdadero valor del parámetro.\n\nLa inferencia de los coeficientes sigue de la misma manera que una prueba de hipótesis de un promedio."
   },
   {
     "objectID": "lectures/lecture3.html#inferencia-para-coeficientes-1",
@@ -1663,7 +1670,7 @@
     "href": "lectures/lecture3.html#educación-e-ingresos",
     "title": "Regresión lineal",
     "section": "Educación e ingresos",
-    "text": "Educación e ingresos\nQueremos estimar el efecto de la escolaridad en los ingresos.\n\nSin embargo, puede haber una variable habilidad que determina tanto la escolaridad como el ingreso.\n\n\n\n\n\n\n\n\n\n\n\n\n¿Cómo afectaría la omisión de la variable habilidad a la estimación del modelo de regresión lineal?"
+    "text": "Educación e ingresos\nQueremos estimar el efecto de la escolaridad en los ingresos.\n\nSin embargo, puede haber una variable habilidad que determina tanto la escolaridad como el ingreso.\n\n\n\n\n\n\n\n\n\n\n\n\n\n¿Cómo afectaría la omisión de la variable habilidad a la estimación del modelo de regresión lineal?"
   },
   {
     "objectID": "lectures/lecture3.html#sesgo-por-variable-omitida-1",
@@ -1684,14 +1691,14 @@
     "href": "lectures/lecture3.html#regresión-lineal-múltiple-1",
     "title": "Regresión lineal",
     "section": "Regresión lineal múltiple",
-    "text": "Regresión lineal múltiple\n\nEn el ejemplo de variable omitida, definimos una variable habilidad que afecta tanto a la escolaridad como a el ingreso.\n\nPara evitar el sesgo por variable omitida, simplemente incluimos la variable habilidad en el modelo de regresión lineal:\n\nAcabamos con un modelo con dos variables independientes, sin hablar mucho de la teoría detrás de la regresión lineal múltiple.\n\n\n\n\nEn esta sección, quiero formalizar el concepto de regresión lineal múltiple y su interpretación."
+    "text": "Regresión lineal múltiple\n\nEn el ejemplo de variable omitida, definimos una variable habilidad que afecta tanto a la escolaridad como a el ingreso.\nPara evitar el sesgo por variable omitida, simplemente incluimos la variable habilidad en el modelo de regresión lineal:\n\nAcabamos con un modelo con dos variables independientes, sin hablar mucho de la teoría detrás de la regresión lineal múltiple.\n\n\n\nEn esta sección, quiero formalizar el concepto de regresión lineal múltiple y su interpretación."
   },
   {
     "objectID": "lectures/lecture3.html#regresión-lineal-múltiple-2",
     "href": "lectures/lecture3.html#regresión-lineal-múltiple-2",
     "title": "Regresión lineal",
     "section": "Regresión lineal múltiple",
-    "text": "Regresión lineal múltiple\nSupongamos que queremos estimar el modelo de regresión lineal:\n\n\\[\ny_i = \\beta_0 + \\beta_1 x_{i} + \\beta_2 c_{i} + \\epsilon_i\n\\qquad(5)\\]\n\n\nDonde:\n\n\\(y_i\\) es la variable dependiente: el ingreso de la persona \\(i\\),\n\\(x_i\\) es la variable independiente de interés: la escolaridad de la persona \\(i\\),\n\\(c_i\\) es una variable independiente de control: la habilidad de la persona \\(i\\)\n\n\n\nDecimos que el modelo en la Ecuación 5 es lineal porque la variable dependiente es una combinación lineal de las variables independientes.\n\n\nY decimos que es múltiple porque tiene más de una variable independiente.\n\n\nEl tratamiento de este tipo de modelos es muy similar al de regresión lineal simple, pero hay que tener cuidado con la interpretación de los coeficientes."
+    "text": "Regresión lineal múltiple\nSupongamos que queremos estimar el modelo de regresión lineal:\n\n\\[\ny_i = \\beta_0 + \\beta_1 x_{i} + \\beta_2 c_{i} + \\epsilon_i\n\\tag{5}\\]\n\n\nDonde:\n\n\\(y_i\\) es la variable dependiente: el ingreso de la persona \\(i\\),\n\\(x_i\\) es la variable independiente de interés: la escolaridad de la persona \\(i\\),\n\\(c_i\\) es una variable independiente de control: la habilidad de la persona \\(i\\)\n\n\n\nDecimos que el modelo en la Ecuación 5 es lineal porque la variable dependiente es una combinación lineal de las variables independientes.\n\n\nY decimos que es múltiple porque tiene más de una variable independiente.\n\n\nEl tratamiento de este tipo de modelos es muy similar al de regresión lineal simple, pero hay que tener cuidado con la interpretación de los coeficientes."
   },
   {
     "objectID": "lectures/lecture3.html#interpretación-de-los-coeficientes",
@@ -1726,7 +1733,7 @@
     "href": "lectures/lecture3.html#interpretación-de-los-coeficientes-1",
     "title": "Regresión lineal",
     "section": "Interpretación de los coeficientes",
-    "text": "Interpretación de los coeficientes\n\nAgregar edad y sexo alivia la preocupación de que puedan estar sesgando el estimador del rendimiento de la escolaridad.\n\nSin embargo, cambiará la interpretación de los coeficientes:\n\nEl intercepto en la columna (2), ahora representa el ingreso promedio de una persona sin educación y de edad = 0. Este estimador carece de sentido en este contexto.\nEl coeficiente de escolaridad en la columna (2) indica que un año adicional de escolaridad está asociado con un aumento de $655 en el ingreso, dejando la edad constante.\n\n\n\nSexo es una variable dicotómica.\n\nEl intercepto de la columna (3) representa el ingreso promedio de un hombre sin escolaridad.\nEl coeficiente de escolaridad en la columna (3) indica que un año adicional de escolaridad está asociado con un aumento de $586 en el ingreso, dejando el sexo constante.\nEl coeficiente de sexo indica que, en promedio, las mujeres tienen un ingreso $3,100 menor que los hombres, dejando la escolaridad constante.\n\n\nAl incluir ambas variables, el coeficiente de escolaridad en la columna (4) indica que un año adicional de escolaridad está asociado con un aumento de $672.6 en el ingreso, dejando las demás variables constantes."
+    "text": "Interpretación de los coeficientes\n\nAgregar edad y sexo alivia la preocupación de que puedan estar sesgando el estimador del rendimiento de la escolaridad.\nSin embargo, cambiará la interpretación de los coeficientes:\n\nEl intercepto en la columna (2), ahora representa el ingreso promedio de una persona sin educación y de edad = 0. Este estimador carece de sentido en este contexto.\nEl coeficiente de escolaridad en la columna (2) indica que un año adicional de escolaridad está asociado con un aumento de $655 en el ingreso, dejando la edad constante.\n\nSexo es una variable dicotómica.\n\nEl intercepto de la columna (3) representa el ingreso promedio de un hombre sin escolaridad.\nEl coeficiente de escolaridad en la columna (3) indica que un año adicional de escolaridad está asociado con un aumento de $586 en el ingreso, dejando el sexo constante.\nEl coeficiente de sexo indica que, en promedio, las mujeres tienen un ingreso $3,100 menor que los hombres, dejando la escolaridad constante.\n\nAl incluir ambas variables, el coeficiente de escolaridad en la columna (4) indica que un año adicional de escolaridad está asociado con un aumento de $672.6 en el ingreso, dejando las demás variables constantes."
   },
   {
     "objectID": "lectures/lecture3.html#bondad-de-ajuste-1",
@@ -1740,7 +1747,7 @@
     "href": "lectures/lecture3.html#resumen",
     "title": "Regresión lineal",
     "section": "Resumen",
-    "text": "Resumen\n\nLa regresión lineal múltiple es una extensión de la regresión lineal simple, que permite incluir más de una variable independiente.\nLa interpretación de los coeficientes cambia, porque ahora representan el efecto de la variable independiente en la variable dependiente, dejando las demás variables constantes.\nLa regresión lineal múltiple es útil para controlar por variables que pueden estar sesgando el estimador de la variable de interés.\n\nMuy importante: sin importar cuántos controles agreguemos, siempre habrá una variable omitida que puede estar sesgando los resultados.\n\n\nPara esto, hay métodos experimentales y cuasi-experimentales que pueden ayudar a identificar el efecto causal de una variable sobre otra.\n\nTristemente, no podremos cubrir estos métodos en este curso.\nPero Cunningham (2021) es un excelente libro para aprender más sobre inferencia causal."
+    "text": "Resumen\n\nLa regresión lineal múltiple es una extensión de la regresión lineal simple, que permite incluir más de una variable independiente.\nLa interpretación de los coeficientes cambia, porque ahora representan el efecto de la variable independiente en la variable dependiente, dejando las demás variables constantes.\nLa regresión lineal múltiple es útil para controlar por variables que pueden estar sesgando el estimador de la variable de interés.\n\nMuy importante: sin importar cuántos controles agreguemos, siempre habrá una variable omitida que puede estar sesgando los resultados.\n\nPara esto, hay métodos experimentales y cuasi-experimentales que pueden ayudar a identificar el efecto causal de una variable sobre otra.\n\nTristemente, no podremos cubrir estos métodos en este curso.\nPero Cunningham (2021) es un excelente libro para aprender más sobre inferencia causal."
   },
   {
     "objectID": "lectures/lecture3.html#motivación-1",
@@ -1796,7 +1803,7 @@
     "href": "lectures/lecture3.html#variables-dicotómicas-1",
     "title": "Regresión lineal",
     "section": "Variables dicotómicas",
-    "text": "Variables dicotómicas\nYa incluímos la variable sexo en el modelo de regresión lineal múltiple.\n\n\nA pesar de que sexo está codificada como un factor en la tabla poblacion, la pudimos incluir en el modelo, y R la interpretó como una variable dicotómica.\n\nEn particular usó, sex == \"Female\" como variable independiente.\nEsto nos permite interpretar el coeficiente de sexo como el efecto diferencial de ser mujer en el ingreso, todo lo demás constante."
+    "text": "Variables dicotómicas\nYa incluímos la variable sexo en el modelo de regresión lineal múltiple.\n\nA pesar de que sexo está codificada como un factor en la tabla poblacion, la pudimos incluir en el modelo, y R la interpretó como una variable dicotómica.\n\nEn particular usó, sex == \"Female\" como variable independiente.\nEsto nos permite interpretar el coeficiente de sexo como el efecto diferencial de ser mujer en el ingreso, todo lo demás constante."
   },
   {
     "objectID": "lectures/lecture3.html#discriminación-por-género",
@@ -1817,7 +1824,7 @@
     "href": "lectures/lecture3.html#modelo-de-probabilidad-lineal",
     "title": "Regresión lineal",
     "section": "Modelo de probabilidad lineal",
-    "text": "Modelo de probabilidad lineal\nEl modelo que estimaremos es:\n\\[\ny_i = \\alpha + \\tau x_i + \\epsilon_i\n\\qquad(6)\\]\nDonde:\n\n\\(y_i\\) es la variable dependiente: si la candidata \\(i\\) fue promovida,\n\\(x_i\\) es la variable independiente de interés: si la candidata \\(i\\) es mujer,\n\\(\\alpha\\) es el intercepto: la tasa (o probabilidad) de promoción cuando \\(X_i = 0\\), es decir, cuando el candidato es hombre.\n\\(\\tau\\) es el coeficiente de la variable independiente: la diferencia en la tasa de promoción entre hombres y mujeres.\n\n\nPor que el sexo de la candidata es aleatorio y ortogonal a las demás características de la candidata, podemos decir que \\(\\tau\\) es el efecto causal de que la candidata sea mujer en la probabilidad de promoción.\n\nDecimos que el modelo descrito en la Ecuación 6 es un modelo de probabilidad lineal porque la variable dependiente es una variable dicotómica (0 o 1)."
+    "text": "Modelo de probabilidad lineal\nEl modelo que estimaremos es:\n\\[\ny_i = \\alpha + \\tau x_i + \\epsilon_i\n\\tag{6}\\]\nDonde:\n\n\\(y_i\\) es la variable dependiente: si la candidata \\(i\\) fue promovida,\n\\(x_i\\) es la variable independiente de interés: si la candidata \\(i\\) es mujer,\n\\(\\alpha\\) es el intercepto: la tasa (o probabilidad) de promoción cuando \\(X_i = 0\\), es decir, cuando el candidato es hombre.\n\\(\\tau\\) es el coeficiente de la variable independiente: la diferencia en la tasa de promoción entre hombres y mujeres.\n\n\nPor que el sexo de la candidata es aleatorio y ortogonal a las demás características de la candidata, podemos decir que \\(\\tau\\) es el efecto causal de que la candidata sea mujer en la probabilidad de promoción.\n\nDecimos que el modelo descrito en la Ecuación 6 es un modelo de probabilidad lineal porque la variable dependiente es una variable dicotómica (0 o 1)."
   },
   {
     "objectID": "lectures/lecture3.html#estimación-1",
@@ -1831,7 +1838,7 @@
     "href": "lectures/lecture3.html#interpretación-1",
     "title": "Regresión lineal",
     "section": "Interpretación",
-    "text": "Interpretación\n\nLa probabilidad de promoción para un hombre es de 87%.\n\nEl efecto causal de ser mujer en la probabilidad de promoción es de -0.29.\n\nEste efecto es significativo al 5%."
+    "text": "Interpretación\n\nLa probabilidad de promoción para un hombre es de 87%.\nEl efecto causal de ser mujer en la probabilidad de promoción es de -0.29.\n\nEste efecto es significativo al 5%."
   },
   {
     "objectID": "lectures/lecture3.html#rendimiento-de-la-escolaridad-por-género",
@@ -1845,7 +1852,7 @@
     "href": "lectures/lecture3.html#modelo-de-regresión-lineal-con-interacción",
     "title": "Regresión lineal",
     "section": "Modelo de regresión lineal con interacción",
-    "text": "Modelo de regresión lineal con interacción\nPara estimar el rendimiento de la escolaridad por género, podemos usar un modelo de regresión lineal con interacción descrito por:\n\\[\ny_i = \\beta_0 + \\beta_1 e_i + \\beta_2 s_i + \\beta_3 (e_i \\times s_i)  + \\epsilon_i\n\\qquad(7)\\]\nDonde:\n\n\\(y_i\\) es la variable dependiente: el ingreso de la persona \\(i\\),\n\\(e_i\\) es la variable independiente de interés: los años de escolaridad de la persona \\(i\\),\n\\(s_i\\) es una variable dicotómica que toma el valor 1 si la persona es mujer y 0 si es hombre.\nEl término \\(e_i \\times s_i\\) es el producto de las dos variables independientes, que en regresión llamamos: interacción entre sexo y educación. Usar la interacción nos permite estimar un rendimiento diferencial de la escolaridad para mujeres respecto de hombres."
+    "text": "Modelo de regresión lineal con interacción\nPara estimar el rendimiento de la escolaridad por género, podemos usar un modelo de regresión lineal con interacción descrito por:\n\\[\ny_i = \\beta_0 + \\beta_1 e_i + \\beta_2 s_i + \\beta_3 (e_i \\times s_i)  + \\epsilon_i\n\\tag{7}\\]\nDonde:\n\n\\(y_i\\) es la variable dependiente: el ingreso de la persona \\(i\\),\n\\(e_i\\) es la variable independiente de interés: los años de escolaridad de la persona \\(i\\),\n\\(s_i\\) es una variable dicotómica que toma el valor 1 si la persona es mujer y 0 si es hombre.\nEl término \\(e_i \\times s_i\\) es el producto de las dos variables independientes, que en regresión llamamos: interacción entre sexo y educación. Usar la interacción nos permite estimar un rendimiento diferencial de la escolaridad para mujeres respecto de hombres."
   },
   {
     "objectID": "lectures/lecture3.html#coeficientes",
@@ -1866,21 +1873,21 @@
     "href": "lectures/lecture3.html#interpretación-2",
     "title": "Regresión lineal",
     "section": "Interpretación",
-    "text": "Interpretación\n\n\nEn promedio el rendimiento de la escolaridad es $18.5 menor para las mujeres que para los hombres.\nEl efecto es significativo al 5%."
+    "text": "Interpretación\n\nEn promedio el rendimiento de la escolaridad es $18.5 menor para las mujeres que para los hombres.\nEl efecto es significativo al 5%."
   },
   {
     "objectID": "lectures/lecture3.html#transformación-polinomial",
     "href": "lectures/lecture3.html#transformación-polinomial",
     "title": "Regresión lineal",
     "section": "Transformación polinomial",
-    "text": "Transformación polinomial\nRecordemos de la sección de estadística descriptiva que estimamos el ingreso promedio por escolaridad.\n\n\n\nNo summary function supplied, defaulting to `mean_se()`\n`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = \"cs\")'\n\n\n\n\n\n\n\n\n\nLa relación entre escolaridad e ingreso parece ser no lineal: para algunos años de escolaridad, el rendimiento es mayor que para otros: la pendiente de la línea de regresión cambia.\nLa regresión no paramétrica modela bien esta relación no lineal, pero no nos da la información sobre el rendimiento de la escolaridad que queremos."
+    "text": "Transformación polinomial\nRecordemos de la sección de estadística descriptiva que estimamos el ingreso promedio por escolaridad.\n\n\n\nNo summary function supplied, defaulting to `mean_se()`\n`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = \"cs\")'\n\n\n\n\n\n\n\n\n\n\nLa relación entre escolaridad e ingreso parece ser no lineal: para algunos años de escolaridad, el rendimiento es mayor que para otros: la pendiente de la línea de regresión cambia.\nLa regresión no paramétrica modela bien esta relación no lineal, pero no nos da la información sobre el rendimiento de la escolaridad que queremos."
   },
   {
     "objectID": "lectures/lecture3.html#modelo",
     "href": "lectures/lecture3.html#modelo",
     "title": "Regresión lineal",
     "section": "Modelo",
-    "text": "Modelo\nPodemos incluir el efecto no lineal de la escolaridad usando una versión de la ecuación de Mincer:\n\\[\ny_i = \\beta_0 + \\beta_1 e_i + \\beta_2 e_i^2 + \\epsilon_i\n\\qquad(8)\\]\n\nDecimos que el modelo {Ecuación 8} sigue siendo un modelo lineal porque la transformación que hicimos a la variable independiente entra de manera lineal al modelo."
+    "text": "Modelo\nPodemos incluir el efecto no lineal de la escolaridad usando una versión de la ecuación de Mincer:\n\\[\ny_i = \\beta_0 + \\beta_1 e_i + \\beta_2 e_i^2 + \\epsilon_i\n\\tag{8}\\]\n\nDecimos que el modelo {Ecuación 8} sigue siendo un modelo lineal porque la transformación que hicimos a la variable independiente entra de manera lineal al modelo."
   },
   {
     "objectID": "lectures/lecture3.html#estimación-3",
@@ -1915,13 +1922,13 @@
     "href": "lectures.html",
     "title": "Clases",
     "section": "",
-    "text": "Aquí podrás encontrar el material de las clases que veremos a lo largo del curso. Las presentaciones incluyen el código que genera todos los resultados que veremos en clase. También puedes encontrar el código fuente en la página de GitHub.\nSi tienes alguna duda, no dudes en contactarme.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n\n19 mar 2025\n\n\n\n\n\nlecture1.qmd\n\n\n\n\n\n\n\n\n\n\n\n\n\nInferencia estadística\n\n\nClase 2\n\n\n\n26 mar 2025\n\n\n\n\n\nlecture2.qmd\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegresión lineal\n\n\nClase 3\n\n\n\n2 abr 2025\n\n\n\n\n\nlecture3.qmd\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredicción, clasificación y pronóstico\n\n\nClase 4\n\n\n\n30 abr 2025\n\n\n\n\n\nlecture4.qmd\n\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Aquí podrás encontrar el material de las clases que veremos a lo largo del curso. Las presentaciones incluyen el código que genera todos los resultados que veremos en clase. También puedes encontrar el código fuente en la página de GitHub.\nSi tienes alguna duda, no dudes en contactarme.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR y el Tidyverse\n\n\nClase 1\n\n\n\n19 mar 2025\n\n\n\n\nlecture1.qmd\n\n\n\n\n\n\n\n\n\n\n\nInferencia estadística\n\n\nClase 2\n\n\n\n26 mar 2025\n\n\n\n\nlecture2.qmd\n\n\n\n\n\n\n\n\n\n\n\nRegresión lineal\n\n\nClase 3\n\n\n\n2 abr 2025\n\n\n\n\nlecture3.qmd\n\n\n\n\n\n\n\n\n\n\n\nPredicción, clasificación y pronóstico\n\n\nClase 4\n\n\n\n30 abr 2025\n\n\n\n\nlecture4.qmd\n\n\n\n\nNo hay resultados\nReutilizaciónCC BY-NC 4.0Cómo citarBibTeX@misc{degetau2025,\n  author = {Degetau, Esteban},\n  publisher = {Instituto Mexicano del Seguro Social},\n  title = {Herramientas estadísticas en R},\n  date = {2025-05-01},\n  url = {https://estebandegetau.github.io/Statistical-tools-in-R/lectures.html},\n  langid = {es}\n}\nPor favor, cita este trabajo como:\nDegetau, Esteban. 2025. “Herramientas estadísticas en R.”\nInstituto Mexicano del Seguro Social. https://estebandegetau.github.io/Statistical-tools-in-R/lectures.html."
   },
   {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Recursos",
     "section": "",
-    "text": "Algunos recursos útiles para el curso son:\n\nBase R\nTidyverse\n\nData Import\nData Transformation\nData Visualization\n\nQuarto\nMuchas más en Posit Cheatsheets"
+    "text": "Algunos recursos útiles para el curso son:\n\nBase R\nTidyverse\n\nData Import\nData Transformation\nData Visualization\n\nQuarto\nMuchas más en Posit Cheatsheets\n\n\n\n\nReutilizaciónCC BY-NC 4.0Cómo citarBibTeX@misc{degetau2025,\n  author = {Degetau, Esteban},\n  publisher = {Instituto Mexicano del Seguro Social},\n  title = {Herramientas estadísticas en R},\n  date = {2025-05-01},\n  url = {https://estebandegetau.github.io/Statistical-tools-in-R/resources.html},\n  langid = {es}\n}\nPor favor, cita este trabajo como:\nDegetau, Esteban. 2025. “Herramientas estadísticas en R.”\nInstituto Mexicano del Seguro Social. https://estebandegetau.github.io/Statistical-tools-in-R/resources.html."
   }
 ]

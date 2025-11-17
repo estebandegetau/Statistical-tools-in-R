@@ -6,17 +6,17 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
-<meta name="author" content="Esteban Degetau">
-<title>Regresión lineal</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
-<style>
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
+
+  <meta name="author" content="Esteban Degetau">
+  <title>Regresión lineal</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,8 +29,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -41,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -114,12 +115,12 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
-<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-<style type="text/css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7ead17a971821284b669362c0526ea00.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -212,7 +213,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Regresión lineal</h1>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Regresión lineal</h1>
   <p class="subtitle">Clase 3</p>
 
 <div class="quarto-title-authors">
@@ -224,30 +226,46 @@ Esteban Degetau
 </div>
 
   <p class="date">2 de abril de 2025</p>
-</section><section><section id="motivación" class="title-slide slide level1 center"><h1>Motivación</h1>
+</section>
+<section>
+<section id="motivación" class="title-slide slide level1 center">
+<h1>Motivación</h1>
 
-</section><section id="pregunta-de-investigación" class="slide level2"><h2>Pregunta de investigación</h2>
+</section>
+<section id="pregunta-de-investigación" class="slide level2">
+<h2>Pregunta de investigación</h2>
 <p>Imaginemos que nos interesa estudiar la relación entre la escolaridad y el ingreso.</p>
 <p>En particular, queremos estimar los rendimientos de un año adicional de escolaridad en los ingresos.</p>
-</section><section id="datos" class="slide level2"><h2>Datos</h2>
+</section>
+<section id="datos" class="slide level2">
+<h2>Datos</h2>
 <p>La Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH) tiene información sobre los ingresos de los hogares y la escolaridad de los miembros de los hogares.</p>
 <ul>
 <li class="fragment"><p>Tomé a las personas que están en edad de trabajar en la ENIGH 2022: entre 18 y 65 años.</p></li>
 <li class="fragment"><p>Sumé todos los ingresos que reportó cada persona.</p></li>
 <li class="fragment"><p>Creé una tabla que se llama <code>poblacion</code> que contiene los ingresos, el nivel aprobado, la edad y el sexo de cada persona.</p></li>
 <li class="fragment"><p>Adicionalmente, creé una variable que se llama <code>escolaridad</code> que contiene el número de años de escolaridad aprobados por cada persona.</p></li>
-</ul></section></section><section><section id="exploración-de-los-datos" class="title-slide slide level1 center"><h1>Exploración de los datos</h1>
+</ul>
+</section></section>
+<section>
+<section id="exploración-de-los-datos" class="title-slide slide level1 center">
+<h1>Exploración de los datos</h1>
 
-</section><section id="exploración-de-los-datos-1" class="slide level2"><h2>Exploración de los datos</h2>
+</section>
+<section id="exploración-de-los-datos-1" class="slide level2">
+<h2>Exploración de los datos</h2>
 <p>Antes de estimar cualquier modelo, es importante entender cómo se distribuyen los datos.</p>
 <p>Una lista de preguntas para responder antes de estimar:</p>
 <ul>
 <li class="fragment"><p>¿Cómo se distribuyen las variables de interés?</p></li>
 <li class="fragment"><p>¿Cómo trataremos la presencia de datos atípicos?</p></li>
 <li class="fragment"><p>¿Qué otras variables pueden ser importantes para incluir en el modelo?</p></li>
-</ul></section><section id="descripción-de-los-datos-por-nivel-aprobado" class="slide level2"><h2>Descripción de los datos por nivel aprobado</h2>
+</ul>
+</section>
+<section id="descripción-de-los-datos-por-nivel-aprobado" class="slide level2">
+<h2>Descripción de los datos por nivel aprobado</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
 <span id="cb1-2"><a></a>    <span class="fu">summarise</span>(</span>
 <span id="cb1-3"><a></a>        <span class="at">.by =</span> nivelaprob,</span>
 <span id="cb1-4"><a></a>        <span class="at">n =</span> <span class="fu">n</span>(),</span>
@@ -256,10 +274,11 @@ Esteban Degetau
 <span id="cb1-7"><a></a>        <span class="at">poblacion =</span> <span class="fu">sum</span>(factor),</span>
 <span id="cb1-8"><a></a>        <span class="at">mujeres =</span> <span class="fu">mean</span>(sexo <span class="sc">==</span> <span class="st">"Mujer"</span>)</span>
 <span id="cb1-9"><a></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a></a>    <span class="fu">arrange</span>(nivelaprob) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a></a>    <span class="fu">arrange</span>(nivelaprob) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="descripción-de-los-datos-por-nivel-aprobado-output" class="slide level2 output-location-slide"><h2>Descripción de los datos por nivel aprobado</h2><div class="cell output-location-slide">
+</section>
+<section id="descripción-de-los-datos-por-nivel-aprobado-output" class="slide level2 output-location-slide"><h2>Descripción de los datos por nivel aprobado</h2><div class="cell output-location-slide">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 6
    nivelaprob                      n ingreso  edad poblacion mujeres
@@ -275,8 +294,8 @@ Esteban Degetau
  9 Maestría                     2372  26496.  43.0   1268431   0.540
 10 Doctorado                     506  30857.  45.7    302129   0.528</code></pre>
 </div>
-</div></section><section id="clase-factor" class="slide level2"><h2>Clase <code>factor</code>
-</h2>
+</div></section><section id="clase-factor" class="slide level2">
+<h2>Clase <code>factor</code></h2>
 <p>Notemos que la variable <code>nivelaprob</code> tiene clase <code>factor</code>.</p>
 <ul>
 <li class="fragment"><p>Esta clase es útil para representar variables categóricas.</p></li>
@@ -287,11 +306,13 @@ Esteban Degetau
 <div class="fragment">
 <p><img data-src="https://forcats.tidyverse.org/logo.png"></p>
 </div>
-</section><section id="distribución-de-nivel-aprobado" class="slide level2"><h2>Distribución de nivel aprobado</h2>
+</section>
+<section id="distribución-de-nivel-aprobado" class="slide level2">
+<h2>Distribución de nivel aprobado</h2>
 <p>El nivel aprobado determinará el número de años de escolaridad, que será nuestra variable independiente.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nivelaprob, <span class="at">y =</span> factor)) <span class="sc">+</span></span>
 <span id="cb3-3"><a></a>    <span class="fu">stat_summary</span>(</span>
 <span id="cb3-4"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> factor),</span>
@@ -307,22 +328,25 @@ Esteban Degetau
 <span id="cb3-14"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de la población por nivel aprobado"</span>,</span>
 <span id="cb3-15"><a></a>        <span class="at">subtitle =</span> <span class="st">"ENIGH 2022"</span></span>
 <span id="cb3-16"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb3-17"><a></a>    <span class="fu">coord_flip</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-17"><a></a>    <span class="fu">coord_flip</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </div>
-</section><section id="distribución-de-nivel-aprobado-output" class="slide level2 output-location-slide"><h2>Distribución de nivel aprobado</h2><div class="cell output-location-slide">
+</section>
+<section id="distribución-de-nivel-aprobado-output" class="slide level2 output-location-slide"><h2>Distribución de nivel aprobado</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-3-1.png" width="672"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="distribución-del-ingreso" class="slide level2"><h2>Distribución del ingreso</h2>
+</div></section><section id="distribución-del-ingreso" class="slide level2">
+<h2>Distribución del ingreso</h2>
 <p>El ingreso será nuestra variable dependiente.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ingreso)) <span class="sc">+</span></span>
 <span id="cb4-3"><a></a>    <span class="fu">geom_histogram</span>(</span>
 <span id="cb4-4"><a></a>        <span class="fu">aes</span>(<span class="at">y =</span> ..density..),</span>
@@ -340,11 +364,12 @@ Esteban Degetau
 <span id="cb4-16"><a></a>        <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
 <span id="cb4-17"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de los ingresos"</span>,</span>
 <span id="cb4-18"><a></a>        <span class="at">subtitle =</span> <span class="st">"ENIGH 2022"</span></span>
-<span id="cb4-19"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-19"><a></a>    ) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </div>
-</section><section id="distribución-del-ingreso-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso</h2><div class="cell output-location-slide">
+</section>
+<section id="distribución-del-ingreso-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso</h2><div class="cell output-location-slide">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
 ℹ Please use `after_stat(density)` instead.</code></pre>
@@ -359,13 +384,15 @@ Esteban Degetau
 </div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="distribución-del-ingreso-después-de-truncar" class="slide level2"><h2>Distribución del ingreso después de truncar</h2>
+</div></section><section id="distribución-del-ingreso-después-de-truncar" class="slide level2">
+<h2>Distribución del ingreso después de truncar</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>poblacion <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>poblacion <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a></a>    <span class="fu">filter</span>(</span>
 <span id="cb8-3"><a></a>        ingreso <span class="sc">&lt;</span> <span class="fu">quantile</span>(ingreso, <span class="fl">0.99</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb8-4"><a></a>        ingreso <span class="sc">&gt;</span> <span class="fu">quantile</span>(ingreso, <span class="fl">0.01</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
@@ -389,21 +416,24 @@ Esteban Degetau
 <span id="cb8-22"><a></a>        <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
 <span id="cb8-23"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de los ingresos"</span>,</span>
 <span id="cb8-24"><a></a>        <span class="at">subtitle =</span> <span class="st">"ENIGH 2022, truncado al 1% superior e inferior"</span></span>
-<span id="cb8-25"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-25"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="distribución-del-ingreso-después-de-truncar-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso después de truncar</h2><div class="cell output-location-slide">
+</section>
+<section id="distribución-del-ingreso-después-de-truncar-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso después de truncar</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="ingreso-promedio-por-nivel-aprobado" class="slide level2"><h2>Ingreso promedio por nivel aprobado</h2>
+</div></section><section id="ingreso-promedio-por-nivel-aprobado" class="slide level2">
+<h2>Ingreso promedio por nivel aprobado</h2>
 <p>Una manera de aproximarnos a la relación entre escolaridad e ingreso es calcular el ingreso promedio por nivel aprobado.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>niveles <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>niveles <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a></a>    <span class="fu">group_by</span>(nivelaprob) <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a></a>    <span class="fu">summarise</span>(</span>
 <span id="cb9-4"><a></a>        <span class="at">ingreso_prom =</span> <span class="fu">weighted.mean</span>(<span class="at">x =</span> ingreso,<span class="at">w =</span> factor, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
@@ -416,7 +446,7 @@ Esteban Degetau
 <span id="cb9-11"><a></a>        <span class="at">upper =</span> ingreso_prom <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> sd <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
 <span id="cb9-12"><a></a>    ) </span>
 <span id="cb9-13"><a></a>    </span>
-<span id="cb9-14"><a></a>niveles</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-14"><a></a>niveles</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -436,9 +466,11 @@ Esteban Degetau
 </div>
 </div>
 </div>
-</section><section id="ingreso-promedio-por-nivel-aprobado-1" class="slide level2"><h2>Ingreso promedio por nivel aprobado</h2>
+</section>
+<section id="ingreso-promedio-por-nivel-aprobado-1" class="slide level2">
+<h2>Ingreso promedio por nivel aprobado</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>niveles <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>niveles <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nivelaprob, <span class="at">y =</span> ingreso_prom)) <span class="sc">+</span></span>
 <span id="cb11-3"><a></a>    <span class="fu">geom_pointrange</span>(</span>
 <span id="cb11-4"><a></a>        <span class="fu">aes</span>(</span>
@@ -455,17 +487,20 @@ Esteban Degetau
 <span id="cb11-15"><a></a>        <span class="at">y =</span> <span class="st">"Ingreso promedio"</span>,</span>
 <span id="cb11-16"><a></a>        <span class="at">title =</span> <span class="st">"Ingreso promedio por nivel aprobado"</span>,</span>
 <span id="cb11-17"><a></a>        <span class="at">subtitle =</span> <span class="st">"Intervalos de confianza del 95%"</span></span>
-<span id="cb11-18"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-18"><a></a>    ) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="ingreso-promedio-por-nivel-aprobado-1-output" class="slide level2 output-location-slide"><h2>Ingreso promedio por nivel aprobado</h2><div class="cell output-location-slide">
+</section>
+<section id="ingreso-promedio-por-nivel-aprobado-1-output" class="slide level2 output-location-slide"><h2>Ingreso promedio por nivel aprobado</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-7-1.png" width="1152"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-7-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo" class="slide level2"><h2>Distribución del ingreso por nivel aprobado y sexo</h2>
+</div></section><section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo" class="slide level2">
+<h2>Distribución del ingreso por nivel aprobado y sexo</h2>
 <p>A pesar de que los promedios son muy informativos, esconden la distribución de los datos.</p>
 <div class="fragment">
 <p>Adicionalmente, queremos preguntarnos si el ingreso es diferente para hombres y mujeres, <strong>para cada nivel aprobado</strong>.</p>
@@ -479,9 +514,11 @@ Esteban Degetau
 <li class="fragment"><p>Los puntos que están fuera de los brazos son considerados <em>outliers</em>.</p></li>
 </ul>
 </div>
-</section><section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo-1" class="slide level2"><h2>Distribución del ingreso por nivel aprobado y sexo</h2>
+</section>
+<section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo-1" class="slide level2">
+<h2>Distribución del ingreso por nivel aprobado y sexo</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a></a>    <span class="fu">ggplot</span>(</span>
 <span id="cb12-3"><a></a>        <span class="fu">aes</span>(</span>
 <span id="cb12-4"><a></a>            <span class="at">x =</span> nivelaprob, </span>
@@ -496,17 +533,20 @@ Esteban Degetau
 <span id="cb12-13"><a></a>        <span class="at">title =</span> <span class="st">"Distribución del ingreso por nivel aprobado y sexo"</span>,</span>
 <span id="cb12-14"><a></a>        <span class="at">fill =</span> <span class="st">""</span></span>
 <span id="cb12-15"><a></a>    ) <span class="sc">+</span></span>
-<span id="cb12-16"><a></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-16"><a></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo-1-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso por nivel aprobado y sexo</h2><div class="cell output-location-slide">
+</section>
+<section id="distribución-del-ingreso-por-nivel-aprobado-y-sexo-1-output" class="slide level2 output-location-slide"><h2>Distribución del ingreso por nivel aprobado y sexo</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-8-1.png" width="1152"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-8-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="escolaridad-y-edad" class="slide level2"><h2>Escolaridad y edad</h2>
+</div></section><section id="escolaridad-y-edad" class="slide level2">
+<h2>Escolaridad y edad</h2>
 <p>Otra variable que puede ser importante para el ingreso es la edad:</p>
 <ul>
 <li class="fragment"><p>Puede estar correlacionada con escolaridad, porque las personas más viejas han tenido más tiempo para estudiar.</p></li>
@@ -514,7 +554,7 @@ Esteban Degetau
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nivelaprob, <span class="at">y =</span> edad)) <span class="sc">+</span></span>
 <span id="cb13-3"><a></a>    <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb13-4"><a></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
@@ -522,18 +562,21 @@ Esteban Degetau
 <span id="cb13-6"><a></a>        <span class="at">x =</span> <span class="st">"Nivel aprobado"</span>,</span>
 <span id="cb13-7"><a></a>        <span class="at">y =</span> <span class="st">"Edad"</span>,</span>
 <span id="cb13-8"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de la edad por nivel aprobado"</span></span>
-<span id="cb13-9"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-9"><a></a>    ) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </div>
-</section><section id="escolaridad-y-edad-output" class="slide level2 output-location-slide"><h2>Escolaridad y edad</h2><div class="cell output-location-slide">
+</section>
+<section id="escolaridad-y-edad-output" class="slide level2 output-location-slide"><h2>Escolaridad y edad</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="imputación-de-años-de-escolaridad-según-el-nivel-aprobado" class="slide level2"><h2>Imputación de años de escolaridad según el nivel aprobado</h2>
+</div></section><section id="imputación-de-años-de-escolaridad-según-el-nivel-aprobado" class="slide level2">
+<h2>Imputación de años de escolaridad según el nivel aprobado</h2>
 <p>La ENIGH incluye el nivel y el grado de estudios aprobados, reportados por cada persona.</p>
 <div class="fragment">
 <p>Pero no incluye los años de escolaridad.</p>
@@ -545,19 +588,22 @@ Esteban Degetau
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-10-1.png" width="1152"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-10-1.png" width="1152"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section><section id="relación-no-paramétrica-entre-escolaridad-e-ingreso" class="slide level2"><h2>Relación no paramétrica entre escolaridad e ingreso</h2>
+</section>
+<section id="relación-no-paramétrica-entre-escolaridad-e-ingreso" class="slide level2">
+<h2>Relación no paramétrica entre escolaridad e ingreso</h2>
 <p>Decimos que estimamos un modelo <em>no paramétrico</em> cuando le permitimos al modelo que se ajuste a los datos sin imponerle una forma funcional.</p>
 <div class="fragment">
-<p>La función <code><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">ggplot2::geom_smooth()</a></code> ajusta un modelo no paramétrico a los datos, de la siguiente manera:</p>
+<p>La función <code>ggplot2::geom_smooth()</code> ajusta un modelo no paramétrico a los datos, de la siguiente manera:</p>
 <p><span id="eq-np"><span class="math display">\[
 Y_i = f(X_i) + \epsilon_i
-\qquad(1)\]</span></span></p>
+\tag{1}\]</span></span></p>
 <p>donde:</p>
 <ul>
 <li class="fragment"><p><span class="math inline">\(Y_i\)</span> es el variable dependiente: el ingreso de la persona <span class="math inline">\(i\)</span>,</p></li>
@@ -569,9 +615,11 @@ Y_i = f(X_i) + \epsilon_i
 <div class="fragment">
 <p>Dependiendo de las características de los datos, <code>geom_smooth()</code> ajusta diferentes tipos de modelos no paramétricos.</p>
 </div>
-</section><section id="relación-no-paramétrica-entre-escolaridad-e-ingreso-1" class="slide level2"><h2>Relación no paramétrica entre escolaridad e ingreso</h2>
+</section>
+<section id="relación-no-paramétrica-entre-escolaridad-e-ingreso-1" class="slide level2">
+<h2>Relación no paramétrica entre escolaridad e ingreso</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> escolaridad, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
 <span id="cb14-3"><a></a>    <span class="fu">stat_summary</span>() <span class="sc">+</span> <span class="co"># Promedio y IC</span></span>
 <span id="cb14-4"><a></a>    <span class="fu">geom_smooth</span>() <span class="sc">+</span>  <span class="co"># Ajuste no paramétrico</span></span>
@@ -587,46 +635,55 @@ Y_i = f(X_i) + \epsilon_i
 <span id="cb14-14"><a></a>        <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>),</span>
 <span id="cb14-15"><a></a>        <span class="at">labels =</span> scales<span class="sc">::</span>comma,</span>
 <span id="cb14-16"><a></a>        <span class="at">name =</span> <span class="st">"Personas"</span></span>
-<span id="cb14-17"><a></a>    ) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-17"><a></a>    ) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="relación-no-paramétrica-entre-escolaridad-e-ingreso-1-output" class="slide level2 output-location-slide"><h2>Relación no paramétrica entre escolaridad e ingreso</h2><div class="cell output-location-slide">
+</section>
+<section id="relación-no-paramétrica-entre-escolaridad-e-ingreso-1-output" class="slide level2 output-location-slide"><h2>Relación no paramétrica entre escolaridad e ingreso</h2><div class="cell output-location-slide">
 <div class="cell-output cell-output-stderr">
 <pre><code>No summary function supplied, defaulting to `mean_se()`
 `geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-11-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-11-1.png" width="672"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="conclusiones-de-la-exploración" class="slide level2 scrollable"><h2>Conclusiones de la exploración</h2>
+</div></section><section id="conclusiones-de-la-exploración" class="slide level2 scrollable">
+<h2>Conclusiones de la exploración</h2>
 <ol type="1">
 <li class="fragment"><p>Las personas que reportan un nivel aprobado más alto tienen salarios más altos en promedio.</p></li>
 <li class="fragment"><p>Las mujeres reportaron ingresos, dado que tienen el mismo nivel aprobado, en todos los niveles aprobados.</p></li>
 <li class="fragment"><p>La distribución de la edad es diferente para cada nivel aprobado. Las personas sin escolaridad som más viejas.</p></li>
-<li class="fragment">
-<p>No hay una manera perfecta de imputar la escolaridad, pero podemos ver que se acumulan datos en el último grado de cada nivel aprobado, lo que sugiere que esas personas completaron el nivel.</p>
+<li class="fragment"><p>No hay una manera perfecta de imputar la escolaridad, pero podemos ver que se acumulan datos en el último grado de cada nivel aprobado, lo que sugiere que esas personas completaron el nivel.</p>
 <ul>
 <li class="fragment">Esto puede ser importante para la estimación de los rendimientos de la escolaridad: puede ser que aprobar el último grado de un nivel tenga un efecto más grande que aprobar el primer grado de un nivel.</li>
-</ul>
-</li>
+</ul></li>
 <li class="fragment"><p>La imputación de escolaridad parece reflejar correctamente la relación entre escolaridad e ingreso.</p></li>
-</ol></section></section><section><section id="modelo-de-regresión-lineal" class="title-slide slide level1 center"><h1>Modelo de regresión lineal</h1>
+</ol>
+</section></section>
+<section>
+<section id="modelo-de-regresión-lineal" class="title-slide slide level1 center">
+<h1>Modelo de regresión lineal</h1>
 
-</section><section id="modelo-de-regresión-lineal-1" class="slide level2"><h2>Modelo de regresión lineal</h2>
+</section>
+<section id="modelo-de-regresión-lineal-1" class="slide level2">
+<h2>Modelo de regresión lineal</h2>
 <p>Ya sabemos bien cuál es el ingreso promedio por año de escolaridad.</p>
 <div class="fragment">
 <p>Sin embargo, todavía nos falta estimar cuánto aumenta el ingreso por cada año adicional de escolaridad: <strong>el rendimiento de la escolaridad</strong>.</p>
 </div>
-</section><section id="simulación-de-un-modelo-de-regresión-lineal" class="slide level2"><h2>Simulación de un modelo de regresión lineal</h2>
+</section>
+<section id="simulación-de-un-modelo-de-regresión-lineal" class="slide level2">
+<h2>Simulación de un modelo de regresión lineal</h2>
 <p>Imaginemos un mundo en el que el ingreso <strong>solo</strong> depende de la escolaridad.</p>
 <div class="fragment">
 <p>En este mundo, el ingreso se determina como función de la escolaridad de la siguiente manera:</p>
 <p><span id="eq-sim"><span class="math display">\[
 Y_i = 1000 + 200 X_i + \epsilon_i
-\qquad(2)\]</span></span></p>
+\tag{2}\]</span></span></p>
 </div>
 <div class="fragment">
 <p>donde:</p>
@@ -645,9 +702,11 @@ Y_i = 1000 + 200 X_i + \epsilon_i
 <div class="fragment">
 <p>Pero, como hay un error de estimación, no todas las personas con la misma escolaridad tendrán el mismo ingreso.</p>
 </div>
-</section><section id="simulación-de-un-modelo-de-regresión-lineal-1" class="slide level2"><h2>Simulación de un modelo de regresión lineal</h2>
+</section>
+<section id="simulación-de-un-modelo-de-regresión-lineal-1" class="slide level2">
+<h2>Simulación de un modelo de regresión lineal</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb16-2"><a></a></span>
 <span id="cb16-3"><a></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
 <span id="cb16-4"><a></a></span>
@@ -659,23 +718,26 @@ Y_i = 1000 + 200 X_i + \epsilon_i
 <span id="cb16-10"><a></a></span>
 <span id="cb16-11"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
 <span id="cb16-12"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> escolaridad, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
-<span id="cb16-13"><a></a>    <span class="fu">geom_point</span>() </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-13"><a></a>    <span class="fu">geom_point</span>() </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="simulación-de-un-modelo-de-regresión-lineal-1-output" class="slide level2 output-location-slide"><h2>Simulación de un modelo de regresión lineal</h2><div class="cell output-location-slide">
+</section>
+<section id="simulación-de-un-modelo-de-regresión-lineal-1-output" class="slide level2 output-location-slide"><h2>Simulación de un modelo de regresión lineal</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="modelo-de-regresión-lineal-2" class="slide level2"><h2>Modelo de regresión lineal</h2>
+</div></section><section id="modelo-de-regresión-lineal-2" class="slide level2">
+<h2>Modelo de regresión lineal</h2>
 <p>Ahora, si no conociéramos el proceso de generación de datos, podríamos preguntarnos cuál es el rendimiento de la educación es este mundo.</p>
 <div class="fragment">
 <p>Podemos estimar un modelo de regresión lineal, descrito con la siguiente ecuación:</p>
 <p><span id="eq-ols"><span class="math display">\[
 y_i=\beta_0 + \beta_1 x_i + \epsilon_i
-\qquad(3)\]</span></span></p>
+\tag{3}\]</span></span></p>
 </div>
 <div class="fragment">
 <p>donde:</p>
@@ -688,7 +750,9 @@ y_i=\beta_0 + \beta_1 x_i + \epsilon_i
 <div class="fragment">
 <p>Vamos a buscar los valores de <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta_1\)</span> que mejor se ajusten a los datos.</p>
 </div>
-</section><section id="estimación-del-modelo" class="slide level2"><h2>Estimación del modelo</h2>
+</section>
+<section id="estimación-del-modelo" class="slide level2">
+<h2>Estimación del modelo</h2>
 <div id="exm-wrong" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 1</strong></span> Imaginemos que una persona <em>tomadora de decisiones</em> nos propone que:</p>
 <p><span class="math display">\[
@@ -697,18 +761,22 @@ y_i=\beta_0 + \beta_1 x_i + \epsilon_i
 </div>
 <p>Podemos calcular el <em>ingreso estimado</em> <span class="math inline">\(\hat y_i\)</span> de cada persona y el <em>error de estimación</em> <span class="math inline">\(\hat \epsilon_i\)</span>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>ingresos_simulados <span class="ot">&lt;-</span> ingresos_simulados <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>ingresos_simulados <span class="ot">&lt;-</span> ingresos_simulados <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a></a>    <span class="fu">mutate</span>(</span>
 <span id="cb17-3"><a></a>        <span class="at">y_hat_1 =</span> <span class="dv">0</span> <span class="sc">+</span> (<span class="dv">300</span> <span class="sc">*</span> escolaridad),</span>
 <span id="cb17-4"><a></a>        <span class="at">error_1 =</span> ingreso <span class="sc">-</span> y_hat_1</span>
-<span id="cb17-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-5"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="estimación-del-modelo-output" class="slide level2 output-location-slide"><h2>Estimación del modelo</h2><div class="cell output-location-slide">
+</section>
+<section id="estimación-del-modelo-output" class="slide level2 output-location-slide"><h2>Estimación del modelo</h2><div class="cell output-location-slide">
 
-</div></section><section id="estimación-del-modelo-1" class="slide level2"><h2>Estimación del modelo</h2>
+</div></section><section id="estimación-del-modelo-1" class="slide level2">
+<h2>Estimación del modelo</h2>
 
-<img data-src="lecture3_files/figure-html/unnamed-chunk-14-1.png" width="672" class="r-stretch"></section><section id="bondad-de-ajuste" class="slide level2"><h2>Bondad de ajuste</h2>
+<img data-src="lecture3_files/figure-html/unnamed-chunk-14-1.png" width="672" class="r-stretch"></section>
+<section id="bondad-de-ajuste" class="slide level2">
+<h2>Bondad de ajuste</h2>
 <p>¿Qué tan bien se ajusta el modelo a los datos observados?</p>
 <ul>
 <li class="fragment"><p>Hay muchas métricas para evaluar el ajuste de un modelo de regresión lineal.</p></li>
@@ -717,18 +785,20 @@ y_i=\beta_0 + \beta_1 x_i + \epsilon_i
 <div class="fragment">
 <p><span id="eq-rmse"><span class="math display">\[
 RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat \epsilon_i^2}
-\qquad(4)\]</span></span></p>
+\tag{4}\]</span></span></p>
 <p>Elevamos al cuadrado el error para penalizar los errores negativos y positivos, y penalizar más a los errores grandes.</p>
 </div>
 <div class="fragment">
 <p>Sacamos raíz cuadrada para que la métrica esté en la misma escala que la variable dependiente.</p>
 </div>
-</section><section id="rmse" class="slide level2"><h2>RMSE</h2>
+</section>
+<section id="rmse" class="slide level2">
+<h2>RMSE</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a></a>    <span class="fu">summarise</span>(</span>
 <span id="cb18-3"><a></a>        <span class="at">rmse =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_1<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb18-4"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-4"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -744,7 +814,9 @@ RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat \epsilon_i^2}
 <div class="fragment">
 <p>Este error es mayor a la desviación estándar de los ingresos, que es <span class="math inline">\(1,000\)</span>.</p>
 </div>
-</section><section id="estimación-por-mínimos-cuadrados" class="slide level2"><h2>Estimación por mínimos cuadrados</h2>
+</section>
+<section id="estimación-por-mínimos-cuadrados" class="slide level2">
+<h2>Estimación por mínimos cuadrados</h2>
 <p>Mínimos cuadrados ordinarios (MCO) es un método común para estimar los parámetros de un modelo de regresión lineal.</p>
 <div class="fragment">
 <p>Lo que hace es <strong>minimizar</strong> la suma de los cuadrados de los errores de estimación.</p>
@@ -755,21 +827,23 @@ RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^n \hat \epsilon_i^2}
 <div class="fragment">
 <p>Pero no lo haremos aquí, porque R lo hace por nosotros.</p>
 </div>
-</section><section id="estimación-del-modelo-2" class="slide level2"><h2>Estimación del modelo</h2>
-<p>La función base para estimar regresiones por MCO es <code><a href="https://rdrr.io/r/stats/lm.html">stats::lm()</a></code>.</p>
+</section>
+<section id="estimación-del-modelo-2" class="slide level2">
+<h2>Estimación del modelo</h2>
+<p>La función base para estimar regresiones por MCO es <code>stats::lm()</code>.</p>
 <div class="fragment">
 <p>El lenguaje para describirle a R el modelo que queremos estimar es:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>model_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>model_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> datos)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </div>
 <div class="fragment">
 <p>En nuestro caso, el modelo es:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>ingresos_sim_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>ingresos_sim_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
 <span id="cb21-2"><a></a></span>
-<span id="cb21-3"><a></a><span class="fu">summary</span>(ingresos_sim_fit)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a></a><span class="fu">summary</span>(ingresos_sim_fit)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -794,36 +868,42 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-</section><section id="estimación-del-modelo-2-output" class="slide level2 output-location-slide"><h2>Estimación del modelo</h2><div class="cell output-location-slide">
+</section>
+<section id="estimación-del-modelo-2-output" class="slide level2 output-location-slide"><h2>Estimación del modelo</h2><div class="cell output-location-slide">
 
-</div></section><section id="visualización-del-modelo-mco" class="slide level2"><h2>Visualización del modelo MCO</h2>
+</div></section><section id="visualización-del-modelo-mco" class="slide level2">
+<h2>Visualización del modelo MCO</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>ingresos_simulados <span class="ot">&lt;-</span> ingresos_simulados <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>ingresos_simulados <span class="ot">&lt;-</span> ingresos_simulados <span class="sc">|&gt;</span></span>
 <span id="cb23-2"><a></a>    <span class="fu">mutate</span>(</span>
 <span id="cb23-3"><a></a>        <span class="at">y_hat_2 =</span> <span class="fu">fitted</span>(ingresos_sim_fit), <span class="co"># Saca los valores ajustados</span></span>
 <span id="cb23-4"><a></a>        <span class="at">error_2 =</span> <span class="fu">residuals</span>(ingresos_sim_fit) </span>
-<span id="cb23-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-5"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
-<img data-src="lecture3_files/figure-html/unnamed-chunk-19-1.png" width="672" class="r-stretch"></section><section id="visualización-del-modelo-mco-output" class="slide level2 output-location-slide"><h2>Visualización del modelo MCO</h2><div class="cell output-location-slide">
+<img data-src="lecture3_files/figure-html/unnamed-chunk-19-1.png" width="672" class="r-stretch"></section>
+<section id="visualización-del-modelo-mco-output" class="slide level2 output-location-slide"><h2>Visualización del modelo MCO</h2><div class="cell output-location-slide">
 
-</div></section><section id="comparación-de-los-modelos" class="slide level2"><h2>Comparación de los modelos</h2>
+</div></section><section id="comparación-de-los-modelos" class="slide level2">
+<h2>Comparación de los modelos</h2>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 
 </div>
-<img data-src="lecture3_files/figure-html/unnamed-chunk-20-1.png" width="672" class="r-stretch"></section><section id="comparación-de-los-modelos-1" class="slide level2"><h2>Comparación de los modelos</h2>
+<img data-src="lecture3_files/figure-html/unnamed-chunk-20-1.png" width="672" class="r-stretch"></section>
+<section id="comparación-de-los-modelos-1" class="slide level2">
+<h2>Comparación de los modelos</h2>
 <p>Una vez que tenemos los dos modelos, podemos comparar el error de estimación de cada uno.</p>
 <div class="fragment">
 <div class="cell" data-df-print="kable">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>ingresos_simulados <span class="sc">|&gt;</span></span>
 <span id="cb25-2"><a></a>    <span class="fu">summarise</span>(</span>
 <span id="cb25-3"><a></a>        <span class="at">rmse_1 =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_1<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
 <span id="cb25-4"><a></a>        <span class="at">rmse_2 =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(error_2<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb25-5"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-5"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-df-print="kable">
 <div class="cell-output cell-output-stdout">
@@ -837,41 +917,48 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="fragment">
 <p>El modelo estimado con MCO tiene un RMSE más bajo que el modelo propuesto, porque MCO encuentra la línea que minimiza el error de estimación.</p>
 </div>
-</section></section><section><section id="volviendo-a-la-vida-real" class="title-slide slide level1 center"><h1>Volviendo a la vida real</h1>
+</section></section>
+<section>
+<section id="volviendo-a-la-vida-real" class="title-slide slide level1 center">
+<h1>Volviendo a la vida real</h1>
 
-</section><section id="rendimientos-de-la-escolaridad" class="slide level2"><h2>Rendimientos de la escolaridad</h2>
-<p>Para modelos lineales, la función <code><a href="https://lrberge.github.io/fixest/reference/feols.html">fixest::feols()</a></code> tiene mejor rendimiento que <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>, además de que es más fácil presentar resultados usando <code><a href="https://lrberge.github.io/fixest/reference/etable.html">fixest::etable()</a></code>.</p>
+</section>
+<section id="rendimientos-de-la-escolaridad" class="slide level2">
+<h2>Rendimientos de la escolaridad</h2>
+<p>Para modelos lineales, la función <code>fixest::feols()</code> tiene mejor rendimiento que <code>lm()</code>, además de que es más fácil presentar resultados usando <code>fixest::etable()</code>.</p>
 <div class="fragment">
-<p><code>feols()</code> guarda la misma sintaxis que <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>.</p>
+<p><code>feols()</code> guarda la misma sintaxis que <code>lm()</code>.</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(fixest)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(fixest)</span>
 <span id="cb27-2"><a></a></span>
 <span id="cb27-3"><a></a>ingresos_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> ingresos_simulados)</span>
-<span id="cb27-4"><a></a>poblacion_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-4"><a></a>poblacion_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </div>
-</section><section id="rendimientos-de-la-escolaridad-output" class="slide level2 output-location-slide"><h2>Rendimientos de la escolaridad</h2><div class="cell output-location-slide">
+</section>
+<section id="rendimientos-de-la-escolaridad-output" class="slide level2 output-location-slide"><h2>Rendimientos de la escolaridad</h2><div class="cell output-location-slide">
 
-</div></section><section id="rendimientos-de-la-escolaridad-1" class="slide level2"><h2>Rendimientos de la escolaridad</h2>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a></a><span class="in">```{r}</span></span>
-<span id="cb28-2"><a></a><span class="in">#| results: asis</span></span>
+</div></section><section id="rendimientos-de-la-escolaridad-1" class="slide level2">
+<h2>Rendimientos de la escolaridad</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a></a><span class="in">```{r}</span></span>
+<span id="cb28-2"><a></a><span class="co">#| results: asis</span></span>
 <span id="cb28-3"><a></a></span>
-<span id="cb28-4"><a></a><span class="in"># Ojo para producir esta tabla en Quarto. Necesitamos:</span></span>
-<span id="cb28-5"><a></a><span class="in"># 1. Incluir la opción etable(..., markdown = T)</span></span>
-<span id="cb28-6"><a></a><span class="in"># 2. Usar `results: asis` en la opciones del chunk (ver arriba)</span></span>
+<span id="cb28-4"><a></a><span class="co"># Ojo para producir esta tabla en Quarto. Necesitamos:</span></span>
+<span id="cb28-5"><a></a><span class="co"># 1. Incluir la opción etable(..., markdown = T)</span></span>
+<span id="cb28-6"><a></a><span class="co"># 2. Usar `results: asis` en la opciones del chunk (ver arriba)</span></span>
 <span id="cb28-7"><a></a></span>
-<span id="cb28-8"><a></a><span class="in">etable(</span></span>
-<span id="cb28-9"><a></a><span class="in">    ingresos_fit,</span></span>
-<span id="cb28-10"><a></a><span class="in">    poblacion_fit,</span></span>
-<span id="cb28-11"><a></a><span class="in">    title = "Modelo de regresión lineal",</span></span>
-<span id="cb28-12"><a></a><span class="in">    fitstat = ~ n + r2 + my + f,</span></span>
-<span id="cb28-13"><a></a><span class="in">    markdown = T,</span></span>
-<span id="cb28-14"><a></a><span class="in">    headers = list("Simulación" = 1, "ENIGH 2022ls " = 1)</span></span>
-<span id="cb28-15"><a></a><span class="in">) </span></span>
-<span id="cb28-16"><a></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-8"><a></a><span class="fu">etable</span>(</span>
+<span id="cb28-9"><a></a>    ingresos_fit,</span>
+<span id="cb28-10"><a></a>    poblacion_fit,</span>
+<span id="cb28-11"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal"</span>,</span>
+<span id="cb28-12"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
+<span id="cb28-13"><a></a>    <span class="at">markdown =</span> T,</span>
+<span id="cb28-14"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Simulación"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"ENIGH 2022ls "</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
+<span id="cb28-15"><a></a>) </span>
+<span id="cb28-16"><a></a><span class="in">```</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="etable">
 <img src="./images/etable/etable_tex_2025-04-29_1.33194967.png">
 </div>
@@ -879,23 +966,26 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <ul>
 <li class="fragment"><p>En promedio, un año adicional de escolaridad está relacionado con un ingreso adicional de $571 pesos al mes.</p></li>
 <li class="fragment"><p>En promedio, una persona sin escolaridad tiene un ingreso mensual de $1,364.</p></li>
-<li class="fragment">
-<p><span class="math inline">\(R^2\)</span> es una métrica de bondad de ajuste que mide la proporción de la varianza de la variable dependiente que es explicada por el modelo.</p>
+<li class="fragment"><p><span class="math inline">\(R^2\)</span> es una métrica de bondad de ajuste que mide la proporción de la varianza de la variable dependiente que es explicada por el modelo.</p>
 <ul>
 <li class="fragment"><p>La escolaridad explica el 12% de la variación del ingreso en la población, mientras que el modelo simulado explica el 70% de la variación del ingreso.</p></li>
 <li class="fragment"><p>Esto es esperado, porque definimos el modelo simulado de tal manera que la escolaridad es la única variable que afecta el ingreso.</p></li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </div>
-</section></section><section><section id="inferencia-para-coeficientes" class="title-slide slide level1 center"><h1>Inferencia para coeficientes</h1>
+</section></section>
+<section>
+<section id="inferencia-para-coeficientes" class="title-slide slide level1 center">
+<h1>Inferencia para coeficientes</h1>
 
-</section><section id="variabilidad-en-los-estimadores" class="slide level2"><h2>Variabilidad en los estimadores</h2>
+</section>
+<section id="variabilidad-en-los-estimadores" class="slide level2">
+<h2>Variabilidad en los estimadores</h2>
 <p>Estudiaremos la variabilidad de los estimadores de los coeficientes del modelo MCO en el mundo simulado que tenemos.</p>
 <div class="fragment">
 <p>Imaginemos que tomamos métricas de escolaridad y de ingresos en una muestra aleatoria diferente, pero que comparte las características de la población simulada original.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>ingresos_simulados_2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>ingresos_simulados_2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb29-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
 <span id="cb29-3"><a></a>    <span class="at">escolaridad =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">25</span>),</span>
 <span id="cb29-4"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
@@ -911,7 +1001,7 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb29-14"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
 <span id="cb29-15"><a></a>    <span class="at">markdown =</span> T,</span>
 <span id="cb29-16"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Simulación 1"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Simulación 2"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
-<span id="cb29-17"><a></a>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-17"><a></a>) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
@@ -922,10 +1012,12 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="fragment">
 <p>Encontramos que los coeficientes han variado al usar una muestra diferente.</p>
 </div>
-</section><section id="variabilidad-en-los-estimadores-1" class="slide level2"><h2>Variabilidad en los estimadores</h2>
+</section>
+<section id="variabilidad-en-los-estimadores-1" class="slide level2">
+<h2>Variabilidad en los estimadores</h2>
 <p>Ahora cuantificaremos la variabilidad de los estimadores de los coeficientes para muchas muestras aleatorias, para entender cómo se distribuyen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
 <span id="cb30-2"><a></a></span>
 <span id="cb30-3"><a></a>simular_datos <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n =</span> <span class="dv">1000</span>) {</span>
 <span id="cb30-4"><a></a>    <span class="fu">tibble</span>(</span>
@@ -943,14 +1035,16 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb30-16"><a></a>    <span class="at">intercept =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">1</span>),</span>
 <span id="cb30-17"><a></a>    <span class="at">escolaridad =</span> <span class="fu">map_dbl</span>(coef, <span class="dv">2</span>)</span>
 <span id="cb30-18"><a></a>) <span class="sc">|&gt;</span></span>
-<span id="cb30-19"><a></a>    <span class="fu">select</span>(id, intercept, escolaridad) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-19"><a></a>    <span class="fu">select</span>(id, intercept, escolaridad) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="variabilidad-en-los-estimadores-1-output" class="slide level2 output-location-slide"><h2>Variabilidad en los estimadores</h2><div class="cell output-location-slide">
+</section>
+<section id="variabilidad-en-los-estimadores-1-output" class="slide level2 output-location-slide"><h2>Variabilidad en los estimadores</h2><div class="cell output-location-slide">
 
-</div></section><section id="variabilidad-en-los-estimadores-2" class="slide level2 scrollable"><h2>Variabilidad en los estimadores</h2>
+</div></section><section id="variabilidad-en-los-estimadores-2" class="slide level2 scrollable">
+<h2>Variabilidad en los estimadores</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>simulaciones_long <span class="ot">&lt;-</span> simulaciones <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>simulaciones_long <span class="ot">&lt;-</span> simulaciones <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a></a>    <span class="fu">pivot_longer</span>(</span>
 <span id="cb31-3"><a></a>        <span class="at">cols =</span> <span class="fu">c</span>(intercept, escolaridad),</span>
 <span id="cb31-4"><a></a>        <span class="at">names_to =</span> <span class="st">"coef"</span>,</span>
@@ -987,32 +1081,32 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <span id="cb31-35"><a></a>        <span class="at">y =</span> <span class="st">"Densidad"</span>,</span>
 <span id="cb31-36"><a></a>        <span class="at">title =</span> <span class="st">"Distribución de los coeficientes MCO"</span>,</span>
 <span id="cb31-37"><a></a>        <span class="at">subtitle =</span> <span class="st">"10,000 simulaciones, n = 1,000"</span></span>
-<span id="cb31-38"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-38"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-25-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-25-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <ul>
-<li class="fragment">
-<p>Los coeficientes de MCO siguen una distribución normal.</p>
+<li class="fragment"><p>Los coeficientes de MCO siguen una distribución normal.</p>
 <ul>
 <li class="fragment">Esto sigue de que su interpretación es <em>promedio</em>.</li>
-</ul>
-</li>
-<li class="fragment">
-<p>¡La media de los coeficientes estimados es igual al verdadero valor de los coeficientes!</p>
+</ul></li>
+<li class="fragment"><p>¡La media de los coeficientes estimados es igual al verdadero valor de los coeficientes!</p>
 <ul>
 <li class="fragment"><p>Esto es una propiedad de los estimadores de MCO: son <em>insesgados</em>.</p></li>
 <li class="fragment"><p>Esto significa que, en promedio, el estimador de MCO es igual al verdadero valor del parámetro.</p></li>
-</ul>
-</li>
+</ul></li>
 <li class="fragment"><p>La inferencia de los coeficientes sigue de la misma manera que una prueba de hipótesis de un promedio.</p></li>
-</ul></section><section id="inferencia-para-coeficientes-1" class="slide level2"><h2>Inferencia para coeficientes</h2>
+</ul>
+</section>
+<section id="inferencia-para-coeficientes-1" class="slide level2">
+<h2>Inferencia para coeficientes</h2>
 <p>Regresemos a la tabla de coeficientes, donde podremos encontrar algunas pruebas de hipótesis ya calculadas.</p>
 <div class="etable">
 <img src="./images/etable/etable_tex_2025-04-22_2901451801.png">
@@ -1027,9 +1121,14 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="fragment">
 <p>Nuestros dos modelos, el simulado y el de la ENIGH, tienen un coeficiente de escolaridad significativo al 1% y son modelos relevantes.</p>
 </div>
-</section></section><section><section id="sesgo-por-variable-omitida" class="title-slide slide level1 center"><h1>Sesgo por variable omitida</h1>
+</section></section>
+<section>
+<section id="sesgo-por-variable-omitida" class="title-slide slide level1 center">
+<h1>Sesgo por variable omitida</h1>
 
-</section><section id="educación-e-ingresos" class="slide level2"><h2>Educación e ingresos</h2>
+</section>
+<section id="educación-e-ingresos" class="slide level2">
+<h2>Educación e ingresos</h2>
 <p>Queremos estimar el efecto de la escolaridad en los ingresos.</p>
 <div class="fragment">
 <p>Sin embargo, puede haber una variable <code>habilidad</code> que determina tanto la escolaridad como el ingreso.</p>
@@ -1038,7 +1137,8 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-27-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-27-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1047,19 +1147,21 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="fragment">
 <p>¿Cómo afectaría la omisión de la variable <code>habilidad</code> a la estimación del modelo de regresión lineal?</p>
 </div>
-</section><section id="sesgo-por-variable-omitida-1" class="slide level2"><h2>Sesgo por variable omitida</h2>
+</section>
+<section id="sesgo-por-variable-omitida-1" class="slide level2">
+<h2>Sesgo por variable omitida</h2>
 <p>En la ENIGH no tenemos información sobre la variable <code>habilidad</code>…</p>
 <div class="fragment">
 <p>¡Pero podemos simularla!</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>habilidad_sim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>habilidad_sim <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb32-2"><a></a>    <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
 <span id="cb32-3"><a></a>    <span class="at">habilidad =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
 <span id="cb32-4"><a></a>    <span class="at">escolaridad =</span> <span class="dv">2</span> <span class="sc">*</span> habilidad <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
 <span id="cb32-5"><a></a>    <span class="at">ingreso =</span> <span class="dv">1000</span> <span class="sc">+</span> (<span class="dv">200</span> <span class="sc">*</span> escolaridad) <span class="sc">+</span> (<span class="dv">500</span> <span class="sc">*</span> habilidad) <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1000</span>)</span>
-<span id="cb32-6"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-6"><a></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 <div class="etable">
@@ -1073,27 +1175,32 @@ F-statistic:  2251 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </section><section id="sesgo-por-variable-omitida-1-output" class="slide level2 output-location-slide"><h2>Sesgo por variable omitida</h2><div class="cell output-location-slide">
 
-</div></section></section><section><section id="regresión-lineal-múltiple" class="title-slide slide level1 center"><h1>Regresión lineal múltiple</h1>
+</div></section></section>
+<section>
+<section id="regresión-lineal-múltiple" class="title-slide slide level1 center">
+<h1>Regresión lineal múltiple</h1>
 
-</section><section id="regresión-lineal-múltiple-1" class="slide level2"><h2>Regresión lineal múltiple</h2>
+</section>
+<section id="regresión-lineal-múltiple-1" class="slide level2">
+<h2>Regresión lineal múltiple</h2>
 <ul>
 <li class="fragment"><p>En el ejemplo de variable omitida, definimos una variable <code>habilidad</code> que afecta tanto a la escolaridad como a el ingreso.</p></li>
-<li class="fragment">
-<p>Para evitar el sesgo por variable omitida, simplemente incluimos la variable <code>habilidad</code> en el modelo de regresión lineal:</p>
+<li class="fragment"><p>Para evitar el sesgo por variable omitida, simplemente incluimos la variable <code>habilidad</code> en el modelo de regresión lineal:</p>
 <ul>
 <li class="fragment">Acabamos con un modelo con dos variables independientes, sin hablar mucho de la teoría detrás de la regresión lineal múltiple.</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <div class="fragment">
 <p>En esta sección, quiero formalizar el concepto de <em>regresión lineal múltiple</em> y su interpretación.</p>
 </div>
-</section><section id="regresión-lineal-múltiple-2" class="slide level2"><h2>Regresión lineal múltiple</h2>
+</section>
+<section id="regresión-lineal-múltiple-2" class="slide level2">
+<h2>Regresión lineal múltiple</h2>
 <p>Supongamos que queremos estimar el modelo de regresión lineal:</p>
 <div class="fragment">
 <p><span id="eq-mlr"><span class="math display">\[
 y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
-\qquad(5)\]</span></span></p>
+\tag{5}\]</span></span></p>
 </div>
 <div class="fragment">
 <p>Donde:</p>
@@ -1112,7 +1219,9 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <div class="fragment">
 <p>El tratamiento de este tipo de modelos es muy similar al de regresión lineal simple, pero hay que tener cuidado con la interpretación de los coeficientes.</p>
 </div>
-</section><section id="interpretación-de-los-coeficientes" class="slide level2"><h2>Interpretación de los coeficientes</h2>
+</section>
+<section id="interpretación-de-los-coeficientes" class="slide level2">
+<h2>Interpretación de los coeficientes</h2>
 <p>Interpretamos los coeficientes del modelo en la <a href="#/eq-mlr" class="quarto-xref">Ecuación&nbsp;5</a> de la siguiente manera:</p>
 <ul>
 <li class="fragment"><p>El intercepto <span class="math inline">\(\beta_0\)</span> representa el ingreso promedio de una persona sin escolaridad y con habilidad = 0.</p></li>
@@ -1122,23 +1231,28 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <div class="fragment">
 <p>En general, podemos decir que el coeficiente <span class="math inline">\(\beta_k: k&gt;0\)</span> representa el cambio en la variable dependiente por cada unidad adicional de la variable <span class="math inline">\(k\)</span>, <strong>todo lo demás constante</strong>.</p>
 </div>
-</section><section id="regresión-lineal-múltiple-con-la-enigh-2022" class="slide level2"><h2>Regresión lineal múltiple con la ENIGH 2022</h2>
+</section>
+<section id="regresión-lineal-múltiple-con-la-enigh-2022" class="slide level2">
+<h2>Regresión lineal múltiple con la ENIGH 2022</h2>
 <p>Recordemos de la sección de estadística descriptiva que las variables <code>sexo</code> y <code>edad</code> también pueden ser determinantes del ingreso y de la escolaridad.</p>
 <ul>
 <li class="fragment">No incluirlas puede sesgar el estimador del rendimiento de la escolaridad.</li>
-</ul></section><section id="correlación-entre-ingreso-escolaridad-edad-y-sexo" class="slide level2"><h2>Correlación entre ingreso, escolaridad, edad y sexo</h2>
+</ul>
+</section>
+<section id="correlación-entre-ingreso-escolaridad-edad-y-sexo" class="slide level2">
+<h2>Correlación entre ingreso, escolaridad, edad y sexo</h2>
 <p>Revisemos <em>empíricamente</em> si <code>sexo</code> y <code>edad</code> están correlacionadas con <code>ingreso</code> y <code>escolaridad</code>.</p>
 <ul>
 <li class="fragment">Necesitamos un modelo por cada par de variables:</li>
 </ul>
 <div class="fragment">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>poblacion <span class="sc">|&gt;</span></span>
 <span id="cb33-2"><a></a>    <span class="fu">feols</span>(<span class="fu">c</span>(ingreso, escolaridad) <span class="sc">~</span> <span class="fu">sw</span>(edad, sexo)) <span class="sc">|&gt;</span></span>
 <span id="cb33-3"><a></a>    <span class="fu">etable</span>(</span>
 <span id="cb33-4"><a></a>        <span class="at">title =</span> <span class="st">"Correlación entre ingreso, escolaridad, edad y sexo"</span>,</span>
 <span id="cb33-5"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
 <span id="cb33-6"><a></a>        <span class="at">markdown =</span> T</span>
-<span id="cb33-7"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-7"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="etable">
 <img src="./images/etable/etable_tex_2025-04-22_1.07168771.png">
 </div>
@@ -1147,9 +1261,11 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <li class="fragment"><p>Las pruebas F de todas las regresiónes son más grandes que 100, lo que indica que todos los modelos son relevantes y que <code>sexo</code> y <code>edad</code> están correlacionadas con <code>ingreso</code> y <code>escolaridad</code>.</p></li>
 </ul>
 </div>
-</section><section id="implementación-del-modelo" class="slide level2"><h2>Implementación del modelo</h2>
+</section>
+<section id="implementación-del-modelo" class="slide level2">
+<h2>Implementación del modelo</h2>
 <p>Veamos cómo afecta la estimación del rendimiento de la escolaridad al incluir <code>edad</code> y <code>sexo</code> en el modelo, una por una:</p>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>simple_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>simple_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad, <span class="at">data =</span> poblacion)</span>
 <span id="cb34-2"><a></a>multiple_fit_1 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad, <span class="at">data =</span> poblacion)</span>
 <span id="cb34-3"><a></a>multiple_fit_2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> sexo, <span class="at">data =</span> poblacion)</span>
 <span id="cb34-4"><a></a>multiple_fit_3 <span class="ot">&lt;-</span> <span class="fu">feols</span>(ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo, <span class="at">data =</span> poblacion)</span>
@@ -1163,30 +1279,31 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <span id="cb34-12"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal múltiple"</span>,</span>
 <span id="cb34-13"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
 <span id="cb34-14"><a></a>    <span class="at">markdown =</span> T</span>
-<span id="cb34-15"><a></a>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-15"><a></a>) </span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="etable">
 <img src="./images/etable/etable_tex_2025-04-22_1268429229.png">
 </div>
-</section><section id="interpretación-de-los-coeficientes-1" class="slide level2"><h2>Interpretación de los coeficientes</h2>
+</section>
+<section id="interpretación-de-los-coeficientes-1" class="slide level2">
+<h2>Interpretación de los coeficientes</h2>
 <ul>
 <li class="fragment"><p>Agregar <code>edad</code> y <code>sexo</code> alivia la preocupación de que puedan estar sesgando el estimador del rendimiento de la escolaridad.</p></li>
-<li class="fragment">
-<p>Sin embargo, cambiará la interpretación de los coeficientes:</p>
+<li class="fragment"><p>Sin embargo, cambiará la interpretación de los coeficientes:</p>
 <ul>
 <li class="fragment"><p>El intercepto en la columna (2), ahora representa el ingreso promedio de una persona sin educación y de edad = 0. Este estimador carece de sentido en este contexto.</p></li>
 <li class="fragment"><p>El coeficiente de <code>escolaridad</code> en la columna (2) indica que un año adicional de escolaridad está asociado con un aumento de $655 en el ingreso, <strong>dejando la edad constante</strong>.</p></li>
-</ul>
-</li>
-<li class="fragment">
-<p>Sexo es una variable dicotómica.</p>
+</ul></li>
+<li class="fragment"><p>Sexo es una variable dicotómica.</p>
 <ul>
 <li class="fragment"><p>El intercepto de la columna (3) representa el ingreso promedio de un hombre sin escolaridad.</p></li>
 <li class="fragment"><p>El coeficiente de <code>escolaridad</code> en la columna (3) indica que un año adicional de escolaridad está asociado con un aumento de $586 en el ingreso, <strong>dejando el sexo constante</strong>.</p></li>
 <li class="fragment"><p>El coeficiente de <code>sexo</code> indica que, en promedio, las mujeres tienen un ingreso $3,100 menor que los hombres, <strong>dejando la escolaridad constante</strong>.</p></li>
-</ul>
-</li>
+</ul></li>
 <li class="fragment"><p>Al incluir ambas variables, el coeficiente de <code>escolaridad</code> en la columna (4) indica que un año adicional de escolaridad está asociado con un aumento de $672.6 en el ingreso, <strong>dejando las demás variables constantes</strong>.</p></li>
-</ul></section><section id="bondad-de-ajuste-1" class="slide level2"><h2>Bondad de ajuste</h2>
+</ul>
+</section>
+<section id="bondad-de-ajuste-1" class="slide level2">
+<h2>Bondad de ajuste</h2>
 <p>En el modelo de regresión lineal sencillo, descrito por la <a href="#/eq-ols" class="quarto-xref">Ecuación&nbsp;3</a>, hablamos de que el estadístico <span class="math inline">\(R^2\)</span> mide la bindad de ajuste del modelo: la proporción de la varianza de la variable dependiente que es explicada por la variable independiente.</p>
 <ul>
 <li class="fragment"><p>En el mundo de la regresión lineal múltiple, la interpretación cambia.</p></li>
@@ -1196,7 +1313,9 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <div class="fragment">
 <p>En la tabla de coeficientes, agergar los controles al modelo sí mejora el ajuste del model.</p>
 </div>
-</section><section id="resumen" class="slide level2"><h2>Resumen</h2>
+</section>
+<section id="resumen" class="slide level2">
+<h2>Resumen</h2>
 <ul>
 <li class="fragment"><p>La regresión lineal múltiple es una extensión de la regresión lineal simple, que permite incluir más de una variable independiente.</p></li>
 <li class="fragment"><p>La interpretación de los coeficientes cambia, porque ahora representan el efecto de la variable independiente en la variable dependiente, <strong>dejando las demás variables constantes</strong>.</p></li>
@@ -1204,16 +1323,20 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 </ul>
 <p>Muy importante: sin importar cuántos controles agreguemos, siempre habrá una variable omitida que puede estar sesgando los resultados.</p>
 <ul>
-<li class="fragment">
-<p>Para esto, hay métodos experimentales y cuasi-experimentales que pueden ayudar a identificar el efecto causal de una variable sobre otra.</p>
+<li class="fragment"><p>Para esto, hay métodos experimentales y cuasi-experimentales que pueden ayudar a identificar el efecto causal de una variable sobre otra.</p>
 <ul>
 <li class="fragment"><p>Tristemente, no podremos cubrir estos métodos en este curso.</p></li>
 <li class="fragment"><p>Pero <span class="citation" data-cites="cunningham2021">Cunningham (<a href="#/referencias" role="doc-biblioref" onclick="">2021</a>)</span> es un excelente libro para aprender más sobre inferencia causal.</p></li>
+</ul></li>
 </ul>
-</li>
-</ul></section></section><section><section id="efectos-fijos" class="title-slide slide level1 center"><h1>Efectos fijos</h1>
+</section></section>
+<section>
+<section id="efectos-fijos" class="title-slide slide level1 center">
+<h1>Efectos fijos</h1>
 
-</section><section id="motivación-1" class="slide level2"><h2>Motivación</h2>
+</section>
+<section id="motivación-1" class="slide level2">
+<h2>Motivación</h2>
 <p>Imaginemos que mostramos a alguien nuestro modelo de regresión lineal múltiple y nos dice:</p>
 <div class="fragment">
 <blockquote>
@@ -1223,7 +1346,9 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <div class="fragment">
 <p>Esta es una crítica muy válida.</p>
 </div>
-</section><section id="comparación-al-interior-de-un-municipio" class="slide level2"><h2>Comparación al interior de un municipio</h2>
+</section>
+<section id="comparación-al-interior-de-un-municipio" class="slide level2">
+<h2>Comparación al interior de un municipio</h2>
 <p>Podríamos empezar a atender esta crítica comparando el ingreso de las personas al interior de un municipio en particular.</p>
 <ul>
 <li class="fragment"><p>Por ejemplo, en Azcapotzalco, CDMX.</p></li>
@@ -1231,7 +1356,7 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>azcapotzalco <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>azcapotzalco <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
 <span id="cb35-2"><a></a>    <span class="fu">filter</span>(cve_ent <span class="sc">==</span> <span class="st">"09"</span>, cve_mun <span class="sc">==</span> <span class="st">"002"</span>) <span class="co"># Azcapotzalco, CDMX</span></span>
 <span id="cb35-3"><a></a></span>
 <span id="cb35-4"><a></a>pob_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
@@ -1247,7 +1372,7 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <span id="cb35-14"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
 <span id="cb35-15"><a></a>    <span class="at">markdown =</span> T,</span>
 <span id="cb35-16"><a></a>    <span class="at">headers =</span> <span class="fu">list</span>(<span class="st">"Nacional"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Azcapotzalco"</span> <span class="ot">=</span> <span class="dv">1</span>)</span>
-<span id="cb35-17"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-17"><a></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
@@ -1255,12 +1380,17 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 </div>
 </div>
 </div>
-</section><section id="comparación-al-interior-de-un-municipio-1" class="slide level2"><h2>Comparación al interior de un municipio</h2>
+</section>
+<section id="comparación-al-interior-de-un-municipio-1" class="slide level2">
+<h2>Comparación al interior de un municipio</h2>
 <p>Encontramos que la el rendimiento de la educación en Azcapotzalco es algo mayor que en la población nacional.</p>
 <ul>
 <li class="fragment"><p>Podríamos replicar el ejercicio para cada municipio y después tomar un promedio ponderado de todos los rendimientos de la escolaridad.</p></li>
 <li class="fragment"><p>Sin embargo, esto no es práctico.</p></li>
-</ul></section><section id="modelo-de-efectos-fijos" class="slide level2"><h2>Modelo de efectos fijos</h2>
+</ul>
+</section>
+<section id="modelo-de-efectos-fijos" class="slide level2">
+<h2>Modelo de efectos fijos</h2>
 <p>El modelo de efectos fijos es una manera de controlar por las diferencias entre municipios.</p>
 <ul>
 <li class="fragment"><p>Introduce una variable indicadora por cada municipio, que toma el valor 1 si la persona pertenece a ese municipio y 0 si no.</p></li>
@@ -1269,7 +1399,9 @@ y_i = \beta_0 + \beta_1 x_{i} + \beta_2 c_{i} + \epsilon_i
 <div class="fragment">
 <p>Si introducimos efectos fijos por municipio, atenderemos la crítica de que hay heterogeneidad entre municipios.</p>
 </div>
-</section><section id="modelo-de-efectos-fijos-1" class="slide level2"><h2>Modelo de efectos fijos</h2>
+</section>
+<section id="modelo-de-efectos-fijos-1" class="slide level2">
+<h2>Modelo de efectos fijos</h2>
 <p>El modelo de efectos fijos se puede escribir de la siguiente manera:</p>
 <p><span class="math display">\[
 y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
@@ -1284,14 +1416,16 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 <div class="fragment">
 <p>Incluir el término <span class="math inline">\(\lambda_m\)</span> en el modelo es equivalente a incluir una variable indicadora por cada municipio.</p>
 </div>
-</section><section id="estimación" class="slide level2"><h2>Estimación</h2>
+</section>
+<section id="estimación" class="slide level2">
+<h2>Estimación</h2>
 <p><code>fixest</code> es el paquete perfecto para estimar modelos de efectos fijos.</p>
 <ul>
 <li class="fragment">Simplemente agregamos la variable <code>municipio</code> después de un <code>|</code> al final de la fórmula del modelo.</li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>fe_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>fe_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
 <span id="cb36-2"><a></a>    ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> edad <span class="sc">+</span> sexo <span class="sc">|</span> municipio,</span>
 <span id="cb36-3"><a></a>    <span class="at">data =</span> poblacion,</span>
 <span id="cb36-4"><a></a>    <span class="at">weights =</span> <span class="sc">~</span> factor,</span>
@@ -1304,7 +1438,7 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 <span id="cb36-11"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal múltiple"</span>,</span>
 <span id="cb36-12"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> ar2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
 <span id="cb36-13"><a></a>    <span class="at">markdown =</span> T</span>
-<span id="cb36-14"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-14"><a></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
@@ -1312,33 +1446,43 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 </div>
 </div>
 </div>
-</section><section id="interpretación" class="slide level2"><h2>Interpretación</h2>
+</section>
+<section id="interpretación" class="slide level2">
+<h2>Interpretación</h2>
 <p>Incluir efectos fijos no cambia mucho la magnitud del rendimiento de la escolaridad.</p>
 <ul>
 <li class="fragment">Dentro de cada municipio, un año adicional de escolaridad está asociado con un aumento de $647.3 en el ingreso, todo lo demás constante.</li>
 </ul>
-<!-- ## Visualización --><!-- ## Visualización --></section></section><section><section id="variables-dicotómicas" class="title-slide slide level1 center"><h1>Variables dicotómicas</h1>
+<!-- ## Visualización -->
+<!-- ## Visualización -->
+</section></section>
+<section>
+<section id="variables-dicotómicas" class="title-slide slide level1 center">
+<h1>Variables dicotómicas</h1>
 
-</section><section id="variables-dicotómicas-1" class="slide level2"><h2>Variables dicotómicas</h2>
+</section>
+<section id="variables-dicotómicas-1" class="slide level2">
+<h2>Variables dicotómicas</h2>
 <p>Ya incluímos la variable <code>sexo</code> en el modelo de regresión lineal múltiple.</p>
 <ul>
-<li class="fragment">
-<p>A pesar de que <code>sexo</code> está codificada como un factor en la tabla <code>poblacion</code>, la pudimos incluir en el modelo, y R la interpretó como una variable dicotómica.</p>
+<li class="fragment"><p>A pesar de que <code>sexo</code> está codificada como un factor en la tabla <code>poblacion</code>, la pudimos incluir en el modelo, y R la interpretó como una variable dicotómica.</p>
 <ul>
 <li class="fragment"><p>En particular usó, <code>sex == "Female"</code> como variable independiente.</p></li>
 <li class="fragment"><p>Esto nos permite interpretar el coeficiente de <code>sexo</code> como el efecto diferencial de ser mujer en el ingreso, todo lo demás constante.</p></li>
+</ul></li>
 </ul>
-</li>
-</ul></section><section id="discriminación-por-género" class="slide level2"><h2>Discriminación por género</h2>
+</section>
+<section id="discriminación-por-género" class="slide level2">
+<h2>Discriminación por género</h2>
 <p>Vale la pena que retomemos el ejemplo de la <a href="../lectures/lecture2.html">Clase 2</a> sobre la discriminación por género.</p>
 <ul>
 <li class="fragment">Cargamos los datos del experimento que explora si existe discriminación por género en la decisión de promoción para gerente de banco en Estados Unidos.</li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(openintro)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(openintro)</span>
 <span id="cb37-2"><a></a></span>
-<span id="cb37-3"><a></a>sex_discrimination</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-3"><a></a>sex_discrimination</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1359,7 +1503,9 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 </div>
 </div>
 </div>
-</section><section id="prueba-de-hipótesis" class="slide level2"><h2>Prueba de hipótesis</h2>
+</section>
+<section id="prueba-de-hipótesis" class="slide level2">
+<h2>Prueba de hipótesis</h2>
 <p>En la <a href="../lectures/lecture2.html">Clase 2</a>, hicimos una prueba de hipótesis en la que encontramos que la tasa de promoción era tan diferente entre hombres y mujeres, que podíamos rechazar la hipótesis nula de que no había discriminación por género.</p>
 <ul>
 <li class="fragment"><p>Ahora, veremos cómo podemos incluir la variable <code>sex</code> en un modelo de regresión lineal sencillo para hacer la misma prueba de hipótesis.</p></li>
@@ -1367,7 +1513,7 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>sex_discrimination <span class="ot">&lt;-</span> sex_discrimination <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>sex_discrimination <span class="ot">&lt;-</span> sex_discrimination <span class="sc">|&gt;</span></span>
 <span id="cb39-2"><a></a>    <span class="fu">mutate</span>(</span>
 <span id="cb39-3"><a></a>        <span class="at">female =</span> <span class="fu">as.numeric</span>(sex <span class="sc">==</span> <span class="st">"female"</span>),</span>
 <span id="cb39-4"><a></a>        <span class="at">promoted =</span> <span class="fu">as.numeric</span>(decision <span class="sc">==</span> <span class="st">"promoted"</span>)</span>
@@ -1377,7 +1523,7 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 <span id="cb39-8"><a></a>    <span class="fu">group_by</span>(female) <span class="sc">|&gt;</span></span>
 <span id="cb39-9"><a></a>    <span class="fu">summarise</span>(</span>
 <span id="cb39-10"><a></a>        <span class="at">promoted =</span> <span class="fu">mean</span>(promoted)</span>
-<span id="cb39-11"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-11"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1389,11 +1535,13 @@ y_{i} = \alpha + \beta x_i +  C_i \gamma + \lambda_m + \epsilon_i
 </div>
 </div>
 </div>
-</section><section id="modelo-de-probabilidad-lineal" class="slide level2"><h2>Modelo de probabilidad lineal</h2>
+</section>
+<section id="modelo-de-probabilidad-lineal" class="slide level2">
+<h2>Modelo de probabilidad lineal</h2>
 <p>El modelo que estimaremos es:</p>
 <p><span id="eq-lpm"><span class="math display">\[
 y_i = \alpha + \tau x_i + \epsilon_i
-\qquad(6)\]</span></span></p>
+\tag{6}\]</span></span></p>
 <p>Donde:</p>
 <ul>
 <li class="fragment"><p><span class="math inline">\(y_i\)</span> es la variable <strong>dependiente</strong>: si la candidata <span class="math inline">\(i\)</span> fue <strong>promovida</strong>,</p></li>
@@ -1407,9 +1555,11 @@ y_i = \alpha + \tau x_i + \epsilon_i
 <li class="fragment">Decimos que el modelo descrito en la <a href="#/eq-lpm" class="quarto-xref">Ecuación&nbsp;6</a> es un <strong>modelo de probabilidad lineal</strong> porque la variable dependiente es una variable dicotómica (0 o 1).</li>
 </ul>
 </div>
-</section><section id="estimación-1" class="slide level2"><h2>Estimación</h2>
+</section>
+<section id="estimación-1" class="slide level2">
+<h2>Estimación</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>sex_discrimination <span class="sc">|&gt;</span></span>
 <span id="cb41-2"><a></a>    <span class="fu">feols</span>(</span>
 <span id="cb41-3"><a></a>        promoted <span class="sc">~</span> female</span>
 <span id="cb41-4"><a></a>    ) <span class="sc">|&gt;</span></span>
@@ -1417,40 +1567,52 @@ y_i = \alpha + \tau x_i + \epsilon_i
 <span id="cb41-6"><a></a>        <span class="at">title =</span> <span class="st">"Modelo de probabilidad lineal"</span>,</span>
 <span id="cb41-7"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
 <span id="cb41-8"><a></a>        <span class="at">markdown =</span> T</span>
-<span id="cb41-9"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-9"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
 <img src="./images/etable/etable_tex_2025-04-23_3786321389.png">
 </div>
 </div>
-</section><section id="interpretación-1" class="slide level2"><h2>Interpretación</h2>
+</section>
+<section id="interpretación-1" class="slide level2">
+<h2>Interpretación</h2>
 <ul>
 <li class="fragment"><p>La probabilidad de promoción para un hombre es de 87%.</p></li>
-<li class="fragment">
-<p>El efecto causal de ser mujer en la probabilidad de promoción es de -0.29.</p>
+<li class="fragment"><p>El efecto causal de ser mujer en la probabilidad de promoción es de -0.29.</p>
 <ul>
 <li class="fragment">Este efecto es significativo al 5%.</li>
+</ul></li>
 </ul>
-</li>
-</ul></section></section><section><section id="pendientes-diferentes" class="title-slide slide level1 center"><h1>Pendientes diferentes</h1>
+</section></section>
+<section>
+<section id="pendientes-diferentes" class="title-slide slide level1 center">
+<h1>Pendientes diferentes</h1>
 
-</section><section id="rendimiento-de-la-escolaridad-por-género" class="slide level2"><h2>Rendimiento de la escolaridad por género</h2>
+</section>
+<section id="rendimiento-de-la-escolaridad-por-género" class="slide level2">
+<h2>Rendimiento de la escolaridad por género</h2>
 <p>Ya estimamos el rendimiento de la escolaridad promedio controlando por sexo.</p>
 <ul>
 <li class="fragment">Una pregunta adicional es si el rendimiento de la escolaridad es <strong>diferente entre hombres y mujeres</strong>.</li>
-</ul></section><section id="modelo-de-regresión-lineal-con-interacción" class="slide level2"><h2>Modelo de regresión lineal con interacción</h2>
+</ul>
+</section>
+<section id="modelo-de-regresión-lineal-con-interacción" class="slide level2">
+<h2>Modelo de regresión lineal con interacción</h2>
 <p>Para estimar el rendimiento de la escolaridad por género, podemos usar un modelo de regresión lineal con interacción descrito por:</p>
 <p><span id="eq-interaction"><span class="math display">\[
 y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon_i
-\qquad(7)\]</span></span></p>
+\tag{7}\]</span></span></p>
 <p>Donde:</p>
 <ul>
 <li class="fragment"><p><span class="math inline">\(y_i\)</span> es la variable dependiente: el ingreso de la persona <span class="math inline">\(i\)</span>,</p></li>
 <li class="fragment"><p><span class="math inline">\(e_i\)</span> es la variable independiente <strong>de interés</strong>: los años de escolaridad de la persona <span class="math inline">\(i\)</span>,</p></li>
 <li class="fragment"><p><span class="math inline">\(s_i\)</span> es una variable dicotómica que toma el valor 1 si la persona es mujer y 0 si es hombre.</p></li>
 <li class="fragment"><p>El término <span class="math inline">\(e_i \times s_i\)</span> es el producto de las dos variables independientes, que en regresión llamamos: <strong>interacción entre sexo y educación</strong>. Usar la interacción nos permite estimar un <strong>rendimiento diferencial</strong> de la escolaridad para mujeres respecto de hombres.</p></li>
-</ul></section><section id="coeficientes" class="slide level2"><h2>Coeficientes</h2>
+</ul>
+</section>
+<section id="coeficientes" class="slide level2">
+<h2>Coeficientes</h2>
 <ul>
 <li class="fragment"><p><span class="math inline">\(\beta_0\)</span> es el ingreso promedio de una persona sin escolaridad y cuyo sexo es hombre.</p></li>
 <li class="fragment"><p><span class="math inline">\(\beta_1\)</span> es el rendimiento de la escolaridad para hombres: el cambio en el ingreso por cada año adicional de escolaridad.</p></li>
@@ -1463,9 +1625,11 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon
 <div class="fragment">
 <p>En otras palabras, la prueba de hipótesis definida por <span class="math inline">\(H_0: \beta_3 = 0\)</span> responderá la pregunta de si las mujeres se benefician de la escolaridad de la misma manera que los hombres, o si el rendimiento de la escolaridad es diferente entre hombres y mujeres.</p>
 </div>
-</section><section id="estimación-2" class="slide level2"><h2>Estimación</h2>
+</section>
+<section id="estimación-2" class="slide level2">
+<h2>Estimación</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>interaction_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>interaction_fit <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
 <span id="cb42-2"><a></a>    ingreso <span class="sc">~</span> escolaridad <span class="sc">*</span> sexo,</span>
 <span id="cb42-3"><a></a>    <span class="at">weights =</span> <span class="sc">~</span> factor,</span>
 <span id="cb42-4"><a></a>    <span class="at">data =</span> poblacion</span>
@@ -1476,22 +1640,28 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon
 <span id="cb42-9"><a></a>    <span class="at">title =</span> <span class="st">"Modelo de regresión lineal con interacción"</span>,</span>
 <span id="cb42-10"><a></a>    <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
 <span id="cb42-11"><a></a>    <span class="at">markdown =</span> T</span>
-<span id="cb42-12"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-12"><a></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="etable">
 <img src="./images/etable/etable_tex_2025-04-23_1094737105.png">
 </div>
 </div>
-</section><section id="interpretación-2" class="slide level2"><h2>Interpretación</h2>
+</section>
+<section id="interpretación-2" class="slide level2">
+<h2>Interpretación</h2>
 <ul>
-<li class="fragment">
-<p>En promedio el rendimiento de la escolaridad es $18.5 menor para las mujeres que para los hombres.</p>
-<p>El efecto es significativo al 5%.</p>
-</li>
-</ul></section></section><section><section id="transofrmación-de-variables-en-regresión-lineal" class="title-slide slide level1 center"><h1>Transofrmación de variables en regresión lineal</h1>
+<li class="fragment"><p>En promedio el rendimiento de la escolaridad es $18.5 menor para las mujeres que para los hombres.</p>
+<p>El efecto es significativo al 5%.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="transofrmación-de-variables-en-regresión-lineal" class="title-slide slide level1 center">
+<h1>Transofrmación de variables en regresión lineal</h1>
 
-</section><section id="transformación-polinomial" class="slide level2"><h2>Transformación polinomial</h2>
+</section>
+<section id="transformación-polinomial" class="slide level2">
+<h2>Transformación polinomial</h2>
 <p>Recordemos de la sección de estadística descriptiva que estimamos el ingreso promedio por escolaridad.</p>
 <div class="fragment">
 <div class="cell">
@@ -1501,7 +1671,8 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon
 </div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="lecture3_files/figure-html/unnamed-chunk-40-1.png" width="672"></p>
+<figure>
+<p><img data-src="lecture3_files/figure-html/unnamed-chunk-40-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1511,17 +1682,21 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 s_i + \beta_3 (e_i \times s_i)  + \epsilon
 <li class="fragment"><p>La regresión no paramétrica modela bien esta relación no lineal, pero no nos da la información sobre el rendimiento de la escolaridad que queremos.</p></li>
 </ul>
 </div>
-</section><section id="modelo" class="slide level2"><h2>Modelo</h2>
+</section>
+<section id="modelo" class="slide level2">
+<h2>Modelo</h2>
 <p>Podemos incluir el efecto no lineal de la escolaridad usando una versión de la ecuación de Mincer:</p>
 <p><span id="eq-polynomial"><span class="math display">\[
 y_i = \beta_0 + \beta_1 e_i + \beta_2 e_i^2 + \epsilon_i
-\qquad(8)\]</span></span></p>
+\tag{8}\]</span></span></p>
 <div class="fragment">
 <p>Decimos que el modelo {<a href="#/eq-polynomial" class="quarto-xref">Ecuación&nbsp;8</a>} sigue siendo un modelo lineal porque la transformación que hicimos a la variable independiente entra de manera lineal al modelo.</p>
 </div>
-</section><section id="estimación-3" class="slide level2"><h2>Estimación</h2>
+</section>
+<section id="estimación-3" class="slide level2">
+<h2>Estimación</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>polinom_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>polinom_fit <span class="ot">&lt;-</span> poblacion <span class="sc">|&gt;</span></span>
 <span id="cb44-2"><a></a>    <span class="fu">feols</span>(</span>
 <span id="cb44-3"><a></a>        ingreso <span class="sc">~</span> escolaridad <span class="sc">+</span> <span class="fu">I</span>(escolaridad<span class="sc">^</span><span class="dv">2</span>),</span>
 <span id="cb44-4"><a></a>        <span class="at">weights =</span> <span class="sc">~</span> factor</span>
@@ -1532,21 +1707,23 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 e_i^2 + \epsilon_i
 <span id="cb44-9"><a></a>        <span class="at">title =</span> <span class="st">"Modelo de regresión lineal con transformación polinomial"</span>,</span>
 <span id="cb44-10"><a></a>        <span class="at">fitstat =</span> <span class="sc">~</span> n <span class="sc">+</span> r2 <span class="sc">+</span> my <span class="sc">+</span> f,</span>
 <span id="cb44-11"><a></a>        <span class="at">markdown =</span> T</span>
-<span id="cb44-12"><a></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-12"><a></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-</section><section id="estimación-3-output" class="slide level2 output-location-slide"><h2>Estimación</h2><div class="cell output-location-slide">
+</section>
+<section id="estimación-3-output" class="slide level2 output-location-slide"><h2>Estimación</h2><div class="cell output-location-slide">
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;div class = "etable"&gt;&lt;img src = "./images/etable/etable_tex_2025-04-23_1616937349.png"&gt;&lt;/div&gt;</code></pre>
 </div>
-</div></section><section id="interpretación-3" class="slide level2"><h2>Interpretación</h2>
+</div></section><section id="interpretación-3" class="slide level2">
+<h2>Interpretación</h2>
 <p>La interpretación de los coeficientes como se rpesentan en la tabla de coeficientes es complicada.</p>
 <ul>
 <li class="fragment">Porque estamos proponiendo que el rendimiento de la escolaridad es no lineal, tenemos que calcular el rendimiento de la escolaridad en un punto específico de la curva.</li>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(marginaleffects)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(marginaleffects)</span>
 <span id="cb46-2"><a></a></span>
 <span id="cb46-3"><a></a><span class="fu">slopes</span>(</span>
 <span id="cb46-4"><a></a>    polinom_fit,</span>
@@ -1556,7 +1733,7 @@ y_i = \beta_0 + \beta_1 e_i + \beta_2 e_i^2 + \epsilon_i
 <span id="cb46-8"><a></a>    <span class="at">variables =</span> <span class="st">"escolaridad"</span>,</span>
 <span id="cb46-9"><a></a>    <span class="at">at =</span> <span class="fu">list</span>(<span class="at">escolaridad =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">25</span>)),</span>
 <span id="cb46-10"><a></a>    <span class="at">se =</span> <span class="cn">TRUE</span></span>
-<span id="cb46-11"><a></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-11"><a></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stderr">
@@ -1590,7 +1767,9 @@ Comparison: dY/dX</code></pre>
 </div>
 </div>
 </div>
-</section><section id="referencias" class="slide level2 smaller scrollable"><h2>Referencias</h2>
+</section>
+<section id="referencias" class="slide level2 smaller scrollable">
+<h2>Referencias</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -1608,14 +1787,30 @@ World Bank, y Harry Patrinos. 2016. <span>«Estimating the Return to Schooling U
 </div>
 </div>
 </section></section>
-</div>
+    </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <p><a href="https://estebandegetau.com/Statistical-tools-in-R/">Herramientas estadísticas en R</a></p>
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -1781,7 +1976,7 @@ World Bank, y Harry Patrinos. 2016. <span>«Estimating the Return to Schooling U
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1806,191 +2001,175 @@ World Bank, y Harry Patrinos. 2016. <span>«Estimating the Return to Schooling U
           RevealZoom
         ]
       });
-    </script><script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
           }
+          return false;
         }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copiado");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copiado");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiado");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiado");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
           for (const childEl of codeEl.children) {
             if (isCodeAnnotation(childEl)) {
               childEl.remove();
             }
           }
           return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/estebandegetau\.github\.io\/Statistical-tools-in-R\/");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/estebandegetau\.github\.io\/Statistical-tools-in-R\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
             }
           }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
           }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
           }
-        } else {
-          return undefined;
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
           });
         }
-      }
-    });
-    </script>
-
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
 
 </body></html>
